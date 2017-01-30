@@ -37,7 +37,10 @@ class ViewController: UIViewController {
         if segue.identifier == "bridgeSelection", let bridgesTableViewController = segue.destination as? HueBridgeSelectionTableViewController {
             let bridgesFound = sender as? [AnyHashable : Any]
             if let bridgesFound = bridgesFound {
-                bridgesTableViewController.bridgesFound = bridgesFound
+                let bridgesData = NSMutableDictionary()
+                bridgesData.addEntries(from: bridgesFound)
+                bridgesTableViewController.bridgesFound = bridgesData
+                bridgesTableViewController.delegate = HueConnectionManager.sharedManager
             }
         } else if segue.identifier == "bridgeAuthentication", let authViewController = segue.destination as? HueBridgeAuthenticationViewController {
 

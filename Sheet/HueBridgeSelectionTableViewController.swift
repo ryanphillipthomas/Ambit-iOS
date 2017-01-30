@@ -13,7 +13,8 @@ protocol HueBridgeSelectionTableViewControllerDelegate: class {
 }
 
 class HueBridgeSelectionTableViewController: UITableViewController {
-    var bridgesFound:[AnyHashable : Any]?
+    var bridgesFound:NSMutableDictionary?
+    weak var delegate:HueBridgeSelectionTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,17 +57,39 @@ class HueBridgeSelectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        // Configure the cell...
-        if let keys = bridgesFound?.keys, let values = bridgesFound?.values {
-            print(keys, values)
+        
+        if let bridgesFound = bridgesFound {
+            // Sort bridges by bridge id
+            let arraySorted = bridgesFound.allKeys.sorted() { ($0 as! Int) < ($1 as! Int) }
             
-        cell.textLabel?.text = bridgesFound?[indexPath.row] as! String?
-        //    cell.textLabel.text = bridgeID
-         //   cell.detailTextLabel?.text = ip
+            // Get mac address and ip address of selected bridge
+            let bridgeID = arraySorted[indexPath.row] as? String
+            let ip = bridgesFound.object(forKey: bridgeID) as? String
             
+            if let bridgeID = bridgeID, let ip = ip {
+                cell.textLabel?.text = bridgeID
+                cell.detailTextLabel?.text = ip
+            }
         }
-
+            
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let bridgesFound = bridgesFound {
+            // Sort bridges by bridge id
+
+            let arraySorted = bridgesFound.allKeys.sorted() { ($0 as! Int) < ($1 as! Int) }
+            
+            // Get mac address and ip address of selected bridge
+            let bridgeID = arraySorted[indexPath.row] as? String
+            let ip = bridgesFound.object(forKey: bridgeID) as? String
+            
+            // Inform delegate
+            if let bridgeID = bridgeID, let ip = ip {
+                self.delegate?.bridgeSelectedWithIpAddress(ipAddress: ip, bridgeId: bridgeID)
+            }
+        }
     }
  
 

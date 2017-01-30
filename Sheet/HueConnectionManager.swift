@@ -123,34 +123,6 @@ class HueConnectionManager: NSObject {
 
         })
     }
-
-    func bridgeSelectedWithIpAddress(ipAddress : String, bridgeID : String) {
-        /***************************************************
-         Removing the selection view controller takes us to
-         the 'normal' UI view
-         *****************************************************/
-        
-        // Remove the selection view controller
-        print("Connecting to Philips HUE Bridge...")
-        self.delegate?.didStartConnecting()
-        
-        // Set SDK to use bridge and our default username (which should be the same across all apps, so pushlinking is only required once)
-        //NSString *username = [PHUtilities whitelistIdentifier];
-        
-        /***************************************************
-         Set the ipaddress and bridge id,
-         as the bridge properties that the SDK framework will use
-         *****************************************************/
-        self.client?.setBridgeToUseWithId(bridgeID, ipAddress: ipAddress)
-        /***************************************************
-         Setting the hearbeat running will cause the SDK
-         to regularly update the cache with the status of the
-         bridge resources
-         *****************************************************/
-        
-        // Start local heartbeat again
-        self.perform( #selector(self.enableLocalHeartbeat), with: nil, afterDelay: 1)
-    }
     
     //MARK: Bridge authentication
     func doAuthentication() {
@@ -211,6 +183,37 @@ class HueConnectionManager: NSObject {
         
         }
     }
-    
 }
+
+extension HueConnectionManager : HueBridgeSelectionTableViewControllerDelegate {
+    func bridgeSelectedWithIpAddress(ipAddress: String, bridgeId: String) {
+        /***************************************************
+         Removing the selection view controller takes us to
+         the 'normal' UI view
+         *****************************************************/
+        
+        // Remove the selection view controller
+        print("Connecting to Philips HUE Bridge...")
+        self.delegate?.didStartConnecting()
+        
+        // Set SDK to use bridge and our default username (which should be the same across all apps, so pushlinking is only required once)
+        //NSString *username = [PHUtilities whitelistIdentifier];
+        
+        /***************************************************
+         Set the ipaddress and bridge id,
+         as the bridge properties that the SDK framework will use
+         *****************************************************/
+        self.client?.setBridgeToUseWithId(bridgeId, ipAddress: ipAddress)
+        /***************************************************
+         Setting the hearbeat running will cause the SDK
+         to regularly update the cache with the status of the
+         bridge resources
+         *****************************************************/
+        
+        // Start local heartbeat again
+        self.perform( #selector(self.enableLocalHeartbeat), with: nil, afterDelay: 1)
+    }
+}
+
+
 
