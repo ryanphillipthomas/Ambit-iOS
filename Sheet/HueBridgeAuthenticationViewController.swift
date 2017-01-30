@@ -9,22 +9,85 @@
 import UIKit
 
 protocol HueBridgeAuthenticationViewControllerDelegate: class {
-    func pushLinkSuccess()
+    func pushlinkSuccess()
     func pushlinkFailed(error:PHError)
 }
 
 
 class HueBridgeAuthenticationViewController: UIViewController {
-
+    weak var delegate:HueBridgeAuthenticationViewControllerDelegate?
+    var notificationManager : PHNotificationManager?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func startPushLinking() {
+        self.notificationManager = PHNotificationManager.default()
+        
+        self.notificationManager?.register(self, with: #selector(self.authenticationSuccess(_:)), forNotification: PUSHLINK_LOCAL_AUTHENTICATION_SUCCESS_NOTIFICATION)
+        self.notificationManager?.register(self, with: #selector(self.authenticationFailed(_:)), forNotification: PUSHLINK_LOCAL_AUTHENTICATION_FAILED_NOTIFICATION)
+        self.notificationManager?.register(self, with: #selector(self.noLocalConnection(_:)), forNotification: PUSHLINK_NO_LOCAL_CONNECTION_NOTIFICATION)
+        self.notificationManager?.register(self, with: #selector(self.noLocalBridge(_:)), forNotification: PUSHLINK_NO_LOCAL_BRIDGE_KNOWN_NOTIFICATION)
+        self.notificationManager?.register(self, with: #selector(self.buttonNotPressed(_:)), forNotification: PUSHLINK_BUTTON_NOT_PRESSED_NOTIFICATION)
+        
+        // Call to the hue SDK to start pushlinking process
+        /***************************************************
+         Call the SDK to start Push linking.
+         The notifications sent by the SDK will confirm success
+         or failure of push linking
+         *****************************************************/
+        
+        HueConnectionManager.sharedManager.client?.startPushlinkAuthentication()
+    }
+    
+    //MARK: Notification
+    func authenticationSuccess(_ notification : Notification) {
+        /***************************************************
+         The notification PUSHLINK_LOCAL_AUTHENTICATION_SUCCESS_NOTIFICATION
+         was received. We have confirmed the bridge.
+         De-register for notifications and call
+         pushLinkSuccess on the delegate
+         *****************************************************/
+        // Deregister for all notifications
+        self.notificationManager?.deregisterObject(forAllNotifications: self)
+        
+        // Inform delegate
+        self.navigationController?.popToRootViewController(animated: true)
+        self.delegate?.pushlinkSuccess()
+    }
+    
+    func authenticationFailed(_ notification : Notification) {
+        // Deregister for all notifications
+        self.notificationManager?.deregisterObject(forAllNotifications: self)
+        
+        print("Error")
+    }
+    
+    func noLocalConnection(_ notification : Notification) {
+        // Deregister for all notifications
+        self.notificationManager?.deregisterObject(forAllNotifications: self)
+        
+        print("Error")
+    }
+    
+    func noLocalBridge(_ notification : Notification) {
+        // Deregister for all notifications
+        self.notificationManager?.deregisterObject(forAllNotifications: self)
+        
+        print("Error")
+    }
+    
+    func buttonNotPressed(_ notification : Notification) {
+        print("Button Not Pressed")
     }
     
 

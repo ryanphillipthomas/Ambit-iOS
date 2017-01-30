@@ -136,30 +136,6 @@ class HueConnectionManager: NSObject {
         
         // Create an interface for the pushlinking
         self.delegate?.showPushButtonAuthentication()
-
-        /***************************************************
-         Start the push linking process.
-         *****************************************************/
-        
-        // Start pushlinking when the interface is shown
-
-    }
-    
-    func pushLinkSuccess() {
-        /***************************************************
-         Push linking succeeded we are authenticated against
-         the chosen bridge.
-         *****************************************************/
-        
-        // Remove pushlink view controller
-
-        // Start local heartbeat again
-        self.perform( #selector(self.enableLocalHeartbeat), with: nil, afterDelay: 1)
-    }
-    
-    func pushLinkFailed(error:PHError) {
-        // Remove pushlink view controller
-        
     }
     
     //MARK: Notification
@@ -212,6 +188,24 @@ extension HueConnectionManager : HueBridgeSelectionTableViewControllerDelegate {
         
         // Start local heartbeat again
         self.perform( #selector(self.enableLocalHeartbeat), with: nil, afterDelay: 1)
+    }
+}
+
+extension HueConnectionManager : HueBridgeAuthenticationViewControllerDelegate {
+    
+    func pushlinkSuccess() {
+        /***************************************************
+         Push linking succeeded we are authenticated against
+         the chosen bridge.
+         *****************************************************/
+        
+        // Start local heartbeat again
+        self.perform( #selector(self.enableLocalHeartbeat), with: nil, afterDelay: 1)
+    }
+    
+    func pushlinkFailed(error:PHError) {
+        // Remove pushlink view controller
+        
     }
 }
 

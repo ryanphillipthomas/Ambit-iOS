@@ -87,6 +87,7 @@ class HueBridgeSelectionTableViewController: UITableViewController {
             
             // Inform delegate
             if let bridgeID = bridgeID, let ip = ip {
+                self.navigationController?.popToRootViewController(animated: true)
                 self.delegate?.bridgeSelectedWithIpAddress(ipAddress: ip, bridgeId: bridgeID)
             }
         }

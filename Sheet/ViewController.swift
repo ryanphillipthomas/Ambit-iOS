@@ -43,7 +43,8 @@ class ViewController: UIViewController {
                 bridgesTableViewController.delegate = HueConnectionManager.sharedManager
             }
         } else if segue.identifier == "bridgeAuthentication", let authViewController = segue.destination as? HueBridgeAuthenticationViewController {
-
+            authViewController.delegate = HueConnectionManager.sharedManager
+            authViewController.startPushLinking()
         }
     }
 }
