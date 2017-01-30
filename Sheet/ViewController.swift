@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         timeLabel.start()
         timeLabel.delegate = self
+        HueConnectionManager.sharedManager.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -29,11 +30,48 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bridgeSelection", let bridgesTableViewController = segue.destination as? HueBridgeSelectionTableViewController {
+            let bridgesFound = sender as? [AnyHashable : Any]
+            if let bridgesFound = bridgesFound {
+                bridgesTableViewController.bridgesFound = bridgesFound
+            }
+        } else if segue.identifier == "bridgeAuthentication", let authViewController = segue.destination as? HueBridgeAuthenticationViewController {
+
+        }
+    }
 }
 
 extension ViewController: SBTimeLabelDelegate {
     func didUpdateText(_ label: SBTimeLabel) {
-        NSLog("clock: \(timeLabel.text)")
+       // NSLog("clock: \(timeLabel.text)")
+    }
+}
+
+extension ViewController : HueConnectionManagerDelegate {
+    internal func didStartConnecting() {
+        AlertHelper.showAlert(title: "Did Start Connecting", controller: self)
+    }
+    
+    internal func didStartSearching() {
+        AlertHelper.showAlert(title: "Did Start Searching", controller: self)
+    }
+    
+    internal func didFindBridges(bridgesFound: [AnyHashable : Any]?) {
+        AlertHelper.showAlert(title: "Did Find Bridges", controller: self)
+        performSegue(withIdentifier: "bridgeSelection", sender: bridgesFound)
+    }
+    
+    internal func didFailToFindBridges() {
+        AlertHelper.showAlert(title: "Did Fail To Find Bridges", controller: self)
+    }
+    
+    internal func showPushButtonAuthentication() {
+        AlertHelper.showAlert(title: "Should Show Push Button", controller: self)
+        performSegue(withIdentifier: "bridgeAuthentication", sender: nil)
     }
 }
 

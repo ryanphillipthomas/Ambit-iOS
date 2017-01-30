@@ -28,6 +28,9 @@
 		94E9E0141E3EB9E3008A1F84 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0121E3EB9E3008A1F84 /* DispatchQueueLogFormatter.m */; };
 		94E9E0301E3EC456008A1F84 /* SBTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E02F1E3EC456008A1F84 /* SBTimeLabel.swift */; };
 		94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0331E3ECA97008A1F84 /* Helpers.swift */; };
+		94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04C1E3EE601008A1F84 /* HueConnectionManager.swift */; };
+		94E9E04F1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */; };
+		94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */; };
 		C29842FF6D81FE74340AADDF /* Pods_SheetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319D788B74C29BA42B4AB0E /* Pods_SheetUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +89,9 @@
 		94E9E0121E3EB9E3008A1F84 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DispatchQueueLogFormatter.m; path = ../Lumberjack/Extensions/DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		94E9E02F1E3EC456008A1F84 /* SBTimeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SBTimeLabel.swift; path = Frameworks/SBTimeLabel/SBTimeLabel.swift; sourceTree = "<group>"; };
 		94E9E0331E3ECA97008A1F84 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		94E9E04C1E3EE601008A1F84 /* HueConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueConnectionManager.swift; sourceTree = "<group>"; };
+		94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueBridgeAuthenticationViewController.swift; sourceTree = "<group>"; };
+		94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueBridgeSelectionTableViewController.swift; sourceTree = "<group>"; };
 		991816760E467C08DD5B0369 /* Pods-Sheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sheet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sheet/Pods-Sheet.release.xcconfig"; sourceTree = "<group>"; };
 		B621F7C1FBE7498AC652993E /* Pods-SheetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SheetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SheetTests/Pods-SheetTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA9763449EA3A0DDA78CB88D /* Pods-Sheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sheet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sheet/Pods-Sheet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 		94E9E02D1E3EBF40008A1F84 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				94E9E0361E3ED484008A1F84 /* Hue */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -291,6 +298,16 @@
 				94E9E02F1E3EC456008A1F84 /* SBTimeLabel.swift */,
 			);
 			name = SBTimeLabel;
+			sourceTree = "<group>";
+		};
+		94E9E0361E3ED484008A1F84 /* Hue */ = {
+			isa = PBXGroup;
+			children = (
+				94E9E04C1E3EE601008A1F84 /* HueConnectionManager.swift */,
+				94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */,
+				94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */,
+			);
+			name = Hue;
 			sourceTree = "<group>";
 		};
 		CE9EDE0DBCC025329CC23A8E /* Frameworks */ = {
@@ -606,10 +623,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				94E9E00B1E3EB9A3008A1F84 /* DDLog.m in Sources */,
+				94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */,
 				94E9E00C1E3EB9A3008A1F84 /* DDTTYLogger.m in Sources */,
 				74B95EAE1DFB735400B03661 /* Sheet.xcdatamodeld in Sources */,
+				94E9E04F1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift in Sources */,
 				94E9E00A1E3EB9A3008A1F84 /* DDFileLogger.m in Sources */,
 				94E9E0301E3EC456008A1F84 /* SBTimeLabel.swift in Sources */,
+				94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */,
 				74B95EA81DFB735300B03661 /* ViewController.swift in Sources */,
 				94E9E0141E3EB9E3008A1F84 /* DispatchQueueLogFormatter.m in Sources */,
 				94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */,
