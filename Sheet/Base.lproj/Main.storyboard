@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pNc-Yv-Jq2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pNc-Yv-Jq2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,6 +28,9 @@
                                     <constraint firstAttribute="width" constant="139" id="WVr-9a-pSg"/>
                                 </constraints>
                                 <state key="normal" title="Reset Color"/>
+                                <connections>
+                                    <action selector="randomizeLights:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vcv-qD-oOK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUZ-Uw-PwR" userLabel="timeLabel" customClass="SBTimeLabel" customModule="Sheet" customModuleProvider="target">
                                 <rect key="frame" x="16" y="279" width="343" height="84"/>

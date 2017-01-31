@@ -31,6 +31,33 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func randomizeLights(_ sender: Any) {
+        randomize()
+    }
+    
+    func randomize() {
+        let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
+        let bridgeSendAPI = PHBridgeSendAPI()
+        
+        if let lights = cache?.lights {
+            let lightsData = NSMutableDictionary()
+            lightsData.addEntries(from: lights)
+            
+            for light in lightsData.allValues {
+                let newLight = light as! PHLight
+                let lightState = PHLightState()
+                lightState.hue = Int(46920) as NSNumber!
+                lightState.brightness = Int(1) as NSNumber!
+                lightState.saturation = Int(245) as NSNumber!
+                
+                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                    
+                })
+            }
+        }
+
+    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
