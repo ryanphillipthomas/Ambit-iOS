@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pNc-Yv-Jq2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,7 +27,9 @@
                                     <constraint firstAttribute="height" constant="57" id="TZw-vg-88O"/>
                                     <constraint firstAttribute="width" constant="139" id="WVr-9a-pSg"/>
                                 </constraints>
-                                <state key="normal" title="Reset Color"/>
+                                <state key="normal" title="Reset Color">
+                                    <color key="titleColor" red="0.98039221759999995" green="0.98039221759999995" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="randomizeLights:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vcv-qD-oOK"/>
                                 </connections>
@@ -38,12 +40,12 @@
                                     <constraint firstAttribute="height" constant="84" id="Y2R-Qy-33h"/>
                                     <constraint firstAttribute="width" constant="343" id="llY-i8-k8Z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="66"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PUZ-Uw-PwR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-12.5" id="5GS-Y6-WTV"/>
                             <constraint firstItem="aaP-dQ-Ohv" firstAttribute="centerX" secondItem="PUZ-Uw-PwR" secondAttribute="centerX" id="aes-sZ-OWR"/>
@@ -54,13 +56,13 @@
                     <navigationItem key="navigationItem" id="FYf-57-svi"/>
                     <connections>
                         <outlet property="timeLabel" destination="PUZ-Uw-PwR" id="GeU-g7-19t"/>
-                        <segue destination="HVm-0p-5pL" kind="show" identifier="bridgeAuthentication" id="6nh-UU-Fu0"/>
-                        <segue destination="56n-oh-tbe" kind="show" identifier="bridgeSelection" id="NaB-Fk-n3c"/>
+                        <segue destination="Fbn-bn-kNA" kind="show" identifier="bridgeAuthentication" id="6nh-UU-Fu0"/>
+                        <segue destination="V6d-1u-4ZN" kind="show" identifier="bridgeSelection" id="NaB-Fk-n3c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="90.404797601199405"/>
+            <point key="canvasLocation" x="482" y="90"/>
         </scene>
         <!--Push Button Authentication View Controller-->
         <scene sceneID="N5k-W7-dea">
@@ -88,10 +90,11 @@
                             <constraint firstItem="nVs-gd-IDG" firstAttribute="centerY" secondItem="Onb-o8-hg5" secondAttribute="centerY" id="ccB-J2-FFg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="C8K-rl-vyx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ts-AJ-MCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2152.8000000000002" y="-132.68365817091455"/>
+            <point key="canvasLocation" x="3092" y="-132.68365817091455"/>
         </scene>
         <!--Bridge Selection Table View Controller-->
         <scene sceneID="lsT-pd-LZT">
@@ -116,28 +119,47 @@
                             <outlet property="delegate" destination="56n-oh-tbe" id="8tq-7l-Btt"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Miu-vH-7wE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVf-lz-7ke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2152.8000000000002" y="676.91154422788611"/>
+            <point key="canvasLocation" x="3092" y="676.91154422788611"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="eMI-np-Bej">
+        <scene sceneID="Uso-Kf-305">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pNc-Yv-Jq2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fbn-bn-kNA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nAi-az-Fgv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1G-yw-Ccr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sx9-lp-nl8"/>
+                        <segue destination="HVm-0p-5pL" kind="relationship" relationship="rootViewController" id="rBQ-sc-qR1"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rMb-wi-ePS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZTl-Wa-HTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-622" y="90"/>
+            <point key="canvasLocation" x="2152.8000000000002" y="-132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EQZ-eC-Fyz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V6d-1u-4ZN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B1f-jD-L3c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="56n-oh-tbe" kind="relationship" relationship="rootViewController" id="ov2-Ep-KJ1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3wa-1k-RDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152.8000000000002" y="676.91154422788611"/>
         </scene>
     </scenes>
     <resources>

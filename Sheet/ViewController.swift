@@ -11,12 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var timeLabel:SBTimeLabel!
     @IBOutlet weak var timeButton: UIButton!
+    var backroundAnimation = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.start()
         timeLabel.delegate = self
         HueConnectionManager.sharedManager.delegate = self
+        addGradientToView()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -25,7 +27,10 @@ class ViewController: UIViewController {
         timeLabel.updateText()
     }
     
-
+    override func viewDidLayoutSubviews() {
+        backroundAnimation.frame = self.view.bounds
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,7 +40,21 @@ class ViewController: UIViewController {
         randomize()
     }
     
-    func randomize() {
+    fileprivate func addGradientToView() {
+        GradientHandler.bounds = self.view.bounds
+        GradientHandler.colors = Colors.Gradient.blueGradient
+        GradientHandler.location = [0.10, 0.30, 0.45, 0.60, 0.75, 0.9]
+        GradientHandler.startPosition = CGPoint(x: 0, y: 1)
+        GradientHandler.endPosition = CGPoint(x: 1, y: 0)
+        
+        backroundAnimation = GradientHandler.addGradientLayer()
+        self.view.layer.insertSublayer(backroundAnimation, at: 0)
+        
+        GradientHandler.toColors = GradientHandler.colors
+        GradientHandler.animateLayerWithColor()
+    }
+    
+    fileprivate func randomize() {
         let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
         let bridgeSendAPI = PHBridgeSendAPI()
         
@@ -55,7 +74,6 @@ class ViewController: UIViewController {
                 })
             }
         }
-
     }
     
     
