@@ -22,6 +22,7 @@
 		94A7A5F81E404A4E00A6D11D /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F41E404A4E00A6D11D /* ColorConstant.swift */; };
 		94A7A5F91E404A4E00A6D11D /* GradientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F51E404A4E00A6D11D /* GradientHandler.swift */; };
 		94A7A5FA1E404A4E00A6D11D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F61E404A4E00A6D11D /* UIColor+Extension.swift */; };
+		94A7A5FC1E40664E00A6D11D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5FB1E40664E00A6D11D /* Utilities.swift */; };
 		94E9DFF01E3EB289008A1F84 /* HueSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E9DFEF1E3EB289008A1F84 /* HueSDK_iOS.framework */; };
 		94E9E0081E3EB9A3008A1F84 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9DFFF1E3EB9A3008A1F84 /* DDAbstractDatabaseLogger.m */; };
 		94E9E0091E3EB9A3008A1F84 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0011E3EB9A3008A1F84 /* DDASLLogger.m */; };
@@ -79,6 +80,7 @@
 		94A7A5F41E404A4E00A6D11D /* ColorConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorConstant.swift; path = Frameworks/GradientAnimate/ColorConstant.swift; sourceTree = "<group>"; };
 		94A7A5F51E404A4E00A6D11D /* GradientHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientHandler.swift; path = Frameworks/GradientAnimate/GradientHandler.swift; sourceTree = "<group>"; };
 		94A7A5F61E404A4E00A6D11D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Frameworks/GradientAnimate/UIColor+Extension.swift"; sourceTree = "<group>"; };
+		94A7A5FB1E40664E00A6D11D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		94E9DFEF1E3EB289008A1F84 /* HueSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HueSDK_iOS.framework; path = Frameworks/Hue/HueSDK_iOS.framework; sourceTree = "<group>"; };
 		94E9DFF31E3EB5FF008A1F84 /* Sheet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sheet-Bridging-Header.h"; sourceTree = "<group>"; };
 		94E9DFFE1E3EB9A3008A1F84 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDAbstractDatabaseLogger.h; path = ../Lumberjack/DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		74B95ED71DFB738100B03661 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				94A7A5FB1E40664E00A6D11D /* Utilities.swift */,
 				74B95EB41DFB735400B03661 /* Info.plist */,
 				74B95EAF1DFB735400B03661 /* Assets.xcassets */,
 				74B95EB11DFB735400B03661 /* LaunchScreen.storyboard */,
@@ -660,6 +663,7 @@
 				94E9E0091E3EB9A3008A1F84 /* DDASLLogger.m in Sources */,
 				94A7A5F81E404A4E00A6D11D /* ColorConstant.swift in Sources */,
 				94A7A5F91E404A4E00A6D11D /* GradientHandler.swift in Sources */,
+				94A7A5FC1E40664E00A6D11D /* Utilities.swift in Sources */,
 				94E9E0131E3EB9E3008A1F84 /* ContextFilterLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

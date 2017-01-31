@@ -21,48 +21,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-dQ-Ohv">
-                                <rect key="frame" x="118" y="371" width="139" height="57"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Slu-9T-Nev" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="16" y="259.5" width="343" height="148"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUZ-Uw-PwR" userLabel="timeLabel" customClass="SBTimeLabel" customModule="Sheet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="7.5" width="343" height="84"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="84" id="wCg-Zl-Mul"/>
+                                            <constraint firstAttribute="width" constant="343" id="xwu-Pq-Fuv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaP-dQ-Ohv">
+                                        <rect key="frame" x="102" y="91" width="139" height="57"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="57" id="Xut-ei-ZmU"/>
+                                            <constraint firstAttribute="width" constant="139" id="evm-HQ-MQd"/>
+                                        </constraints>
+                                        <state key="normal" title="Reset Color">
+                                            <color key="titleColor" red="0.98039221759999995" green="0.98039221759999995" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="randomizeLights:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vcv-qD-oOK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="TZw-vg-88O"/>
-                                    <constraint firstAttribute="width" constant="139" id="WVr-9a-pSg"/>
+                                    <constraint firstItem="aaP-dQ-Ohv" firstAttribute="centerX" secondItem="PUZ-Uw-PwR" secondAttribute="centerX" id="3zG-fe-0r7"/>
+                                    <constraint firstItem="PUZ-Uw-PwR" firstAttribute="leading" secondItem="Slu-9T-Nev" secondAttribute="leading" id="9eu-tB-aCT"/>
+                                    <constraint firstAttribute="width" constant="343" id="GLN-3K-B0v"/>
+                                    <constraint firstItem="PUZ-Uw-PwR" firstAttribute="top" secondItem="Slu-9T-Nev" secondAttribute="top" constant="7.5" id="mFU-tR-s9b"/>
+                                    <constraint firstAttribute="height" constant="148" id="nnT-l5-FfA"/>
+                                    <constraint firstItem="aaP-dQ-Ohv" firstAttribute="top" secondItem="PUZ-Uw-PwR" secondAttribute="bottom" constant="-0.5" id="rYe-cB-f6m"/>
+                                    <constraint firstAttribute="trailing" secondItem="PUZ-Uw-PwR" secondAttribute="trailing" id="rrh-CH-Qgu"/>
                                 </constraints>
-                                <state key="normal" title="Reset Color">
-                                    <color key="titleColor" red="0.98039221759999995" green="0.98039221759999995" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="randomizeLights:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vcv-qD-oOK"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUZ-Uw-PwR" userLabel="timeLabel" customClass="SBTimeLabel" customModule="Sheet" customModuleProvider="target">
-                                <rect key="frame" x="16" y="279" width="343" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="Y2R-Qy-33h"/>
-                                    <constraint firstAttribute="width" constant="343" id="llY-i8-k8Z"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PUZ-Uw-PwR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-12.5" id="5GS-Y6-WTV"/>
-                            <constraint firstItem="aaP-dQ-Ohv" firstAttribute="centerX" secondItem="PUZ-Uw-PwR" secondAttribute="centerX" id="aes-sZ-OWR"/>
-                            <constraint firstItem="PUZ-Uw-PwR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bvC-5d-Fld"/>
-                            <constraint firstItem="aaP-dQ-Ohv" firstAttribute="top" secondItem="PUZ-Uw-PwR" secondAttribute="bottom" constant="8" id="qnO-L1-MhQ"/>
+                            <constraint firstItem="Slu-9T-Nev" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ILy-lI-9Kt"/>
+                            <constraint firstItem="Slu-9T-Nev" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bWj-sw-njx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FYf-57-svi"/>
                     <connections>
                         <outlet property="timeLabel" destination="PUZ-Uw-PwR" id="GeU-g7-19t"/>
+                        <outlet property="timeLabelAnimationView" destination="Slu-9T-Nev" id="NaV-ej-fzA"/>
                         <segue destination="Fbn-bn-kNA" kind="show" identifier="bridgeAuthentication" id="6nh-UU-Fu0"/>
                         <segue destination="V6d-1u-4ZN" kind="show" identifier="bridgeSelection" id="NaB-Fk-n3c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="482" y="90"/>
+            <point key="canvasLocation" x="480.80000000000001" y="89.505247376311857"/>
         </scene>
         <!--Push Button Authentication View Controller-->
         <scene sceneID="N5k-W7-dea">

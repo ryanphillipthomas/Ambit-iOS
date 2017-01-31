@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Spring
 
 class ViewController: UIViewController {
     @IBOutlet var timeLabel:SBTimeLabel!
+    @IBOutlet weak var timeLabelAnimationView: SpringView!
+
     @IBOutlet weak var timeButton: UIButton!
     var backroundAnimation = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timeLabel.updateText()
         timeLabel.start()
         timeLabel.delegate = self
         HueConnectionManager.sharedManager.delegate = self
@@ -22,9 +26,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        timeLabel.updateText()
+    override func viewDidAppear(_ animated: Bool) {
+        timeLabelAnimationView.animation = "fadeInDown"
+        timeLabelAnimationView.curve = "linear"
+        timeLabelAnimationView.duration = 2.0
+        timeLabelAnimationView.animate()
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,7 +71,15 @@ class ViewController: UIViewController {
             for light in lightsData.allValues {
                 let newLight = light as! PHLight
                 let lightState = PHLightState()
-                lightState.hue = Int(46920) as NSNumber!
+                
+                let colors = Colors.Gradient.blueGradient
+                let randomIndex = Int(arc4random_uniform(UInt32(colors.count)))
+                let color = colors[randomIndex]
+                let xy = Utilities.calculateXY(cgColor: color, forModel: newLight.modelNumber)
+                
+                lightState.x = xy.x as NSNumber!
+                lightState.y = xy.y as NSNumber!
+
                 lightState.brightness = Int(1) as NSNumber!
                 lightState.saturation = Int(245) as NSNumber!
                 
@@ -96,7 +110,7 @@ class ViewController: UIViewController {
 
 extension ViewController: SBTimeLabelDelegate {
     func didUpdateText(_ label: SBTimeLabel) {
-       // NSLog("clock: \(timeLabel.text)")
+//        NSLog("clock: \(timeLabel.text)")
     }
 }
 
