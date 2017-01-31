@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Slu-9T-Nev" customClass="SpringView" customModule="Spring">
-                                <rect key="frame" x="16" y="259.5" width="343" height="148"/>
+                                <rect key="frame" x="16" y="260" width="343" height="148"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUZ-Uw-PwR" userLabel="timeLabel" customClass="SBTimeLabel" customModule="Sheet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7.5" width="343" height="84"/>
+                                        <rect key="frame" x="0.0" y="7" width="343" height="84"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="84" id="wCg-Zl-Mul"/>
                                             <constraint firstAttribute="width" constant="343" id="xwu-Pq-Fuv"/>
@@ -59,15 +60,45 @@
                                     <constraint firstAttribute="trailing" secondItem="PUZ-Uw-PwR" secondAttribute="trailing" id="rrh-CH-Qgu"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyO-df-Dcp" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="16" y="564" width="343" height="95"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiB-j9-Q0U">
+                                        <rect key="frame" x="139" y="15" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="d0h-Yh-X3j"/>
+                                            <constraint firstAttribute="height" constant="64" id="v3e-zA-vCK"/>
+                                        </constraints>
+                                        <state key="normal" image="settings"/>
+                                        <connections>
+                                            <action selector="toggleSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A37-Ut-YIh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="3ei-1T-Gb7"/>
+                                    <constraint firstAttribute="height" constant="95" id="hbZ-Is-8wQ"/>
+                                    <constraint firstItem="GiB-j9-Q0U" firstAttribute="centerY" secondItem="oyO-df-Dcp" secondAttribute="centerY" id="l3h-tP-p2I"/>
+                                    <constraint firstItem="GiB-j9-Q0U" firstAttribute="centerX" secondItem="oyO-df-Dcp" secondAttribute="centerX" id="zPu-WW-Ky1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Slu-9T-Nev" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ILy-lI-9Kt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oyO-df-Dcp" secondAttribute="trailing" id="LYJ-t2-lvO"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="oyO-df-Dcp" secondAttribute="leading" id="aVN-e9-ngx"/>
                             <constraint firstItem="Slu-9T-Nev" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bWj-sw-njx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oyO-df-Dcp" secondAttribute="bottom" constant="8" id="eem-4P-Plf"/>
+                            <constraint firstItem="oyO-df-Dcp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s7p-cC-wc5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FYf-57-svi"/>
                     <connections>
+                        <outlet property="settingsButton" destination="GiB-j9-Q0U" id="zOc-YC-LzL"/>
+                        <outlet property="settingsButtonAnimationView" destination="oyO-df-Dcp" id="Ivg-aX-m34"/>
+                        <outlet property="timeButton" destination="aaP-dQ-Ohv" id="bv0-bI-IwK"/>
                         <outlet property="timeLabel" destination="PUZ-Uw-PwR" id="GeU-g7-19t"/>
                         <outlet property="timeLabelAnimationView" destination="Slu-9T-Nev" id="NaV-ej-fzA"/>
                         <segue destination="Fbn-bn-kNA" kind="show" identifier="bridgeAuthentication" id="6nh-UU-Fu0"/>
@@ -178,5 +209,6 @@
     </scenes>
     <resources>
         <image name="press_smartbridge" width="516" height="475"/>
+        <image name="settings" width="32" height="32"/>
     </resources>
 </document>

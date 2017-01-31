@@ -11,7 +11,11 @@ import Spring
 
 class ViewController: UIViewController {
     @IBOutlet var timeLabel:SBTimeLabel!
+    @IBOutlet var settingsButton:UIButton!
+
     @IBOutlet weak var timeLabelAnimationView: SpringView!
+    @IBOutlet weak var settingsButtonAnimationView: SpringView!
+
 
     @IBOutlet weak var timeButton: UIButton!
     var backroundAnimation = CAGradientLayer()
@@ -31,6 +35,11 @@ class ViewController: UIViewController {
         timeLabelAnimationView.curve = "linear"
         timeLabelAnimationView.duration = 2.0
         timeLabelAnimationView.animate()
+        
+        settingsButtonAnimationView.animation = "fadeInUp"
+        settingsButtonAnimationView.curve = "linear"
+        settingsButtonAnimationView.duration = 2.0
+        settingsButtonAnimationView.animate()
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,6 +53,10 @@ class ViewController: UIViewController {
     
     @IBAction func randomizeLights(_ sender: Any) {
         randomize()
+    }
+    
+    @IBAction func toggleSettings(_ sender: Any) {
+        HueConnectionManager.sharedManager.searchForBridgeLocal()
     }
     
     fileprivate func addGradientToView() {
