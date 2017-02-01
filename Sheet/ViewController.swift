@@ -123,6 +123,10 @@ class ViewController: UIViewController {
             ///
         }
     }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
 }
 
 extension ViewController: SBTimeLabelDelegate {

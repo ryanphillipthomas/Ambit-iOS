@@ -1,5 +1,5 @@
 //
-//  AlarmOptionsTableViewController.swift
+//  SoundsTableViewController.swift
 //  Sheet
 //
 //  Created by Ryan Phillip Thomas on 1/31/17.
@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import AudioPlayer
 
-class AlarmOptionsTableViewController: UITableViewController {
+class SoundsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.tableView.backgroundColor = UIColor.clear
         
         let blurEffect = UIBlurEffect(style: .dark)
@@ -24,20 +25,12 @@ class AlarmOptionsTableViewController: UITableViewController {
         self.navigationController?.navigationBar.addSubview(blurEffectView)
         
         self.tableView.allowsSelection = true;
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        UIApplication.shared.isStatusBarHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        UIApplication.shared.isStatusBarHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,17 +51,25 @@ class AlarmOptionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "sounds", sender: nil)
+        // Initialize
+      //  let audioPlayer = AudioPlayer(fileName: "thunderstorm.mp3")
+        // Start playing
+       // audioPlayer.play()
+        
+        // Stop playing with a fade out
+       // audioPlayer.fadeOut()
     }
-    
-    
-    @IBAction func didSelectDoneButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
     }
-    
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
