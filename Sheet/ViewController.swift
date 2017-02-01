@@ -56,7 +56,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func toggleSettings(_ sender: Any) {
-        HueConnectionManager.sharedManager.searchForBridgeLocal()
+        performSegue(withIdentifier: "alarmOptions", sender: nil)
+
+//        HueConnectionManager.sharedManager.searchForBridgeLocal()
     }
     
     fileprivate func addGradientToView() {
@@ -115,8 +117,10 @@ class ViewController: UIViewController {
                 bridgesTableViewController.delegate = HueConnectionManager.sharedManager
             }
         } else if segue.identifier == "bridgeAuthentication", let authViewController = segue.destination as? HueBridgeAuthenticationViewController {
-            authViewController.delegate = HueConnectionManager.sharedManager
+            authViewController.delegate = HueConnectionManager.sharedManager    
             authViewController.startPushLinking()
+        } else if segue.identifier == "alarmOptions", let alarmOptions = segue.destination as? AlarmOptionsTableViewController {
+            ///
         }
     }
 }
