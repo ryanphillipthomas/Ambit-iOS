@@ -10,6 +10,10 @@ import UIKit
 import AudioPlayer
 
 class SoundsTableViewController: UITableViewController {
+    
+    var sound1: AudioPlayer?
+    var sound2: AudioPlayer?
+    var currentSound: AudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +29,25 @@ class SoundsTableViewController: UITableViewController {
         self.navigationController?.navigationBar.addSubview(blurEffectView)
         
         self.tableView.allowsSelection = true;
+        
+        do {
+            sound1 = try AudioPlayer(fileName: "thunderstorm.mp3")
+            sound2 = try AudioPlayer(fileName: "party.mp3")
+        }
+        catch _ {
+            // Error handling
+            print("Sound initialization failed")
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        currentSound?.fadeOut()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,17 +64,27 @@ class SoundsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Initialize
-      //  let audioPlayer = AudioPlayer(fileName: "thunderstorm.mp3")
-        // Start playing
-       // audioPlayer.play()
         
         // Stop playing with a fade out
-       // audioPlayer.fadeOut()
+        currentSound?.stop()
+        
+        let row = indexPath.row
+        switch row {
+        case 0:
+            currentSound = sound1
+        case 1:
+            currentSound = sound2
+            
+        default:
+            break
+        }
+        
+        currentSound?.currentTime = 0
+        currentSound?.play()
     }
 
     /*

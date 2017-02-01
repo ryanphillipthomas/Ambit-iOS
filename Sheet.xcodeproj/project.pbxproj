@@ -22,6 +22,7 @@
 		947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75421E418A5E00B69286 /* BlurTableViewCell.swift */; };
 		947D75451E41A16E00B69286 /* SoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75441E41A16E00B69286 /* SoundsTableViewController.swift */; };
 		947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 947D75461E41AA8000B69286 /* thunderstorm.mp3 */; };
+		947D75491E4220D300B69286 /* party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 947D75481E4220D300B69286 /* party.mp3 */; };
 		94A7A5F71E404A4E00A6D11D /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F31E404A4E00A6D11D /* CALayer+Extension.swift */; };
 		94A7A5F81E404A4E00A6D11D /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F41E404A4E00A6D11D /* ColorConstant.swift */; };
 		94A7A5F91E404A4E00A6D11D /* GradientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F51E404A4E00A6D11D /* GradientHandler.swift */; };
@@ -84,6 +85,7 @@
 		947D75421E418A5E00B69286 /* BlurTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurTableViewCell.swift; sourceTree = "<group>"; };
 		947D75441E41A16E00B69286 /* SoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsTableViewController.swift; sourceTree = "<group>"; };
 		947D75461E41AA8000B69286 /* thunderstorm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm.mp3; sourceTree = SOURCE_ROOT; };
+		947D75481E4220D300B69286 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = party.mp3; path = ../../Downloads/party.mp3; sourceTree = "<group>"; };
 		94A7A5F31E404A4E00A6D11D /* CALayer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CALayer+Extension.swift"; path = "Frameworks/GradientAnimate/CALayer+Extension.swift"; sourceTree = "<group>"; };
 		94A7A5F41E404A4E00A6D11D /* ColorConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorConstant.swift; path = Frameworks/GradientAnimate/ColorConstant.swift; sourceTree = "<group>"; };
 		94A7A5F51E404A4E00A6D11D /* GradientHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientHandler.swift; path = Frameworks/GradientAnimate/GradientHandler.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		74B95ED71DFB738100B03661 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				947D75481E4220D300B69286 /* party.mp3 */,
 				947D75461E41AA8000B69286 /* thunderstorm.mp3 */,
 				94A7A5FB1E40664E00A6D11D /* Utilities.swift */,
 				74B95EB41DFB735400B03661 /* Info.plist */,
@@ -480,6 +483,7 @@
 			files = (
 				74B95EB31DFB735400B03661 /* LaunchScreen.storyboard in Resources */,
 				947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */,
+				947D75491E4220D300B69286 /* party.mp3 in Resources */,
 				74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
 			);
