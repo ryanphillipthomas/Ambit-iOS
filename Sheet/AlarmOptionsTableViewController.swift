@@ -52,11 +52,20 @@ class AlarmOptionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "sounds", sender: nil)
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "sounds", sender: nil)
+        case 1:
+            dismiss(animated: true, completion: { 
+                HueConnectionManager.sharedManager.searchForBridgeLocal()
+            })
+        default:
+            break
+        }
     }
     
     
