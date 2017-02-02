@@ -31,15 +31,13 @@ class AlarmOptionsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        UIApplication.shared.isStatusBarHidden = true
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        UIApplication.shared.isStatusBarHidden = false
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,12 +61,11 @@ class AlarmOptionsTableViewController: UITableViewController {
     
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
+        })
     }
     
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

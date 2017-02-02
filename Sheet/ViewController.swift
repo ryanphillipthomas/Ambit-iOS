@@ -28,7 +28,15 @@ class ViewController: UIViewController {
         HueConnectionManager.sharedManager.delegate = self
         addGradientToView()
         animateLayers()
+        
+        setNeedsStatusBarAppearanceUpdate()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: nil)
+
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     override func viewDidLayoutSubviews() {
@@ -122,8 +130,27 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK - Status Bar
+    var statusBarHidden : Bool = false
+    func toggleStatusBar(notification : NSNotification) {
+        if let isHidden = notification.object as? Bool {
+            animateStatusBars(isHidden: isHidden)
+        }
+    }
+    
+    func animateStatusBars(isHidden : Bool) {
+        self.statusBarHidden = isHidden
+        UIView.animate(withDuration: 0.70) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
     override var prefersStatusBarHidden : Bool {
-        return true
+        return self.statusBarHidden
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
     }
 }
 

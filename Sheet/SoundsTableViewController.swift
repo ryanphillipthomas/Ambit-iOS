@@ -14,6 +14,7 @@ class SoundsTableViewController: UITableViewController {
     var sound1: AudioPlayer?
     var sound2: AudioPlayer?
     var currentSound: AudioPlayer?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +87,7 @@ class SoundsTableViewController: UITableViewController {
         currentSound?.currentTime = 0
         currentSound?.play()
     }
-
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
