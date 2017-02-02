@@ -22,10 +22,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var timeButton: UIButton!
     var backroundAnimation = CAGradientLayer()
-    
-    let timePickerHoursArray = ["1","2","3","4","5","6","7","8","9","10","11","12"]
-    let timePickerMinutesArray = ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35", "36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
-    let timePickerAMPMArray = ["AM","PM"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -220,11 +216,11 @@ extension ViewController : UIPickerViewDataSource {
         var numberOfRows = 0
         switch component {
         case 0:
-            numberOfRows = timePickerHoursArray.count
+            numberOfRows = SheetConstants.time.hoursArray.count
         case 1:
-            numberOfRows = timePickerMinutesArray.count
+            numberOfRows = SheetConstants.time.minutesArray.count
         case 2:
-            numberOfRows = timePickerAMPMArray.count
+            numberOfRows = SheetConstants.time.ampmArray.count
         default:
             break
         }
@@ -237,11 +233,11 @@ extension ViewController : UIPickerViewDataSource {
         var titleForRow = ""
         switch component {
         case 0:
-            titleForRow = timePickerHoursArray[row]
+            titleForRow = SheetConstants.time.hoursArray[row]
         case 1:
-            titleForRow = timePickerMinutesArray[row]
+            titleForRow = SheetConstants.time.minutesArray[row]
         case 2:
-            titleForRow = timePickerAMPMArray[row]
+            titleForRow = SheetConstants.time.ampmArray[row]
         default:
             break
         }
