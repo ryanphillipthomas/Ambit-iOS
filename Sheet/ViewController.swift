@@ -27,19 +27,8 @@ class ViewController: UIViewController {
         timeLabel.delegate = self
         HueConnectionManager.sharedManager.delegate = self
         addGradientToView()
+        animateLayers()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        timeLabelAnimationView.animation = "fadeInDown"
-        timeLabelAnimationView.curve = "linear"
-        timeLabelAnimationView.duration = 2.0
-        timeLabelAnimationView.animate()
-        
-        settingsButtonAnimationView.animation = "fadeInUp"
-        settingsButtonAnimationView.curve = "linear"
-        settingsButtonAnimationView.duration = 2.0
-        settingsButtonAnimationView.animate()
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,6 +38,18 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func animateLayers() {
+        timeLabelAnimationView.animation = "fadeInDown"
+        timeLabelAnimationView.curve = "linear"
+        timeLabelAnimationView.duration = 2.0
+        timeLabelAnimationView.animate()
+        
+        settingsButtonAnimationView.animation = "fadeInUp"
+        settingsButtonAnimationView.curve = "linear"
+        settingsButtonAnimationView.duration = 2.0
+        settingsButtonAnimationView.animate()
     }
     
     @IBAction func randomizeLights(_ sender: Any) {
@@ -108,16 +109,13 @@ class ViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "bridgeSelection", let bridgesTableViewController = segue.destination as? HueBridgeSelectionTableViewController {
-            let bridgesFound = sender as? [AnyHashable : Any]
-            if let bridgesFound = bridgesFound {
-                let bridgesData = NSMutableDictionary()
-                bridgesData.addEntries(from: bridgesFound)
-                bridgesTableViewController.bridgesFound = bridgesData
-                bridgesTableViewController.delegate = HueConnectionManager.sharedManager
-            }
-        } else if segue.identifier == "bridgeAuthentication", let authViewController = segue.destination as? HueBridgeAuthenticationViewController {
-            authViewController.delegate = HueConnectionManager.sharedManager    
+        if segue.identifier == "bridgeSelection", let nav = segue.destination as? UINavigationController, let bridgesTableViewController =  nav.viewControllers.first as? HueBridgeSelectionTableViewController, let bridgesFound = sender as? [AnyHashable : Any] {
+            let bridgesData = NSMutableDictionary()
+            bridgesData.addEntries(from: bridgesFound)
+            bridgesTableViewController.bridgesFound = bridgesData
+            bridgesTableViewController.delegate = HueConnectionManager.sharedManager
+        } else if segue.identifier == "bridgeAuthentication", let nav = segue.destination as? UINavigationController, let authViewController =  nav.viewControllers.first as? HueBridgeAuthenticationViewController {
+            authViewController.delegate = HueConnectionManager.sharedManager
             authViewController.startPushLinking()
         } else if segue.identifier == "alarmOptions", let alarmOptions = segue.destination as? AlarmOptionsTableViewController {
             ///

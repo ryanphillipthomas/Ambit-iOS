@@ -30,6 +30,10 @@ class HueBridgeAuthenticationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func done(sender: UIButton) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     func startPushLinking() {
         self.notificationManager = PHNotificationManager.default()
         
@@ -61,8 +65,9 @@ class HueBridgeAuthenticationViewController: UIViewController {
         self.notificationManager?.deregisterObject(forAllNotifications: self)
         
         // Inform delegate
-        self.navigationController?.popToRootViewController(animated: true)
-        self.delegate?.pushlinkSuccess()
+        self.dismiss(animated: true) { 
+            self.delegate?.pushlinkSuccess()
+        }
     }
     
     func authenticationFailed(_ notification : Notification) {

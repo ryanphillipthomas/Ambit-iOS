@@ -101,8 +101,8 @@
                         <outlet property="timeButton" destination="aaP-dQ-Ohv" id="bv0-bI-IwK"/>
                         <outlet property="timeLabel" destination="PUZ-Uw-PwR" id="GeU-g7-19t"/>
                         <outlet property="timeLabelAnimationView" destination="Slu-9T-Nev" id="NaV-ej-fzA"/>
-                        <segue destination="Fbn-bn-kNA" kind="show" identifier="bridgeAuthentication" id="6nh-UU-Fu0"/>
-                        <segue destination="V6d-1u-4ZN" kind="show" identifier="bridgeSelection" id="NaB-Fk-n3c"/>
+                        <segue destination="Fbn-bn-kNA" kind="presentation" identifier="bridgeAuthentication" modalPresentationStyle="overCurrentContext" id="6nh-UU-Fu0"/>
+                        <segue destination="V6d-1u-4ZN" kind="presentation" identifier="bridgeSelection" modalPresentationStyle="overCurrentContext" id="NaB-Fk-n3c"/>
                         <segue destination="aHf-Ur-BSD" kind="presentation" identifier="alarmOptions" modalPresentationStyle="overCurrentContext" id="m96-s6-hlz"/>
                     </connections>
                 </viewController>
@@ -130,13 +130,19 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nVs-gd-IDG" firstAttribute="centerX" secondItem="Onb-o8-hg5" secondAttribute="centerX" id="6wz-u2-1a2"/>
                             <constraint firstItem="nVs-gd-IDG" firstAttribute="centerY" secondItem="Onb-o8-hg5" secondAttribute="centerY" id="ccB-J2-FFg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="C8K-rl-vyx"/>
+                    <navigationItem key="navigationItem" id="C8K-rl-vyx">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="SIP-2L-tek">
+                            <color key="tintColor" red="0.98039221759999995" green="0.98039221759999995" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
+                            <connections>
+                                <action selector="doneWithSender:" destination="HVm-0p-5pL" id="P6t-oP-4tA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ts-AJ-MCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,7 +155,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ano-3H-dTs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="kQo-Yd-HMi">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -165,7 +171,14 @@
                             <outlet property="delegate" destination="56n-oh-tbe" id="8tq-7l-Btt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Miu-vH-7wE"/>
+                    <navigationItem key="navigationItem" id="Miu-vH-7wE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Qic-ds-Xgl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="doneWithSender:" destination="56n-oh-tbe" id="ZSL-jS-RwG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVf-lz-7ke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,7 +189,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fbn-bn-kNA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1G-yw-Ccr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="g1G-yw-Ccr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -194,7 +207,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V6d-1u-4ZN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B1f-jD-L3c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="B1f-jD-L3c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -205,7 +218,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wa-1k-RDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="676.91154422788611"/>
+            <point key="canvasLocation" x="2935" y="538"/>
         </scene>
         <!--Alarm Options-->
         <scene sceneID="3UJ-5K-SGH">

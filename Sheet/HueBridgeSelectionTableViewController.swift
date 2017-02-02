@@ -24,13 +24,30 @@ class HueBridgeSelectionTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        
+        self.tableView.backgroundColor = UIColor.clear
+        
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.frame
+        
+        self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        self.tableView.backgroundView = blurEffectView
+        self.navigationController?.navigationBar.addSubview(blurEffectView)
+        
+        self.tableView.allowsSelection = true;
+
         let refreshButton = UIBarButtonItem.init(barButtonSystemItem: .refresh, target: self, action: #selector(self.refresh))
-         self.navigationItem.rightBarButtonItem = refreshButton
+         self.navigationItem.leftBarButtonItem = refreshButton
     }
     
     func refresh() {
         self.navigationController?.dismiss(animated: true, completion: nil)
         HueConnectionManager.sharedManager.searchForBridgeLocal()
+    }
+    
+    @IBAction func done(sender: UIButton) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,8 +104,9 @@ class HueBridgeSelectionTableViewController: UITableViewController {
             
             // Inform delegate
             if let bridgeID = bridgeID, let ip = ip {
-                self.navigationController?.popToRootViewController(animated: true)
-                self.delegate?.bridgeSelectedWithIpAddress(ipAddress: ip, bridgeId: bridgeID)
+                dismiss(animated: true, completion: { 
+                    self.delegate?.bridgeSelectedWithIpAddress(ipAddress: ip, bridgeId: bridgeID)
+                })
             }
         }
     }
