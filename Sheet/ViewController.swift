@@ -11,15 +11,22 @@ import Spring
 
 class ViewController: UIViewController {
     @IBOutlet var timeLabel:SBTimeLabel!
+    @IBOutlet var timePicker:UIPickerView!
     @IBOutlet var settingsButton:UIButton!
 
     @IBOutlet weak var timeLabelAnimationView: SpringView!
     @IBOutlet weak var settingsButtonAnimationView: SpringView!
+    @IBOutlet weak var timePickerAnimationView: SpringView!
+
 
 
     @IBOutlet weak var timeButton: UIButton!
     var backroundAnimation = CAGradientLayer()
     
+    let timePickerHoursArray = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+    let timePickerMinutesArray = ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35", "36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+    let timePickerAMPMArray = ["AM","PM"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.updateText()
@@ -27,7 +34,9 @@ class ViewController: UIViewController {
         timeLabel.delegate = self
         HueConnectionManager.sharedManager.delegate = self
         addGradientToView()
-        animateLayers()
+        
+        timeLabelAnimationView.isHidden = true
+        settingsButtonAnimationView.isHidden = true
         
         setNeedsStatusBarAppearanceUpdate()
         
@@ -48,7 +57,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func animateLayers() {
+    func animateTimeDisplayLayers() {
+        timeLabelAnimationView.isHidden = false
+        settingsButtonAnimationView.isHidden = false
+        
         timeLabelAnimationView.animation = "fadeInDown"
         timeLabelAnimationView.curve = "linear"
         timeLabelAnimationView.duration = 2.0
@@ -60,6 +72,17 @@ class ViewController: UIViewController {
         settingsButtonAnimationView.animate()
     }
     
+    func animateOutTimePickerLayers() {
+        timePickerAnimationView.animation = "fadeOut"
+        timePickerAnimationView.curve = "linear"
+        timePickerAnimationView.duration = 1.0
+        timePickerAnimationView.animate()
+        
+        timePickerAnimationView.isHidden = true
+        
+        animateTimeDisplayLayers()
+    }
+    
     @IBAction func randomizeLights(_ sender: Any) {
         randomize()
     }
@@ -68,6 +91,10 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "alarmOptions", sender: nil)
 
 //        HueConnectionManager.sharedManager.searchForBridgeLocal()
+    }
+    
+    @IBAction func startClock(_ sender: Any) {
+        animateOutTimePickerLayers()
     }
     
     fileprivate func addGradientToView() {
@@ -181,6 +208,49 @@ extension ViewController : HueConnectionManagerDelegate {
     internal func showPushButtonAuthentication() {
         AlertHelper.showAlert(title: "Should Show Push Button", controller: self)
         performSegue(withIdentifier: "bridgeAuthentication", sender: nil)
+    }
+}
+
+extension ViewController : UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        var numberOfRows = 0
+        switch component {
+        case 0:
+            numberOfRows = timePickerHoursArray.count
+        case 1:
+            numberOfRows = timePickerMinutesArray.count
+        case 2:
+            numberOfRows = timePickerAMPMArray.count
+        default:
+            break
+        }
+        
+        return numberOfRows
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        var titleForRow = ""
+        switch component {
+        case 0:
+            titleForRow = timePickerHoursArray[row]
+        case 1:
+            titleForRow = timePickerMinutesArray[row]
+        case 2:
+            titleForRow = timePickerAMPMArray[row]
+        default:
+            break
+        }
+        
+        return titleForRow
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
     }
 }
 
