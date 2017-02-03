@@ -1,6 +1,0 @@
-framework module Pods_SheetTests {
-  umbrella header "Pods-SheetTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

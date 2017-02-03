@@ -1,0 +1,6 @@
+framework module Pods_AmbitTests {
+  umbrella header "Pods-AmbitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
