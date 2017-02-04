@@ -27,23 +27,3 @@ target 'Ambit' do
     shared_pods
   end
 end
-
-target 'TV' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for TV
-  shared_pods
-
-  target 'TVTests' do
-      # Pods for testing
-    inherit! :search_paths
-    shared_pods
-  end
-
-  target 'TVUITests' do
-      # Pods for testing
-    inherit! :search_paths
-    shared_pods
-  end
-end

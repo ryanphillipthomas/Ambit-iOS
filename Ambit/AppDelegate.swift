@@ -9,9 +9,10 @@
 import UIKit
 import RTCoreData
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     var context:NSManagedObjectContext!
 
@@ -24,10 +25,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         HueConnectionManager.sharedManager.startUp()
         
         RootHelper.setMOCController(window: window, moc: self.context)
-
+        
+        // Set up and activate your session early here!
+        WatchSessionManager.sharedManager.startSession()
+        
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if granted {
+                self.registerCategory()
+                self.scheduleAlarmNotification(event: "test", interval: 10)
+            }
+        }
+        
         return true
     }
-
+    
+    func registerCategory() -> Void{
+        
+        let callNow = UNNotificationAction(identifier: "call", title: "Call now", options: [])
+        let clear = UNNotificationAction(identifier: "clear", title: "Clear", options: [])
+        let category : UNNotificationCategory = UNNotificationCategory.init(identifier: "CALLINNOTIFICATION", actions: [callNow, clear], intentIdentifiers: [], options: [])
+        
+        let center = UNUserNotificationCenter.current()
+        center.setNotificationCategories([category])
+        
+    }
+    
+    func scheduleAlarmNotification(event : String, interval: TimeInterval) {
+        let content = UNMutableNotificationContent()
+        
+        content.title = event
+        content.body = "body"
+        content.sound = UNNotificationSound.default()
+        content.categoryIdentifier = "CALLINNOTIFICATION"
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: interval, repeats: false)
+        let id = UUID.init().uuidString
+        let request = UNNotificationRequest.init(identifier: "CALLINNOTIFICATION", content: content, trigger: trigger)
+        
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        print("willPresent")
+        completionHandler([.badge, .alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        print("didReceive")
+        completionHandler()
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -49,6 +101,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+    }
+    
+    func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void) {
+        //
+        print("Test")
     }
 }
 

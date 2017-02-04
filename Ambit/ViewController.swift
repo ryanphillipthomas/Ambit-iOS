@@ -10,8 +10,11 @@ import UIKit
 import Spring
 import CoreData
 import RTCoreData
+import UserNotifications
 
 class ViewController: UIViewController, ManagedObjectContextSettable {
+    fileprivate let food = ["🍦", "🍮", "🍤","🍉", "🍨", "🍏", "🍌", "🍰", "🍚", "🍓", "🍪", "🍕"]
+    
     @IBOutlet var timeLabel:SBTimeLabel!
     @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
@@ -96,13 +99,27 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 //        myDatePicker.date = currentDate //7 - defa
     }
     
+    func vibrateWatch() {
+        let randomItem = food[Int(arc4random_uniform(UInt32(food.count)))]
+        do {
+            try WatchSessionManager.sharedManager.updateApplicationContext(["food" : randomItem as AnyObject])
+            
+            AlertHelper.showAlert(title: "Did Send Ping", controller: self)
+        } catch {
+            AlertHelper.showAlert(title: "Error Could Not Send Ping", controller: self)
+        }
+    }
+    
+    @IBAction func pingWatch(_ sender: Any) {
+        vibrateWatch()
+    }
+    
     @IBAction func randomizeLights(_ sender: Any) {
         randomize()
     }
     
     @IBAction func toggleSettings(_ sender: Any) {
         performSegue(withIdentifier: "alarmOptions", sender: nil)
-
 //        HueConnectionManager.sharedManager.searchForBridgeLocal()
     }
     
