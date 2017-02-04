@@ -29,18 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Set up and activate your session early here!
         WatchSessionManager.sharedManager.startSession()
         
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             if granted {
                 self.registerCategory()
-                self.scheduleAlarmNotification(event: "test", interval: 10)
             }
         }
         
         return true
     }
     
-    func registerCategory() -> Void{
+    func registerCategory() -> Void {
         
         let callNow = UNNotificationAction(identifier: "call", title: "Call now", options: [])
         let clear = UNNotificationAction(identifier: "clear", title: "Clear", options: [])
@@ -51,27 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
     }
     
-    func scheduleAlarmNotification(event : String, interval: TimeInterval) {
-        let content = UNMutableNotificationContent()
-        
-        content.title = event
-        content.body = "body"
-        content.sound = UNNotificationSound.default()
-        content.categoryIdentifier = "CALLINNOTIFICATION"
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: interval, repeats: false)
-        let id = UUID.init().uuidString
-        let request = UNNotificationRequest.init(identifier: "CALLINNOTIFICATION", content: content, trigger: trigger)
-        
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error) in
-            
-        }
-    }
-    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-        print("willPresent")
-        completionHandler([.badge, .alert, .sound])
+        let application = UIApplication.shared
+        if application.applicationState != .active { // Only address notifications received when not active
+        
+            print("willPresent")
+            completionHandler([.badge, .alert, .sound])
+        }
+        completionHandler([])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

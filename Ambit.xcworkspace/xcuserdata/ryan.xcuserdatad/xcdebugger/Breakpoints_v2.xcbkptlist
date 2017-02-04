@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "507934463.122613"
+            timestampString = "507936901.318793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "application(_:handleWatchKitExtensionRequest:reply:)"
             landmarkType = "7">
          </BreakpointContent>

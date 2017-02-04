@@ -22,6 +22,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet weak var timeLabelAnimationView: SpringView!
     @IBOutlet weak var settingsButtonAnimationView: SpringView!
     @IBOutlet weak var timePickerAnimationView: SpringView!
+    @IBOutlet weak var nextAlarmAnimationView: SpringView!
+    @IBOutlet weak var stopAnimationView: SpringView!
+
     @IBOutlet weak var timeButton: UIButton!
     
     var backroundAnimation = CAGradientLayer()
@@ -38,7 +41,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
         
         timeLabelAnimationView.isHidden = true
-        settingsButtonAnimationView.isHidden = true
+        nextAlarmAnimationView.isHidden = true
+        stopAnimationView.isHidden = true
         
         setNeedsStatusBarAppearanceUpdate()
         
@@ -66,14 +70,58 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 //DEV TODO        Alarm.fetchInContext(context: managedObjectContext)
     }
     
-    func animateTimeDisplayLayers() {
+    func animateInTimeDisplayLayers() {
         timeLabelAnimationView.isHidden = false
-        settingsButtonAnimationView.isHidden = false
+        nextAlarmAnimationView.isHidden = false
+        stopAnimationView.isHidden = false
+
+        nextAlarmAnimationView.animation = "fadeInDown"
+        nextAlarmAnimationView.curve = "linear"
+        nextAlarmAnimationView.duration = 2.0
+        nextAlarmAnimationView.animate()
         
         timeLabelAnimationView.animation = "fadeInDown"
         timeLabelAnimationView.curve = "linear"
         timeLabelAnimationView.duration = 2.0
         timeLabelAnimationView.animate()
+        
+        stopAnimationView.animation = "fadeInUp"
+        stopAnimationView.curve = "linear"
+        stopAnimationView.duration = 2.0
+        stopAnimationView.animate()
+    }
+    
+    func animateOutTimeDisplayLayers() {
+        nextAlarmAnimationView.animation = "fadeOutDown"
+        nextAlarmAnimationView.curve = "linear"
+        nextAlarmAnimationView.duration = 2.0
+        nextAlarmAnimationView.animate()
+        
+        timeLabelAnimationView.animation = "fadeOutDown"
+        timeLabelAnimationView.curve = "linear"
+        timeLabelAnimationView.duration = 2.0
+        timeLabelAnimationView.animate()
+        
+        stopAnimationView.animation = "fadeOutUp"
+        stopAnimationView.curve = "linear"
+        stopAnimationView.duration = 2.0
+        stopAnimationView.animate()
+        
+        timeLabelAnimationView.isHidden = true
+        nextAlarmAnimationView.isHidden = true
+        stopAnimationView.isHidden = true
+        
+        animateInTimePickerLayers()
+    }
+    
+    func animateInTimePickerLayers() {
+        timePickerAnimationView.isHidden = false
+        settingsButtonAnimationView.isHidden = false
+        
+        timePickerAnimationView.animation = "fadeInDown"
+        timePickerAnimationView.curve = "linear"
+        timePickerAnimationView.duration = 2.0
+        timePickerAnimationView.animate()
         
         settingsButtonAnimationView.animation = "fadeInUp"
         settingsButtonAnimationView.curve = "linear"
@@ -87,9 +135,16 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timePickerAnimationView.duration = 1.0
         timePickerAnimationView.animate()
         
-        timePickerAnimationView.isHidden = true
+        settingsButtonAnimationView.animation = "fadeOut"
+        settingsButtonAnimationView.curve = "linear"
+        settingsButtonAnimationView.duration = 1.0
+        settingsButtonAnimationView.animate()
         
-        animateTimeDisplayLayers()
+        timePickerAnimationView.isHidden = true
+        settingsButtonAnimationView.isHidden = true
+
+        
+        animateInTimeDisplayLayers()
     }
     
     func configurePickerView() {
@@ -112,6 +167,28 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     @IBAction func pingWatch(_ sender: Any) {
         vibrateWatch()
+        self.scheduleAlarmNotification(event: "test", interval: 10)
+    }
+    
+    @IBAction func stopAlarm(_ sender: Any) {
+        self.animateOutTimeDisplayLayers()
+    }
+    
+    func scheduleAlarmNotification(event : String, interval: TimeInterval) {
+        let content = UNMutableNotificationContent()
+        
+        content.title = event
+        content.body = "body"
+        content.sound = UNNotificationSound.default()
+        content.categoryIdentifier = "CALLINNOTIFICATION"
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: interval, repeats: false)
+        let id = UUID.init().uuidString
+        let request = UNNotificationRequest.init(identifier: "CALLINNOTIFICATION", content: content, trigger: trigger)
+        
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            
+        }
     }
     
     @IBAction func randomizeLights(_ sender: Any) {
