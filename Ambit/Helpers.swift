@@ -170,6 +170,21 @@ class RootHelper{
     }
 }
 
+class GradientViewHelper {
+    class func addGradientColorsToView(view : UIView, gradientLayer : CAGradientLayer) {
+        GradientHandler.bounds = view.bounds
+        GradientHandler.colors = Colors.Gradient.blueGradient
+        GradientHandler.location = [0.10, 0.30, 0.45, 0.60, 0.75, 0.9]
+        GradientHandler.startPosition = CGPoint(x: 0, y: 1)
+        GradientHandler.endPosition = CGPoint(x: 1, y: 0)
+        
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        GradientHandler.toColors = GradientHandler.colors
+        GradientHandler.animateLayerWithColor()
+    }
+}
+
 // MARK: - UIApplication helper extension
 extension UIApplication {
     class func returnToRootViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) {

@@ -8,20 +8,21 @@
 
 import UIKit
 import Spring
+import CoreData
+import RTCoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet var timeLabel:SBTimeLabel!
-    @IBOutlet var timePicker:UIPickerView!
+    @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
-
+    
     @IBOutlet weak var timeLabelAnimationView: SpringView!
     @IBOutlet weak var settingsButtonAnimationView: SpringView!
     @IBOutlet weak var timePickerAnimationView: SpringView!
-
-
-
     @IBOutlet weak var timeButton: UIButton!
+    
     var backroundAnimation = CAGradientLayer()
+    var managedObjectContext: NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,9 @@ class ViewController: UIViewController {
         timeLabel.start()
         timeLabel.delegate = self
         HueConnectionManager.sharedManager.delegate = self
-        addGradientToView()
+        
+        backroundAnimation = GradientHandler.addGradientLayer()
+        GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
         
         timeLabelAnimationView.isHidden = true
         settingsButtonAnimationView.isHidden = true
@@ -37,11 +40,14 @@ class ViewController: UIViewController {
         setNeedsStatusBarAppearanceUpdate()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: nil)
+        
+        timePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
 
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        updateRunningAlarmUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,6 +57,10 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateRunningAlarmUI() {
+//DEV TODO        Alarm.fetchInContext(context: managedObjectContext)
     }
     
     func animateTimeDisplayLayers() {
@@ -79,6 +89,13 @@ class ViewController: UIViewController {
         animateTimeDisplayLayers()
     }
     
+    func configurePickerView() {
+//        timePicker.date = UIDatePickerMode.Time // 4- use time only
+//        let currentDate = NSDate()  //5 -  get the current date
+//        myDatePicker.minimumDate = currentDate  //6- set the current date/time as a minimum
+//        myDatePicker.date = currentDate //7 - defa
+    }
+    
     @IBAction func randomizeLights(_ sender: Any) {
         randomize()
     }
@@ -90,21 +107,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startClock(_ sender: Any) {
+        let id = UUID().uuidString //create new alarm
+        let alarmDictionary:[String : Any] = ["id": id, "fireDate": timePicker.date, "name": "unnamed"]
+       _ = Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
         animateOutTimePickerLayers()
-    }
-    
-    fileprivate func addGradientToView() {
-        GradientHandler.bounds = self.view.bounds
-        GradientHandler.colors = Colors.Gradient.blueGradient
-        GradientHandler.location = [0.10, 0.30, 0.45, 0.60, 0.75, 0.9]
-        GradientHandler.startPosition = CGPoint(x: 0, y: 1)
-        GradientHandler.endPosition = CGPoint(x: 1, y: 0)
         
-        backroundAnimation = GradientHandler.addGradientLayer()
-        self.view.layer.insertSublayer(backroundAnimation, at: 0)
-        
-        GradientHandler.toColors = GradientHandler.colors
-        GradientHandler.animateLayerWithColor()
+        updateRunningAlarmUI()
     }
     
     fileprivate func randomize() {
@@ -205,48 +213,70 @@ extension ViewController : HueConnectionManagerDelegate {
         AlertHelper.showAlert(title: "Should Show Push Button", controller: self)
         performSegue(withIdentifier: "bridgeAuthentication", sender: nil)
     }
+    
+    //MARK - Date Picker
+    func dateChanged(_ sender: UIDatePicker) {
+        let componenets = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: sender.date)
+        if let day = componenets.day, let month = componenets.month, let year = componenets.year, let hour = componenets.hour, let minute = componenets.minute, let second = componenets.second {
+            print("\(day) \(month) \(year),  \(hour),  \(minute),  \(second)")
+        }
+    }
+    
+    
 }
 
-extension ViewController : UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        var numberOfRows = 0
-        switch component {
-        case 0:
-            numberOfRows = AmbitConstants.time.hoursArray.count
-        case 1:
-            numberOfRows = AmbitConstants.time.minutesArray.count
-        case 2:
-            numberOfRows = AmbitConstants.time.ampmArray.count
-        default:
-            break
-        }
-        
-        return numberOfRows
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        var titleForRow = ""
-        switch component {
-        case 0:
-            titleForRow = AmbitConstants.time.hoursArray[row]
-        case 1:
-            titleForRow = AmbitConstants.time.minutesArray[row]
-        case 2:
-            titleForRow = AmbitConstants.time.ampmArray[row]
-        default:
-            break
-        }
-        
-        return titleForRow
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-    }
-}
+
+//extension ViewController : UIPickerViewDataSource {
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 3
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        var numberOfRows = 0
+//        switch component {
+//        case 0:
+//            numberOfRows = AmbitConstants.time.hoursArray.count
+//        case 1:
+//            numberOfRows = AmbitConstants.time.minutesArray.count
+//        case 2:
+//            numberOfRows = AmbitConstants.time.ampmArray.count
+//        default:
+//            break
+//        }
+//        
+//        return numberOfRows
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        
+//        var titleForRow = ""
+//        switch component {
+//        case 0:
+//            titleForRow = AmbitConstants.time.hoursArray[row]
+//        case 1:
+//            titleForRow = AmbitConstants.time.minutesArray[row]
+//        case 2:
+//            titleForRow = AmbitConstants.time.ampmArray[row]
+//        default:
+//            break
+//        }
+//        
+//        return titleForRow
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        /// get date and save it to 
+//        
+//        // First we need to create a new instance of the NSDateFormatter
+//        let dateFormatter = DateFormatter()
+//        // Now we specify the display format, e.g. "27-08-2015
+//        dateFormatter.dateFormat = "dd-MM-YYYY"
+//        // Now we get the date from the UIDatePicker and convert it to a string
+//        let strDate = dateFormatter.stringFromDate(timePicker.date)
+//        
+//        
+//        let alarmDictionary:[String : Any] = ["id": "Juris", "fireDate": "Prudence", "name": "Test Alarm"]
+//        Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
+//    }
+//}
 
