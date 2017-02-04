@@ -112,9 +112,6 @@
                                         <state key="normal" title="7 hrs 25 mins left">
                                             <color key="titleColor" red="0.98039221759999995" green="0.98039221759999995" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="randomizeLights:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vcv-qD-oOK"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -132,23 +129,66 @@
                                 <rect key="frame" x="16" y="564" width="343" height="95"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiB-j9-Q0U">
-                                        <rect key="frame" x="139" y="48" width="64" height="47"/>
+                                        <rect key="frame" x="-4" y="24" width="64" height="47"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="d0h-Yh-X3j"/>
-                                            <constraint firstAttribute="height" constant="47" id="v3e-zA-vCK"/>
+                                            <constraint firstAttribute="height" constant="47" id="7EN-Xb-IOz"/>
+                                            <constraint firstAttribute="width" constant="64" id="yLC-Up-ROH"/>
                                         </constraints>
-                                        <state key="normal" image="settings"/>
+                                        <state key="normal" image="categories"/>
                                         <connections>
                                             <action selector="toggleSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A37-Ut-YIh"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cup-oN-gj7">
+                                        <rect key="frame" x="68" y="24" width="64" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="Nz1-Vy-C8t"/>
+                                            <constraint firstAttribute="width" constant="64" id="kIu-rn-dJn"/>
+                                        </constraints>
+                                        <state key="normal" image="bell"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bS-pF-9g1">
+                                        <rect key="frame" x="140" y="24" width="64" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="RLB-91-QKU"/>
+                                            <constraint firstAttribute="height" constant="47" id="ls0-kk-3Ne"/>
+                                        </constraints>
+                                        <state key="normal" image="light"/>
+                                        <connections>
+                                            <action selector="randomizeLights:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KYg-SV-spc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pU3-Zi-RRR">
+                                        <rect key="frame" x="212" y="24" width="64" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="jep-Ue-diK"/>
+                                            <constraint firstAttribute="width" constant="64" id="m28-vk-5yw"/>
+                                        </constraints>
+                                        <state key="normal" image="lab"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZg-Bm-alj">
+                                        <rect key="frame" x="284" y="24" width="64" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="64" id="PbD-uN-VIc"/>
+                                            <constraint firstAttribute="height" constant="47" id="WHx-7G-ywT"/>
+                                        </constraints>
+                                        <state key="normal" image="calendar"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="3ei-1T-Gb7"/>
+                                    <constraint firstItem="cup-oN-gj7" firstAttribute="leading" secondItem="GiB-j9-Q0U" secondAttribute="trailing" constant="8" symbolic="YES" id="7Ef-Ia-aAT"/>
+                                    <constraint firstItem="7bS-pF-9g1" firstAttribute="leading" secondItem="cup-oN-gj7" secondAttribute="trailing" constant="8" symbolic="YES" id="ZR4-6c-YGq"/>
+                                    <constraint firstItem="cup-oN-gj7" firstAttribute="centerY" secondItem="oyO-df-Dcp" secondAttribute="centerY" id="b99-6k-oa3"/>
+                                    <constraint firstItem="7bS-pF-9g1" firstAttribute="centerX" secondItem="oyO-df-Dcp" secondAttribute="centerX" id="bd6-2X-jEa"/>
+                                    <constraint firstItem="vZg-Bm-alj" firstAttribute="leading" secondItem="pU3-Zi-RRR" secondAttribute="trailing" constant="8" symbolic="YES" id="d8G-9t-Jt8"/>
+                                    <constraint firstItem="GiB-j9-Q0U" firstAttribute="baseline" secondItem="cup-oN-gj7" secondAttribute="baseline" id="gsd-Qa-0bm"/>
+                                    <constraint firstItem="7bS-pF-9g1" firstAttribute="baseline" secondItem="pU3-Zi-RRR" secondAttribute="baseline" id="gz0-VX-YB0"/>
                                     <constraint firstAttribute="height" constant="95" id="hbZ-Is-8wQ"/>
-                                    <constraint firstItem="GiB-j9-Q0U" firstAttribute="centerY" secondItem="oyO-df-Dcp" secondAttribute="centerY" constant="24" id="l3h-tP-p2I"/>
-                                    <constraint firstItem="GiB-j9-Q0U" firstAttribute="centerX" secondItem="oyO-df-Dcp" secondAttribute="centerX" id="zPu-WW-Ky1"/>
+                                    <constraint firstItem="cup-oN-gj7" firstAttribute="baseline" secondItem="7bS-pF-9g1" secondAttribute="baseline" id="hdP-oI-YzN"/>
+                                    <constraint firstItem="pU3-Zi-RRR" firstAttribute="leading" secondItem="7bS-pF-9g1" secondAttribute="trailing" constant="8" symbolic="YES" id="jWJ-Fg-dHh"/>
+                                    <constraint firstItem="pU3-Zi-RRR" firstAttribute="baseline" secondItem="vZg-Bm-alj" secondAttribute="baseline" id="oVI-I9-dXd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -467,7 +507,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bell" width="24" height="24"/>
+        <image name="calendar" width="24" height="24"/>
+        <image name="categories" width="24" height="24"/>
+        <image name="lab" width="24" height="24"/>
+        <image name="light" width="24" height="24"/>
         <image name="press_smartbridge" width="516" height="475"/>
-        <image name="settings" width="32" height="32"/>
     </resources>
 </document>
