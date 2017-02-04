@@ -7,7 +7,17 @@
 		<key>Ambit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>0</integer>
+		</dict>
+		<key>TV.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -23,6 +33,26 @@
 			<true/>
 		</dict>
 		<key>74B95EC31DFB735400B03661</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9416C4F51E45924200267C85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>949B0F841E4596A20092FFE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>949B0F971E4596A20092FFE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>949B0FA21E4596A30092FFE5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
