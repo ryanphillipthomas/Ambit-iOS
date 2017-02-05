@@ -19,6 +19,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
     
+    @IBOutlet weak var fullScreenBlackoutView: SpringView!
     @IBOutlet weak var timeLabelAnimationView: SpringView!
     @IBOutlet weak var settingsButtonAnimationView: SpringView!
     @IBOutlet weak var timePickerAnimationView: SpringView!
@@ -54,7 +55,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        updateRunningAlarmUI()
+        //updateRunningAlarmUI()
     }
     
     override func viewDidLayoutSubviews() {
