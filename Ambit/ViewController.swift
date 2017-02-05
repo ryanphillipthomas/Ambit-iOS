@@ -32,7 +32,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     var backroundAnimation = CAGradientLayer()
     var managedObjectContext: NSManagedObjectContext!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.updateText()
@@ -266,10 +266,19 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 //        HueConnectionManager.sharedManager.searchForBridgeLocal()
     }
     
+
+    
     @IBAction func startClock(_ sender: Any) {
         let id = UUID().uuidString //create new alarm
-        let alarmDictionary:[String : Any] = ["id": id, "fireDate": timePicker.date, "name": "unnamed"]
-       _ = Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
+        let alarmDictionary:[String : Any] = ["id": id,
+                                              "fireDate": timePicker.date,
+                                              "name": "unnamed",
+                                              "enabled" : true,
+                                              "mediaID" : "",
+                                              "mediaLabel" : "bell",
+                                              "snoozeEnabled" : true]
+       
+        _ = Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
         
         //animaite out time picker
         self.animateOutTimePickerLayers()

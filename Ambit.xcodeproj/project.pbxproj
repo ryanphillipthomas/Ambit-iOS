@@ -37,6 +37,8 @@
 		947F47001E4364F70047CD4C /* AmbitConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F46FF1E4364F70047CD4C /* AmbitConstants.swift */; };
 		9480E5221E44433400E094F3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9480E5201E44433400E094F3 /* Model.xcdatamodeld */; };
 		9480E5241E44447D00E094F3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480E5231E44447D00E094F3 /* Alarm.swift */; };
+		948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 948BB9A81E46E2FA00185831 /* bell.mp3 */; };
+		948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 948BB9A91E46E2FA00185831 /* tickle.mp3 */; };
 		949B0F881E4596A20092FFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B0F871E4596A20092FFE5 /* AppDelegate.swift */; };
 		949B0F8A1E4596A20092FFE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B0F891E4596A20092FFE5 /* ViewController.swift */; };
 		949B0F8D1E4596A20092FFE5 /* TV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 949B0F8B1E4596A20092FFE5 /* TV.xcdatamodeld */; };
@@ -184,6 +186,8 @@
 		947F46FF1E4364F70047CD4C /* AmbitConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbitConstants.swift; sourceTree = "<group>"; };
 		9480E5211E44433400E094F3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9480E5231E44447D00E094F3 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		948BB9A81E46E2FA00185831 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = SOURCE_ROOT; };
+		948BB9A91E46E2FA00185831 /* tickle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tickle.mp3; sourceTree = SOURCE_ROOT; };
 		949B0F851E4596A20092FFE5 /* TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949B0F871E4596A20092FFE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949B0F891E4596A20092FFE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -391,6 +395,8 @@
 		74B95ED71DFB738100B03661 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				948BB9A81E46E2FA00185831 /* bell.mp3 */,
+				948BB9A91E46E2FA00185831 /* tickle.mp3 */,
 				947D75481E4220D300B69286 /* party.mp3 */,
 				947D75461E41AA8000B69286 /* thunderstorm.mp3 */,
 				94A7A5FB1E40664E00A6D11D /* Utilities.swift */,
@@ -845,9 +851,11 @@
 			files = (
 				74B95EB31DFB735400B03661 /* LaunchScreen.storyboard in Resources */,
 				947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */,
+				948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */,
 				947D75491E4220D300B69286 /* party.mp3 in Resources */,
 				74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
+				948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

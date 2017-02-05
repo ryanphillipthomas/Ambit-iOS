@@ -18,11 +18,19 @@ public class Alarm: ManagedObject {
     @NSManaged public private(set) var id:String
     @NSManaged public private(set) var name:String
     @NSManaged public private(set) var fireDate:Date
-    
+    @NSManaged public private(set) var enabled:Bool
+    @NSManaged public private(set) var snoozeEnabled:Bool
+    @NSManaged public private(set) var mediaID:String
+    @NSManaged public private(set) var mediaLabel:String
+
     public static func insertIntoContext(moc: NSManagedObjectContext, alarmDictionary: NSDictionary) -> Alarm? {
         guard let id = alarmDictionary["id"] as? String,
             let fireDate = alarmDictionary["fireDate"] as? Date,
-            let name = alarmDictionary["name"] as? String
+            let name = alarmDictionary["name"] as? String,
+            let mediaLabel = alarmDictionary["mediaLabel"] as? String,
+            let mediaID = alarmDictionary["mediaID"] as? String,
+            let enabled = alarmDictionary["enabled"] as? Bool,
+            let snoozeEnabled = alarmDictionary["snoozeEnabled"] as? Bool
             else {
                 return nil
         }
@@ -31,6 +39,10 @@ public class Alarm: ManagedObject {
             alarm.id = id
             alarm.name = name
             alarm.fireDate = fireDate
+            alarm.mediaLabel = mediaLabel
+            alarm.mediaID = mediaID
+            alarm.enabled = enabled
+            alarm.snoozeEnabled = snoozeEnabled
         }
         return alarm
     }
