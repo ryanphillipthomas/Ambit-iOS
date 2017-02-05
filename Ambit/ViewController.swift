@@ -16,6 +16,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     fileprivate let food = ["🍦", "🍮", "🍤","🍉", "🍨", "🍏", "🍌", "🍰", "🍚", "🍓", "🍪", "🍕"]
     
     @IBOutlet var timeLabel:SBTimeLabel!
+    @IBOutlet var timeLeftLabel:UILabel!
+
     @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
     
@@ -67,6 +69,65 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         // Dispose of any resources that can be recreated.
     }
     
+    func fadeToBlack() {
+        //fade out lights
+        self.blackOut()
+       
+        //show the stop button
+        self.animateInStopButton()
+        
+        //timeLabel to white
+        UIView.transition(with: self.timeLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+            self.timeButton.setTitleColor(UIColor.white, for: .normal)
+            self.timeLabel.textColor = UIColor.white
+        }) { (finished) in
+
+            //timeLabel to grey
+            UIView.transition(with: self.timeLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+                self.timeButton.setTitleColor(UIColor.darkGray, for: .normal)
+                self.timeLabel.textColor = UIColor.darkGray
+            }, completion: nil)
+        }
+
+        blackoutFullscreenView()
+    }
+    
+    func blackoutFullscreenView() {
+        //fullScreenBlackoutView to black
+        UIView.animate(withDuration: 3.0, animations: {
+            self.fullScreenBlackoutView.backgroundColor = UIColor.black
+        }) { (finished) in
+            
+            //remove back animation view
+            self.removeAnimation()
+        }
+    }
+    
+    func removeAnimation() {
+        self.view.layer.sublayers?.remove(at: 0)
+    }
+    
+    func fadeToClear() {
+        //fade to clear
+        self.view.layer.insertSublayer(backroundAnimation, at: 0)
+        
+        UIView.transition(with: self.timeLabel, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            self.timeButton.setTitleColor(UIColor.black, for: .normal)
+            self.timeLabel.textColor = UIColor.black
+        }, completion: nil)
+
+        UIView.animate(withDuration: 1.0) {
+            self.fullScreenBlackoutView.backgroundColor = UIColor.clear
+        }
+        
+        //fullScreenBlackoutView to black
+        UIView.animate(withDuration: 1.0, animations: {
+            self.fullScreenBlackoutView.backgroundColor = UIColor.clear
+        }) { (finished) in
+            self.lightsOn()
+        }
+    }
+    
     func updateRunningAlarmUI() {
 //DEV TODO        Alarm.fetchInContext(context: managedObjectContext)
     }
@@ -74,7 +135,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     func animateInTimeDisplayLayers() {
         timeLabelAnimationView.isHidden = false
         nextAlarmAnimationView.isHidden = false
-        stopAnimationView.isHidden = false
 
         nextAlarmAnimationView.animation = "fadeInDown"
         nextAlarmAnimationView.curve = "linear"
@@ -85,7 +145,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabelAnimationView.curve = "linear"
         timeLabelAnimationView.duration = 2.0
         timeLabelAnimationView.animate()
-        
+    }
+    
+    func animateInStopButton () {
+        stopAnimationView.isHidden = false
+
         stopAnimationView.animation = "fadeInUp"
         stopAnimationView.curve = "linear"
         stopAnimationView.duration = 2.0
@@ -172,6 +236,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     @IBAction func stopAlarm(_ sender: Any) {
+        self.fadeToClear()
         self.animateOutTimeDisplayLayers()
     }
     
@@ -205,9 +270,15 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         let id = UUID().uuidString //create new alarm
         let alarmDictionary:[String : Any] = ["id": id, "fireDate": timePicker.date, "name": "unnamed"]
        _ = Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
-        animateOutTimePickerLayers()
         
+        //animaite out time picker
+        self.animateOutTimePickerLayers()
+
+        //update label with alarm
         updateRunningAlarmUI()
+        
+        //start fading black frame
+        self.perform(#selector(self.fadeToBlack), with: nil, afterDelay: 3.0)
     }
     
     fileprivate func randomize() {
@@ -232,6 +303,50 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
                 lightState.brightness = Int(1) as NSNumber!
                 lightState.saturation = Int(245) as NSNumber!
+                
+                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                    
+                })
+            }
+        }
+    }
+    
+    fileprivate func blackOut() {
+        let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
+        let bridgeSendAPI = PHBridgeSendAPI()
+        
+        if let lights = cache?.lights {
+            let lightsData = NSMutableDictionary()
+            lightsData.addEntries(from: lights)
+            
+            for light in lightsData.allValues {
+                let newLight = light as! PHLight
+                let lightState = PHLightState()
+                
+                lightState.brightness = 0
+                lightState.setOn(false)
+    
+                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                    
+                })
+            }
+        }
+    }
+    
+    fileprivate func lightsOn() {
+        let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
+        let bridgeSendAPI = PHBridgeSendAPI()
+        
+        if let lights = cache?.lights {
+            let lightsData = NSMutableDictionary()
+            lightsData.addEntries(from: lights)
+            
+            for light in lightsData.allValues {
+                let newLight = light as! PHLight
+                let lightState = PHLightState()
+                
+                lightState.brightness = 100
+                lightState.setOn(true)
                 
                 bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                     
