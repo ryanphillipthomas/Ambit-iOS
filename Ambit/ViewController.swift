@@ -27,6 +27,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet weak var timePickerAnimationView: SpringView!
     @IBOutlet weak var nextAlarmAnimationView: SpringView!
     @IBOutlet weak var stopAnimationView: SpringView!
+    @IBOutlet weak var dimView: UIView!
 
     @IBOutlet weak var timeButton: UIButton!
     
@@ -52,6 +53,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: nil)
         
         timePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        
+        dimView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dimViewFadeGesture(gesture:))))
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -67,6 +70,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func dimViewFadeGesture(gesture: UIPanGestureRecognizer) {
+            print("Pan Dim The View")
     }
     
     func fadeToBlack() {
@@ -230,32 +237,22 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         }
     }
     
+
+    
+    
     @IBAction func pingWatch(_ sender: Any) {
         vibrateWatch()
-        self.scheduleAlarmNotification(event: "test", interval: 10)
     }
     
     @IBAction func stopAlarm(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.stopCurrentSound()
+        
         self.fadeToClear()
         self.animateOutTimeDisplayLayers()
     }
     
-    func scheduleAlarmNotification(event : String, interval: TimeInterval) {
-        let content = UNMutableNotificationContent()
-        
-        content.title = event
-        content.body = "body"
-        content.sound = UNNotificationSound.default()
-        content.categoryIdentifier = "CALLINNOTIFICATION"
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: interval, repeats: false)
-        let id = UUID.init().uuidString
-        let request = UNNotificationRequest.init(identifier: "CALLINNOTIFICATION", content: content, trigger: trigger)
-        
-        let center = UNUserNotificationCenter.current()
-        center.add(request) { (error) in
-            
-        }
-    }
+
     
     @IBAction func randomizeLights(_ sender: Any) {
         randomize()
@@ -269,16 +266,23 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
     
     @IBAction func startClock(_ sender: Any) {
-        let id = UUID().uuidString //create new alarm
+        //create new alarm attributes
+        let id = UUID().uuidString
         let alarmDictionary:[String : Any] = ["id": id,
                                               "fireDate": timePicker.date,
                                               "name": "unnamed",
                                               "enabled" : true,
                                               "mediaID" : "",
-                                              "mediaLabel" : "bell",
+                                              "mediaLabel" : "tickle.mp3",
                                               "snoozeEnabled" : true]
        
+        //create the alarm
         _ = Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
+        
+        //get the alarm and provide it to our sceduler
+        let alarm = Alarm.fetchInContext(context: managedObjectContext).first
+        guard let scheduleAlarm = alarm else {return}
+        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 20)
         
         //animaite out time picker
         self.animateOutTimePickerLayers()

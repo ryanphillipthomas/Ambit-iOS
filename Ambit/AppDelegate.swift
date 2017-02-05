@@ -10,11 +10,13 @@ import UIKit
 import RTCoreData
 import CoreData
 import UserNotifications
+import AudioPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     var context:NSManagedObjectContext!
+    var currentSound: AudioPlayer?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -42,24 +44,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func registerCategory() -> Void {
         
-        let callNow = UNNotificationAction(identifier: "call", title: "Call now", options: [])
-        let clear = UNNotificationAction(identifier: "clear", title: "Clear", options: [])
-        let category : UNNotificationCategory = UNNotificationCategory.init(identifier: "CALLINNOTIFICATION", actions: [callNow, clear], intentIdentifiers: [], options: [])
+        let snooze = UNNotificationAction(identifier: "snooze", title: "Snooze", options: [])
+        let stop = UNNotificationAction(identifier: "stop", title: "Stop", options: [])
+        let category : UNNotificationCategory = UNNotificationCategory.init(identifier: "ALARMNOTIFICATION", actions: [snooze, stop], intentIdentifiers: [], options: [])
         
         let center = UNUserNotificationCenter.current()
         center.setNotificationCategories([category])
-        
+    }
+    
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        print("didReceive")
+
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
+        //get sound file name and load it up
+        do {
+            currentSound = try AudioPlayer(fileName: "bell.mp3")
+        }
+        catch _ {
+            // Error handling
+            print("Sound initialization failed")
+        }
+        
         let application = UIApplication.shared
         if application.applicationState != .active { // Only address notifications received when not active
-        
-            print("willPresent")
+            print("willPresent - inactive")
+            //Application is active Update UX for Snooze View
+            //playCurrentSoundAtStart()
             completionHandler([.badge, .alert, .sound])
+        } else {
+            print("willPresent - active")
+            
+            //play sound
+            playCurrentSound()
+            
+            //Application is active Update UX for Snooze View
         }
         completionHandler([])
+    }
+    
+    func playCurrentSound() {
+        currentSound?.numberOfLoops = 5
+        currentSound?.currentTime = 0
+        currentSound?.fadeIn()
+        currentSound?.volume = 100.0
+        currentSound?.play()
+    }
+    
+    func stopCurrentSound() {
+        currentSound?.fadeOut()
+        currentSound?.stop()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

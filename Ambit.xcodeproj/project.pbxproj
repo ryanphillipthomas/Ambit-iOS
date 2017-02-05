@@ -16,6 +16,7 @@
 		74B95EBE1DFB735400B03661 /* AmbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EBD1DFB735400B03661 /* AmbitTests.swift */; };
 		74B95EC91DFB735400B03661 /* AmbitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EC81DFB735400B03661 /* AmbitUITests.swift */; };
 		7AD917DC8EDBDDA1852CD9CB /* Pods_Ambit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1D98B5C1B96E01AD9087F0 /* Pods_Ambit.framework */; };
+		941436931E479B6E004B3430 /* 500.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 941436921E479B6E004B3430 /* 500.jpg */; };
 		9416C4FA1E45924300267C85 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9416C4F81E45924300267C85 /* Interface.storyboard */; };
 		9416C4FC1E45924300267C85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9416C4FB1E45924300267C85 /* Assets.xcassets */; };
 		9416C5031E45924300267C85 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9416C5021E45924300267C85 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -39,6 +40,7 @@
 		9480E5241E44447D00E094F3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480E5231E44447D00E094F3 /* Alarm.swift */; };
 		948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 948BB9A81E46E2FA00185831 /* bell.mp3 */; };
 		948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 948BB9A91E46E2FA00185831 /* tickle.mp3 */; };
+		948BB9AD1E477A8B00185831 /* AlarmScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BB9AC1E477A8B00185831 /* AlarmScheduleManager.swift */; };
 		949B0F881E4596A20092FFE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B0F871E4596A20092FFE5 /* AppDelegate.swift */; };
 		949B0F8A1E4596A20092FFE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B0F891E4596A20092FFE5 /* ViewController.swift */; };
 		949B0F8D1E4596A20092FFE5 /* TV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 949B0F8B1E4596A20092FFE5 /* TV.xcdatamodeld */; };
@@ -163,6 +165,7 @@
 		74B95ECA1DFB735400B03661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860CA7B9B603DA8CBF490151 /* Pods-AmbitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8D1D98B5C1B96E01AD9087F0 /* Pods_Ambit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		941436921E479B6E004B3430 /* 500.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 500.jpg; sourceTree = SOURCE_ROOT; };
 		9416C4F61E45924200267C85 /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9416C4F91E45924300267C85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		9416C4FB1E45924300267C85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +191,7 @@
 		9480E5231E44447D00E094F3 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		948BB9A81E46E2FA00185831 /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = SOURCE_ROOT; };
 		948BB9A91E46E2FA00185831 /* tickle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tickle.mp3; sourceTree = SOURCE_ROOT; };
+		948BB9AC1E477A8B00185831 /* AlarmScheduleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmScheduleManager.swift; sourceTree = "<group>"; };
 		949B0F851E4596A20092FFE5 /* TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949B0F871E4596A20092FFE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949B0F891E4596A20092FFE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -395,6 +399,9 @@
 		74B95ED71DFB738100B03661 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				941436921E479B6E004B3430 /* 500.jpg */,
+				948BB9AF1E47849900185831 /* Sleep Sounds */,
+				948BB9AE1E47848E00185831 /* Alarms */,
 				948BB9A81E46E2FA00185831 /* bell.mp3 */,
 				948BB9A91E46E2FA00185831 /* tickle.mp3 */,
 				947D75481E4220D300B69286 /* party.mp3 */,
@@ -421,6 +428,7 @@
 			children = (
 				9480E5201E44433400E094F3 /* Model.xcdatamodeld */,
 				9480E5231E44447D00E094F3 /* Alarm.swift */,
+				948BB9AC1E477A8B00185831 /* AlarmScheduleManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -475,6 +483,20 @@
 				94E061BE1E464CCC00206DF0 /* WNotificationController.swift */,
 			);
 			path = "Watch Extension";
+			sourceTree = "<group>";
+		};
+		948BB9AE1E47848E00185831 /* Alarms */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Alarms;
+			sourceTree = "<group>";
+		};
+		948BB9AF1E47849900185831 /* Sleep Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Sleep Sounds";
 			sourceTree = "<group>";
 		};
 		949B0F861E4596A20092FFE5 /* TV */ = {
@@ -852,6 +874,7 @@
 				74B95EB31DFB735400B03661 /* LaunchScreen.storyboard in Resources */,
 				947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */,
 				948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */,
+				941436931E479B6E004B3430 /* 500.jpg in Resources */,
 				947D75491E4220D300B69286 /* party.mp3 in Resources */,
 				74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
@@ -1083,6 +1106,7 @@
 				94E9E00A1E3EB9A3008A1F84 /* DDFileLogger.m in Sources */,
 				94E9E0301E3EC456008A1F84 /* SBTimeLabel.swift in Sources */,
 				94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */,
+				948BB9AD1E477A8B00185831 /* AlarmScheduleManager.swift in Sources */,
 				74B95EA81DFB735300B03661 /* ViewController.swift in Sources */,
 				94E9E0141E3EB9E3008A1F84 /* DispatchQueueLogFormatter.m in Sources */,
 				947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */,
