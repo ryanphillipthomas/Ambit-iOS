@@ -1535,7 +1535,7 @@
 				DEVELOPMENT_TEAM = FS6KJ5XME6;
 				INFOPLIST_FILE = TV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ryanphillipthomas.ambit.tvos.TV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 3.0;
@@ -1553,7 +1553,7 @@
 				DEVELOPMENT_TEAM = FS6KJ5XME6;
 				INFOPLIST_FILE = TV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ryanphillipthomas.ambit.tvos.TV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 3.0;
