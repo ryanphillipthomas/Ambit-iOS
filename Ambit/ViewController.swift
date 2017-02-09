@@ -53,8 +53,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: nil)
         
         timePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-        
-        dimView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dimViewFadeGesture(gesture:))))
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -72,8 +70,32 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         // Dispose of any resources that can be recreated.
     }
     
-    func dimViewFadeGesture(gesture: UIPanGestureRecognizer) {
-            print("Pan Dim The View")
+   @IBAction func dimViewFadeGesture(gesture: UIPanGestureRecognizer) {
+        print("Pan Dim The View")
+        
+        var lastPosition : CGPoint = CGPoint(x: 0, y: 0)
+        var nowPosition : CGPoint = CGPoint(x: 0, y: 0)
+        var alpha : CGFloat = 0.0
+        var new_alpha : CGFloat = 0.0
+        
+        nowPosition = gesture.translation(in: self.view)
+        alpha = self.dimView.alpha
+        
+        if (nowPosition.y > lastPosition.y) {
+            print("Down")
+            new_alpha = min(alpha + 0.02,1.0)
+            self.dimView.alpha = new_alpha
+        }
+        else if (nowPosition.y < lastPosition.y) {
+            print("Up")
+            new_alpha = max(alpha - 0.02,0)
+            self.dimView.alpha = new_alpha
+        }
+        else {
+            print("Neither")
+        }
+
+        lastPosition = nowPosition
     }
     
     func fadeToBlack() {

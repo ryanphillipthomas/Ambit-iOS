@@ -58,6 +58,7 @@
 		94A7A5F91E404A4E00A6D11D /* GradientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F51E404A4E00A6D11D /* GradientHandler.swift */; };
 		94A7A5FA1E404A4E00A6D11D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F61E404A4E00A6D11D /* UIColor+Extension.swift */; };
 		94A7A5FC1E40664E00A6D11D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5FB1E40664E00A6D11D /* Utilities.swift */; };
+		94B3D3D01E4CB37100980225 /* DimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3D3CF1E4CB37100980225 /* DimView.swift */; };
 		94E061BC1E46493100206DF0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E061BA1E46493100206DF0 /* NotificationController.swift */; };
 		94E061BD1E46493100206DF0 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 94E061BB1E46493100206DF0 /* PushNotificationPayload.apns */; };
 		94E061BF1E464CCC00206DF0 /* WNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E061BE1E464CCC00206DF0 /* WNotificationController.swift */; };
@@ -211,6 +212,7 @@
 		94A7A5F51E404A4E00A6D11D /* GradientHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientHandler.swift; path = Frameworks/GradientAnimate/GradientHandler.swift; sourceTree = "<group>"; };
 		94A7A5F61E404A4E00A6D11D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Frameworks/GradientAnimate/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		94A7A5FB1E40664E00A6D11D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		94B3D3CF1E4CB37100980225 /* DimView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimView.swift; sourceTree = "<group>"; };
 		94E061BA1E46493100206DF0 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		94E061BB1E46493100206DF0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		94E061BE1E464CCC00206DF0 /* WNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WNotificationController.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 		74B95EA41DFB735300B03661 /* Ambit */ = {
 			isa = PBXGroup;
 			children = (
+				94B3D3CE1E4CB35800980225 /* Views */,
 				74B95ED61DFB737700B03661 /* Storyboards */,
 				74B95EDC1DFB73BC00B03661 /* View Controllers */,
 				74B95EDB1DFB73B700B03661 /* Views */,
@@ -555,6 +558,14 @@
 				94A7A5F61E404A4E00A6D11D /* UIColor+Extension.swift */,
 			);
 			name = "Gradient Animation";
+			sourceTree = "<group>";
+		};
+		94B3D3CE1E4CB35800980225 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94B3D3CF1E4CB37100980225 /* DimView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		94E9E00D1E3EB9A9008A1F84 /* Lumberjack */ = {
@@ -1107,6 +1118,7 @@
 				94E9E0301E3EC456008A1F84 /* SBTimeLabel.swift in Sources */,
 				94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */,
 				948BB9AD1E477A8B00185831 /* AlarmScheduleManager.swift in Sources */,
+				94B3D3D01E4CB37100980225 /* DimView.swift in Sources */,
 				74B95EA81DFB735300B03661 /* ViewController.swift in Sources */,
 				94E9E0141E3EB9E3008A1F84 /* DispatchQueueLogFormatter.m in Sources */,
 				947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */,

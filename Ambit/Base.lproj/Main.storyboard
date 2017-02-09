@@ -245,30 +245,32 @@
                                             <constraint firstItem="XI3-m5-aV2" firstAttribute="centerX" secondItem="oyO-df-Dcp" secondAttribute="centerX" id="BWz-73-pzr"/>
                                         </constraints>
                                     </view>
-                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tu1-hw-Nie" userLabel="dimLayer">
+                                    <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbK-cg-h8C" userLabel="dimView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="hw9-1x-fKM" appends="YES" id="hQD-wC-Huv"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="tu1-hw-Nie" secondAttribute="bottom" id="0b7-5h-CU6"/>
+                                    <constraint firstItem="MbK-cg-h8C" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="1JQ-JP-W9l"/>
                                     <constraint firstItem="QD2-11-uAW" firstAttribute="centerX" secondItem="ts5-q6-8y3" secondAttribute="centerX" id="5Xr-Cq-rb1"/>
                                     <constraint firstItem="Slu-9T-Nev" firstAttribute="centerX" secondItem="ts5-q6-8y3" secondAttribute="centerX" id="5ww-7w-vgT"/>
-                                    <constraint firstAttribute="trailing" secondItem="tu1-hw-Nie" secondAttribute="trailing" id="7R9-Vi-Tut"/>
+                                    <constraint firstAttribute="trailing" secondItem="MbK-cg-h8C" secondAttribute="trailing" id="7Om-eh-mix"/>
                                     <constraint firstAttribute="trailing" secondItem="2LJ-kc-Z4z" secondAttribute="trailing" id="Erz-A7-YdO"/>
                                     <constraint firstItem="bO5-WW-lOr" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" constant="16" id="F4X-El-avV"/>
+                                    <constraint firstItem="MbK-cg-h8C" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" id="IDg-VI-mXT"/>
                                     <constraint firstItem="oyO-df-Dcp" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="K2W-rm-LT0"/>
                                     <constraint firstItem="bO5-WW-lOr" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" constant="28" id="LPP-Co-8hz"/>
-                                    <constraint firstItem="tu1-hw-Nie" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="Uot-3c-U4C"/>
+                                    <constraint firstAttribute="bottom" secondItem="MbK-cg-h8C" secondAttribute="bottom" id="M4G-ZM-ELW"/>
                                     <constraint firstAttribute="bottom" secondItem="oyO-df-Dcp" secondAttribute="bottom" id="VX9-22-YOx"/>
                                     <constraint firstAttribute="trailing" secondItem="oyO-df-Dcp" secondAttribute="trailing" id="X8v-3X-OEZ"/>
                                     <constraint firstItem="Slu-9T-Nev" firstAttribute="centerY" secondItem="ts5-q6-8y3" secondAttribute="centerY" id="Xxb-Gr-aHb"/>
                                     <constraint firstAttribute="trailing" secondItem="bO5-WW-lOr" secondAttribute="trailing" constant="16" id="aNI-7c-Ei4"/>
                                     <constraint firstAttribute="bottom" secondItem="2LJ-kc-Z4z" secondAttribute="bottom" id="gmO-Zr-Iwd"/>
-                                    <constraint firstItem="tu1-hw-Nie" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" id="i2E-TD-D2t"/>
                                     <constraint firstItem="2LJ-kc-Z4z" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="sYE-JA-XCi"/>
                                     <constraint firstItem="QD2-11-uAW" firstAttribute="centerY" secondItem="ts5-q6-8y3" secondAttribute="centerY" constant="-18" id="yDr-Vy-KkC"/>
                                 </constraints>
@@ -284,7 +286,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="FYf-57-svi"/>
                     <connections>
-                        <outlet property="dimView" destination="tu1-hw-Nie" id="k6N-fH-Ugo"/>
+                        <outlet property="dimView" destination="MbK-cg-h8C" id="NWE-Qg-fRt"/>
                         <outlet property="fullScreenBlackoutView" destination="ts5-q6-8y3" id="bvt-oH-58r"/>
                         <outlet property="nextAlarmAnimationView" destination="bO5-WW-lOr" id="IX2-Ct-V7T"/>
                         <outlet property="settingsButton" destination="GiB-j9-Q0U" id="zOc-YC-LzL"/>
@@ -302,6 +304,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="hw9-1x-fKM">
+                    <connections>
+                        <action selector="dimViewFadeGestureWithGesture:" destination="BYZ-38-t0r" id="UUu-er-onk"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="479.19999999999999" y="88.605697151424295"/>
         </scene>
