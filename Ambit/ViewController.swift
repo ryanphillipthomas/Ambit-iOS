@@ -17,6 +17,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     @IBOutlet var timeLabel:SBTimeLabel!
     @IBOutlet var timeLeftLabel:UILabel!
+    @IBOutlet var timeUpcomingLabel: UILabel!
 
     @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
@@ -28,8 +29,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet weak var nextAlarmAnimationView: SpringView!
     @IBOutlet weak var stopAnimationView: SpringView!
     @IBOutlet weak var dimView: UIView!
-
-    @IBOutlet weak var timeButton: UIButton!
+    @IBOutlet weak var snoozeView: SpringView!
     
     var backroundAnimation = CAGradientLayer()
     var managedObjectContext: NSManagedObjectContext!
@@ -47,18 +47,26 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabelAnimationView.isHidden = true
         nextAlarmAnimationView.isHidden = true
         stopAnimationView.isHidden = true
+        snoozeView.isHidden = true
+//        dimView.isHidden = true
         
         setNeedsStatusBarAppearanceUpdate()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: nil)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didSnooze(gesture:)))
+        snoozeView.addGestureRecognizer(tap)
+        snoozeView.isUserInteractionEnabled = true
+
         timePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        
+//        dimView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dimViewFadeGesture(gesture:))))
 
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //updateRunningAlarmUI()
+        updateRunningAlarmUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -82,13 +90,15 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         alpha = self.dimView.alpha
         
         if (nowPosition.y > lastPosition.y) {
-            print("Down")
             new_alpha = min(alpha + 0.02,1.0)
+            if new_alpha == 1 {new_alpha = 0.99}
+            print("\(new_alpha)")
             self.dimView.alpha = new_alpha
         }
         else if (nowPosition.y < lastPosition.y) {
-            print("Up")
             new_alpha = max(alpha - 0.02,0)
+            if new_alpha == 0 {new_alpha = 0.01}
+            print("\(new_alpha)")
             self.dimView.alpha = new_alpha
         }
         else {
@@ -107,13 +117,13 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         //timeLabel to white
         UIView.transition(with: self.timeLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
-            self.timeButton.setTitleColor(UIColor.white, for: .normal)
+            self.timeUpcomingLabel.textColor = UIColor.white
             self.timeLabel.textColor = UIColor.white
         }) { (finished) in
 
             //timeLabel to grey
             UIView.transition(with: self.timeLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
-                self.timeButton.setTitleColor(UIColor.darkGray, for: .normal)
+                self.timeUpcomingLabel.textColor = UIColor.darkGray
                 self.timeLabel.textColor = UIColor.darkGray
             }, completion: nil)
         }
@@ -141,7 +151,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         self.view.layer.insertSublayer(backroundAnimation, at: 0)
         
         UIView.transition(with: self.timeLabel, duration: 1.0, options: .transitionCrossDissolve, animations: {
-            self.timeButton.setTitleColor(UIColor.black, for: .normal)
+            self.timeUpcomingLabel.textColor = UIColor.black
             self.timeLabel.textColor = UIColor.black
         }, completion: nil)
 
@@ -158,7 +168,28 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     func updateRunningAlarmUI() {
-//DEV TODO        Alarm.fetchInContext(context: managedObjectContext)
+        let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
+        guard let scheduleAlarm = alarm else {return}
+        //let timeRemaining = StringHelper.timeLeftUntilAlarm(alarmDate: scheduleAlarm.fireDate)
+        let currentDate = Date()
+        var hour_min_string = ""
+        if currentDate > scheduleAlarm.fireDate {
+            hour_min_string = StringHelper.pastTimeString(for: scheduleAlarm.fireDate)
+        } else {
+            hour_min_string = StringHelper.futureTimeString(for: scheduleAlarm.fireDate)
+        }
+        
+        timeUpcomingLabel.text = hour_min_string
+        
+        let next_alarm_string = StringHelper.nextAlarmString(alarmDate: scheduleAlarm.fireDate)
+        timeLeftLabel.text = next_alarm_string
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.isPlayingSound() {
+            animateOutTimeDisplayLayers()
+            animateInSnoozeButton() //show the snooze button
+            self.perform(#selector(self.fadeToClear), with: nil, afterDelay: 0.4) //fade in the color backround in 0.4 secs
+        }
     }
     
     func animateInTimeDisplayLayers() {
@@ -176,8 +207,28 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabelAnimationView.animate()
     }
     
+    func animateInSnoozeButton () {
+        if snoozeView.isHidden {
+            snoozeView.isHidden = false
+            snoozeView.animation = "zoomIn"
+            snoozeView.curve = "easeIn"
+            snoozeView.duration = 1.0
+            snoozeView.animate()
+        }
+    }
+    
+    func animateOutSnoozeButton () {
+        snoozeView.isHidden = true
+
+        snoozeView.animation = "zoomOut"
+        snoozeView.curve = "easeIn"
+        snoozeView.duration = 1.0
+        snoozeView.animate()
+    }
+    
     func animateInStopButton () {
         stopAnimationView.isHidden = false
+//        dimView.isHidden = false
 
         stopAnimationView.animation = "fadeInUp"
         stopAnimationView.curve = "linear"
@@ -196,16 +247,18 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabelAnimationView.duration = 2.0
         timeLabelAnimationView.animate()
         
+        timeLabelAnimationView.isHidden = true
+        nextAlarmAnimationView.isHidden = true
+//        dimView.isHidden = true
+    }
+    
+    func animateOutStopButton() {
         stopAnimationView.animation = "fadeOutUp"
         stopAnimationView.curve = "linear"
         stopAnimationView.duration = 2.0
         stopAnimationView.animate()
         
-        timeLabelAnimationView.isHidden = true
-        nextAlarmAnimationView.isHidden = true
         stopAnimationView.isHidden = true
-        
-        animateInTimePickerLayers()
     }
     
     func animateInTimePickerLayers() {
@@ -236,9 +289,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         timePickerAnimationView.isHidden = true
         settingsButtonAnimationView.isHidden = true
-
-        
-        animateInTimeDisplayLayers()
     }
     
     func configurePickerView() {
@@ -272,6 +322,20 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         self.fadeToClear()
         self.animateOutTimeDisplayLayers()
+        self.animateOutStopButton()
+        self.animateInTimePickerLayers()
+    }
+    
+    @IBAction func didSnooze(gesture: UITapGestureRecognizer) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.stopCurrentSound()
+        
+        //start fading black frame
+        self.perform(#selector(self.fadeToBlack), with: nil, afterDelay: 3.0)
+        
+        animateOutSnoozeButton()
+        
+        animateInTimeDisplayLayers()
     }
     
 
@@ -284,8 +348,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         performSegue(withIdentifier: "alarmOptions", sender: nil)
 //        HueConnectionManager.sharedManager.searchForBridgeLocal()
     }
-    
-
     
     @IBAction func startClock(_ sender: Any) {
         //create new alarm attributes
@@ -308,6 +370,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         //animaite out time picker
         self.animateOutTimePickerLayers()
+        
+        //animaite out time picker
+        animateInTimeDisplayLayers()
 
         //update label with alarm
         updateRunningAlarmUI()
@@ -432,7 +497,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
 extension ViewController: SBTimeLabelDelegate {
     func didUpdateText(_ label: SBTimeLabel) {
-//        NSLog("clock: \(timeLabel.text)")
+        NSLog("clock: \(timeLabel.text)")
+        updateRunningAlarmUI()
     }
 }
 
@@ -525,3 +591,45 @@ extension ViewController : HueConnectionManagerDelegate {
 //    }
 //}
 
+
+extension Date {
+    /// Returns the amount of years from another date
+    func years(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.year], from: date, to: self).year ?? 0
+    }
+    /// Returns the amount of months from another date
+    func months(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.month], from: date, to: self).month ?? 0
+    }
+    /// Returns the amount of weeks from another date
+    func weeks(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.weekOfYear], from: date, to: self).weekOfYear ?? 0
+    }
+    /// Returns the amount of days from another date
+    func days(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.day], from: date, to: self).day ?? 0
+    }
+    /// Returns the amount of hours from another date
+    func hours(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.hour], from: date, to: self).hour ?? 0
+    }
+    /// Returns the amount of minutes from another date
+    func minutes(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.minute], from: date, to: self).minute ?? 0
+    }
+    /// Returns the amount of seconds from another date
+    func seconds(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
+    }
+    /// Returns the a custom time interval description from another date
+    func offset(from date: Date) -> String {
+        if years(from: date)   > 0 { return "\(years(from: date))y"   }
+        if months(from: date)  > 0 { return "\(months(from: date))M"  }
+        if weeks(from: date)   > 0 { return "\(weeks(from: date))w"   }
+        if days(from: date)    > 0 { return "\(days(from: date))d"    }
+        if hours(from: date)   > 0 { return "\(hours(from: date))h"   }
+        if minutes(from: date) > 0 { return "\(minutes(from: date))m" }
+        if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
+        return ""
+    }
+}

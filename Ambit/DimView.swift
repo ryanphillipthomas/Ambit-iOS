@@ -10,6 +10,13 @@ import UIKit
 
 class DimView: UIView {
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        return false
+        for subview in subviews {
+            if !subview.isHidden && subview.alpha > 0 && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {
+                print("true")
+                return true
+            }
+        }
+        print("false")
+        return true
     }
 }

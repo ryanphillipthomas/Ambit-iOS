@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
     var context:NSManagedObjectContext!
     var currentSound: AudioPlayer?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
@@ -40,6 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         return true
+    }
+    
+    func isPlayingSound() -> Bool {
+        guard let currentSound = self.currentSound else { return false }
+        return currentSound.isPlaying
     }
     
     func registerCategory() -> Void {
@@ -79,8 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             //play sound
             playCurrentSound()
-            
-            //Application is active Update UX for Snooze View
         }
         completionHandler([])
     }

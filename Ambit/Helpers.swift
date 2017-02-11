@@ -90,7 +90,7 @@ class StringHelper{
     }
     
     // Returns a valid string to represent the time interval since the post was modified. i.e "10 days ago"
-    class func timeString(for date:Date) -> String {
+    class func pastTimeString(for date:Date) -> String {
         let diff = date.timeIntervalSinceNow
         let dateDifference = abs(diff / 60.0) // minutes
         var timeString = ""
@@ -106,6 +106,27 @@ class StringHelper{
             timeString = String(format:"%i", Int(dateDifference)) + " min ago"
         } else {
             timeString = String(format:"%i", Int(dateDifference * 60.0)) + " sec ago"
+        }
+        return timeString
+    }
+    
+    // Returns a valid string to represent the time interval since the post was modified. i.e "10 days left"
+    class func futureTimeString(for date:Date) -> String {
+        let diff = date.timeIntervalSinceNow
+        let dateDifference = abs(diff / 60.0) // minutes
+        var timeString = ""
+        if Int(dateDifference) >= (60 * 24 * 2) {
+            timeString = String(format:"%i", Int(dateDifference / (60 * 24))) + " days left"
+        } else if Int(dateDifference) >= (60 * 24) {
+            timeString = String(format:"%i", Int(dateDifference / (60 * 24))) + " day left"
+        } else if Int(dateDifference) >= 120 {
+            timeString = String(format:"%i", Int(dateDifference / 60.0)) + " hrs left"
+        } else if Int(dateDifference) >= 60 {
+            timeString = String(format:"%i", Int(dateDifference / 60.0)) + " hr left"
+        } else if Int(dateDifference) >= 1 {
+            timeString = String(format:"%i", Int(dateDifference)) + " min left"
+        } else {
+            timeString = String(format:"%i", Int(dateDifference * 60.0)) + " sec left"
         }
         return timeString
     }
@@ -148,6 +169,99 @@ class StringHelper{
         let minutes = components.minute
         
         return String(format:"%02d:%02d", hour!, minutes!)
+    }
+    
+    class func timeLeftUntilAlarm(alarmDate : Date) -> String {
+        let currentDate = Date()
+        let min = DateHelper.minBetweenDates(startDate: currentDate, endDate: alarmDate)
+        let hour = DateHelper.hoursBetweenDates(startDate: currentDate, endDate: alarmDate)
+        var ago_left = "left"
+        
+        if currentDate > alarmDate {
+            //flip text if alarm is in the past
+            ago_left = "ago"
+        }
+        
+        return String("\(hour) hrs \(min) mins \(ago_left)")
+    }
+    
+    class func nextAlarmString(alarmDate : Date) -> String {
+        let alarmHour = StringHelper.hour(date: alarmDate)
+        let alarmMinute = StringHelper.minute(date: alarmDate)
+        let alarm_am_pm = StringHelper.am_pm(date: alarmDate)
+        
+        let calendar = Calendar.current
+        let endDate = calendar.date(byAdding: .minute, value: 15, to: alarmDate)
+        
+        let endHour = StringHelper.hour(date: endDate!)
+        let endMinute = StringHelper.minute(date: endDate!)
+        let end_am_pm = StringHelper.am_pm(date: endDate!)
+        
+        return "\(alarmHour):\(alarmMinute) \(alarm_am_pm) - \(endHour):\(endMinute) \(end_am_pm)"
+    }
+    
+    class func day(date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E"
+        return dateFormatter.string(from: date)
+    }
+    
+    class func minute(date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm"
+        return dateFormatter.string(from: date)
+    }
+    
+    class func hour(date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h"
+        return dateFormatter.string(from: date)
+    }
+    
+    class func am_pm(date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.amSymbol = "am"
+        dateFormatter.pmSymbol = "pm"
+        dateFormatter.dateFormat = "a"
+        return dateFormatter.string(from: date)
+    }
+}
+
+class DateHelper {
+    
+    class func daysBetweenDates(startDate: Date, endDate: Date) -> Int {
+        var days = 0
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.day], from: startDate, to: endDate)
+        
+        if (components.day != nil) {
+            days = components.day!
+        }
+        
+        return days
+    }
+    
+    class func hoursBetweenDates(startDate: Date, endDate: Date) -> Int {
+        var hour = 0
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.hour], from: startDate, to: endDate)
+        
+        if (components.hour != nil) {
+            hour = components.hour!
+        }
+        return hour
+    }
+    
+    class func minBetweenDates(startDate: Date, endDate: Date) -> Int {
+        var min = 0
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.minute], from: startDate, to: endDate)
+       
+        if (components.minute != nil) {
+            min = components.minute!
+        }
+        
+        return min
     }
 }
 

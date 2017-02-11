@@ -44,7 +44,34 @@ public class Alarm: ManagedObject {
             alarm.enabled = enabled
             alarm.snoozeEnabled = snoozeEnabled
         }
+        
+        //allways set to current
+        currentAlarmID = id
+        
         return alarm
+    }
+    
+    // MARK: currentAlarmID get / set
+    static var currentAlarmID:String? {
+        get {
+            let defaults = UserDefaults.standard
+            return defaults.object(forKey: "currentAlarmID") as? String
+        }
+        set {
+            let defaults = UserDefaults.standard
+            defaults.setValue(newValue, forKey: "currentAlarmID")
+        }
+    }
+    
+    public static func fetchCurrentAlarm(moc: NSManagedObjectContext) -> Alarm? {
+        if let currentAlarmID = currentAlarmID {
+            let predicate = NSPredicate(format: "id == %@", currentAlarmID)
+            return Alarm.fetchInContext(context: moc, configurationBlock: { (request) in
+                request.predicate = predicate
+                request.fetchBatchSize = 1
+            }).first
+        }
+        return nil
     }
 }
 
