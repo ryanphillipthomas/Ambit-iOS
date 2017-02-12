@@ -229,12 +229,14 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     func updateRunningAlarmUI() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
         guard let scheduleAlarm = alarm else {return}
         //let timeRemaining = StringHelper.timeLeftUntilAlarm(alarmDate: scheduleAlarm.fireDate)
         let currentDate = Date()
         var hour_min_string = ""
         if currentDate > scheduleAlarm.fireDate {
+            appDelegate.play()
             hour_min_string = StringHelper.pastTimeString(for: scheduleAlarm.fireDate)
         } else {
             hour_min_string = StringHelper.futureTimeString(for: scheduleAlarm.fireDate)
@@ -245,7 +247,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         let next_alarm_string = StringHelper.nextAlarmString(alarmDate: scheduleAlarm.fireDate)
         timeLeftLabel.text = next_alarm_string
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if appDelegate.isPlayingSound() {
             animateOutTimeDisplayLayers()
             animateInSnoozeButton() //show the snooze button

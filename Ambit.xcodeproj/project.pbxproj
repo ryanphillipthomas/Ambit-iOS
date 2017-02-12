@@ -30,6 +30,7 @@
 		94596FE61E46201800C04E17 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94596FE51E46201800C04E17 /* DataSource.swift */; };
 		946597771E454FFF00ED204C /* RTCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946597761E454FFF00ED204C /* RTCoreData.framework */; };
 		946597791E4567F400ED204C /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946597781E4567F400ED204C /* LaunchScreenViewController.swift */; };
+		9470D6DC1E503BE5009AA49A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9470D6DB1E503BE5009AA49A /* AVFoundation.framework */; };
 		947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75401E41804C00B69286 /* AlarmOptionsTableViewController.swift */; };
 		947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75421E418A5E00B69286 /* BlurTableViewCell.swift */; };
 		947D75451E41A16E00B69286 /* SoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75441E41A16E00B69286 /* SoundsTableViewController.swift */; };
@@ -184,6 +185,7 @@
 		94596FE51E46201800C04E17 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		946597761E454FFF00ED204C /* RTCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RTCoreData.framework; path = Carthage/Build/iOS/RTCoreData.framework; sourceTree = "<group>"; };
 		946597781E4567F400ED204C /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		9470D6DB1E503BE5009AA49A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		947D75401E41804C00B69286 /* AlarmOptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmOptionsTableViewController.swift; sourceTree = "<group>"; };
 		947D75421E418A5E00B69286 /* BlurTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurTableViewCell.swift; sourceTree = "<group>"; };
 		947D75441E41A16E00B69286 /* SoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsTableViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9470D6DC1E503BE5009AA49A /* AVFoundation.framework in Frameworks */,
 				944BEAC01E465BC900C1BADA /* UserNotifications.framework in Frameworks */,
 				94E9DFF01E3EB289008A1F84 /* HueSDK_iOS.framework in Frameworks */,
 				7AD917DC8EDBDDA1852CD9CB /* Pods_Ambit.framework in Frameworks */,
@@ -634,6 +637,7 @@
 		CE9EDE0DBCC025329CC23A8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9470D6DB1E503BE5009AA49A /* AVFoundation.framework */,
 				944BEABF1E465BC900C1BADA /* UserNotifications.framework */,
 				946597761E454FFF00ED204C /* RTCoreData.framework */,
 				94A7A5F21E404A3800A6D11D /* Gradient Animation */,
@@ -818,6 +822,11 @@
 						DevelopmentTeam = FS6KJ5XME6;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					74B95EB81DFB735400B03661 = {
 						CreatedOnToolsVersion = 8.0;

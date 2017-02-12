@@ -11,13 +11,15 @@ import RTCoreData
 import CoreData
 import UserNotifications
 import AudioPlayer
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     var context:NSManagedObjectContext!
     var currentSound: AudioPlayer?
-    
+    var audioPlayer : AVAudioPlayer!
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
@@ -35,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         center.delegate = self
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             if granted {
-                self.registerCategory()
+                //self.registerCategory()
             }
         }
         
@@ -44,6 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func isPlayingSound() -> Bool {
         guard let currentSound = self.currentSound else { return false }
+        return currentSound.isPlaying
+    }
+    
+    func isPlayingBackroundSound() -> Bool {
+        guard let currentSound = self.audioPlayer else { return false }
         return currentSound.isPlaying
     }
     
@@ -59,19 +66,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         print("didReceive")
-
     }
     
+    func userNotificationCenter(center: UNUserNotificationCenter, didReceiveNotificationResponse response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
+        print("didReceiveNotificationResponse")
+    }
+    
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        //get sound file name and load it up
-        do {
-            currentSound = try AudioPlayer(fileName: "bell.mp3")
-        }
-        catch _ {
-            // Error handling
-            print("Sound initialization failed")
-        }
         
         let application = UIApplication.shared
         if application.applicationState != .active { // Only address notifications received when not active
@@ -83,10 +85,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("willPresent - active")
             
             //play sound
-            playCurrentSound()
+            play()
+            
         }
         completionHandler([])
     }
+    
+    func play() {
+        
+        if isPlayingSound() { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+            return print("error")
+        }
+        
+        //get sound file name and load it up
+        do {
+            currentSound = try AudioPlayer(fileName: "bell.mp3")
+        }
+        catch _ {
+            // Error handling
+            print("Sound initialization failed")
+        }
+        
+        //play sound
+        playCurrentSound()
+    }
+    
     
     func playCurrentSound() {
         currentSound?.numberOfLoops = 5
@@ -108,6 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("didReceive")
         completionHandler()
     }
+
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

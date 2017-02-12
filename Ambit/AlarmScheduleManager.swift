@@ -32,8 +32,9 @@ class AlarmScheduleManager: NSObject {
         //dev todo add ability to see the amount of alarms displayed already
 //        content.title = ""
         content.body = "Time to wakeup!"
-        content.sound = UNNotificationSound.init(named: "bell.mp3")
-        content.categoryIdentifier = "ALARMNOTIFICATION"
+ //       content.sound = UNNotificationSound.init(named: "bell.mp3")
+        content.userInfo = ["content-available":"1"]
+  //      content.categoryIdentifier = "ALARMNOTIFICATION"
         //content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
         
         // Add Image to Notification
