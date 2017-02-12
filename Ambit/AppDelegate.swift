@@ -99,6 +99,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func stopCurrentSound() {
         currentSound?.fadeOut()
         currentSound?.stop()
+        
+        AlarmScheduleManager.sharedManager.clearAllAlarms()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

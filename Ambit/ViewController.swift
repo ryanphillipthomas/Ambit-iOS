@@ -11,6 +11,7 @@ import Spring
 import CoreData
 import RTCoreData
 import UserNotifications
+import EventKit
 
 class ViewController: UIViewController, ManagedObjectContextSettable {
     fileprivate let food = ["🍦", "🍮", "🍤","🍉", "🍨", "🍏", "🍌", "🍰", "🍚", "🍓", "🍪", "🍕"]
@@ -31,6 +32,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet weak var dimView: UIView!
     @IBOutlet weak var snoozeView: SpringView!
     
+    @IBOutlet weak var containerView: UIView!
+    weak var tableViewController:UITableViewController!
+    weak var tableView: UITableView!
+
     var backroundAnimation = CAGradientLayer()
     var managedObjectContext: NSManagedObjectContext!
     
@@ -39,8 +44,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabel.updateText()
         timeLabel.start()
         timeLabel.delegate = self
+        
         HueConnectionManager.sharedManager.delegate = self
         
+        EventManager.sharedManager.delegate = self
+        EventManager.sharedManager.checkCalendarAuthorizationStatus()
+
         backroundAnimation = GradientHandler.addGradientLayer()
         GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
         
@@ -54,11 +63,13 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: nil)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didSnooze(gesture:)))
-        snoozeView.addGestureRecognizer(tap)
-        snoozeView.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(didSnooze(gesture:)))
+//        snoozeView.addGestureRecognizer(tap)
+//        snoozeView.isUserInteractionEnabled = true
 
         timePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        
+        loadEvents()
         
 //        dimView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dimViewFadeGesture(gesture:))))
 
@@ -71,6 +82,56 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     override func viewDidLayoutSubviews() {
         backroundAnimation.frame = self.view.bounds
+    }
+    
+    func handleRefresh() {
+        loadFutureEvents()
+        
+        fetch()
+        self.tableView.reloadData()
+        self.tableViewController.refreshControl?.endRefreshing()
+    }
+    
+    // MARK - Load Events
+    func loadEvents() {
+        fetch()
+        self.tableView.reloadData()
+        //        updateView()
+        loadFutureEvents()
+    }
+    
+    func loadFutureEvents() {
+        Event.allUpcoming(moc: managedObjectContext) { (events) in
+            //print(events)
+            self.tableViewController.refreshControl?.endRefreshing()
+        }
+    }
+    
+    // MARK: -fetchedResultsController
+    lazy var fetchedResultsController: NSFetchedResultsController<Event> = {
+        // Create Fetch Request
+        let fetchRequest = NSFetchRequest<Event>(entityName: "Event")
+        
+        // Configure Fetch Request
+        let sortDescriptor = NSSortDescriptor(key: "startTime", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.fetchLimit = 100
+        
+        // Create Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+    }()
+    
+    func fetch () {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to initialize FetchedResultsController: \(error)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -208,7 +269,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     func animateInSnoozeButton () {
-        if snoozeView.isHidden {
+        if snoozeView.isHidden == true {
             snoozeView.isHidden = false
             snoozeView.animation = "zoomIn"
             snoozeView.curve = "easeIn"
@@ -227,13 +288,15 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     func animateInStopButton () {
-        stopAnimationView.isHidden = false
-//        dimView.isHidden = false
+        if stopAnimationView.isHidden == true {
+            stopAnimationView.isHidden = false
+    //        dimView.isHidden = false
 
-        stopAnimationView.animation = "fadeInUp"
-        stopAnimationView.curve = "linear"
-        stopAnimationView.duration = 2.0
-        stopAnimationView.animate()
+            stopAnimationView.animation = "fadeInUp"
+            stopAnimationView.curve = "linear"
+            stopAnimationView.duration = 2.0
+            stopAnimationView.animate()
+        }
     }
     
     func animateOutTimeDisplayLayers() {
@@ -253,6 +316,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     func animateOutStopButton() {
+        
         stopAnimationView.animation = "fadeOutUp"
         stopAnimationView.curve = "linear"
         stopAnimationView.duration = 2.0
@@ -324,17 +388,22 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         self.animateOutTimeDisplayLayers()
         self.animateOutStopButton()
         self.animateInTimePickerLayers()
+        self.animateOutSnoozeButton()
     }
     
-    @IBAction func didSnooze(gesture: UITapGestureRecognizer) {
+    @IBAction func didSnooze(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.stopCurrentSound()
         
         //start fading black frame
         self.perform(#selector(self.fadeToBlack), with: nil, afterDelay: 3.0)
         
-        animateOutSnoozeButton()
+        //generate date in 1 min
+        let now = Date()
+        let dateInFifteenMinutes = now.addingTimeInterval(60*1)
+        addAlarmFromTimePicker(date:dateInFifteenMinutes)
         
+        animateOutSnoozeButton()
         animateInTimeDisplayLayers()
     }
     
@@ -348,25 +417,35 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         performSegue(withIdentifier: "alarmOptions", sender: nil)
 //        HueConnectionManager.sharedManager.searchForBridgeLocal()
     }
-    
-    @IBAction func startClock(_ sender: Any) {
+
+    func addAlarmFromTimePicker(date:Date? = nil) {
         //create new alarm attributes
         let id = UUID().uuidString
+        var fireDate = timePicker.date
+        if (date != nil) { fireDate = date! }
         let alarmDictionary:[String : Any] = ["id": id,
-                                              "fireDate": timePicker.date,
+                                              "fireDate": fireDate,
                                               "name": "unnamed",
                                               "enabled" : true,
                                               "mediaID" : "",
                                               "mediaLabel" : "tickle.mp3",
                                               "snoozeEnabled" : true]
-       
+        
         //create the alarm
         _ = Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
         
         //get the alarm and provide it to our sceduler
-        let alarm = Alarm.fetchInContext(context: managedObjectContext).first
+        let predicate = NSPredicate(format: "id == %@", id)
+        let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
         guard let scheduleAlarm = alarm else {return}
+        print(scheduleAlarm.fireDate)
         AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 20)
+    }
+    
+    @IBAction func startClock(_ sender: Any) {
+
+        //create new alarm from time picker
+        addAlarmFromTimePicker()
         
         //animaite out time picker
         self.animateOutTimePickerLayers()
@@ -468,6 +547,16 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             authViewController.startPushLinking()
         } else if segue.identifier == "alarmOptions", let alarmOptions = segue.destination as? AlarmOptionsTableViewController {
             ///
+        } else if segue.identifier == "containerSegue", let tableVC = segue.destination as? UITableViewController {
+            let refreshControl = UIRefreshControl()
+            refreshControl.tintColor = UIColor.white
+            refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh), for: UIControlEvents.valueChanged)
+            tableVC.refreshControl = refreshControl
+            self.tableView = tableVC.tableView
+            self.tableViewController = tableVC
+            
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
         }
     }
     
@@ -633,3 +722,114 @@ extension Date {
         return ""
     }
 }
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let count = fetchedResultsController.fetchedObjects?.count
+        
+        var cell:UITableViewCell
+        
+        let event = fetchedResultsController.object(at:indexPath)
+        cell = tableView.dequeueReusableCell(withIdentifier: "eventTableViewCell", for: indexPath)
+        
+        // Configure Cell
+        configure(cell as! EventTableViewCell, at: indexPath)
+        return cell
+    }
+    
+    func configure(_ cell: EventTableViewCell, at indexPath: IndexPath) {
+        let row = indexPath.row
+        let count = fetchedResultsController.fetchedObjects?.count
+        let event = fetchedResultsController.object(at: indexPath)
+        cell.configureWith(eventIndex: Int(row), numberOfItems: Int(count!), event:event)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let event = fetchedResultsController.object(at: indexPath)
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+     func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let events = fetchedResultsController.fetchedObjects else { return 0 }
+        return events.count
+    }
+}
+
+extension ViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+        //        updateView()
+    }
+    
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch (type) {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break;
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            break;
+        case .update:
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? EventTableViewCell {
+                configure(cell, at: indexPath)
+            }
+            break;
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+            break;
+        }
+    }
+}
+
+extension ViewController: EventManagerDelegate {
+    func needPermissionToCalendar() {
+        //Display alert that we need the users calendar permission
+    }
+    func loadCalendars() {
+        self.loadEvents()
+    }
+    func requestAccessToCalendar() {
+        EKEventStore().requestAccess(to: .event, completion: {
+            (accessGranted: Bool, error: Error?) in
+            
+            if accessGranted == true {
+                DispatchQueue.main.async(execute: {
+                    self.loadCalendars()
+                    self.tableView.reloadData()
+                })
+            } else {
+                //Display alert that we need the users calendar permission
+            }
+        })
+    }
+}
+
+
+

@@ -6,6 +6,7 @@
     pod 'Crashlytics', '3.8.0'
     pod 'AudioPlayerSwift'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+    pod 'GLTimeline'
   end
 
 target 'Ambit' do

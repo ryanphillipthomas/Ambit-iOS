@@ -171,6 +171,16 @@ class StringHelper{
         return String(format:"%02d:%02d", hour!, minutes!)
     }
     
+    class func hourMinuteStringFor(date:Date) -> String {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute, .second], from: date)
+        
+        let hour = components.hour
+        let minutes = components.minute
+        
+        return String(format:"%02d:%02d", hour!, minutes!)
+    }
+    
     class func timeLeftUntilAlarm(alarmDate : Date) -> String {
         let currentDate = Date()
         let min = DateHelper.minBetweenDates(startDate: currentDate, endDate: alarmDate)

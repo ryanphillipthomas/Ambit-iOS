@@ -45,5 +45,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>We need access to your calendar in order to help you track events.</string>
 </dict>
 </plist>

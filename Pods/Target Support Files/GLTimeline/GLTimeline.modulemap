@@ -1,0 +1,6 @@
+framework module GLTimeline {
+  umbrella header "GLTimeline-umbrella.h"
+
+  export *
+  module * { export * }
+}
