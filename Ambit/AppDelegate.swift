@@ -160,9 +160,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         timer1 = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(increaseCurrentSound), userInfo: nil, repeats: true)
         timer2 = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(vibrate), userInfo: nil, repeats: true)
         
-        //stop recording
-        RecorderManager.sharedManager.stopRecording()
-        
         //start playing sound
         playCurrentSound()
     }
@@ -199,6 +196,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         currentSound?.play()
         
         isPlayingOverride = true
+        
+        //stop recording
+        RecorderManager.sharedManager.stopRecording()
     }
     
     func stopCurrentSound() {
@@ -215,6 +215,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         endBackgroundUpdateTask()
         
         AlarmScheduleManager.sharedManager.clearAllAlarms()
+        
+        //stop recording
+        RecorderManager.sharedManager.stopRecording()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
