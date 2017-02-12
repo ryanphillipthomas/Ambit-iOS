@@ -236,7 +236,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         //let timeRemaining = StringHelper.timeLeftUntilAlarm(alarmDate: scheduleAlarm.fireDate)
         let currentDate = Date()
         var hour_min_string = ""
-        print("\(currentDate.description) \(scheduleAlarm.fireDate)")
         if currentDate > scheduleAlarm.fireDate {
             hour_min_string = StringHelper.pastTimeString(for: scheduleAlarm.fireDate)
         } else {
@@ -424,6 +423,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         //create new alarm attributes
         let id = UUID().uuidString
         var fireDate = timePicker.date
+        fireDate = Date.init(timeInterval: 0, since: fireDate) //alarms go off at the top of the hour
+
         if (date != nil) { fireDate = date! }
         let alarmDictionary:[String : Any] = ["id": id,
                                               "fireDate": fireDate,
@@ -437,7 +438,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         _ = Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
         
         //get the alarm and provide it to our sceduler
-        let predicate = NSPredicate(format: "id == %@", id)
         let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
         guard let scheduleAlarm = alarm else {return}
         print(scheduleAlarm.fireDate)

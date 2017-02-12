@@ -21,6 +21,7 @@ class AlarmScheduleManager: NSObject {
         center.removeAllDeliveredNotifications()
         center.removeAllPendingNotificationRequests()
         
+        Alarm.currentAlarmID = nil
         //delete alarm objects
     }
     
@@ -35,7 +36,7 @@ class AlarmScheduleManager: NSObject {
  //       content.sound = UNNotificationSound.init(named: "bell.mp3")
         content.userInfo = ["content-available":"1"]
   //      content.categoryIdentifier = "ALARMNOTIFICATION"
-        //content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+  //      content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
         
         // Add Image to Notification
 //        if let path = Bundle.main.path(forResource: "500", ofType: "jpg") {
@@ -51,7 +52,7 @@ class AlarmScheduleManager: NSObject {
 
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: alarm.fireDate)
-        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
         let request = UNNotificationRequest.init(identifier: id, content: content, trigger: trigger)
