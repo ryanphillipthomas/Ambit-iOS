@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ambit/AlarmScheduleManager.swift"
-            timestampString = "508597542.111774"
+            filePath = "Ambit/ViewController.swift"
+            timestampString = "508600979.230563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "scheduleAlarmNotification(alarm:interval:)"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "updateRunningAlarmUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "508598210.161391"
+            timestampString = "508600979.230563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "updateRunningAlarmUI()"
             landmarkType = "7">
          </BreakpointContent>

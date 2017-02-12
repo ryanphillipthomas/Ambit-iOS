@@ -230,13 +230,14 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     func updateRunningAlarmUI() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
         guard let scheduleAlarm = alarm else {return}
         //let timeRemaining = StringHelper.timeLeftUntilAlarm(alarmDate: scheduleAlarm.fireDate)
         let currentDate = Date()
         var hour_min_string = ""
+        print("\(currentDate.description) \(scheduleAlarm.fireDate)")
         if currentDate > scheduleAlarm.fireDate {
-            appDelegate.play()
             hour_min_string = StringHelper.pastTimeString(for: scheduleAlarm.fireDate)
         } else {
             hour_min_string = StringHelper.futureTimeString(for: scheduleAlarm.fireDate)

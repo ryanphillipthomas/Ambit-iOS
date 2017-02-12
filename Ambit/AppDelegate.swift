@@ -12,6 +12,7 @@ import CoreData
 import UserNotifications
 import AudioPlayer
 import AVFoundation
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -19,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var context:NSManagedObjectContext!
     var currentSound: AudioPlayer?
     var audioPlayer : AVAudioPlayer!
+    var audioPlayerVolume : Float!
+
+    var timer1: Timer!
+    var timer2: Timer!
+
+    var backgroundUpdateTask: UIBackgroundTaskIdentifier = 0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -41,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         
+//        play()
+
         return true
     }
     
@@ -111,13 +120,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("Sound initialization failed")
         }
         
-        //play sound
+        self.backgroundUpdateTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            self.endBackgroundUpdateTask()
+        })
+        
+        //initalize volume
+        audioPlayerVolume = 0.1
+        (MPVolumeView().subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)?.setValue(audioPlayerVolume, animated: false)
+
+        //setup timer
+        timer1 = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(increaseCurrentSound), userInfo: nil, repeats: true)
+        timer2 = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(vibrate), userInfo: nil, repeats: true)
+        
+        //start playing sound
         playCurrentSound()
     }
     
+    func increaseCurrentSound() {
+        //gently increase volume
+        if audioPlayerVolume < 0.8 {
+            audioPlayerVolume = audioPlayerVolume + 0.0125
+            (MPVolumeView().subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)?.setValue(audioPlayerVolume, animated: true)
+        }
+    }
+    
+    func vibrate() {
+        //vibrate
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
     
     func playCurrentSound() {
-        currentSound?.numberOfLoops = 5
+        currentSound?.numberOfLoops = 10
         currentSound?.currentTime = 0
         currentSound?.fadeIn()
         currentSound?.volume = 100.0
@@ -127,6 +160,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func stopCurrentSound() {
         currentSound?.fadeOut()
         currentSound?.stop()
+        timer1.invalidate()
+        timer2.invalidate()
         
         AlarmScheduleManager.sharedManager.clearAllAlarms()
     }
@@ -136,16 +171,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("didReceive")
         completionHandler()
     }
+    
+    func endBackgroundUpdateTask() {
+        UIApplication.shared.endBackgroundTask(self.backgroundUpdateTask)
+        self.backgroundUpdateTask = UIBackgroundTaskInvalid
+    }
 
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        play()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
