@@ -31,6 +31,7 @@
 		946597771E454FFF00ED204C /* RTCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946597761E454FFF00ED204C /* RTCoreData.framework */; };
 		946597791E4567F400ED204C /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946597781E4567F400ED204C /* LaunchScreenViewController.swift */; };
 		9470D6DC1E503BE5009AA49A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9470D6DB1E503BE5009AA49A /* AVFoundation.framework */; };
+		9470D6DF1E5105BD009AA49A /* RecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470D6DE1E5105BC009AA49A /* RecorderManager.swift */; };
 		947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75401E41804C00B69286 /* AlarmOptionsTableViewController.swift */; };
 		947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75421E418A5E00B69286 /* BlurTableViewCell.swift */; };
 		947D75451E41A16E00B69286 /* SoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75441E41A16E00B69286 /* SoundsTableViewController.swift */; };
@@ -186,6 +187,7 @@
 		946597761E454FFF00ED204C /* RTCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RTCoreData.framework; path = Carthage/Build/iOS/RTCoreData.framework; sourceTree = "<group>"; };
 		946597781E4567F400ED204C /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		9470D6DB1E503BE5009AA49A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9470D6DE1E5105BC009AA49A /* RecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderManager.swift; sourceTree = "<group>"; };
 		947D75401E41804C00B69286 /* AlarmOptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmOptionsTableViewController.swift; sourceTree = "<group>"; };
 		947D75421E418A5E00B69286 /* BlurTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurTableViewCell.swift; sourceTree = "<group>"; };
 		947D75441E41A16E00B69286 /* SoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsTableViewController.swift; sourceTree = "<group>"; };
@@ -495,6 +497,14 @@
 			path = "Watch Extension";
 			sourceTree = "<group>";
 		};
+		9470D6DD1E5105A4009AA49A /* Recordings */ = {
+			isa = PBXGroup;
+			children = (
+				9470D6DE1E5105BC009AA49A /* RecorderManager.swift */,
+			);
+			name = Recordings;
+			sourceTree = "<group>";
+		};
 		948BB9AE1E47848E00185831 /* Alarms */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +618,7 @@
 		94E9E02D1E3EBF40008A1F84 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				9470D6DD1E5105A4009AA49A /* Recordings */,
 				94CA1F631E4F94F8005A1053 /* Events */,
 				949B0FBD1E46190A0092FFE5 /* Alarms */,
 				949B0FBC1E4618470092FFE5 /* Watch */,
@@ -1123,6 +1134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				947D75451E41A16E00B69286 /* SoundsTableViewController.swift in Sources */,
+				9470D6DF1E5105BD009AA49A /* RecorderManager.swift in Sources */,
 				94E9E00B1E3EB9A3008A1F84 /* DDLog.m in Sources */,
 				94A7A5FA1E404A4E00A6D11D /* UIColor+Extension.swift in Sources */,
 				94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */,

@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var currentSound: AudioPlayer?
     var audioPlayer : AVAudioPlayer!
     var audioPlayerVolume : Float!
+    
+    var isPlayingOverride : Bool = false
 
     var timer1: Timer?
     var timer2: Timer?
@@ -87,11 +89,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func isPlayingSound() -> Bool {
+        if isPlayingOverride { return true }
+        
         guard let currentSound = self.currentSound else { return false }
         return currentSound.isPlaying
     }
     
     func isPlayingBackroundSound() -> Bool {
+        if isPlayingOverride { return true }
+
         guard let currentSound = self.audioPlayer else { return false }
         return currentSound.isPlaying
     }
@@ -154,6 +160,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         timer1 = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(increaseCurrentSound), userInfo: nil, repeats: true)
         timer2 = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(vibrate), userInfo: nil, repeats: true)
         
+        //stop recording
+        RecorderManager.sharedManager.stopRecording()
+        
         //start playing sound
         playCurrentSound()
     }
@@ -188,15 +197,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         currentSound?.fadeIn()
         currentSound?.volume = 100.0
         currentSound?.play()
+        
+        isPlayingOverride = true
     }
     
     func stopCurrentSound() {
         currentSound?.fadeOut()
         currentSound?.stop()
+        
+        isPlayingOverride = false
+
         timer1?.invalidate()
         timer2?.invalidate()
         timer3?.invalidate()
-        timer4?.invalidate()
+        //timer4?.invalidate()
         
         endBackgroundUpdateTask()
         

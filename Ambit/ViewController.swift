@@ -444,6 +444,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         guard let scheduleAlarm = alarm else {return}
         print(scheduleAlarm.fireDate)
         AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 20)
+        RecorderManager.sharedManager.startRecording()
     }
     
     @IBAction func startClock(_ sender: Any) {
