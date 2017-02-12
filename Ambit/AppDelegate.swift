@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var timer1: Timer?
     var timer2: Timer?
     var timer3: Timer?
+    var timer4: Timer?
+
 
     var backgroundUpdateTask: UIBackgroundTaskIdentifier = 0
 
@@ -49,6 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+            print("error")
+            return true
+        }
+        
 //        play()
         
         return true
@@ -65,10 +75,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func keepAlive() {
+        timer4?.invalidate() //cleanup
+        timer4 = Timer.scheduledTimer(timeInterval: 540, target: self, selector: #selector(keepAlive), userInfo: nil, repeats: true) //setup refresh in 9 min
+       print("**DID SETUP NEW TIMER AND BACKROUND TASK**")
         self.backgroundUpdateTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            print("**DID COMPLETE NEW TIMER AND BACKROUND TASK**")
             self.endBackgroundUpdateTask()
             self.keepAlive()
         })
+        
     }
     
     func isPlayingSound() -> Bool {
@@ -121,13 +136,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func play() {
         
         if isPlayingSound() { return }
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch _ {
-            return print("error")
-        }
         
         //get sound file name and load it up
         do {
@@ -187,6 +195,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         currentSound?.stop()
         timer1?.invalidate()
         timer2?.invalidate()
+        timer3?.invalidate()
+        timer4?.invalidate()
         
         endBackgroundUpdateTask()
         
@@ -215,13 +225,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         timer3 = Timer.scheduledTimer(timeInterval: 0.30, target: self, selector: #selector(checkFireDate), userInfo: nil, repeats: true)
-       
         appBackrounding()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         timer3?.invalidate()
+        timer4?.invalidate()
         
         appForegrounding()
     }

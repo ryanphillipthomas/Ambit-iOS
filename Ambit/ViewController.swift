@@ -242,6 +242,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             hour_min_string = StringHelper.futureTimeString(for: scheduleAlarm.fireDate)
         }
         
+        NSLog("fire date: \(hour_min_string)")
+
         timeUpcomingLabel.text = hour_min_string
         
         let next_alarm_string = StringHelper.nextAlarmString(alarmDate: scheduleAlarm.fireDate)
@@ -588,7 +590,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
 extension ViewController: SBTimeLabelDelegate {
     func didUpdateText(_ label: SBTimeLabel) {
-        NSLog("clock: \(timeLabel.text)")
         updateRunningAlarmUI()
     }
 }
