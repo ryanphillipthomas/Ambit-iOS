@@ -118,10 +118,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(center: UNUserNotificationCenter, didReceiveNotificationResponse response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
         print("didReceiveNotificationResponse")
+       
+        AlarmScheduleManager.sharedManager.clearAllNotifications()
     }
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        AlarmScheduleManager.sharedManager.clearAllNotifications()
         
         let application = UIApplication.shared
         if application.applicationState != .active { // Only address notifications received when not active
@@ -158,10 +162,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         //setup timer
         timer1 = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(increaseCurrentSound), userInfo: nil, repeats: true)
-        timer2 = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(vibrate), userInfo: nil, repeats: true)
+        timer2 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(vibrate), userInfo: nil, repeats: true)
         
         //start playing sound
-        playCurrentSound()
+        playCurrentSound()        
     }
     
     func checkFireDate() {
@@ -184,7 +188,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func vibrate() {
-        //vibrate
+        //get the phone to vibrate
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
     
@@ -210,7 +214,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         timer1?.invalidate()
         timer2?.invalidate()
         timer3?.invalidate()
-        //timer4?.invalidate()
+        timer4?.invalidate()
         
         endBackgroundUpdateTask()
         

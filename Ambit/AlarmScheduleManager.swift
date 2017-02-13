@@ -16,6 +16,12 @@ protocol AlarmScheduleManagerDelegate: class {
 class AlarmScheduleManager: NSObject {
     static let sharedManager = AlarmScheduleManager()
     
+    func clearAllNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllDeliveredNotifications()
+        center.removeAllPendingNotificationRequests()
+    }
+    
     func clearAllAlarms() {
         let center = UNUserNotificationCenter.current()
         center.removeAllDeliveredNotifications()
@@ -25,18 +31,18 @@ class AlarmScheduleManager: NSObject {
         //delete alarm objects
     }
     
-    func scheduleAlarmNotification(alarm : Alarm, interval : TimeInterval) {
-        
+    func scheduleAlarmNotification(alarm : Alarm? = nil, overrideDate : Date? = nil, interval : TimeInterval) {
         //dev todo cleanup
         let id = UUID.init().uuidString
         let content = UNMutableNotificationContent()
+        
         //dev todo add ability to see the amount of alarms displayed already
 //        content.title = ""
         content.body = "Time to wakeup!"
- //       content.sound = UNNotificationSound.init(named: "bell.mp3")
+        content.sound = UNNotificationSound.init(named: "bell.mp3")
         content.userInfo = ["content-available":"1"]
   //      content.categoryIdentifier = "ALARMNOTIFICATION"
-  //      content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+    //    content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
         
         // Add Image to Notification
 //        if let path = Bundle.main.path(forResource: "500", ofType: "jpg") {
@@ -49,17 +55,18 @@ class AlarmScheduleManager: NSObject {
 //                print("The attachment was not loaded.")
 //            }
 //        }
-
+ 
+        var fireDate = alarm?.fireDate
+        if (overrideDate != nil) { fireDate = overrideDate! }
         let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents(in: .current, from: alarm.fireDate)
+        let dateInTimeInterval = Date.init(timeInterval: interval, since: fireDate!)
+        let components = calendar.dateComponents(in: .current, from: dateInTimeInterval)
         let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute, second: components.second)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
         let request = UNNotificationRequest.init(identifier: id, content: content, trigger: trigger)
         let center = UNUserNotificationCenter.current()
         
-        center.removeAllDeliveredNotifications() //dev todo consider this on didFinishLaunching...
-        center.removeAllPendingNotificationRequests()
         center.add(request) { (error) in
             if let theError = error {
                 print("Uh oh! We had an error: \(error)")
@@ -68,6 +75,5 @@ class AlarmScheduleManager: NSObject {
             }
         }
     }
-
 }
 
