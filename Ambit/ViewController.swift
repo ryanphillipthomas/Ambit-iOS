@@ -420,6 +420,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         performSegue(withIdentifier: "alarmOptions", sender: nil)
 //        HueConnectionManager.sharedManager.searchForBridgeLocal()
     }
+    
+    @IBAction func toggleUpcoming(_ sender: Any) {
+        performSegue(withIdentifier: "upcomingEvents", sender: nil)
+    }
 
     func addAlarmFromTimePicker(date:Date? = nil) {
         //create new alarm attributes
@@ -580,6 +584,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             authViewController.startPushLinking()
         } else if segue.identifier == "alarmOptions", let alarmOptions = segue.destination as? AlarmOptionsTableViewController {
             ///
+        } else if segue.identifier == "upcomingEvents", let nav = segue.destination as? UINavigationController, let upcomingEvents = nav.viewControllers.first as? EventOptionsViewController {
+            upcomingEvents.managedObjectContext = managedObjectContext
         } else if segue.identifier == "containerSegue", let tableVC = segue.destination as? UITableViewController {
             let refreshControl = UIRefreshControl()
             refreshControl.tintColor = UIColor.white
