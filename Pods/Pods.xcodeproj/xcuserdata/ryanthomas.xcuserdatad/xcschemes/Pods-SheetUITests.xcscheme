@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F3BD3E1AB9BF49844623B36461BC3070'
-               BlueprintName = 'AudioPlayerSwift'
+               BlueprintIdentifier = '0F50E3DB48A57A5C2F266D6BA438D33F'
+               BlueprintName = 'Pods-SheetUITests'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AudioPlayerSwift.framework'>
+               BuildableName = 'Pods-SheetUITests.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

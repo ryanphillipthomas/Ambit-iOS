@@ -4,27 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AudioPlayerSwift.xcscheme</key>
+		<key>Pods-Sheet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GLTimeline.xcscheme</key>
+		<key>Pods-SheetTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Ambit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-AmbitTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-AmbitUITests.xcscheme</key>
+		<key>Pods-SheetUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
