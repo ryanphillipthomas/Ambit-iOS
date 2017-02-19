@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B46CBE759A444F0AEE01D98B0AAE85A2'
-               BlueprintName = 'Pods-SheetTests'
+               BlueprintIdentifier = 'F7B58CE247CCFB87C787D73BC1FBAB67'
+               BlueprintName = 'GLTimeline'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-SheetTests.framework'>
+               BuildableName = 'GLTimeline.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2871335A33F0818832273E231CEA7538'
-               BlueprintName = 'Pods-Sheet'
+               BlueprintIdentifier = 'CBA944F41C5AEF161FF42BB812A0F694'
+               BlueprintName = 'Pods-AmbitUITests'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-Sheet.framework'>
+               BuildableName = 'Pods-AmbitUITests.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
