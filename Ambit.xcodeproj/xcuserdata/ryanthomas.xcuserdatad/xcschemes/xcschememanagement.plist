@@ -3,13 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict>
-		<key>Sheet.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-	</dict>
+	<dict/>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>74B95EA11DFB735300B03661</key>
@@ -23,6 +17,26 @@
 			<true/>
 		</dict>
 		<key>74B95EC31DFB735400B03661</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9416C4F51E45924200267C85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>949B0F841E4596A20092FFE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>949B0F971E4596A20092FFE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>949B0FA21E4596A30092FFE5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -3,29 +3,39 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
+	<dict/>
+	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>Pods-Sheet.xcscheme</key>
+		<key>8041D1AA9B27A2CCA3E027F9C0903FED</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
+			<key>primary</key>
+			<true/>
 		</dict>
-		<key>Pods-SheetTests.xcscheme</key>
+		<key>CBA944F41C5AEF161FF42BB812A0F694</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
+			<key>primary</key>
+			<true/>
 		</dict>
-		<key>Pods-SheetUITests.xcscheme</key>
+		<key>E81B781BE5742EE26456ABEB28CEF1BF</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
+			<key>primary</key>
+			<true/>
 		</dict>
-		<key>Spring.xcscheme</key>
+		<key>F3BD3E1AB9BF49844623B36461BC3070</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5C2918199E9469F44B42015F98317B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7B58CE247CCFB87C787D73BC1FBAB67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict/>
 </dict>
 </plist>

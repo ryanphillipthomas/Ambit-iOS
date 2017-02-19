@@ -15,37 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "74B95EA11DFB735300B03661"
-               BuildableName = "Sheet.app"
-               BlueprintName = "Sheet"
-               ReferencedContainer = "container:Sheet.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "74B95EB81DFB735400B03661"
-               BuildableName = "SheetTests.xctest"
-               BlueprintName = "SheetTests"
-               ReferencedContainer = "container:Sheet.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "74B95EC31DFB735400B03661"
-               BuildableName = "SheetUITests.xctest"
-               BlueprintName = "SheetUITests"
-               ReferencedContainer = "container:Sheet.xcodeproj">
+               BuildableName = "Ambit.app"
+               BlueprintName = "Ambit"
+               ReferencedContainer = "container:Ambit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -56,14 +28,34 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "74B95EB81DFB735400B03661"
+               BuildableName = "AmbitTests.xctest"
+               BlueprintName = "AmbitTests"
+               ReferencedContainer = "container:Ambit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "74B95EC31DFB735400B03661"
+               BuildableName = "AmbitUITests.xctest"
+               BlueprintName = "AmbitUITests"
+               ReferencedContainer = "container:Ambit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74B95EA11DFB735300B03661"
-            BuildableName = "template.app"
-            BlueprintName = "template"
-            ReferencedContainer = "container:template.xcodeproj">
+            BuildableName = "Ambit.app"
+            BlueprintName = "Ambit"
+            ReferencedContainer = "container:Ambit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74B95EA11DFB735300B03661"
-            BuildableName = "Sheet.app"
-            BlueprintName = "Sheet"
-            ReferencedContainer = "container:Sheet.xcodeproj">
+            BuildableName = "Ambit.app"
+            BlueprintName = "Ambit"
+            ReferencedContainer = "container:Ambit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -98,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "74B95EA11DFB735300B03661"
+            BuildableName = "Ambit.app"
+            BlueprintName = "Ambit"
+            ReferencedContainer = "container:Ambit.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
