@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let snooze = UNNotificationAction(identifier: "snooze", title: "Snooze", options: [])
         let stop = UNNotificationAction(identifier: "stop", title: "Stop", options: [])
-        let category : UNNotificationCategory = UNNotificationCategory.init(identifier: "ALARMNOTIFICATION", actions: [snooze, stop], intentIdentifiers: [], options: [])
+        let category : UNNotificationCategory = UNNotificationCat0egory.init(identifier: "ALARMNOTIFICATION", actions: [snooze, stop], intentIdentifiers: [], options: [])
         
         let center = UNUserNotificationCenter.current()
         center.setNotificationCategories([category])
