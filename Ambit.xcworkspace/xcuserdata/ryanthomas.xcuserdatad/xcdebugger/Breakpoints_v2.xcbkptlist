@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/LightsOptionsViewController.swift"
-            timestampString = "509238894.437679"
+            timestampString = "509248420.634044"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "colorOfPoint(point:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
