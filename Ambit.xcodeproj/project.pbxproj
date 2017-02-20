@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08245F19D3676AE7711E18F2 /* Pods_AmbitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */; };
+		0A119D8F1E5AB86200E318AF /* SBTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E02F1E3EC456008A1F84 /* SBTimeLabel.swift */; };
 		0A6E17C01E5A54A50081CB29 /* LightsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */; };
 		0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */; };
 		0AE8D92F1E5A463300023F0C /* EventOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8D92E1E5A463300023F0C /* EventOptionsViewController.swift */; };
@@ -1220,6 +1221,7 @@
 				949B0FB41E45A4670092FFE5 /* Helpers.swift in Sources */,
 				949B0FB61E45A74A0092FFE5 /* ColorConstant.swift in Sources */,
 				949B0FB71E45A74A0092FFE5 /* GradientHandler.swift in Sources */,
+				0A119D8F1E5AB86200E318AF /* SBTimeLabel.swift in Sources */,
 				949B0FB81E45A74A0092FFE5 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

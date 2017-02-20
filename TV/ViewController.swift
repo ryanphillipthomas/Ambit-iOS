@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     var backroundAnimation = CAGradientLayer()
+    @IBOutlet var clockTimeLabel:SBTimeLabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        clockTimeLabel.updateText()
+        clockTimeLabel.start()
         
         // Do any additional setup after loading the view, typically from a nib.
         backroundAnimation = GradientHandler.addGradientLayer()
