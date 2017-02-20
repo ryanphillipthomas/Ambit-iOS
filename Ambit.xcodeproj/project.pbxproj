@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08245F19D3676AE7711E18F2 /* Pods_AmbitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */; };
+		0A6E17C01E5A54A50081CB29 /* LightsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */; };
+		0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */; };
 		0AE8D92F1E5A463300023F0C /* EventOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8D92E1E5A463300023F0C /* EventOptionsViewController.swift */; };
 		74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EA51DFB735300B03661 /* AppDelegate.swift */; };
 		74B95EA81DFB735300B03661 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EA71DFB735300B03661 /* ViewController.swift */; };
@@ -155,6 +157,8 @@
 
 /* Begin PBXFileReference section */
 		033CF1CC2D82D3B729580E99 /* Pods-AmbitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests.release.xcconfig"; sourceTree = "<group>"; };
+		0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsOptionsViewController.swift; sourceTree = "<group>"; };
+		0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchOptionsViewController.swift; sourceTree = "<group>"; };
 		0AE8D92E1E5A463300023F0C /* EventOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOptionsViewController.swift; sourceTree = "<group>"; };
 		2319D788B74C29BA42B4AB0E /* Pods_AmbitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B95EA21DFB735300B03661 /* Ambit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ambit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -470,6 +474,8 @@
 				946597781E4567F400ED204C /* LaunchScreenViewController.swift */,
 				947D75401E41804C00B69286 /* AlarmOptionsTableViewController.swift */,
 				947D75441E41A16E00B69286 /* SoundsTableViewController.swift */,
+				0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */,
+				0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1156,9 +1162,11 @@
 				947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */,
 				9480E5241E44447D00E094F3 /* Alarm.swift in Sources */,
 				947F47001E4364F70047CD4C /* AmbitConstants.swift in Sources */,
+				0A6E17C01E5A54A50081CB29 /* LightsOptionsViewController.swift in Sources */,
 				946597791E4567F400ED204C /* LaunchScreenViewController.swift in Sources */,
 				94B7C01B1E4F88C2002E0CBA /* EventTableViewCell.swift in Sources */,
 				947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */,
+				0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */,
 				94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */,
 				94A7A5F71E404A4E00A6D11D /* CALayer+Extension.swift in Sources */,
 				94E9E0081E3EB9A3008A1F84 /* DDAbstractDatabaseLogger.m in Sources */,

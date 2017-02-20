@@ -13,9 +13,7 @@ import RTCoreData
 import UserNotifications
 import EventKit
 
-class ViewController: UIViewController, ManagedObjectContextSettable {
-    fileprivate let food = ["🍦", "🍮", "🍤","🍉", "🍨", "🍏", "🍌", "🍰", "🍚", "🍓", "🍪", "🍕"]
-    
+class ViewController: UIViewController, ManagedObjectContextSettable {    
     @IBOutlet var timeLabel:SBTimeLabel!
     @IBOutlet var timeLeftLabel:UILabel!
     @IBOutlet var timeUpcomingLabel: UILabel!
@@ -365,23 +363,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 //        myDatePicker.date = currentDate //7 - defa
     }
     
-    func vibrateWatch() {
-        let randomItem = food[Int(arc4random_uniform(UInt32(food.count)))]
-        do {
-            try WatchSessionManager.sharedManager.updateApplicationContext(["food" : randomItem as AnyObject])
-            
-            AlertHelper.showAlert(title: "Did Send Ping", controller: self)
-        } catch {
-            AlertHelper.showAlert(title: "Error Could Not Send Ping", controller: self)
-        }
-    }
-    
 
-    
-    
-    @IBAction func pingWatch(_ sender: Any) {
-        vibrateWatch()
-    }
     
     @IBAction func stopAlarm(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -412,10 +394,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
 
     
-    @IBAction func randomizeLights(_ sender: Any) {
-        randomize()
-    }
-    
+
     @IBAction func toggleSettings(_ sender: Any) {
         performSegue(withIdentifier: "alarmOptions", sender: nil)
 //        HueConnectionManager.sharedManager.searchForBridgeLocal()
@@ -424,6 +403,15 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBAction func toggleUpcoming(_ sender: Any) {
         performSegue(withIdentifier: "upcomingEvents", sender: nil)
     }
+    
+    @IBAction func toggleWatch(_ sender: Any) {
+        performSegue(withIdentifier: "watchOptions", sender: nil)
+    }
+
+    @IBAction func toggleLights(_ sender: Any) {
+        performSegue(withIdentifier: "lightOptions", sender: nil)
+    }
+
 
     func addAlarmFromTimePicker(date:Date? = nil) {
         //create new alarm attributes
@@ -497,36 +485,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         self.perform(#selector(self.fadeToBlack), with: nil, afterDelay: 3.0)
     }
     
-    fileprivate func randomize() {
-        let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
-        let bridgeSendAPI = PHBridgeSendAPI()
-        
-        if let lights = cache?.lights {
-            let lightsData = NSMutableDictionary()
-            lightsData.addEntries(from: lights)
-            
-            for light in lightsData.allValues {
-                let newLight = light as! PHLight
-                let lightState = PHLightState()
-                
-                let colors = Colors.Gradient.blueGradient
-                let randomIndex = Int(arc4random_uniform(UInt32(colors.count)))
-                let color = colors[randomIndex]
-                let xy = Utilities.calculateXY(cgColor: color, forModel: newLight.modelNumber)
-                
-                lightState.x = xy.x as NSNumber!
-                lightState.y = xy.y as NSNumber!
-
-                lightState.brightness = Int(1) as NSNumber!
-                lightState.saturation = Int(245) as NSNumber!
-                
-                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
-                    
-                })
-            }
-        }
-    }
-    
     fileprivate func blackOut() {
         let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
         let bridgeSendAPI = PHBridgeSendAPI()
@@ -586,6 +544,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             ///
         } else if segue.identifier == "upcomingEvents", let nav = segue.destination as? UINavigationController, let upcomingEvents = nav.viewControllers.first as? EventOptionsViewController {
             upcomingEvents.managedObjectContext = managedObjectContext
+        } else if segue.identifier == "watchOptions", let nav = segue.destination as? UINavigationController, let watchOptions = nav.viewControllers.first as? WatchOptionsViewController {
+        } else if segue.identifier == "lightOptions", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? LightsOptionsViewController {
         } else if segue.identifier == "containerSegue", let tableVC = segue.destination as? UITableViewController {
             let refreshControl = UIRefreshControl()
             refreshControl.tintColor = UIColor.white
