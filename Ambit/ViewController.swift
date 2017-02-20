@@ -254,6 +254,15 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         }
     }
     
+    func animateInTimeOnlyDisplayLayers() {
+        timeLabelAnimationView.isHidden = false
+        timeLabelAnimationView.animation = "fadeInDown"
+        timeLabelAnimationView.curve = "linear"
+        timeLabelAnimationView.duration = 2.0
+        timeLabelAnimationView.animate()
+    }
+    
+    
     func animateInTimeDisplayLayers() {
         timeLabelAnimationView.isHidden = false
         nextAlarmAnimationView.isHidden = false
@@ -466,6 +475,21 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 95)
         AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 100)
     }
+    
+    @IBAction func showCurrentClock(_sender: Any){
+        //animaite out time picker
+        self.animateOutTimePickerLayers()
+        
+        //animaite out time picker
+        animateInTimeOnlyDisplayLayers()
+        
+        animateInStopButton()
+    }
+    
+    @IBAction func exitCurrentClock(_sender: Any){
+        //??
+    }
+    
     
     @IBAction func startClock(_ sender: Any) {
 

@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         HueConnectionManager.sharedManager.startUp()
         
+        AppearanceHelper.addTransparentNavigationBar()
+        
         RootHelper.setMOCController(window: window, moc: self.context)
         
         // Set up and activate your session early here!

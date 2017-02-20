@@ -23,17 +23,17 @@ class EventOptionsViewController: UIViewController, ManagedObjectContextSettable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.backgroundColor = UIColor.clear
-        
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.view.frame
-        
-        self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
-        self.tableView.backgroundView = blurEffectView
-        self.navigationController?.navigationBar.addSubview(blurEffectView)
-        
-        self.tableView.allowsSelection = true;
+//        self.tableView.backgroundColor = UIColor.clear
+//        
+//        let blurEffect = UIBlurEffect(style: .dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = self.view.frame
+//        
+//        self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
+//        self.tableView.backgroundView = blurEffectView
+//        self.navigationController?.navigationBar.addSubview(blurEffectView)
+//        
+//        self.tableView.allowsSelection = true;
 
 
         loadEvents()

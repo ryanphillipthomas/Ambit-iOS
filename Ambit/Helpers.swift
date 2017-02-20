@@ -11,17 +11,24 @@ import RTCoreData
 import CoreData
 
 class AppearanceHelper {
+    
+    class func addTransparentNavigationBar () {
+        //setups a clear / invisible navigation bar
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    }
+    
+    class func removeTransparentNavigationBar () {
+        //resets the navigation bar to defaults
+        UINavigationBar.appearance().setBackgroundImage(nil, for: .default)
+    }
+    
     class func enableDarkKeyboard() {
         UITextField.appearance().keyboardAppearance = .dark
     }
     
     class func enableLightKeyboard() {
         UITextField.appearance().keyboardAppearance = .light
-    }
-    
-    class func removeBackButtonTitle () {
-        //remove title from back button
-        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -80.0), for: .default)
     }
 }
 
