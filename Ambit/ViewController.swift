@@ -447,8 +447,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         RecorderManager.sharedManager.startRecording()
 
-        //get the apple watch to vibrate
-        scheduleLocalNotifications(scheduleAlarm: scheduleAlarm)
+//        //get the apple watch to vibrate
+//        scheduleLocalNotifications(scheduleAlarm: scheduleAlarm)
     }
     
     func scheduleLocalNotifications(scheduleAlarm : Alarm) {
