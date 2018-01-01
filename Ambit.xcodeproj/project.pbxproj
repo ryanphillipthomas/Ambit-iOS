@@ -40,7 +40,6 @@
 		947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75421E418A5E00B69286 /* BlurTableViewCell.swift */; };
 		947D75451E41A16E00B69286 /* SoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D75441E41A16E00B69286 /* SoundsTableViewController.swift */; };
 		947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 947D75461E41AA8000B69286 /* thunderstorm.mp3 */; };
-		947D75491E4220D300B69286 /* party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 947D75481E4220D300B69286 /* party.mp3 */; };
 		947F47001E4364F70047CD4C /* AmbitConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F46FF1E4364F70047CD4C /* AmbitConstants.swift */; };
 		9480E5221E44433400E094F3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9480E5201E44433400E094F3 /* Model.xcdatamodeld */; };
 		9480E5241E44447D00E094F3 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480E5231E44447D00E094F3 /* Alarm.swift */; };
@@ -199,7 +198,6 @@
 		947D75421E418A5E00B69286 /* BlurTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurTableViewCell.swift; sourceTree = "<group>"; };
 		947D75441E41A16E00B69286 /* SoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsTableViewController.swift; sourceTree = "<group>"; };
 		947D75461E41AA8000B69286 /* thunderstorm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm.mp3; sourceTree = SOURCE_ROOT; };
-		947D75481E4220D300B69286 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = party.mp3; path = ../../Downloads/party.mp3; sourceTree = "<group>"; };
 		947F46FF1E4364F70047CD4C /* AmbitConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbitConstants.swift; sourceTree = "<group>"; };
 		9480E5211E44433400E094F3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9480E5231E44447D00E094F3 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
@@ -422,7 +420,6 @@
 				948BB9AE1E47848E00185831 /* Alarms */,
 				948BB9A81E46E2FA00185831 /* bell.mp3 */,
 				948BB9A91E46E2FA00185831 /* tickle.mp3 */,
-				947D75481E4220D300B69286 /* party.mp3 */,
 				947D75461E41AA8000B69286 /* thunderstorm.mp3 */,
 				94A7A5FB1E40664E00A6D11D /* Utilities.swift */,
 				74B95EB41DFB735400B03661 /* Info.plist */,
@@ -612,6 +609,7 @@
 				94E9E0071E3EB9A3008A1F84 /* DDTTYLogger.m */,
 			);
 			name = Lumberjack;
+			path = Frameworks/Lumberjack;
 			sourceTree = "<group>";
 		};
 		94E9E00E1E3EB9C7008A1F84 /* Extensions */ = {
@@ -922,7 +920,6 @@
 				947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */,
 				948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */,
 				941436931E479B6E004B3430 /* 500.jpg in Resources */,
-				947D75491E4220D300B69286 /* party.mp3 in Resources */,
 				74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
 				948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */,
@@ -993,13 +990,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ambit-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		74B95EE11DFB777F00B03661 /* ShellScript */ = {
@@ -1037,9 +1037,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/GLTimeline/GLTimeline.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GLTimeline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1052,13 +1059,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AmbitTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C8CC3C319DEB28BC09B64393 /* [CP] Embed Pods Frameworks */ = {
@@ -1067,9 +1077,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/GLTimeline/GLTimeline.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GLTimeline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1082,13 +1099,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AmbitUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF3DA7EDD634C7FEEDE53512 /* [CP] Copy Pods Resources */ = {
@@ -1127,9 +1147,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ambit/Pods-Ambit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/GLTimeline/GLTimeline.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GLTimeline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
