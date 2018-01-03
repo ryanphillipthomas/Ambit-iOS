@@ -493,7 +493,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Set Night Scene"/>
                                                         <connections>
-                                                            <action selector="didSelectActionButton:" destination="wbm-sx-cpz" eventType="touchUpInside" id="eC5-1D-FGS"/>
+                                                            <action selector="didSelectNightActionButton:" destination="wbm-sx-cpz" eventType="touchUpInside" id="R3a-6g-4xh"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fku-p7-jG7">

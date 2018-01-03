@@ -27,8 +27,8 @@ class LightsOptionsViewController: UIViewController {
         })
     }
     
-    @IBAction func didSelectActionButton(_ sender: Any) {
-        randomize()
+    @IBAction func didSelectNightActionButton(_ sender: Any) {
+        Thunderstorm_Fireplace.sharedManager.startStorm()
     }
     
     @IBAction func didSelectPixelActionButton(_ sender: Any) {
@@ -50,7 +50,7 @@ class LightsOptionsViewController: UIViewController {
         lightsOn()
     }
     
-    fileprivate func randomize() {
+    fileprivate func setToBlueGradientColor() {
         let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
         let bridgeSendAPI = PHBridgeSendAPI()
         
@@ -66,6 +66,34 @@ class LightsOptionsViewController: UIViewController {
                 let randomIndex = Int(arc4random_uniform(UInt32(colors.count)))
                 let color = colors[randomIndex]
                 let xy = Utilities.calculateXY(cgColor: color, forModel: newLight.modelNumber)
+                
+                lightState.x = xy.x as NSNumber!
+                lightState.y = xy.y as NSNumber!
+                
+                lightState.brightness = Int(1) as NSNumber!
+                lightState.saturation = Int(245) as NSNumber!
+                
+                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                    
+                })
+            }
+        }
+    }
+    
+    
+    fileprivate func setToWhiteColor() {
+        let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
+        let bridgeSendAPI = PHBridgeSendAPI()
+        
+        if let lights = cache?.lights {
+            let lightsData = NSMutableDictionary()
+            lightsData.addEntries(from: lights)
+            
+            for light in lightsData.allValues {
+                let newLight = light as! PHLight
+                let lightState = PHLightState()
+                
+                let xy = Utilities.calculateXY(cgColor: UIColor.white as! CGColor, forModel: newLight.modelNumber)
                 
                 lightState.x = xy.x as NSNumber!
                 lightState.y = xy.y as NSNumber!
@@ -138,6 +166,13 @@ class LightsOptionsViewController: UIViewController {
         }
     }
     
+    fileprivate func flashAll() {
+        blackOut()
+        lightsOn()
+        blackOut()
+        lightsOn()
+    }
+    
     fileprivate func lightsOn() {
         let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
         let bridgeSendAPI = PHBridgeSendAPI()
@@ -159,9 +194,8 @@ class LightsOptionsViewController: UIViewController {
             }
         }
     }
-    
-
 }
+
 
 extension CALayer {
     
