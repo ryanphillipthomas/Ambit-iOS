@@ -230,8 +230,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
-        guard let scheduleAlarm = alarm else {return}
-        //let timeRemaining = StringHelper.timeLeftUntilAlarm(alarmDate: scheduleAlarm.fireDate)
+
+        guard let scheduleAlarm = alarm else {
+            timeLeftLabel.text = ""
+            timeUpcomingLabel.text = ""
+            return
+        }
         let currentDate = Date()
         var hour_min_string = ""
         if currentDate > scheduleAlarm.fireDate {
@@ -406,7 +410,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
     @IBAction func toggleSettings(_ sender: Any) {
         performSegue(withIdentifier: "alarmOptions", sender: nil)
-//        HueConnectionManager.sharedManager.searchForBridgeLocal()
     }
     
     @IBAction func toggleUpcoming(_ sender: Any) {
@@ -477,6 +480,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     @IBAction func showCurrentClock(_sender: Any){
+        //update label with alarm
+        updateRunningAlarmUI()
+        
         //animaite out time picker
         self.animateOutTimePickerLayers()
         
@@ -564,8 +570,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         } else if segue.identifier == "bridgeAuthentication", let nav = segue.destination as? UINavigationController, let authViewController =  nav.viewControllers.first as? HueBridgeAuthenticationViewController {
             authViewController.delegate = HueConnectionManager.sharedManager
             authViewController.startPushLinking()
-        } else if segue.identifier == "alarmOptions", let alarmOptions = segue.destination as? AlarmOptionsTableViewController {
-            ///
+        } else if segue.identifier == "alarmOptions", let nav = segue.destination as? UINavigationController, let alarmOptions = nav.viewControllers.first as? AlarmOptionsTableViewController {
+            alarmOptions.delegate = self
         } else if segue.identifier == "upcomingEvents", let nav = segue.destination as? UINavigationController, let upcomingEvents = nav.viewControllers.first as? EventOptionsViewController {
             upcomingEvents.managedObjectContext = managedObjectContext
         } else if segue.identifier == "watchOptions", let nav = segue.destination as? UINavigationController, let watchOptions = nav.viewControllers.first as? WatchOptionsViewController {
@@ -615,24 +621,20 @@ extension ViewController: SBTimeLabelDelegate {
 
 extension ViewController : HueConnectionManagerDelegate {
     internal func didStartConnecting() {
-        AlertHelper.showAlert(title: "Did Start Connecting", controller: self)
     }
     
     internal func didStartSearching() {
-        AlertHelper.showAlert(title: "Did Start Searching", controller: self)
     }
     
     internal func didFindBridges(bridgesFound: [AnyHashable : Any]?) {
-        AlertHelper.showAlert(title: "Did Find Bridges", controller: self)
         performSegue(withIdentifier: "bridgeSelection", sender: bridgesFound)
     }
     
     internal func didFailToFindBridges() {
-        AlertHelper.showAlert(title: "Did Fail To Find Bridges", controller: self)
+        AlertHelper.showAlert(title: "Failed To Find Bridges", controller: self)
     }
     
     internal func showPushButtonAuthentication() {
-        AlertHelper.showAlert(title: "Should Show Push Button", controller: self)
         performSegue(withIdentifier: "bridgeAuthentication", sender: nil)
     }
     
@@ -850,6 +852,12 @@ extension ViewController: EventManagerDelegate {
                 //Display alert that we need the users calendar permission
             }
         })
+    }
+}
+
+extension ViewController: AlarmOptionsTableViewControllerDelegate {
+    func performSegueFromOptions(_ identifier: NSString?) {
+        self.performSegue(withIdentifier: identifier! as String, sender: nil)
     }
 }
 

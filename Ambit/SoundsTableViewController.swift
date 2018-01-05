@@ -19,15 +19,20 @@ class SoundsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.backgroundColor = UIColor.clear
-        
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.view.frame
-        
-        self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
-        self.tableView.backgroundView = blurEffectView
-        self.navigationController?.navigationBar.addSubview(blurEffectView)
+        if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+            tableView.backgroundColor = UIColor.clear
+            let blurEffect = UIBlurEffect(style: .dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            tableView.backgroundView = blurEffectView
+            
+            //if inside a popover
+            if let popover = navigationController?.popoverPresentationController {
+                popover.backgroundColor = UIColor.clear
+            }
+            
+            //if you want translucent vibrant table view separator lines
+            tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        }
         
         self.tableView.allowsSelection = true;
         

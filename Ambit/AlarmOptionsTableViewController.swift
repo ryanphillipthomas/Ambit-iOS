@@ -8,20 +8,18 @@
 
 import UIKit
 
+//MARK: step 1 Add Protocol here
+protocol AlarmOptionsTableViewControllerDelegate: class {
+    func performSegueFromOptions(_ identifier: NSString?)
+}
+
 class AlarmOptionsTableViewController: UITableViewController {
+    
+    //MARK: step 2 Create a delegate property here, don't forget to make it weak!
+    weak var delegate: AlarmOptionsTableViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        self.tableView.backgroundColor = UIColor.clear
-        
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.view.frame
-        
-        self.tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
-        self.tableView.backgroundView = blurEffectView
-        self.navigationController?.navigationBar.addSubview(blurEffectView)
         
         self.tableView.allowsSelection = true;
         
@@ -30,9 +28,21 @@ class AlarmOptionsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: true)
+        
+        if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+            tableView.backgroundColor = UIColor.clear
+            let blurEffect = UIBlurEffect(style: .dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            tableView.backgroundView = blurEffectView
+            
+            //if inside a popover
+            if let popover = navigationController?.popoverPresentationController {
+                popover.backgroundColor = UIColor.clear
+            }
+            
+            //if you want translucent vibrant table view separator lines
+            tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,7 +62,7 @@ class AlarmOptionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 9
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -60,8 +70,32 @@ class AlarmOptionsTableViewController: UITableViewController {
         case 0:
             performSegue(withIdentifier: "sounds", sender: nil)
         case 1:
-            dismiss(animated: true, completion: { 
+            performSegue(withIdentifier: "sounds", sender: nil)
+        case 2:
+            return
+        case 3:
+            dismiss(animated: true, completion: {
+                self.delegate?.performSegueFromOptions("upcomingEvents")
+            })
+        case 4:
+            dismiss(animated: true, completion: {
                 HueConnectionManager.sharedManager.searchForBridgeLocal()
+            })
+        case 5:
+            dismiss(animated: true, completion: {
+                self.delegate?.performSegueFromOptions("lightOptions")
+            })
+        case 6:
+            dismiss(animated: true, completion: {
+                return
+            })
+        case 7:
+            dismiss(animated: true, completion: {
+                return
+            })
+        case 8:
+            dismiss(animated: true, completion: {
+                return
             })
         default:
             break

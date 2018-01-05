@@ -207,14 +207,15 @@ class StringHelper{
         let alarmMinute = StringHelper.minute(date: alarmDate)
         let alarm_am_pm = StringHelper.am_pm(date: alarmDate)
         
-        let calendar = Calendar.current
-        let endDate = calendar.date(byAdding: .minute, value: 15, to: alarmDate)
+//      let calendar = Calendar.current
+//      let endDate = calendar.date(byAdding: .minute, value: 15, to: alarmDate)
+//      let endHour = StringHelper.hour(date: endDate!)
+//      let endMinute = StringHelper.minute(date: endDate!)
+//      let end_am_pm = StringHelper.am_pm(date: endDate!)
         
-        let endHour = StringHelper.hour(date: endDate!)
-        let endMinute = StringHelper.minute(date: endDate!)
-        let end_am_pm = StringHelper.am_pm(date: endDate!)
+//      return "\(alarmHour):\(alarmMinute) \(alarm_am_pm) - \(endHour):\(endMinute) \(end_am_pm)"
         
-        return "\(alarmHour):\(alarmMinute) \(alarm_am_pm) - \(endHour):\(endMinute) \(end_am_pm)"
+        return "\(alarmHour):\(alarmMinute) \(alarm_am_pm)"
     }
     
     class func day(date : Date) -> String {
@@ -304,20 +305,7 @@ class RootHelper{
 class GradientViewHelper {
     class func addGradientColorsToView(view : UIView, gradientLayer : CAGradientLayer) {
         GradientHandler.bounds = view.bounds
-        GradientHandler.colors = Colors.Gradient.blueGradient
-        GradientHandler.location = [0.10, 0.30, 0.45, 0.60, 0.75, 0.9]
-        GradientHandler.startPosition = CGPoint(x: 0, y: 1)
-        GradientHandler.endPosition = CGPoint(x: 1, y: 0)
-        
-        view.layer.insertSublayer(gradientLayer, at: 0)
-        
-        GradientHandler.toColors = GradientHandler.colors
-        GradientHandler.animateLayerWithColor()
-    }
-    
-    class func addBlackToView(view : UIView, gradientLayer : CAGradientLayer) {
-        GradientHandler.bounds = view.bounds
-        GradientHandler.colors = Colors.Gradient.blueGradient
+        GradientHandler.colors = Colors.Gradient.animationColors
         GradientHandler.location = [0.10, 0.30, 0.45, 0.60, 0.75, 0.9]
         GradientHandler.startPosition = CGPoint(x: 0, y: 1)
         GradientHandler.endPosition = CGPoint(x: 1, y: 0)

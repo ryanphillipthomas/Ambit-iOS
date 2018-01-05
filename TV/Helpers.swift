@@ -149,7 +149,7 @@ class StringHelper{
 class GradientViewHelper {
     class func addGradientColorsToView(view : UIView, gradientLayer : CAGradientLayer) {
         GradientHandler.bounds = view.bounds
-        GradientHandler.colors = Colors.Gradient.blueGradient
+        GradientHandler.colors = Colors.Gradient.animationColors
         GradientHandler.location = [0.10, 0.30, 0.45, 0.60, 0.75, 0.9]
         GradientHandler.startPosition = CGPoint(x: 0, y: 1)
         GradientHandler.endPosition = CGPoint(x: 1, y: 0)

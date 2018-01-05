@@ -23,7 +23,7 @@ struct GradientHandler {
     static var fromColors: [AnyObject]!
     static var toColors: [AnyObject]!
     static var duration: Double = 1.5
-    static var tempColors: [CGColor] = Colors.Gradient.blueGradient
+    static var tempColors: [CGColor] = Colors.Gradient.animationColors
     static var indexToRemove = 0
     static var indexToAdd = 5
     
