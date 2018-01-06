@@ -11,10 +11,14 @@ import AudioPlayer
 
 class SoundsTableViewController: UITableViewController {
     
-    var sound1: AudioPlayer?
-    var sound2: AudioPlayer?
-    var currentSound: AudioPlayer?
+    var thunderstorm: AudioPlayer?
+    var party: AudioPlayer?
+    var thunderstorm_fireplace: AudioPlayer?
+    var tickle: AudioPlayer?
+    var bell: AudioPlayer?
     
+    var currentSound: AudioPlayer?
+    var isAlarmSounds: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +41,12 @@ class SoundsTableViewController: UITableViewController {
         self.tableView.allowsSelection = true;
         
         do {
-            sound1 = try AudioPlayer(fileName: "thunderstorm.mp3")
-            sound2 = try AudioPlayer(fileName: "party.mp3")
+            thunderstorm = try AudioPlayer(fileName: "thunderstorm.mp3")
+            party = try AudioPlayer(fileName: "party.mp3")
+            thunderstorm_fireplace = try AudioPlayer(fileName: "thunderstorm_fireplace.mp3")
+            tickle = try AudioPlayer(fileName: "tickle.mp3")
+            bell = try AudioPlayer(fileName: "bell.mp3")
+
         }
         catch _ {
             // Error handling
@@ -50,6 +58,12 @@ class SoundsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    @IBAction func didSelectDoneButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,7 +84,7 @@ class SoundsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,16 +95,53 @@ class SoundsTableViewController: UITableViewController {
         let row = indexPath.row
         switch row {
         case 0:
-            currentSound = sound1
+            currentSound = bell
+            if (isAlarmSounds) {
+                UserDefaults.standard.set("Bell", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
+            } else {
+                UserDefaults.standard.set("Bell", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
+            }
         case 1:
-            currentSound = sound2
-            
+            currentSound = party
+            if (isAlarmSounds) {
+                UserDefaults.standard.set("Party", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
+            } else {
+                UserDefaults.standard.set("Party", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
+            }
+        case 2:
+            currentSound = tickle
+            if (isAlarmSounds) {
+                UserDefaults.standard.set("Tickle", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
+            } else {
+                UserDefaults.standard.set("Tickle", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
+            }
+        case 3:
+            currentSound = thunderstorm
+            if (isAlarmSounds) {
+                UserDefaults.standard.set("Thunderstorm", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
+            } else {
+                UserDefaults.standard.set("Thunderstorm", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
+            }
+        case 4:
+            currentSound = thunderstorm_fireplace
+            if (isAlarmSounds) {
+                UserDefaults.standard.set("Thunderstorm Fireplace", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
+            } else {
+                UserDefaults.standard.set("Thunderstorm Fireplace", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
+            }
         default:
             break
         }
         
         currentSound?.currentTime = 0
         currentSound?.play()
+        
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
     
     /*

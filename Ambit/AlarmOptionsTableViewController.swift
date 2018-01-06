@@ -17,7 +17,19 @@ class AlarmOptionsTableViewController: UITableViewController {
     
     //MARK: step 2 Create a delegate property here, don't forget to make it weak!
     weak var delegate: AlarmOptionsTableViewControllerDelegate?
-
+    
+    @IBOutlet weak var alarmSoundsDetailLabel: UILabel!
+    @IBOutlet weak var sleepSoundsDetailLabel: UILabel!
+    @IBOutlet weak var hueBridgeDetailLabel: UILabel!
+    @IBOutlet weak var lightScenesDetailLabel: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var versionNumberLabel: UILabel!
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        let selectedValue = Float(sender.value)
+        UserDefaults.standard.set(selectedValue, forKey: AmbitConstants.CurrentVolumeLevelName) //setObject
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +54,16 @@ class AlarmOptionsTableViewController: UITableViewController {
             
             //if you want translucent vibrant table view separator lines
             tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        }
+        
+        alarmSoundsDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentAlarmSoundName)
+        sleepSoundsDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentSleepSoundName)
+        hueBridgeDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentHueBridgeName)
+        lightScenesDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentLightSceneName)
+        slider.value = UserDefaults.standard.float(forKey: AmbitConstants.CurrentVolumeLevelName)
+        
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            versionNumberLabel.text = version
         }
     }
     
@@ -68,9 +90,13 @@ class AlarmOptionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            performSegue(withIdentifier: "sounds", sender: nil)
+            dismiss(animated: true, completion: {
+                self.delegate?.performSegueFromOptions("alarmSounds")
+            })
         case 1:
-            performSegue(withIdentifier: "sounds", sender: nil)
+            dismiss(animated: true, completion: {
+                self.delegate?.performSegueFromOptions("sleepSounds")
+            })
         case 2:
             return
         case 3:

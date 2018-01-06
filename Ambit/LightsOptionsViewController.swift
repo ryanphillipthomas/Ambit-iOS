@@ -29,12 +29,14 @@ class LightsOptionsViewController: UIViewController {
     
     @IBAction func didSelectNightActionButton(_ sender: Any) {
         Thunderstorm_Fireplace.sharedManager.startStorm()
+        UserDefaults.standard.set("Night Scene", forKey: AmbitConstants.CurrentLightSceneName) //setObject
     }
     
     @IBAction func didSelectPixelActionButton(_ sender: Any) {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true);
         setToCurrentPixel() //todo add timer
+        UserDefaults.standard.set("Current Pixel", forKey: AmbitConstants.CurrentLightSceneName) //setObject
     }
     
     // must be internal or public.
@@ -44,10 +46,12 @@ class LightsOptionsViewController: UIViewController {
     
     @IBAction func didSelectBlackoutActionButton(_ sender: Any) {
         blackOut()
+        UserDefaults.standard.set("Blackout Lights", forKey: AmbitConstants.CurrentLightSceneName) //setObject
     }
     
     @IBAction func didSelectResetToCurrentActionButton(_ sender: Any) {
         lightsOn()
+        UserDefaults.standard.set("Reset To Normal", forKey: AmbitConstants.CurrentLightSceneName) //setObject
     }
     
     fileprivate func setToBlueGradientColor() {

@@ -65,6 +65,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
 //        play()
         
+        //initalize app defaults
+        let defaults = [AmbitConstants.CurrentAlarmSoundName : "Party",
+                        AmbitConstants.CurrentSleepSoundName : "Thunderstorm",
+                        AmbitConstants.CurrentVolumeLevelName : 80.0,
+                        AmbitConstants.CurrentHueBridgeName : "Select Bridge",
+                        AmbitConstants.CurrentLightSceneName : "Select Scene"
+            ] as [String : Any]
+        
+
+        UserDefaults.standard.register(defaults: defaults)
+        
         return true
     }
     
@@ -151,7 +162,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //get sound file name and load it up
         do {
-            currentSound = try AudioPlayer(fileName: "bell.mp3")
+            let userSoundFile = UserDefaults.standard.string(forKey: AmbitConstants.CurrentAlarmSoundName)
+            let soundFile = StringHelper.soundFileForName(string: userSoundFile!)
+            currentSound = try AudioPlayer(fileName: soundFile)
         }
         catch _ {
             // Error handling

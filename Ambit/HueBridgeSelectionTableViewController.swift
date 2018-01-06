@@ -104,7 +104,8 @@ class HueBridgeSelectionTableViewController: UITableViewController {
             
             // Inform delegate
             if let bridgeID = bridgeID, let ip = ip {
-                dismiss(animated: true, completion: { 
+                dismiss(animated: true, completion: {
+                    UserDefaults.standard.set(ip, forKey: AmbitConstants.CurrentHueBridgeName) //setObject
                     self.delegate?.bridgeSelectedWithIpAddress(ipAddress: ip, bridgeId: bridgeID)
                 })
             }

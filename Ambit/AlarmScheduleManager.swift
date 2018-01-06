@@ -39,7 +39,9 @@ class AlarmScheduleManager: NSObject {
         //dev todo add ability to see the amount of alarms displayed already
 //        content.title = ""
         content.body = "Time to wakeup!"
-        content.sound = UNNotificationSound.init(named: "bell.mp3")
+        let userSoundFile = UserDefaults.standard.string(forKey: AmbitConstants.CurrentAlarmSoundName)
+        let soundFile = StringHelper.soundFileForName(string: userSoundFile!)
+        content.sound = UNNotificationSound.init(named: soundFile)
         content.userInfo = ["content-available":"1"]
   //      content.categoryIdentifier = "ALARMNOTIFICATION"
     //    content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")

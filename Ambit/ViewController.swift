@@ -13,6 +13,10 @@ import RTCoreData
 import UserNotifications
 import EventKit
 
+import AudioPlayer
+import AVFoundation
+import MediaPlayer
+
 class ViewController: UIViewController, ManagedObjectContextSettable {    
     @IBOutlet var timeLabel:SBTimeLabel!
     @IBOutlet var timeLeftLabel:UILabel!
@@ -37,6 +41,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     var backroundAnimation = CAGradientLayer()
     var managedObjectContext: NSManagedObjectContext!
     
+    var currentSound: AudioPlayer?
+    var audioPlayer : AVAudioPlayer!
+    
+    var isPlayingOverride : Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.updateText()
@@ -67,6 +76,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
         timePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         
+        let calendar = Calendar.current
+        let date = calendar.date(byAdding: .minute, value: 1, to: Date())
+        timePicker.minimumDate = date
+
         loadEvents()
         
 //        dimView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dimViewFadeGesture(gesture:))))
@@ -80,6 +93,37 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     override func viewDidLayoutSubviews() {
         backroundAnimation.frame = self.view.bounds
+    }
+    
+    @IBAction func pickerValueChanged(_ sender: Any) {
+        let calendar = Calendar.current
+        let date = calendar.date(byAdding: .minute, value: 1, to: Date())
+        timePicker.minimumDate = date
+    }
+    
+    func isPlayingSound() -> Bool {
+        if isPlayingOverride { return true }
+        
+        guard let currentSound = self.currentSound else { return false }
+        return currentSound.isPlaying
+    }
+    
+    func playSleepSound() {
+        
+        if isPlayingSound() { return }
+        
+        //get sound file name and load it up
+        do {
+            let userSoundFile = UserDefaults.standard.string(forKey: AmbitConstants.CurrentSleepSoundName)
+            let soundFile = StringHelper.soundFileForName(string: userSoundFile!)
+            currentSound = try AudioPlayer(fileName: soundFile)
+        }
+        catch _ {
+            // Error handling
+            print("Sound initialization failed")
+        }
+        
+        currentSound?.play()
     }
     
     func handleRefresh() {
@@ -387,6 +431,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         self.animateOutStopButton()
         self.animateInTimePickerLayers()
         self.animateOutSnoozeButton()
+        
+        //stop sleep sounds if playing
+        currentSound?.stop()
     }
     
     @IBAction func didSnooze(_ sender: Any) {
@@ -513,6 +560,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         //start fading black frame
         self.perform(#selector(self.fadeToBlack), with: nil, afterDelay: 3.0)
+        
+        //start playing sleep sounds
+        playSleepSound()
     }
     
     fileprivate func blackOut() {
@@ -586,7 +636,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             
             self.tableView.delegate = self
             self.tableView.dataSource = self
-        }
+        } else if segue.identifier == "alarmSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SoundsTableViewController {
+            lightOptions.isAlarmSounds = true;
+        } else if segue.identifier == "sleepSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SoundsTableViewController {
+            lightOptions.isAlarmSounds = false;
+    }
     }
     
     // MARK - Status Bar
@@ -648,62 +702,6 @@ extension ViewController : HueConnectionManagerDelegate {
     
     
 }
-
-
-//extension ViewController : UIPickerViewDataSource {
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 3
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        var numberOfRows = 0
-//        switch component {
-//        case 0:
-//            numberOfRows = AmbitConstants.time.hoursArray.count
-//        case 1:
-//            numberOfRows = AmbitConstants.time.minutesArray.count
-//        case 2:
-//            numberOfRows = AmbitConstants.time.ampmArray.count
-//        default:
-//            break
-//        }
-//        
-//        return numberOfRows
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        
-//        var titleForRow = ""
-//        switch component {
-//        case 0:
-//            titleForRow = AmbitConstants.time.hoursArray[row]
-//        case 1:
-//            titleForRow = AmbitConstants.time.minutesArray[row]
-//        case 2:
-//            titleForRow = AmbitConstants.time.ampmArray[row]
-//        default:
-//            break
-//        }
-//        
-//        return titleForRow
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        /// get date and save it to 
-//        
-//        // First we need to create a new instance of the NSDateFormatter
-//        let dateFormatter = DateFormatter()
-//        // Now we specify the display format, e.g. "27-08-2015
-//        dateFormatter.dateFormat = "dd-MM-YYYY"
-//        // Now we get the date from the UIDatePicker and convert it to a string
-//        let strDate = dateFormatter.stringFromDate(timePicker.date)
-//        
-//        
-//        let alarmDictionary:[String : Any] = ["id": "Juris", "fireDate": "Prudence", "name": "Test Alarm"]
-//        Alarm.insertIntoContext(moc: managedObjectContext, alarmDictionary: alarmDictionary as NSDictionary)
-//    }
-//}
-
 
 extension Date {
     /// Returns the amount of years from another date

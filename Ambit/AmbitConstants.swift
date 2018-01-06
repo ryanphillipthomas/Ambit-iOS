@@ -17,5 +17,9 @@ struct AmbitConstants {
         static let ampmArray = ["AM","PM"]
     }
     
-    static let didRecieveAlarmNotificationName = "didRecieveAlarm"
+    static let CurrentAlarmSoundName = "CurrentAlarmSoundName"
+    static let CurrentSleepSoundName = "CurrentSleepSoundName"
+    static let CurrentVolumeLevelName = "CurrentVolumeLevelName"
+    static let CurrentLightSceneName = "CurrentLightSceneName"
+    static let CurrentHueBridgeName = "CurrentHueBridgeName"
 }
