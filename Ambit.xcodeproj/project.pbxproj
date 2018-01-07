@@ -92,6 +92,7 @@
 		B8E7EAA02001E2A800B5B6D1 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA9F2001E2A800B5B6D1 /* CreditsViewController.swift */; };
 		B8E7EAA42002023F00B5B6D1 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA32002023F00B5B6D1 /* QuoteViewController.swift */; };
 		B8E7EAA620028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA520028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift */; };
+		B8E7EAAA2002D95900B5B6D1 /* LightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA92002D95900B5B6D1 /* LightsTableViewController.swift */; };
 		C29842FF6D81FE74340AADDF /* Pods_AmbitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319D788B74C29BA42B4AB0E /* Pods_AmbitUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -272,6 +273,7 @@
 		B8E7EA9F2001E2A800B5B6D1 /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		B8E7EAA32002023F00B5B6D1 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		B8E7EAA520028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDetailTableViewCell.swift; sourceTree = "<group>"; };
+		B8E7EAA92002D95900B5B6D1 /* LightsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsTableViewController.swift; sourceTree = "<group>"; };
 		BA9763449EA3A0DDA78CB88D /* Pods-Ambit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCC85028A2B8F72C8D5DF16 /* Pods-AmbitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				74B95ED61DFB737700B03661 /* Storyboards */,
+				B8E7EAAB2002D96900B5B6D1 /* Table View Controllers */,
 				74B95EDC1DFB73BC00B03661 /* View Controllers */,
 				74B95EDB1DFB73B700B03661 /* Views */,
 				74B95EDA1DFB73AE00B03661 /* Cells */,
@@ -493,13 +496,8 @@
 			children = (
 				74B95EA71DFB735300B03661 /* ViewController.swift */,
 				0AE8D92E1E5A463300023F0C /* EventOptionsViewController.swift */,
-				946597781E4567F400ED204C /* LaunchScreenViewController.swift */,
-				947D75401E41804C00B69286 /* AlarmOptionsTableViewController.swift */,
-				B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */,
 				0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */,
 				0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */,
-				B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */,
-				B8E7EA9A2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift */,
 				B8E7EA9D2001DA9B00B5B6D1 /* HelpViewController.swift */,
 				B8E7EA9F2001E2A800B5B6D1 /* CreditsViewController.swift */,
 				B8E7EAA32002023F00B5B6D1 /* QuoteViewController.swift */,
@@ -681,6 +679,19 @@
 				94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */,
 			);
 			name = Hue;
+			sourceTree = "<group>";
+		};
+		B8E7EAAB2002D96900B5B6D1 /* Table View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				947D75401E41804C00B69286 /* AlarmOptionsTableViewController.swift */,
+				B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */,
+				B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */,
+				B8E7EA9A2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift */,
+				B8E7EAA92002D95900B5B6D1 /* LightsTableViewController.swift */,
+				946597781E4567F400ED204C /* LaunchScreenViewController.swift */,
+			);
+			name = "Table View Controllers";
 			sourceTree = "<group>";
 		};
 		CE9EDE0DBCC025329CC23A8E /* Frameworks */ = {
@@ -1242,6 +1253,7 @@
 				94E9E0091E3EB9A3008A1F84 /* DDASLLogger.m in Sources */,
 				9480E5221E44433400E094F3 /* Model.xcdatamodeld in Sources */,
 				94A7A5F81E404A4E00A6D11D /* ColorConstant.swift in Sources */,
+				B8E7EAAA2002D95900B5B6D1 /* LightsTableViewController.swift in Sources */,
 				94A7A5F91E404A4E00A6D11D /* GradientHandler.swift in Sources */,
 				94A7A5FC1E40664E00A6D11D /* Utilities.swift in Sources */,
 				94E9E0131E3EB9E3008A1F84 /* ContextFilterLogFormatter.m in Sources */,
