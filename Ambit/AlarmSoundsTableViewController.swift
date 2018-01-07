@@ -8,13 +8,18 @@
 
 import UIKit
 import AudioPlayer
+import MediaPlayer
 
 class AlarmSoundsTableViewController: UITableViewController {
     
     var party: AudioPlayer?
     var tickle: AudioPlayer?
     var bell: AudioPlayer?
+    var selectedMediaItemSound: AudioPlayer?
     var currentSound: AudioPlayer?
+
+    var selectedMediaItem: MPMediaItem?
+    var mediaPicker: MPMediaPickerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +82,7 @@ class AlarmSoundsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -88,12 +93,16 @@ class AlarmSoundsTableViewController: UITableViewController {
         let row = indexPath.row
         switch row {
         case 0:
+            //itunes
+            presentMediaPicker()
+            return
+        case 1:
             currentSound = bell
             UserDefaults.standard.set("Bell", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
-        case 1:
+        case 2:
             currentSound = party
             UserDefaults.standard.set("Party", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
-        case 2:
+        case 3:
             currentSound = tickle
             UserDefaults.standard.set("Tickle", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
         default:
@@ -106,64 +115,99 @@ class AlarmSoundsTableViewController: UITableViewController {
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
     
+    func playFromMediaSelection(){
+        do {
+            let mediaUrl = selectedMediaItem?.value(forProperty: MPMediaItemPropertyAssetURL)
+            let mediaTitle = selectedMediaItem?.value(forProperty: MPMediaItemPropertyTitle)
+            if let url = mediaUrl as? URL {
+                selectedMediaItemSound = try AudioPlayer(contentsOf: url)
+                currentSound = selectedMediaItemSound
+                UserDefaults.standard.set(url, forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL) //setObject
+                UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentCustomMediaAlarmSoundName) //setObject
+                UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
+                currentSound?.currentTime = 0
+                currentSound?.play()
+            }
+        }
+        catch _ {
+            // Error handling
+            print("Sound initialization failed")
+        }
+    }
+    
+    func presentMediaPicker() {
+        mediaPicker = MPMediaPickerController(mediaTypes: .music)
+        if let picker = mediaPicker {
+            picker.allowsPickingMultipleItems = false
+            picker.showsCloudItems = false
+            picker.showsItemsWithProtectedAssets = false
+            picker.prompt = "Please Pick a Song"
+            picker.delegate = self
+            present(picker, animated: true, completion: nil)
+        }
+    }
+    
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
     
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        let row = indexPath.row
+        switch row {
+        case 0:
+            var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundName)
+            if customMediaSoundName == nil {
+                customMediaSoundName = "Select A Song"
+            }
+            
+            let detailCell = tableView.dequeueReusableCell(withIdentifier: "itunesIdentifier", for: indexPath) as! PreferencesDetailTableViewCell
+            detailCell.title?.text = "Your iTunes Song"
+            detailCell.detail?.text = customMediaSoundName
+            detailCell.selectionStyle = .none // to prevent cells from being "highlighted"
+            return detailCell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
+            cell.title?.text = "Bell"
+            cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
+            cell.title?.text = "Party"
+            cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
+            cell.title?.text = "Tickle"
+            cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            return cell
+        default:
+            break
+        }
+        
+        //default
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 68
     }
-    */
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+
+extension AlarmSoundsTableViewController: MPMediaPickerControllerDelegate {
+    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        let items = mediaItemCollection.items
+        selectedMediaItem = items[0]
+        mediaPicker.dismiss(animated: true) {
+            self.playFromMediaSelection()
+            self.tableView.reloadData()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+        mediaPicker.dismiss(animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

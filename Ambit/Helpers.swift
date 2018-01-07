@@ -202,7 +202,7 @@ class StringHelper{
         return String("\(hour) hrs \(min) mins \(ago_left)")
     }
     
-    class func soundFileForName(string : String) -> String {
+    class func soundFileForName(string : String) -> String? {
         if string == "Bell" {
             return "bell.mp3"
         } else if string == "Party" {
@@ -214,8 +214,7 @@ class StringHelper{
         } else if string == "Thunderstorm Fireplace" {
             return "thunderstorm_fireplace.mp3"
         }
-        
-        return ""
+        return nil
     }
     
     class func nextAlarmString(alarmDate : Date) -> String {

@@ -114,13 +114,19 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         do {
             let userSoundFile = UserDefaults.standard.string(forKey: AmbitConstants.CurrentSleepSoundName)
             let soundFile = StringHelper.soundFileForName(string: userSoundFile!)
-            currentSound = try AudioPlayer(fileName: soundFile)
+            if let file = soundFile {
+                currentSound = try AudioPlayer(fileName: file)
+            } else {
+                let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaSleepSoundURL)
+                currentSound = try AudioPlayer(contentsOf: customMediaSoundURL as! URL)
+            }
         }
         catch _ {
             // Error handling
             print("Sound initialization failed")
         }
-        
+        let volumeLevel = UserDefaults.standard.float(forKey: AmbitConstants.CurrentVolumeLevelName)
+        currentSound?.volume = volumeLevel
         currentSound?.play()
     }
     

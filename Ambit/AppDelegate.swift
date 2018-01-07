@@ -78,7 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         AmbitConstants.AlarmSoundsLightingSetting : true,
                         AmbitConstants.SleepSoundsLightingSetting : true,
                         AmbitConstants.AlarmSoundsLightingSettingSceneName : "Select Scene",
-                        AmbitConstants.SleepSoundsLightingSettingSceneName : "Select Scene"] as [String : Any]
+                        AmbitConstants.SleepSoundsLightingSettingSceneName : "Select Scene",
+                        AmbitConstants.CurrentCustomMediaAlarmSoundName : "Select A Song",
+                        AmbitConstants.CurrentCustomMediaSleepSoundName : "Select A Song"] as [String : Any]
 
         UserDefaults.standard.register(defaults: defaults)
         
@@ -170,7 +172,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         do {
             let userSoundFile = UserDefaults.standard.string(forKey: AmbitConstants.CurrentAlarmSoundName)
             let soundFile = StringHelper.soundFileForName(string: userSoundFile!)
-            currentSound = try AudioPlayer(fileName: soundFile)
+            if let file = soundFile {
+                currentSound = try AudioPlayer(fileName: file)
+            } else {
+                let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL)
+                currentSound = try AudioPlayer(contentsOf: customMediaSoundURL as! URL)
+            }
         }
         catch _ {
             // Error handling
