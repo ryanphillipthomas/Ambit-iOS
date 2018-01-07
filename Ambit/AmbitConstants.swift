@@ -34,11 +34,16 @@ struct AmbitConstants {
     static let AlarmSoundsLightingSetting = "AlarmSoundsLightingSetting" //true or false for should run alarm lighting
     static let AlarmSoundsLightingSettingSceneName = "AlarmSoundsLightingSettingSceneName" //Scene Name for Alarm Sounds
     static let CurrentAlarmSoundName = "CurrentAlarmSoundName" // current setting for alarm sound
-
-
-
-
-
-
+    
+    
+    struct quotes {
+        static let quote_1 = "Set a goal that makes you want to jump out of bed in the morning."
+        static let quote_2 = "I opened two gifts this morning. They were my eyes."
+        static let quote_3 = "Everyday may not be good, but there is something good in every day"
+        static let quote_4 = "You don’t have to be great to start, but you have to start to be great"
+        static let quote_5 = "I really need new clothes.. is me every morning."
+        
+        static let quotesArray = [quote_1, quote_2, quote_3, quote_4, quote_5]
+    }
 
 }

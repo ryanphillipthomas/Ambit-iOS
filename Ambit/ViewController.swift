@@ -587,10 +587,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             //
         } else if segue.identifier == "lightOptions", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? LightsOptionsViewController {
             //
-        } else if segue.identifier == "containerSegue", let textViewController = segue.destination as? TextViewController {
-            // initalize with random wakeup - quote...
-            textViewController.textView?.text = "Hello!"
-            
+        } else if segue.identifier == "containerSegue", let textViewController = segue.destination as? QuoteViewController {
+            //
         } else if segue.identifier == "alarmSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? AlarmSoundsTableViewController {
             //
         } else if segue.identifier == "sleepSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SleepSoundsTableViewController {

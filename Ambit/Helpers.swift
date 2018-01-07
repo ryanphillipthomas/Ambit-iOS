@@ -259,6 +259,12 @@ class StringHelper{
         dateFormatter.dateFormat = "a"
         return dateFormatter.string(from: date)
     }
+    
+    class func randomQuote() -> String {
+        let randomIndex = Int(arc4random_uniform(UInt32(AmbitConstants.quotes.quotesArray.count)))
+        let quote = AmbitConstants.quotes.quotesArray[randomIndex]
+        return quote
+    }
 }
 
 class DateHelper {

@@ -1,5 +1,5 @@
 //
-//  TextViewController.swift
+//  QuoteViewController.swift
 //  Ambit
 //
 //  Created by Ryan Thomas on 1/7/18.
@@ -8,10 +8,12 @@
 
 import Foundation
 
-class TextViewController: UIViewController {
+class QuoteViewController: UIViewController {
     @IBOutlet weak var textView: UITextView?
     override func viewDidLoad() {
         //
+        let randomQuote = StringHelper.randomQuote()
+        textView?.text = randomQuote
     }
     
     @IBAction func didSelectDoneActionButton(_ sender: Any) {
