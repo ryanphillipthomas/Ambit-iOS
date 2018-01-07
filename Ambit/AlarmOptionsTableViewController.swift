@@ -98,10 +98,11 @@ class AlarmOptionsTableViewController: UITableViewController {
                 self.delegate?.performSegueFromOptions("sleepSounds")
             })
         case 2:
+            //volume cell
             return
         case 3:
             dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("upcomingEvents")
+                self.delegate?.performSegueFromOptions("preferencesSegue")
             })
         case 4:
             dismiss(animated: true, completion: {

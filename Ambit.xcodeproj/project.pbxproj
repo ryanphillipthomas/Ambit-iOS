@@ -85,6 +85,8 @@
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
 		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
 		B8A8C2292000B2D200483407 /* party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8A8C2282000B2D100483407 /* party.mp3 */; };
+		B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */; };
+		B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */; };
 		C29842FF6D81FE74340AADDF /* Pods_AmbitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319D788B74C29BA42B4AB0E /* Pods_AmbitUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -258,6 +260,8 @@
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
 		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
 		B8A8C2282000B2D100483407 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = party.mp3; sourceTree = "<group>"; };
+		B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
+		B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
 		BA9763449EA3A0DDA78CB88D /* Pods-Ambit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCC85028A2B8F72C8D5DF16 /* Pods-AmbitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -461,6 +465,7 @@
 			children = (
 				947D75421E418A5E00B69286 /* BlurTableViewCell.swift */,
 				94B7C01A1E4F88C2002E0CBA /* EventTableViewCell.swift */,
+				B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 				946597781E4567F400ED204C /* LaunchScreenViewController.swift */,
 				947D75401E41804C00B69286 /* AlarmOptionsTableViewController.swift */,
 				947D75441E41A16E00B69286 /* SoundsTableViewController.swift */,
+				B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */,
 				0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */,
 				0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */,
 			);
@@ -1201,9 +1207,11 @@
 				947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */,
 				9480E5241E44447D00E094F3 /* Alarm.swift in Sources */,
 				947F47001E4364F70047CD4C /* AmbitConstants.swift in Sources */,
+				B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */,
 				0A6E17C01E5A54A50081CB29 /* LightsOptionsViewController.swift in Sources */,
 				946597791E4567F400ED204C /* LaunchScreenViewController.swift in Sources */,
 				94B7C01B1E4F88C2002E0CBA /* EventTableViewCell.swift in Sources */,
+				B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */,
 				947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */,
 				0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */,
 				94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */,

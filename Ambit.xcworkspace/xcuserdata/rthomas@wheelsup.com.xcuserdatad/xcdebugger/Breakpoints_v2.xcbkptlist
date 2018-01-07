@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536978957.015839"
+            timestampString = "536987743.225742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "167"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536978957.0159039"
+            timestampString = "536987743.225816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "193"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536978957.01595"
+            timestampString = "536987743.2258691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
@@ -106,7 +106,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536977831.064803"
+                  timestampString = "536987439.34509"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "205"
@@ -121,7 +121,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536977831.066641"
+                  timestampString = "536987439.347321"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "207"
@@ -170,7 +170,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536977831.074476"
+                  timestampString = "536987439.355418"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "248"
@@ -185,7 +185,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536977831.076316"
+                  timestampString = "536987439.357281"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "250"
@@ -250,7 +250,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536977831.088062"
+                  timestampString = "536987439.3684"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "297"
@@ -265,7 +265,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536977831.089932"
+                  timestampString = "536987439.370766"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "266"
@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "536978957.0161"
+            timestampString = "536987743.226037"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "316"
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/SoundsTableViewController.swift"
-            timestampString = "536978957.016477"
+            timestampString = "536987743.226092"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
@@ -314,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AlarmScheduleManager.swift"
-            timestampString = "536978957.016722"
+            timestampString = "536987743.2264301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536978957.016953"
+            timestampString = "536987743.226676"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "173"
@@ -346,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "536978957.017001"
+            timestampString = "536987743.226733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "542"
@@ -362,12 +362,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "536978957.017276"
+            timestampString = "536987743.226779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "604"
             endingLineNumber = "604"
             landmarkName = "lightsOn()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ambit/PreferencesTableViewController.swift"
+            timestampString = "536987743.227742"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ambit/PreferencesTableViewController.swift"
+            timestampString = "536987743.2279609"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ambit/PreferencesTableViewController.swift"
+            timestampString = "536987743.228181"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ambit/PreferencesTableViewController.swift"
+            timestampString = "536987743.2284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
