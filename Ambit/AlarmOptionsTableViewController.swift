@@ -66,7 +66,7 @@ class AlarmOptionsTableViewController: UITableViewController {
         slider.value = UserDefaults.standard.float(forKey: AmbitConstants.CurrentVolumeLevelName)
         
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            versionNumberLabel.text = version
+            versionNumberLabel.text = "v \(version)"
         }
     }
     
