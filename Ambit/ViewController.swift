@@ -17,6 +17,7 @@ import AudioPlayer
 import AVFoundation
 import MediaPlayer
 import AVKit
+import StoreKit
 
 class ViewController: UIViewController, ManagedObjectContextSettable {    
     @IBOutlet var timeLabel:SBTimeLabel!
@@ -618,6 +619,13 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
     }
+    
+    ///Asks user for app review
+    func displayAppReviewViewController() {
+        if #available( iOS 10.3,*){
+            SKStoreReviewController.requestReview()
+        }
+    }
 }
 
 extension ViewController: SBTimeLabelDelegate {
@@ -712,6 +720,10 @@ extension ViewController: AlarmOptionsTableViewControllerDelegate {
             playerViewController.player!.play()
         }
         return
+    }
+    
+    func presentAppReviewController() {
+        displayAppReviewViewController()
     }
 }
 

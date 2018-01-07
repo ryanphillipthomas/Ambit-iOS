@@ -40,7 +40,6 @@ class AlarmSoundsTableViewController: UITableViewController {
             party = try AudioPlayer(fileName: "party.mp3")
             tickle = try AudioPlayer(fileName: "tickle.mp3")
             bell = try AudioPlayer(fileName: "bell.mp3")
-
         }
         catch _ {
             // Error handling

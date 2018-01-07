@@ -14,6 +14,7 @@ import AVFoundation
 protocol AlarmOptionsTableViewControllerDelegate: class {
     func performSegueFromOptions(_ identifier: NSString?)
     func presentIntroductionVideo()
+    func presentAppReviewController()
 }
 
 class AlarmOptionsTableViewController: UITableViewController {
@@ -87,7 +88,7 @@ class AlarmOptionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 9
+        return 10
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -128,6 +129,11 @@ class AlarmOptionsTableViewController: UITableViewController {
         case 8:
             dismiss(animated: true, completion: {
                 self.delegate?.performSegueFromOptions("textViewSegue")
+                return
+            })
+        case 9:
+            dismiss(animated: true, completion: {
+                self.delegate?.presentAppReviewController()
                 return
             })
         default:
