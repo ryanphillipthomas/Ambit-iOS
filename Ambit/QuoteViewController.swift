@@ -10,8 +10,8 @@ import Foundation
 
 class QuoteViewController: UIViewController {
     @IBOutlet weak var textView: UITextView?
-    override func viewDidLoad() {
-        //
+    
+    override func viewWillAppear(_ animated: Bool) {
         let randomQuote = StringHelper.randomQuote()
         textView?.text = randomQuote
     }
