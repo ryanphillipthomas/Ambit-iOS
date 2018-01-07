@@ -344,7 +344,7 @@
                                                     <constraint firstAttribute="width" constant="295" id="X8T-eY-q6Y"/>
                                                 </constraints>
                                                 <connections>
-                                                    <segue destination="VbP-ZE-4lE" kind="embed" identifier="containerSegue" id="e17-UR-enu"/>
+                                                    <segue destination="sD1-MO-EmC" kind="embed" identifier="containerSegue" id="bpO-UM-Qaw"/>
                                                 </connections>
                                             </containerView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qS-Gf-bJs">
@@ -434,7 +434,7 @@
                         <segue destination="I6e-kf-L52" kind="presentation" identifier="preferencesSegue" modalPresentationStyle="overCurrentContext" id="gH0-4N-bzt"/>
                         <segue destination="3bU-8l-EYV" kind="presentation" identifier="sleepSounds" modalPresentationStyle="overCurrentContext" id="aQC-SN-KvP"/>
                         <segue destination="eBz-OR-3vF" kind="presentation" identifier="helpSegue" modalPresentationStyle="overCurrentContext" id="QkF-pb-4in"/>
-                        <segue destination="zkP-8C-Jbs" kind="presentation" identifier="textViiewSegue" modalPresentationStyle="overCurrentContext" id="0uK-Ja-s8i"/>
+                        <segue destination="zkP-8C-Jbs" kind="presentation" identifier="textViewSegue" modalPresentationStyle="overCurrentContext" id="0uK-Ja-s8i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -446,10 +446,46 @@
             </objects>
             <point key="canvasLocation" x="-5308" y="36.945812807881772"/>
         </scene>
+        <!--Text View Controller-->
+        <scene sceneID="f4i-ya-5DX">
+            <objects>
+                <viewController id="sD1-MO-EmC" customClass="TextViewController" customModule="Ambit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="25l-au-ZVD"/>
+                        <viewControllerLayoutGuide type="bottom" id="2RP-kR-VZa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1AN-IX-ZT9">
+                        <rect key="frame" x="0.0" y="0.0" width="295" height="607"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aJc-lP-ypT">
+                                <rect key="frame" x="0.0" y="0.0" width="295" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aJc-lP-ypT" firstAttribute="top" secondItem="1AN-IX-ZT9" secondAttribute="top" id="02L-XX-LYA"/>
+                            <constraint firstAttribute="trailing" secondItem="aJc-lP-ypT" secondAttribute="trailing" id="FMA-o4-tBh"/>
+                            <constraint firstItem="aJc-lP-ypT" firstAttribute="leading" secondItem="1AN-IX-ZT9" secondAttribute="leading" id="Ywn-YF-35L"/>
+                            <constraint firstAttribute="bottom" secondItem="aJc-lP-ypT" secondAttribute="bottom" id="c2U-r9-okd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="aJc-lP-ypT" id="gdC-tH-pJv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJw-fK-SHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4375.1999999999998" y="180.66502463054189"/>
+        </scene>
         <!--Credits-->
         <scene sceneID="g6T-uf-Vl8">
             <objects>
-                <viewController id="VbP-ZE-4lE" customClass="TextViewController" customModule="Ambit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VbP-ZE-4lE" customClass="CreditsViewController" customModule="Ambit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vNu-gt-2hK"/>
                         <viewControllerLayoutGuide type="bottom" id="hCW-ax-3vO"/>
@@ -1619,7 +1655,4 @@
         <image name="settings" width="85" height="85"/>
         <image name="stop" width="42" height="42"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="WoD-wq-4ly"/>
-    </inferredMetricsTieBreakers>
 </document>

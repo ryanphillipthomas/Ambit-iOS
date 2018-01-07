@@ -127,7 +127,7 @@ class AlarmOptionsTableViewController: UITableViewController {
             })
         case 8:
             dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("textViiewSegue")
+                self.delegate?.performSegueFromOptions("textViewSegue")
                 return
             })
         default:
