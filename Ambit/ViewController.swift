@@ -16,6 +16,7 @@ import EventKit
 import AudioPlayer
 import AVFoundation
 import MediaPlayer
+import AVKit
 
 class ViewController: UIViewController, ManagedObjectContextSettable {    
     @IBOutlet var timeLabel:SBTimeLabel!
@@ -639,7 +640,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         } else if segue.identifier == "upcomingEvents", let nav = segue.destination as? UINavigationController, let upcomingEvents = nav.viewControllers.first as? EventOptionsViewController {
             upcomingEvents.managedObjectContext = managedObjectContext
         } else if segue.identifier == "watchOptions", let nav = segue.destination as? UINavigationController, let watchOptions = nav.viewControllers.first as? WatchOptionsViewController {
+            //
         } else if segue.identifier == "lightOptions", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? LightsOptionsViewController {
+            //
         } else if segue.identifier == "containerSegue", let tableVC = segue.destination as? UITableViewController {
             let refreshControl = UIRefreshControl()
             refreshControl.tintColor = UIColor.white
@@ -650,10 +653,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             
             self.tableView.delegate = self
             self.tableView.dataSource = self
-        } else if segue.identifier == "alarmSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SoundsTableViewController {
-            lightOptions.isAlarmSounds = true;
-        } else if segue.identifier == "sleepSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SoundsTableViewController {
-            lightOptions.isAlarmSounds = false;
+        } else if segue.identifier == "alarmSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? AlarmSoundsTableViewController {
+            //
+        } else if segue.identifier == "sleepSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SleepSoundsTableViewController {
+            //
     }
     }
     
@@ -870,6 +873,17 @@ extension ViewController: EventManagerDelegate {
 extension ViewController: AlarmOptionsTableViewControllerDelegate {
     func performSegueFromOptions(_ identifier: NSString?) {
         self.performSegue(withIdentifier: identifier! as String, sender: nil)
+    }
+    
+    func presentIntroductionVideo() {
+        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+        let player = AVPlayer(url: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
+        return
     }
 }
 

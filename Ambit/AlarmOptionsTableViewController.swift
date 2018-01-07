@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 //MARK: step 1 Add Protocol here
 protocol AlarmOptionsTableViewControllerDelegate: class {
     func performSegueFromOptions(_ identifier: NSString?)
+    func presentIntroductionVideo()
 }
 
 class AlarmOptionsTableViewController: UITableViewController {
@@ -114,10 +117,12 @@ class AlarmOptionsTableViewController: UITableViewController {
             })
         case 6:
             dismiss(animated: true, completion: {
-                return
+                //
+                self.delegate?.presentIntroductionVideo()
             })
         case 7:
             dismiss(animated: true, completion: {
+                self.delegate?.performSegueFromOptions("helpSegue")
                 return
             })
         case 8:

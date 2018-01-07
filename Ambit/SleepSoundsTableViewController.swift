@@ -9,16 +9,11 @@
 import UIKit
 import AudioPlayer
 
-class SoundsTableViewController: UITableViewController {
+class SleepSoundsTableViewController: UITableViewController {
     
     var thunderstorm: AudioPlayer?
-    var party: AudioPlayer?
     var thunderstorm_fireplace: AudioPlayer?
-    var tickle: AudioPlayer?
-    var bell: AudioPlayer?
-    
     var currentSound: AudioPlayer?
-    var isAlarmSounds: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +37,7 @@ class SoundsTableViewController: UITableViewController {
         
         do {
             thunderstorm = try AudioPlayer(fileName: "thunderstorm.mp3")
-            party = try AudioPlayer(fileName: "party.mp3")
             thunderstorm_fireplace = try AudioPlayer(fileName: "thunderstorm_fireplace.mp3")
-            tickle = try AudioPlayer(fileName: "tickle.mp3")
-            bell = try AudioPlayer(fileName: "bell.mp3")
-
         }
         catch _ {
             // Error handling
@@ -84,7 +75,7 @@ class SoundsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -95,40 +86,11 @@ class SoundsTableViewController: UITableViewController {
         let row = indexPath.row
         switch row {
         case 0:
-            currentSound = bell
-            if (isAlarmSounds) {
-                UserDefaults.standard.set("Bell", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
-            } else {
-                UserDefaults.standard.set("Bell", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
-            }
-        case 1:
-            currentSound = party
-            if (isAlarmSounds) {
-                UserDefaults.standard.set("Party", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
-            } else {
-                UserDefaults.standard.set("Party", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
-            }
-        case 2:
-            currentSound = tickle
-            if (isAlarmSounds) {
-                UserDefaults.standard.set("Tickle", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
-            } else {
-                UserDefaults.standard.set("Tickle", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
-            }
-        case 3:
             currentSound = thunderstorm
-            if (isAlarmSounds) {
-                UserDefaults.standard.set("Thunderstorm", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
-            } else {
-                UserDefaults.standard.set("Thunderstorm", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
-            }
-        case 4:
+            UserDefaults.standard.set("Thunderstorm", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
+        case 1:
             currentSound = thunderstorm_fireplace
-            if (isAlarmSounds) {
-                UserDefaults.standard.set("Thunderstorm Fireplace", forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
-            } else {
-                UserDefaults.standard.set("Thunderstorm Fireplace", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
-            }
+            UserDefaults.standard.set("Thunderstorm Fireplace", forKey: AmbitConstants.CurrentSleepSoundName) //setObject
         default:
             break
         }
