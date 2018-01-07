@@ -42,6 +42,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     var managedObjectContext: NSManagedObjectContext!
     
     var currentSound: AudioPlayer?
+    var currentSleepSound: AudioPlayer?
+
     var audioPlayer : AVAudioPlayer!
     
     var isPlayingOverride : Bool = false
@@ -295,10 +297,14 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         let next_alarm_string = StringHelper.nextAlarmString(alarmDate: scheduleAlarm.fireDate)
         timeLeftLabel.text = next_alarm_string
         
+        //show snooze button and view
         if appDelegate.isPlayingSound() {
             animateOutTimeDisplayLayers()
             animateInSnoozeButton() //show the snooze button
             self.perform(#selector(self.fadeToClear), with: nil, afterDelay: 0.4) //fade in the color backround in 0.4 secs
+            
+            //stop sleep sounds if playing
+            currentSound?.stop()
         }
     }
     
@@ -452,9 +458,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         animateInTimeDisplayLayers()
     }
     
-
-    
-
     @IBAction func toggleSettings(_ sender: Any) {
         performSegue(withIdentifier: "alarmOptions", sender: nil)
     }
@@ -566,45 +569,56 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     fileprivate func blackOut() {
-        let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
-        let bridgeSendAPI = PHBridgeSendAPI()
         
-        if let lights = cache?.lights {
-            let lightsData = NSMutableDictionary()
-            lightsData.addEntries(from: lights)
+        let shouldSleepLights = UserDefaults.standard.bool(forKey: AmbitConstants.SleepSoundsLightingSetting)
+        if shouldSleepLights {
+            let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
+            let bridgeSendAPI = PHBridgeSendAPI()
             
-            for light in lightsData.allValues {
-                let newLight = light as! PHLight
-                let lightState = PHLightState()
+            if let lights = cache?.lights {
+                let lightsData = NSMutableDictionary()
+                lightsData.addEntries(from: lights)
                 
-                lightState.brightness = 0
-                lightState.setOn(false)
-    
-                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                for light in lightsData.allValues {
+                    let newLight = light as! PHLight
+                    let lightState = PHLightState()
                     
-                })
+                    lightState.brightness = 0
+                    lightState.setOn(false)
+                    
+                    bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                        
+                    })
+                }
             }
         }
     }
     
     fileprivate func lightsOn() {
-        let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
-        let bridgeSendAPI = PHBridgeSendAPI()
+        let shouldAlarmLights = UserDefaults.standard.bool(forKey: AmbitConstants.AlarmSoundsLightingSetting)
         
-        if let lights = cache?.lights {
-            let lightsData = NSMutableDictionary()
-            lightsData.addEntries(from: lights)
+        //dev todo figure out a better way to check if we are not in time only mode....
+        let isInAlarmClockMode = timeLeftLabel.text?.length
+        
+        if shouldAlarmLights && (isInAlarmClockMode != 0) {
+            let cache = PHBridgeResourcesReader.readBridgeResourcesCache()
+            let bridgeSendAPI = PHBridgeSendAPI()
             
-            for light in lightsData.allValues {
-                let newLight = light as! PHLight
-                let lightState = PHLightState()
+            if let lights = cache?.lights {
+                let lightsData = NSMutableDictionary()
+                lightsData.addEntries(from: lights)
                 
-                lightState.brightness = 100
-                lightState.setOn(true)
-                
-                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                for light in lightsData.allValues {
+                    let newLight = light as! PHLight
+                    let lightState = PHLightState()
                     
-                })
+                    lightState.brightness = 100
+                    lightState.setOn(true)
+                    
+                    bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                        
+                    })
+                }
             }
         }
     }

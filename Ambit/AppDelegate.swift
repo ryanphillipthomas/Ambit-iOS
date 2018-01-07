@@ -68,11 +68,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //initalize app defaults
         let defaults = [AmbitConstants.CurrentAlarmSoundName : "Party",
                         AmbitConstants.CurrentSleepSoundName : "Thunderstorm",
-                        AmbitConstants.CurrentVolumeLevelName : 80.0,
+                        AmbitConstants.CurrentVolumeLevelName : 100.0,
                         AmbitConstants.CurrentHueBridgeName : "Select Bridge",
-                        AmbitConstants.CurrentLightSceneName : "Select Scene"
-            ] as [String : Any]
-        
+                        AmbitConstants.CurrentLightSceneName : "Select Scene",
+                        AmbitConstants.VibrateWithAlarmSetting : false,
+                        AmbitConstants.ProgressiveAlarmVolumeSetting : false,
+                        AmbitConstants.DefaultSnoozeLength : 60*15, //15 min
+                        AmbitConstants.DefaultSleepSoundsLength : 60*30, //30min
+                        AmbitConstants.AlarmSoundsLightingSetting : true,
+                        AmbitConstants.SleepSoundsLightingSetting : true,
+                        AmbitConstants.AlarmSoundsLightingSettingSceneName : "Select Scene",
+                        AmbitConstants.SleepSoundsLightingSettingSceneName : "Select Scene"] as [String : Any]
 
         UserDefaults.standard.register(defaults: defaults)
         
@@ -195,16 +201,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func increaseCurrentSound() {
-        //gently increase volume
-        if audioPlayerVolume < 0.8 {
-            audioPlayerVolume = audioPlayerVolume + 0.0125
+        let shouldIncrease = UserDefaults.standard.bool(forKey: AmbitConstants.ProgressiveAlarmVolumeSetting)
+        let volumeLevel = UserDefaults.standard.float(forKey: AmbitConstants.CurrentVolumeLevelName)
+
+        if shouldIncrease {
+            //gently increase volume
+            if audioPlayerVolume < volumeLevel {
+                audioPlayerVolume = audioPlayerVolume + 1.0000
+                (MPVolumeView().subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)?.setValue(audioPlayerVolume, animated: true)
+            }
+        } else {
+            audioPlayerVolume = volumeLevel
             (MPVolumeView().subviews.filter{NSStringFromClass($0.classForCoder) == "MPVolumeSlider"}.first as? UISlider)?.setValue(audioPlayerVolume, animated: true)
         }
     }
     
     func vibrate() {
+        
+        let shouldVibrate = UserDefaults.standard.bool(forKey: AmbitConstants.VibrateWithAlarmSetting)
+
         //get the phone to vibrate
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        if shouldVibrate {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        }
     }
     
     func playCurrentSound() {

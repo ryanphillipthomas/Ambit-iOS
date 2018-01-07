@@ -17,9 +17,28 @@ struct AmbitConstants {
         static let ampmArray = ["AM","PM"]
     }
     
-    static let CurrentAlarmSoundName = "CurrentAlarmSoundName"
-    static let CurrentSleepSoundName = "CurrentSleepSoundName"
-    static let CurrentVolumeLevelName = "CurrentVolumeLevelName"
-    static let CurrentLightSceneName = "CurrentLightSceneName"
-    static let CurrentHueBridgeName = "CurrentHueBridgeName"
+    static let CurrentVolumeLevelName = "CurrentVolumeLevelName" // current setting for volume level
+    static let CurrentLightSceneName = "CurrentLightSceneName" //current running light scene name
+    static let CurrentHueBridgeName = "CurrentHueBridgeName" //hue bridgh ip address
+    
+    static let DefaultSnoozeLength = "DefaultSnoozeLength" //length of time for snoozing
+    static let DefaultSleepSoundsLength = "DefaultSleepSoundsLength" //length of time for sleep sounds & lighting
+    
+    static let VibrateWithAlarmSetting = "VibrateWithAlarmSetting" //true or false for should vibrate device
+    static let ProgressiveAlarmVolumeSetting = "ProgressiveAlarmVolumeSetting" //true or false for should fade in volume
+    
+    static let CurrentSleepSoundName = "CurrentSleepSoundName" // current setting for sleep sound
+    static let SleepSoundsLightingSetting = "SleepSoundsLightingSetting" //true or false for should run sleep lighting
+    static let SleepSoundsLightingSettingSceneName = "SleepSoundsLightingSettingSceneName" //Scene Name for Sleep Sounds
+    
+    static let AlarmSoundsLightingSetting = "AlarmSoundsLightingSetting" //true or false for should run alarm lighting
+    static let AlarmSoundsLightingSettingSceneName = "AlarmSoundsLightingSettingSceneName" //Scene Name for Alarm Sounds
+    static let CurrentAlarmSoundName = "CurrentAlarmSoundName" // current setting for alarm sound
+
+
+
+
+
+
+
 }

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536921101.666648"
+            timestampString = "536978957.015839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "play()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536921101.666716"
+            timestampString = "536978957.0159039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "193"
@@ -42,43 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536921101.666767"
+            timestampString = "536978957.01595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "checkFireDate()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536921101.666823"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "checkFireDate()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536921101.666867"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,7 +106,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536921101.987184"
+                  timestampString = "536977831.064803"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "205"
@@ -153,7 +121,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536921101.989381"
+                  timestampString = "536977831.066641"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "207"
@@ -202,7 +170,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536921101.997099"
+                  timestampString = "536977831.074476"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "248"
@@ -217,7 +185,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536921101.99898"
+                  timestampString = "536977831.076316"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "250"
@@ -282,7 +250,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536921102.0113"
+                  timestampString = "536977831.088062"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "297"
@@ -297,7 +265,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "536921102.01378"
+                  timestampString = "536977831.089932"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "266"
@@ -314,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "536921101.66702"
+            timestampString = "536978957.0161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "animateInTimeOnlyDisplayLayers()"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/SoundsTableViewController.swift"
-            timestampString = "536921101.6676511"
+            timestampString = "536978957.016477"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
@@ -346,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AlarmScheduleManager.swift"
-            timestampString = "536921101.66791"
+            timestampString = "536978957.016722"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -362,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "536921101.667961"
+            timestampString = "536978957.016953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "play()"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,12 +346,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "536921101.6680059"
+            timestampString = "536978957.017001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "565"
-            endingLineNumber = "565"
-            landmarkName = "startClock(_:)"
+            startingLineNumber = "542"
+            endingLineNumber = "542"
+            landmarkName = "showCurrentClock(_sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -394,28 +362,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "536921101.668467"
+            timestampString = "536978957.017276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "playSleepSound()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ambit/ViewController.swift"
-            timestampString = "536921101.668878"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "playSleepSound()"
+            startingLineNumber = "604"
+            endingLineNumber = "604"
+            landmarkName = "lightsOn()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
