@@ -89,6 +89,7 @@
 		B8E7EA9B2001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */; };
 		B8E7EA9C2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA9A2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift */; };
 		B8E7EA9E2001DA9B00B5B6D1 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA9D2001DA9B00B5B6D1 /* HelpViewController.swift */; };
+		B8E7EAA02001E2A800B5B6D1 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA9F2001E2A800B5B6D1 /* TextViewController.swift */; };
 		C29842FF6D81FE74340AADDF /* Pods_AmbitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319D788B74C29BA42B4AB0E /* Pods_AmbitUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -266,6 +267,7 @@
 		B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA9A2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSoundsTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA9D2001DA9B00B5B6D1 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		B8E7EA9F2001E2A800B5B6D1 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		BA9763449EA3A0DDA78CB88D /* Pods-Ambit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCC85028A2B8F72C8D5DF16 /* Pods-AmbitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */,
 				B8E7EA9A2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift */,
 				B8E7EA9D2001DA9B00B5B6D1 /* HelpViewController.swift */,
+				B8E7EA9F2001E2A800B5B6D1 /* TextViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1227,6 +1230,7 @@
 				94E9E0081E3EB9A3008A1F84 /* DDAbstractDatabaseLogger.m in Sources */,
 				B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */,
 				74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */,
+				B8E7EAA02001E2A800B5B6D1 /* TextViewController.swift in Sources */,
 				94E9E0091E3EB9A3008A1F84 /* DDASLLogger.m in Sources */,
 				9480E5221E44433400E094F3 /* Model.xcdatamodeld in Sources */,
 				94A7A5F81E404A4E00A6D11D /* ColorConstant.swift in Sources */,

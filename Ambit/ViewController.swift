@@ -56,10 +56,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabel.delegate = self
         
         HueConnectionManager.sharedManager.delegate = self
-        
-        EventManager.sharedManager.delegate = self
-        EventManager.sharedManager.checkCalendarAuthorizationStatus()
-
         backroundAnimation = GradientHandler.addGradientLayer()
         GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
         
@@ -82,8 +78,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         let calendar = Calendar.current
         let date = calendar.date(byAdding: .minute, value: 1, to: Date())
         timePicker.minimumDate = date
-
-        loadEvents()
         
 //        dimView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dimViewFadeGesture(gesture:))))
 
@@ -127,56 +121,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         }
         
         currentSound?.play()
-    }
-    
-    func handleRefresh() {
-        loadFutureEvents()
-        
-        fetch()
-        self.tableView.reloadData()
-        self.tableViewController.refreshControl?.endRefreshing()
-    }
-    
-    // MARK - Load Events
-    func loadEvents() {
-        fetch()
-        self.tableView.reloadData()
-        //        updateView()
-        loadFutureEvents()
-    }
-    
-    func loadFutureEvents() {
-        Event.allUpcoming(moc: managedObjectContext) { (events) in
-            //print(events)
-            self.tableViewController.refreshControl?.endRefreshing()
-        }
-    }
-    
-    // MARK: -fetchedResultsController
-    lazy var fetchedResultsController: NSFetchedResultsController<Event> = {
-        // Create Fetch Request
-        let fetchRequest = NSFetchRequest<Event>(entityName: "Event")
-        
-        // Configure Fetch Request
-        let sortDescriptor = NSSortDescriptor(key: "startTime", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        fetchRequest.fetchLimit = 100
-        
-        // Create Fetched Results Controller
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        // Configure Fetched Results Controller
-        fetchedResultsController.delegate = self
-        
-        return fetchedResultsController
-    }()
-    
-    func fetch () {
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("Failed to initialize FetchedResultsController: \(error)")
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -643,16 +587,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             //
         } else if segue.identifier == "lightOptions", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? LightsOptionsViewController {
             //
-        } else if segue.identifier == "containerSegue", let tableVC = segue.destination as? UITableViewController {
-            let refreshControl = UIRefreshControl()
-            refreshControl.tintColor = UIColor.white
-            refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh), for: UIControlEvents.valueChanged)
-            tableVC.refreshControl = refreshControl
-            self.tableView = tableVC.tableView
-            self.tableViewController = tableVC
+        } else if segue.identifier == "containerSegue", let textViewController = segue.destination as? TextViewController {
+            // initalize with random wakeup - quote...
+            textViewController.textView?.text = "Hello!"
             
-            self.tableView.delegate = self
-            self.tableView.dataSource = self
         } else if segue.identifier == "alarmSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? AlarmSoundsTableViewController {
             //
         } else if segue.identifier == "sleepSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SleepSoundsTableViewController {
@@ -759,114 +697,6 @@ extension Date {
         if minutes(from: date) > 0 { return "\(minutes(from: date))m" }
         if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
         return ""
-    }
-}
-
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = indexPath.row
-        let count = fetchedResultsController.fetchedObjects?.count
-        
-        var cell:UITableViewCell
-        
-        let event = fetchedResultsController.object(at:indexPath)
-        cell = tableView.dequeueReusableCell(withIdentifier: "eventTableViewCell", for: indexPath)
-        
-        // Configure Cell
-        configure(cell as! EventTableViewCell, at: indexPath)
-        return cell
-    }
-    
-    func configure(_ cell: EventTableViewCell, at indexPath: IndexPath) {
-        let row = indexPath.row
-        let count = fetchedResultsController.fetchedObjects?.count
-        let event = fetchedResultsController.object(at: indexPath)
-        cell.configureWith(eventIndex: Int(row), numberOfItems: Int(count!), event:event)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let event = fetchedResultsController.object(at: indexPath)
-    }
-}
-
-extension ViewController: UITableViewDataSource {
-     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let events = fetchedResultsController.fetchedObjects else { return 0 }
-        return events.count
-    }
-}
-
-extension ViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-        //        updateView()
-    }
-    
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch (type) {
-        case .insert:
-            if let indexPath = newIndexPath {
-                tableView.insertRows(at: [indexPath], with: .fade)
-            }
-            break;
-        case .delete:
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-            break;
-        case .update:
-            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? EventTableViewCell {
-                configure(cell, at: indexPath)
-            }
-            break;
-        case .move:
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-            
-            if let newIndexPath = newIndexPath {
-                tableView.insertRows(at: [newIndexPath], with: .fade)
-            }
-            break;
-        }
-    }
-}
-
-extension ViewController: EventManagerDelegate {
-    func needPermissionToCalendar() {
-        //Display alert that we need the users calendar permission
-    }
-    func loadCalendars() {
-        self.loadEvents()
-    }
-    func requestAccessToCalendar() {
-        EKEventStore().requestAccess(to: .event, completion: {
-            (accessGranted: Bool, error: Error?) in
-            
-            if accessGranted == true {
-                DispatchQueue.main.async(execute: {
-                    self.loadCalendars()
-                    self.tableView.reloadData()
-                })
-            } else {
-                //Display alert that we need the users calendar permission
-            }
-        })
     }
 }
 

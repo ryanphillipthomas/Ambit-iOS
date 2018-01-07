@@ -37,8 +37,7 @@ class EventOptionsViewController: UIViewController, ManagedObjectContextSettable
         if segue.identifier == "containerSegue", let tableVC = segue.destination as? UITableViewController {
             let refreshControl = UIRefreshControl()
             refreshControl.tintColor = UIColor.white
-            refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh), for: UIControlEvents.valueChanged)
-            tableVC.refreshControl = refreshControl
+
             self.tableView = tableVC.tableView
             self.tableViewController = tableVC
             
