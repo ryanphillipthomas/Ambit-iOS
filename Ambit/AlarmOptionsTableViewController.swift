@@ -28,6 +28,7 @@ class AlarmOptionsTableViewController: UITableViewController {
     @IBOutlet weak var lightScenesDetailLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var versionNumberLabel: UILabel!
+    @IBOutlet weak var lightGroupCountLabel: UILabel!
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         let selectedValue = Float(sender.value)
@@ -66,6 +67,15 @@ class AlarmOptionsTableViewController: UITableViewController {
         lightScenesDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentLightSceneName)
         slider.value = UserDefaults.standard.float(forKey: AmbitConstants.CurrentVolumeLevelName)
         
+        //set ligts count
+        let activeLights = UserDefaults.standard.mutableArrayValue(forKey: AmbitConstants.ActiveLightGroupingSettings)
+        if activeLights.count > 0 {
+            lightGroupCountLabel.text = "\(activeLights.count) lights selected"
+        } else {
+            lightGroupCountLabel.text = "Update lights"
+        }
+        
+        //set app version
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             versionNumberLabel.text = "v \(version)"
         }
@@ -88,7 +98,7 @@ class AlarmOptionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 11
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -134,6 +144,11 @@ class AlarmOptionsTableViewController: UITableViewController {
         case 9:
             dismiss(animated: true, completion: {
                 self.delegate?.presentAppReviewController()
+                return
+            })
+        case 10:
+            dismiss(animated: true, completion: {
+                self.delegate?.performSegueFromOptions("showLights")
                 return
             })
         default:

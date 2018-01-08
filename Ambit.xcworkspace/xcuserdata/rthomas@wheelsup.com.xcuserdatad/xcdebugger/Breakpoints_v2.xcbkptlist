@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/Thunderstorm_Fireplace.swift"
-            timestampString = "536820252.244562"
+            timestampString = "537077541.575315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "lightsWhiteBright(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/Thunderstorm_Fireplace.swift"
-            timestampString = "536820252.244636"
+            timestampString = "537077541.575382"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "lightsWhiteBright(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/Thunderstorm_Fireplace.swift"
-            timestampString = "536820252.244689"
+            timestampString = "537077541.57543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "lightsWhiteBright(_:)"
             landmarkType = "7">
             <Locations>
@@ -58,11 +58,11 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "537054853.260655"
+                  timestampString = "537076630.530881"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
                   offsetFromSymbolStart = "536">
                </Location>
                <Location
@@ -73,11 +73,11 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "537054853.262977"
+                  timestampString = "537076630.533264"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "207"
-                  endingLineNumber = "207"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/Thunderstorm_Fireplace.swift"
-            timestampString = "536820252.244737"
+            timestampString = "537077541.575475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
             landmarkName = "lightsWhiteBright(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,59 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/Thunderstorm_Fireplace.swift"
-            timestampString = "536820252.244784"
+            timestampString = "537077541.57552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "lightsWhiteBright(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ambit.Thunderstorm_Fireplace.(lightsWhiteBright in _72F2C43523CB79609CEB37F4A0F02C95)(Ambit.(FlashType in _72F2C43523CB79609CEB37F4A0F02C95)) -&gt; ()"
-                  moduleName = "Ambit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "537054853.271421"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "248"
-                  endingLineNumber = "248"
-                  offsetFromSymbolStart = "14220">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Ambit.Thunderstorm_Fireplace.(lightsWhiteBright in _72F2C43523CB79609CEB37F4A0F02C95)(Ambit.(FlashType in _72F2C43523CB79609CEB37F4A0F02C95)) -&gt; ()"
-                  moduleName = "Ambit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "537054853.273327"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "250"
-                  endingLineNumber = "250"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ambit/Thunderstorm_Fireplace.swift"
-            timestampString = "536820252.24483"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "lightsWhiteBright(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,27 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/Thunderstorm_Fireplace.swift"
-            timestampString = "536820252.244877"
+            timestampString = "537077541.575563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
-            landmarkName = "lightsWhiteBright(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ambit/Thunderstorm_Fireplace.swift"
-            timestampString = "536820252.244921"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "lightsWhiteBright(_:)"
             landmarkType = "7">
             <Locations>
@@ -202,11 +138,11 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "537054853.288375"
+                  timestampString = "537076630.554831"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "297"
-                  endingLineNumber = "297"
+                  startingLineNumber = "321"
+                  endingLineNumber = "321"
                   offsetFromSymbolStart = "680">
                </Location>
                <Location
@@ -217,11 +153,11 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "537054853.290426"
+                  timestampString = "537076630.557206"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "266"
-                  endingLineNumber = "266"
+                  startingLineNumber = "286"
+                  endingLineNumber = "286"
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>
@@ -266,13 +202,109 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "537057486.391977"
+            timestampString = "537077541.575651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
             landmarkName = "playSleepSound()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ambit/LightsTableViewController.swift"
+            timestampString = "537077541.575703"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "tableView(_:didDeselectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ambit/LightsOptionsViewController.swift"
+            timestampString = "537077541.5760421"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "setToCurrentPixel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ambit/LightsOptionsViewController.swift"
+            timestampString = "537077541.576095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "setToCurrentPixel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ambit/LightsOptionsViewController.swift"
+            timestampString = "537077541.576143"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "setToCurrentPixel()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ambit.LightsOptionsViewController.(setToCurrentPixel in _D7438D15FDDFAB2A5449A4E7C4239E55)() -&gt; ()"
+                  moduleName = "Ambit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/LightsOptionsViewController.swift"
+                  timestampString = "537076491.234599"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "5016">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Ambit.LightsOptionsViewController.(setToCurrentPixel in _D7438D15FDDFAB2A5449A4E7C4239E55)() -&gt; ()"
+                  moduleName = "Ambit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/LightsOptionsViewController.swift"
+                  timestampString = "537076491.2365921"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

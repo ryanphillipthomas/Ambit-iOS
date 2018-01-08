@@ -426,3 +426,33 @@ extension String {
         }
     }
 }
+
+class LightsHelper {
+    class func saveLightSettings(selections : NSMutableArray, lights : NSArray) {
+        var counter = 0
+        let uniqueIDs : NSMutableArray = []
+        for selection in selections {
+            let shouldUse = selection as! Bool
+            if shouldUse {
+                let light = lights[counter] as! PHLight
+                uniqueIDs.add(light.uniqueId)
+            }
+            counter += 1
+        }
+        
+        UserDefaults.standard.set(uniqueIDs, forKey: AmbitConstants.ActiveLightGroupingSettings) //setObject
+    }
+    
+    class func lightGroupingAllowsLight(string : String) -> Bool {
+        let activeLights = UserDefaults.standard.mutableArrayValue(forKey: AmbitConstants.ActiveLightGroupingSettings)
+        for idValue in activeLights {
+            if let id = idValue as? String {
+                if id == string {
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
+}

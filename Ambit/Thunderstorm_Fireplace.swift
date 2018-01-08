@@ -87,9 +87,12 @@ class Thunderstorm_Fireplace: NSObject {
                 lightState.brightness = lightBrightnessLevel! as NSNumber
                 lightState.setOn(false)
                 
-                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
-                    
-                })
+                    let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                    if doesAllow {
+                    bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                        
+                    })
+                }
             }
         }
     }
@@ -109,9 +112,12 @@ class Thunderstorm_Fireplace: NSObject {
                 lightState.brightness = 0
                 lightState.setOn(false)
                 
+                let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                if doesAllow {
                 bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                     
                 })
+                }
             }
         }
     }
@@ -147,9 +153,12 @@ class Thunderstorm_Fireplace: NSObject {
                 lightState.brightness = 100
                 lightState.setOn(true)
                 
+                let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                if doesAllow {
                 bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                     
                 })
+                }
             }
         }
     }
@@ -193,21 +202,24 @@ class Thunderstorm_Fireplace: NSObject {
                 lightState.brightness = 254 //0-254
                 lightState.setOn(true)
                 
-                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
-                    let lightState = PHLightState()
-                    
-                    let xy = newLightXY
-                    lightState.brightness = newLightBrightness as! NSNumber //0-254
-                    lightState.x = xy.x as NSNumber!
-                    lightState.y = xy.y as NSNumber!
-                    
-                    lightState.setOn(true)
+                let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                if doesAllow {
                     bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
-                        //
-                        print("stoped transitiong default")
-                        self.isTransitioning = false;
+                        let lightState = PHLightState()
+                        
+                        let xy = newLightXY
+                        lightState.brightness = newLightBrightness as! NSNumber //0-254
+                        lightState.x = xy.x as NSNumber!
+                        lightState.y = xy.y as NSNumber!
+                        
+                        lightState.setOn(true)
+                        bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                            //
+                            print("stoped transitiong default")
+                            self.isTransitioning = false;
+                        })
                     })
-                })
+                }
             case .Sharp:
                 print("sharp")
                 let lightsData = NSMutableDictionary()
@@ -235,8 +247,11 @@ class Thunderstorm_Fireplace: NSObject {
                 lightState.brightness = 254 //0-254
                 lightState.setOn(true)
                 
+                let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                if doesAllow {
                 bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                 })
+                }
                 let newLightState = PHLightState()
                 newLightState.brightness = newLightBrightness as! NSNumber //0-254
 
@@ -285,6 +300,8 @@ class Thunderstorm_Fireplace: NSObject {
                     lightState.brightness = 254 //0-254
                     lightState.setOn(true)
                     
+                    let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                    if doesAllow {
                     bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                         let lightState = PHLightState()
                         lightState.brightness = newLightBrightness as! NSNumber //0-254
@@ -303,6 +320,7 @@ class Thunderstorm_Fireplace: NSObject {
                             }
                         })
                     })
+                    }
                     
                 }
             case .All:
@@ -330,6 +348,8 @@ class Thunderstorm_Fireplace: NSObject {
                     lightState.brightness = 254 //0-254
                     lightState.setOn(true)
                     
+                    let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                    if doesAllow {
                     bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                         let lightState = PHLightState()
                         lightState.brightness = newLightBrightness as! NSNumber //0-254
@@ -348,6 +368,7 @@ class Thunderstorm_Fireplace: NSObject {
                             }
                         })
                     })
+                    }
                     
                 }
             }

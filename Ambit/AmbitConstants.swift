@@ -40,6 +40,8 @@ struct AmbitConstants {
     static let CurrentCustomMediaSleepSoundName = "CurrentCustomMediaSleepSoundName" // current setting for custom media sound
     static let CurrentCustomMediaSleepSoundURL = "CurrentCustomMediaSleepSoundURL" // current setting for custom media url
     
+    static let ActiveLightGroupingSettings = "ActiveLightGroupingSettings" //lights we can alter with effects
+    
     struct quotes {
         static let quote_1 = "Set a goal that makes you want to jump out of bed in the morning."
         static let quote_2 = "I opened two gifts this morning. They were my eyes."

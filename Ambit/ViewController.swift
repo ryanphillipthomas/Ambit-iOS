@@ -538,9 +538,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
                     lightState.brightness = 0
                     lightState.setOn(false)
                     
-                    bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
-                        
-                    })
+                    let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                    if doesAllow {
+                        bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                            
+                        })
+                    }
                 }
             }
         }
@@ -567,9 +570,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
                     lightState.brightness = 100
                     lightState.setOn(true)
                     
-                    bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
-                        
-                    })
+                        let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                        if doesAllow {
+                        bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                            
+                        })
+                    }
                 }
             }
         }

@@ -77,9 +77,12 @@ class LightsOptionsViewController: UIViewController {
                 lightState.brightness = Int(1) as NSNumber!
                 lightState.saturation = Int(245) as NSNumber!
                 
-                bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
-                    
-                })
+                    let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                    if doesAllow {
+                        bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                        
+                    })
+                }
             }
         }
     }
@@ -105,9 +108,12 @@ class LightsOptionsViewController: UIViewController {
                 lightState.brightness = Int(1) as NSNumber!
                 lightState.saturation = Int(245) as NSNumber!
                 
+                let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                if doesAllow {
                 bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                     
                 })
+                }
             }
        }
     }
@@ -139,9 +145,12 @@ class LightsOptionsViewController: UIViewController {
                         lightState.brightness = Int(1) as NSNumber!
                         lightState.saturation = Int(245) as NSNumber!
                         
-                        bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
-                            
-                        })
+                        let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                        if doesAllow {
+                            bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
+                                
+                            })
+                        }
                     }
                 }
             }
@@ -163,9 +172,12 @@ class LightsOptionsViewController: UIViewController {
                 lightState.brightness = 0
                 lightState.setOn(false)
                 
+                let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                if doesAllow {
                 bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                     
                 })
+                }
             }
         }
     }
@@ -192,9 +204,12 @@ class LightsOptionsViewController: UIViewController {
                 lightState.brightness = 100
                 lightState.setOn(true)
                 
+                let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
+                if doesAllow {
                 bridgeSendAPI.updateLightState(forId: newLight.identifier, with: lightState, completionHandler: { (errors : [Any]?) in
                     
                 })
+                }
             }
         }
     }
