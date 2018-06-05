@@ -1,18 +1,9 @@
 {
+  "commitish" : "3.2",
   "iOS" : [
     {
-      "hash" : "2afeaf93faed124840645b13510a3d93e28bab4dcdb97dd00f4f9f98fff33000",
+      "hash" : "b088019a4e0dde0b848065d5c1fb6a01c80ae881730aeca48a46722fc550c7d0",
       "name" : "RTCoreData"
     }
-  ],
-  "commitish" : "3.0",
-  "watchOS" : [
-
-  ],
-  "tvOS" : [
-
-  ],
-  "Mac" : [
-
   ]
 }

@@ -45,7 +45,6 @@
 		B6734D691D03B766FCD17126557EC9AD /* SpringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97A6251C576B131065F089D1334FE71 /* SpringImageView.swift */; };
 		BF8ED8B0CE19D22FE83B40945BD0A424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		C2D038CA88975236AEC24C928F7C4970 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CACBDC381307D46FB599703350DB66 /* TransitionManager.swift */; };
-		C7B2B327D97E3A19D20542554CAD76F1 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 0CF57FC4287CC01E1BACB1B6CF1E4283 /* Info.plist */; };
 		CF7A57EE1C3ECE933B8115D2C0869A07 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BE3B609F79D12E3CBF670B5F2FAAA5 /* TransitionZoom.swift */; };
 		D27615FDDA4BA04BA165028A3A6C0DCA /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6805E7C6430019779EDF18F1ACA2620F /* KeyboardLayoutConstraint.swift */; };
 		D7B7FD7CAE247962FD7740E4FE6D93C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
@@ -128,7 +127,7 @@
 
 /* Begin PBXFileReference section */
 		00B6D9EADA045D7A4AE322A60BD9CFD5 /* AudioPlayerSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AudioPlayerSwift-dummy.m"; sourceTree = "<group>"; };
-		04361EC708CE86B1F0C922A5E0813D6E /* Pods-AmbitUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AmbitUITests.modulemap"; sourceTree = "<group>"; };
+		04361EC708CE86B1F0C922A5E0813D6E /* Pods-AmbitUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AmbitUITests.modulemap"; sourceTree = "<group>"; };
 		073439351500D09193774C38F65D1051 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
 		09BE3B609F79D12E3CBF670B5F2FAAA5 /* TransitionZoom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionZoom.swift; path = Spring/TransitionZoom.swift; sourceTree = "<group>"; };
 		0CF57FC4287CC01E1BACB1B6CF1E4283 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = GLTimeline/Info.plist; sourceTree = "<group>"; };
@@ -138,7 +137,7 @@
 		1E1E154181877E20BC506524A87EFC79 /* BlurView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = Spring/BlurView.swift; sourceTree = "<group>"; };
 		1E6F97AEBFF10E6BE91229CE6ED842C8 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTabBarController.swift; path = Spring/DesignableTabBarController.swift; sourceTree = "<group>"; };
 		1EAA2FA61605F96591C0DB88793FA2D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FD4180342FC3FD28C1995D784936DFE /* AudioPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AudioPlayer.framework; path = AudioPlayerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FD4180342FC3FD28C1995D784936DFE /* AudioPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AudioPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2378E41523388F8B0BDB9C23F3F59D98 /* Pods-Ambit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Ambit.release.xcconfig"; sourceTree = "<group>"; };
 		28CACBDC381307D46FB599703350DB66 /* TransitionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransitionManager.swift; path = Spring/TransitionManager.swift; sourceTree = "<group>"; };
 		296C30D86B10C6C6E97F67BECD76C3D6 /* LoadingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = Spring/LoadingView.swift; sourceTree = "<group>"; };
@@ -151,13 +150,13 @@
 		39CA595C5CDD8EE16073BD56DBDD14A2 /* Misc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Misc.swift; path = Spring/Misc.swift; sourceTree = "<group>"; };
 		3A7286610122EBDDB6818DD2CF4478CA /* DesignableImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableImageView.swift; path = Spring/DesignableImageView.swift; sourceTree = "<group>"; };
 		3C34E204E40D0B0336018CBCE61DE8EC /* Pods-AmbitUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AmbitUITests-resources.sh"; sourceTree = "<group>"; };
-		45912F1C46B460C8C0F89ADFC60B58A4 /* Pods_AmbitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AmbitUITests.framework; path = "Pods-AmbitUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BC5434DC1C9434928E343AF2FB4BCD5 /* GLTimeline.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GLTimeline.modulemap; sourceTree = "<group>"; };
+		45912F1C46B460C8C0F89ADFC60B58A4 /* Pods_AmbitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BC5434DC1C9434928E343AF2FB4BCD5 /* GLTimeline.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GLTimeline.modulemap; sourceTree = "<group>"; };
 		4E496B8F367CA187ABB5EA21D7999998 /* GLTimelineView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GLTimelineView.swift; path = GLTimeline/GLTimelineView.swift; sourceTree = "<group>"; };
 		4E5BD58BECDF2CDDCAE7A51F1E809671 /* Pods-AmbitUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AmbitUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4FEC438CED2FDA9BB3EF9D4CD8B6A4ED /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FFD59E831E3A74356AD273D1C74039C /* Pods-Ambit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Ambit-dummy.m"; sourceTree = "<group>"; };
-		5101C7CD9357BF39B99B621CEFF2C9FC /* Spring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Spring.framework; path = Spring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5101C7CD9357BF39B99B621CEFF2C9FC /* Spring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Spring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DD32B0D03D83F9767A5D98760EC276 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6805E7C6430019779EDF18F1ACA2620F /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardLayoutConstraint.swift; path = Spring/KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		692AA62959FC00F188AF021CF3C99927 /* Pods-AmbitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AmbitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,11 +164,11 @@
 		6B224A8A7C6080C39108BE8ADC22D6F4 /* Pods-Ambit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Ambit.debug.xcconfig"; sourceTree = "<group>"; };
 		6B6A03AE94402D09779198283242E3A6 /* SpringLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringLabel.swift; path = Spring/SpringLabel.swift; sourceTree = "<group>"; };
 		74125FB142924241D914162CF9764A7B /* Pods-Ambit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Ambit-frameworks.sh"; sourceTree = "<group>"; };
-		7450642383964DC538EA315C2DB43A72 /* Pods_AmbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AmbitTests.framework; path = "Pods-AmbitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7450642383964DC538EA315C2DB43A72 /* Pods_AmbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		772DC1DB6FCA2C7D088757B51437255F /* AudioPlayerSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AudioPlayerSwift-umbrella.h"; sourceTree = "<group>"; };
 		7BB8081103A9758F565FADB063EE391F /* DesignableTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTextField.swift; path = Spring/DesignableTextField.swift; sourceTree = "<group>"; };
 		7DD3E86833613F18F9E38378199084AE /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SpringApp/Images.xcassets; sourceTree = "<group>"; };
-		80FAC30E152DD1ADE38D3059EF3FE0FB /* GLTimeline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GLTimeline.framework; path = GLTimeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80FAC30E152DD1ADE38D3059EF3FE0FB /* GLTimeline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GLTimeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		820A0C7496468DEC53403D2187554E05 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
 		85387F459669659000E4BB1F5C8EF5A6 /* AudioPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioPlayer.swift; path = Source/AudioPlayer.swift; sourceTree = "<group>"; };
 		85A5E896798062521097269ADC0F1964 /* LoadingView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = LoadingView.xib; path = Spring/LoadingView.xib; sourceTree = "<group>"; };
@@ -178,7 +177,7 @@
 		8C10358D592430FA16E33F5D8CE1ED9F /* Pods-AmbitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AmbitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8E22A7D8B6C11E51237C8DDDA57163F5 /* GLTimeline-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GLTimeline-dummy.m"; sourceTree = "<group>"; };
 		914F994177DB12007D28BF488E2C7376 /* SpringAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringAnimation.swift; path = Spring/SpringAnimation.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		958F8927C6E3911036D3ECC86DD4C124 /* Pods-Ambit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Ambit-umbrella.h"; sourceTree = "<group>"; };
 		9CFCBF52BF0629318A49B4D79AF1179B /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
 		9FBF4CD2211F421C56F7193FF0D37426 /* Pods-AmbitUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AmbitUITests-dummy.m"; sourceTree = "<group>"; };
@@ -189,14 +188,14 @@
 		B912735FE85ED3C0E26FA6A9E023472B /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
 		C013A3EAB645D980F5B9551A668341C0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C17AA4DCBF77E21B027C5A30E4234FE4 /* AsyncButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncButton.swift; path = Spring/AsyncButton.swift; sourceTree = "<group>"; };
-		C1C97925A146F76B39CA1239D3683D26 /* AudioPlayerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AudioPlayerSwift.modulemap; sourceTree = "<group>"; };
+		C1C97925A146F76B39CA1239D3683D26 /* AudioPlayerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AudioPlayerSwift.modulemap; sourceTree = "<group>"; };
 		C2ED25EE686D535E6AF729227494B7F6 /* Pods-AmbitTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AmbitTests-frameworks.sh"; sourceTree = "<group>"; };
 		C81B9D1F08F67577D0A70E6268D5CBE1 /* GLTimeline-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GLTimeline-prefix.pch"; sourceTree = "<group>"; };
 		C8D4678F0DF15D8A5359399E42FC4758 /* AudioPlayerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AudioPlayerSwift.xcconfig; sourceTree = "<group>"; };
 		CAABCBDF5715A0BE00A443D34A1D290F /* GLTimeline.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GLTimeline.xcconfig; sourceTree = "<group>"; };
 		CB89017544A46FE03EDE6DE8BCE55CD4 /* Pods-AmbitTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AmbitTests-dummy.m"; sourceTree = "<group>"; };
 		CDA3BA3E84057245FC4AD8DA9A1EBD7B /* AutoTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutoTextView.swift; path = Spring/AutoTextView.swift; sourceTree = "<group>"; };
-		CEABF74A88FBA3042559BA7F7C55613F /* Spring.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Spring.modulemap; sourceTree = "<group>"; };
+		CEABF74A88FBA3042559BA7F7C55613F /* Spring.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Spring.modulemap; sourceTree = "<group>"; };
 		CF157A6D555EE6D0655BD9D13DDF93EA /* Spring-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Spring-prefix.pch"; sourceTree = "<group>"; };
 		D5F05D0C7281EE1426C427EB46FE7256 /* Pods-AmbitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AmbitTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -208,7 +207,7 @@
 		E2A8B6B8DAB860F45917DC1A0AF27476 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
 		E3DBC358903F89F615A709CFC33ED468 /* AudioPlayerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AudioPlayerSwift-prefix.pch"; sourceTree = "<group>"; };
 		E4B64F1D6984FC431937184A10A59FDA /* SpringButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringButton.swift; path = Spring/SpringButton.swift; sourceTree = "<group>"; };
-		E753EDBF6361D613D7690F25A56856EF /* Pods-AmbitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AmbitTests.modulemap"; sourceTree = "<group>"; };
+		E753EDBF6361D613D7690F25A56856EF /* Pods-AmbitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AmbitTests.modulemap"; sourceTree = "<group>"; };
 		E79864381EC32C1920D005B2D06A2E80 /* Pods-Ambit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Ambit-acknowledgements.plist"; sourceTree = "<group>"; };
 		E814757BDC43A6D4AA9FFE335B4C32DA /* SpringView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringView.swift; path = Spring/SpringView.swift; sourceTree = "<group>"; };
 		E8C1159DF75C9CC1F6EF876050BE07B7 /* Pods-AmbitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AmbitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,9 +215,9 @@
 		E97A6251C576B131065F089D1334FE71 /* SpringImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringImageView.swift; path = Spring/SpringImageView.swift; sourceTree = "<group>"; };
 		EC2955A7810E95274E886704FD87362E /* UnwindSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnwindSegue.swift; path = Spring/UnwindSegue.swift; sourceTree = "<group>"; };
 		EE14C82572EC8145DA0D7509B7A5906F /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
-		EE2A5E34ECC8CB5D09866C0989064913 /* Pods_Ambit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Ambit.framework; path = "Pods-Ambit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE2A5E34ECC8CB5D09866C0989064913 /* Pods_Ambit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF45A6CDFD3EE33D40C2E51772879743 /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
-		EF979F5771388EBB2A70B260A7D61998 /* Pods-Ambit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Ambit.modulemap"; sourceTree = "<group>"; };
+		EF979F5771388EBB2A70B260A7D61998 /* Pods-Ambit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Ambit.modulemap"; sourceTree = "<group>"; };
 		F313C41E8202482F1D641FEE523FAD63 /* DesignableTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTextView.swift; path = Spring/DesignableTextView.swift; sourceTree = "<group>"; };
 		F44098BC0EF78703C8BDCDC7435003F1 /* Spring-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Spring-dummy.m"; sourceTree = "<group>"; };
 		F6A82F0528AD3057138833F9386F07E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -356,7 +355,6 @@
 				147708EEA6F32AF78A072508221D25C9 /* Resources */,
 				62E40C06659F0A80E2B9899708B86E0B /* Support Files */,
 			);
-			name = Spring;
 			path = Spring;
 			sourceTree = "<group>";
 		};
@@ -384,7 +382,6 @@
 				0CF57FC4287CC01E1BACB1B6CF1E4283 /* Info.plist */,
 				082ED4096677F25F3C2F91276F428DB6 /* Support Files */,
 			);
-			name = GLTimeline;
 			path = GLTimeline;
 			sourceTree = "<group>";
 		};
@@ -441,7 +438,6 @@
 				073439351500D09193774C38F65D1051 /* Fabric.h */,
 				CA91C6E90EBE5E8BEAD354DD951B68F9 /* Frameworks */,
 			);
-			name = Fabric;
 			path = Fabric;
 			sourceTree = "<group>";
 		};
@@ -496,7 +492,6 @@
 				EF45A6CDFD3EE33D40C2E51772879743 /* Crashlytics.h */,
 				C4BC2AA4F4931C69C2651B4813A7AED3 /* Frameworks */,
 			);
-			name = Crashlytics;
 			path = Crashlytics;
 			sourceTree = "<group>";
 		};
@@ -534,7 +529,6 @@
 				85387F459669659000E4BB1F5C8EF5A6 /* AudioPlayer.swift */,
 				6481E16D118C5BB7562D10F9FAA30300 /* Support Files */,
 			);
-			name = AudioPlayerSwift;
 			path = AudioPlayerSwift;
 			sourceTree = "<group>";
 		};
@@ -835,7 +829,6 @@
 			files = (
 				A6D5951FD650059B55F0B62F1069B44C /* GLTimeline-dummy.m in Sources */,
 				2C8C63DB36AFDE56DA0E9EA2C1473866 /* GLTimelineView.swift in Sources */,
-				C7B2B327D97E3A19D20542554CAD76F1 /* Info.plist in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
