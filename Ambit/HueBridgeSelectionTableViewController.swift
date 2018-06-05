@@ -41,7 +41,7 @@ class HueBridgeSelectionTableViewController: UITableViewController {
          self.navigationItem.leftBarButtonItem = refreshButton
     }
     
-    func refresh() {
+    @objc func refresh() {
         self.navigationController?.dismiss(animated: true, completion: nil)
         HueConnectionManager.sharedManager.searchForBridgeLocal()
     }

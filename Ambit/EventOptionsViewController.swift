@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import RTCoreData
 import UserNotifications
 import EventKit
 

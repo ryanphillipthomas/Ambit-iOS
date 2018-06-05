@@ -40,7 +40,7 @@ class LightsOptionsViewController: UIViewController {
     }
     
     // must be internal or public.
-    func update() {
+    @objc func update() {
         setToCurrentPixel()
     }
     

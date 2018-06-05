@@ -50,7 +50,7 @@ class HueConnectionManager: NSObject {
         enableLocalHeartbeat()
     }
     
-    func enableLocalHeartbeat() {
+    @objc func enableLocalHeartbeat() {
         /***************************************************
          The heartbeat processing collects data from the bridge
          so now try to see if we have a bridge already connected
@@ -125,7 +125,7 @@ class HueConnectionManager: NSObject {
     }
     
     //MARK: Bridge authentication
-    func doAuthentication() {
+    @objc func doAuthentication() {
         // Disable heartbeats
         self.disableLocalHeartbeat()
         
@@ -139,17 +139,17 @@ class HueConnectionManager: NSObject {
     }
     
     //MARK: Notification
-    func localConnectionNotification(_ notification : Notification) {
+    @objc func localConnectionNotification(_ notification : Notification) {
         // Check current connection state
         checkConnectionState()
     }
     
-    func noLocalConnectionNotification(_ notification : Notification) {
+    @objc func noLocalConnectionNotification(_ notification : Notification) {
         checkConnectionState()
 
     }
     
-    func notAuthenticatedNotification(_ notification : Notification) {
+    @objc func notAuthenticatedNotification(_ notification : Notification) {
         // Start local heartbeat again
         self.perform( #selector(self.doAuthentication), with: nil, afterDelay: 1)
     }

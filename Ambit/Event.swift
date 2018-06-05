@@ -10,7 +10,6 @@ import UIKit
 
 import UIKit
 import CoreData
-import RTCoreData
 import CoreLocation
 import Foundation
 import EventKit

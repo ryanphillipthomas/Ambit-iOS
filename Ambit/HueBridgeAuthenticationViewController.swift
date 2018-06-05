@@ -54,7 +54,7 @@ class HueBridgeAuthenticationViewController: UIViewController {
     }
     
     //MARK: Notification
-    func authenticationSuccess(_ notification : Notification) {
+    @objc func authenticationSuccess(_ notification : Notification) {
         /***************************************************
          The notification PUSHLINK_LOCAL_AUTHENTICATION_SUCCESS_NOTIFICATION
          was received. We have confirmed the bridge.
@@ -68,28 +68,28 @@ class HueBridgeAuthenticationViewController: UIViewController {
         self.dismiss(animated: true) { self.delegate?.pushlinkSuccess() }
     }
     
-    func authenticationFailed(_ notification : Notification) {
+    @objc func authenticationFailed(_ notification : Notification) {
         // Deregister for all notifications
         self.notificationManager?.deregisterObject(forAllNotifications: self)
         
         print("Error")
     }
     
-    func noLocalConnection(_ notification : Notification) {
+    @objc func noLocalConnection(_ notification : Notification) {
         // Deregister for all notifications
         self.notificationManager?.deregisterObject(forAllNotifications: self)
         
         print("Error")
     }
     
-    func noLocalBridge(_ notification : Notification) {
+    @objc func noLocalBridge(_ notification : Notification) {
         // Deregister for all notifications
         self.notificationManager?.deregisterObject(forAllNotifications: self)
         
         print("Error")
     }
     
-    func buttonNotPressed(_ notification : Notification) {
+    @objc func buttonNotPressed(_ notification : Notification) {
         print("Button Not Pressed")
     }
     

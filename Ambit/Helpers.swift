@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RTCoreData
 import CoreData
 
 class AppearanceHelper {

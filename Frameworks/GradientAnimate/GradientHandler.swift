@@ -51,7 +51,7 @@ struct GradientHandler {
                                         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
                                         gradientLayer.add(animation, forKey:"animateGradientColor")
             },
-                                    completion: { isCompleted in
+                                    completion: {
                                         if indexToAdd == Colors.Gradient.animationColors.count - 1 {
                                             indexToAdd = 0
                                         } else {

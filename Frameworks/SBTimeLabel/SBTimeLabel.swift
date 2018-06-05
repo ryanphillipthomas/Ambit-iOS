@@ -37,7 +37,7 @@ open class SBTimeLabel: UILabel {
     
     open lazy var dateFormatter:DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = dateFormat
+        formatter.dateFormat = SBTimeLabel.dateFormat
 
 //        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter

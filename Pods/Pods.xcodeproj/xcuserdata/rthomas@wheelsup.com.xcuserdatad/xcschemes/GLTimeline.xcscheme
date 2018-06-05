@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F7B58CE247CCFB87C787D73BC1FBAB67'
-               BlueprintName = 'GLTimeline'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'GLTimeline.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F7B58CE247CCFB87C787D73BC1FBAB67"
+               BlueprintName = "GLTimeline"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "GLTimeline.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

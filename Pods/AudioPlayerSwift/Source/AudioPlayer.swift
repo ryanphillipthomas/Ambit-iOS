@@ -183,7 +183,7 @@ public class AudioPlayer: NSObject {
 
     // MARK: Private
 
-    internal func handleFadeTo() {
+    @objc internal func handleFadeTo() {
         let now = NSDate().timeIntervalSinceReferenceDate
         let delta: Float = (Float(now - fadeStart) / Float(fadeTime) * (targetVolume - startVolume))
         let volume = startVolume + delta

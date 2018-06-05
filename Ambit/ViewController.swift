@@ -9,7 +9,6 @@
 import UIKit
 import Spring
 import CoreData
-import RTCoreData
 import UserNotifications
 import EventKit
 
@@ -165,7 +164,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         lastPosition = nowPosition
     }
     
-    func fadeToBlack() {
+    @objc func fadeToBlack() {
         //fade out lights
         self.blackOut()
        
@@ -203,7 +202,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         self.view.layer.sublayers?.remove(at: 0)
     }
     
-    func fadeToClear() {
+    @objc func fadeToClear() {
         //fade to clear
         self.view.layer.insertSublayer(backroundAnimation, at: 0)
         
@@ -606,12 +605,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             //
         } else if segue.identifier == "sleepSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SleepSoundsTableViewController {
             //
-    }
+        }
     }
     
     // MARK - Status Bar
     var statusBarHidden : Bool = false
-    func toggleStatusBar(notification : NSNotification) {
+    @objc func toggleStatusBar(notification : NSNotification) {
         if let isHidden = notification.object as? Bool {
             animateStatusBars(isHidden: isHidden)
         }
@@ -666,7 +665,7 @@ extension ViewController : HueConnectionManagerDelegate {
     }
     
     //MARK - Date Picker
-    func dateChanged(_ sender: UIDatePicker) {
+    @objc func dateChanged(_ sender: UIDatePicker) {
         let componenets = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: sender.date)
         if let day = componenets.day, let month = componenets.month, let year = componenets.year, let hour = componenets.hour, let minute = componenets.minute, let second = componenets.second {
             print("\(day) \(month) \(year),  \(hour),  \(minute),  \(second)")

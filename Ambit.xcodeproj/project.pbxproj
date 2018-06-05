@@ -32,7 +32,6 @@
 		943F58DF1E4630140068B8BF /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943F58DE1E4630140068B8BF /* WatchSessionManager.swift */; };
 		944BEAC01E465BC900C1BADA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944BEABF1E465BC900C1BADA /* UserNotifications.framework */; };
 		94596FE61E46201800C04E17 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94596FE51E46201800C04E17 /* DataSource.swift */; };
-		946597771E454FFF00ED204C /* RTCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946597761E454FFF00ED204C /* RTCoreData.framework */; };
 		946597791E4567F400ED204C /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946597781E4567F400ED204C /* LaunchScreenViewController.swift */; };
 		9470D6DC1E503BE5009AA49A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9470D6DB1E503BE5009AA49A /* AVFoundation.framework */; };
 		9470D6DF1E5105BD009AA49A /* RecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9470D6DE1E5105BC009AA49A /* RecorderManager.swift */; };
@@ -83,6 +82,9 @@
 		94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */; };
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
 		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
+		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
+		B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB920C642C000BB107D /* ManagedObject.swift */; };
+		B8A72EBD20C642C000BB107D /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */; };
 		B8A8C2292000B2D200483407 /* party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8A8C2282000B2D100483407 /* party.mp3 */; };
 		B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */; };
 		B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */; };
@@ -264,6 +266,9 @@
 		B621F7C1FBE7498AC652993E /* Pods-AmbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
 		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
+		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
+		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
+		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
 		B8A8C2282000B2D100483407 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = party.mp3; sourceTree = "<group>"; };
 		B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
@@ -295,7 +300,6 @@
 				944BEAC01E465BC900C1BADA /* UserNotifications.framework in Frameworks */,
 				94E9DFF01E3EB289008A1F84 /* HueSDK_iOS.framework in Frameworks */,
 				7AD917DC8EDBDDA1852CD9CB /* Pods_Ambit.framework in Frameworks */,
-				946597771E454FFF00ED204C /* RTCoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +366,7 @@
 		74B95E991DFB735300B03661 = {
 			isa = PBXGroup;
 			children = (
+				B8A72EB720C642AE00BB107D /* RTCoreData */,
 				74B95EA41DFB735300B03661 /* Ambit */,
 				74B95EBC1DFB735400B03661 /* AmbitTests */,
 				74B95EC71DFB735400B03661 /* AmbitUITests */,
@@ -681,6 +686,16 @@
 			name = Hue;
 			sourceTree = "<group>";
 		};
+		B8A72EB720C642AE00BB107D /* RTCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B8A72EB820C642C000BB107D /* CoreDataStack.swift */,
+				B8A72EB920C642C000BB107D /* ManagedObject.swift */,
+				B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */,
+			);
+			path = RTCoreData;
+			sourceTree = "<group>";
+		};
 		B8E7EAAB2002D96900B5B6D1 /* Table View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,7 +738,6 @@
 				74B95E9F1DFB735300B03661 /* Frameworks */,
 				74B95EA01DFB735300B03661 /* Resources */,
 				DCCD342604F6B7266A45BBC5 /* [CP] Embed Pods Frameworks */,
-				CF3DA7EDD634C7FEEDE53512 /* [CP] Copy Pods Resources */,
 				74B95EE11DFB777F00B03661 /* ShellScript */,
 				9416C5181E45924300267C85 /* Embed Watch Content */,
 			);
@@ -746,7 +760,6 @@
 				74B95EB61DFB735400B03661 /* Frameworks */,
 				74B95EB71DFB735400B03661 /* Resources */,
 				C8CC3C319DEB28BC09B64393 /* [CP] Embed Pods Frameworks */,
-				D159ABF0A2324A8498ADBB00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -767,7 +780,6 @@
 				74B95EC11DFB735400B03661 /* Frameworks */,
 				74B95EC21DFB735400B03661 /* Resources */,
 				9E21C465D774404424AE08FA /* [CP] Embed Pods Frameworks */,
-				812C3B686B5517B5B06A5536 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -874,7 +886,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = ryanphillipthomas;
 				TargetAttributes = {
 					74B95EA11DFB735300B03661 = {
@@ -890,11 +902,13 @@
 					};
 					74B95EB81DFB735400B03661 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 74B95EA11DFB735300B03661;
 					};
 					74B95EC31DFB735400B03661 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 74B95EA11DFB735300B03661;
 					};
@@ -906,6 +920,7 @@
 					9416C5011E45924300267C85 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = FS6KJ5XME6;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					949B0F841E4596A20092FFE5 = {
@@ -1059,21 +1074,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
-		812C3B686B5517B5B06A5536 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9E21C465D774404424AE08FA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1154,36 +1154,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF3DA7EDD634C7FEEDE53512 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ambit/Pods-Ambit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D159ABF0A2324A8498ADBB00 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DCCD342604F6B7266A45BBC5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1235,6 +1205,7 @@
 				947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */,
 				B8E7EA9E2001DA9B00B5B6D1 /* HelpViewController.swift in Sources */,
 				9480E5241E44447D00E094F3 /* Alarm.swift in Sources */,
+				B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */,
 				947F47001E4364F70047CD4C /* AmbitConstants.swift in Sources */,
 				B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */,
 				0A6E17C01E5A54A50081CB29 /* LightsOptionsViewController.swift in Sources */,
@@ -1242,7 +1213,9 @@
 				B8E7EAA42002023F00B5B6D1 /* QuoteViewController.swift in Sources */,
 				94B7C01B1E4F88C2002E0CBA /* EventTableViewCell.swift in Sources */,
 				B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */,
+				B8A72EBD20C642C000BB107D /* ManagedObjectContextSettable.swift in Sources */,
 				947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */,
+				B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */,
 				0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */,
 				94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */,
 				94A7A5F71E404A4E00A6D11D /* CALayer+Extension.swift in Sources */,
@@ -1401,15 +1374,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1451,15 +1433,24 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1503,7 +1494,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ambit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1524,7 +1515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ambit-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1538,7 +1529,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.AmbitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ambit.app/Ambit";
 			};
 			name = Debug;
@@ -1553,7 +1545,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.AmbitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ambit.app/Ambit";
 			};
 			name = Release;
@@ -1567,7 +1560,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.AmbitUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Ambit;
 			};
 			name = Debug;
@@ -1581,7 +1575,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.AmbitUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Ambit;
 			};
 			name = Release;
@@ -1636,7 +1631,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
@@ -1654,7 +1650,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};

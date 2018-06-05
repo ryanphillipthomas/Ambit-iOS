@@ -5,7 +5,7 @@
     pod 'Fabric', '1.6.8'
     pod 'Crashlytics', '3.8.0'
     pod 'AudioPlayerSwift'
-    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'master'
     pod 'GLTimeline'
   end
 

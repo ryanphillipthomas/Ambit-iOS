@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RTCoreData
 import CoreData
 import UserNotifications
 import AudioPlayer
@@ -97,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    func keepAlive() {
+    @objc func keepAlive() {
         timer4?.invalidate() //cleanup
         timer4 = Timer.scheduledTimer(timeInterval: 540, target: self, selector: #selector(keepAlive), userInfo: nil, repeats: true) //setup refresh in 9 min
        print("**DID SETUP NEW TIMER AND BACKROUND TASK**")
@@ -196,7 +195,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         playCurrentSound()        
     }
     
-    func checkFireDate() {
+    @objc func checkFireDate() {
         let alarm = Alarm.fetchCurrentAlarm(moc: self.context)
         guard let scheduleAlarm = alarm else {return}
         //let timeRemaining = StringHelper.timeLeftUntilAlarm(alarmDate: scheduleAlarm.fireDate)
@@ -207,7 +206,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    func increaseCurrentSound() {
+    @objc func increaseCurrentSound() {
         let shouldIncrease = UserDefaults.standard.bool(forKey: AmbitConstants.ProgressiveAlarmVolumeSetting)
         let volumeLevel = UserDefaults.standard.float(forKey: AmbitConstants.CurrentVolumeLevelName)
 
@@ -223,7 +222,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    func vibrate() {
+    @objc func vibrate() {
         
         let shouldVibrate = UserDefaults.standard.bool(forKey: AmbitConstants.VibrateWithAlarmSetting)
 
