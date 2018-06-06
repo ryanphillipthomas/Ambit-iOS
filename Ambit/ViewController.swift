@@ -5,13 +5,11 @@
 //  Created by Ryan Phillip Thomas on 12/9/16.
 //  Copyright © 2016 ryanphillipthomas. All rights reserved.
 //
-
 import UIKit
 import Spring
 import CoreData
 import UserNotifications
 import EventKit
-import Intents
 import AudioPlayer
 import AVFoundation
 import MediaPlayer
@@ -479,31 +477,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 //        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 95)
 //        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 100)
     }
-    
-    
-    ///Siri Kit
-    func donateAlarmIntent() {
-        let intent = CreateAlarmIntent()
-        intent.time = "Now"
-        
-        let interaction = INInteraction(intent: intent, response: nil)
-        interaction.donate { (error) in
-            // Handle error
-        }
-    }
-    
-    //Donate Alarm Activity
-    func donateAlarmActivity() {
-        let userActivity = NSUserActivity(activityType: "com.ryanphillipthomas.ambit.my-activity-type")
-        userActivity.requiredUserInfoKeys = ["alarmTime"]
-        userActivity.isEligibleForSearch = true
-        userActivity.title = "Alarm"
-        userActivity.userInfo = ["key":"value"]
-        userActivity.isEligibleForPrediction = true
-        userActivity.suggestedInvocationPhrase = "Let's do it"
 
-        self.userActivity = userActivity
-    }
     
     //    override func updateUserActivityState(_ activity: NSUserActivity) {
     //        return nil
@@ -529,12 +503,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     
     @IBAction func startClock(_ sender: Any) {
-        
-        //donate the intent
-        donateAlarmIntent()
-        
-        //donate the activity
-        donateAlarmActivity()
 
         //create new alarm from time picker
         addAlarmFromTimePicker()
