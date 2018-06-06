@@ -11,7 +11,7 @@ import Spring
 import CoreData
 import UserNotifications
 import EventKit
-
+import Intents
 import AudioPlayer
 import AVFoundation
 import MediaPlayer
@@ -378,26 +378,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     
-    //Donate Alarm Activity
-    var historicalAlarmUserActivity: NSUserActivity {
-        let userActivity = NSUserActivity(activityType: "com.ryanphillipthomas.ambit.my-activity-type")
-        userActivity.requiredUserInfoKeys = ["alarmTime"]
-        userActivity.isEligibleForSearch = true
-        userActivity.title = "Alarm"
-        userActivity.userInfo = ["key":"value"]
-        if #available(iOS 12.0, *) {
-            userActivity.isEligibleForPrediction = true
-        } else {
-            // Fallback on earlier versions
-        }
-        return userActivity
-    }
-    
-//    override func updateUserActivityState(_ activity: NSUserActivity) {
-//        return nil
-//    }
-    
-
     
     @IBAction func stopAlarm(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -502,12 +482,32 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     
     ///Siri Kit
-    func donateAlarm() {
+    func donateAlarmIntent() {
         let intent = CreateAlarmIntent()
         intent.time = "Now"
         
-        
+        let interaction = INInteraction(intent: intent, response: nil)
+        interaction.donate { (error) in
+            // Handle error
+        }
     }
+    
+    //Donate Alarm Activity
+    func donateAlarmActivity() {
+        let userActivity = NSUserActivity(activityType: "com.ryanphillipthomas.ambit.my-activity-type")
+        userActivity.requiredUserInfoKeys = ["alarmTime"]
+        userActivity.isEligibleForSearch = true
+        userActivity.title = "Alarm"
+        userActivity.userInfo = ["key":"value"]
+        userActivity.isEligibleForPrediction = true
+        userActivity.suggestedInvocationPhrase = "Let's do it"
+
+        self.userActivity = userActivity
+    }
+    
+    //    override func updateUserActivityState(_ activity: NSUserActivity) {
+    //        return nil
+    //    }
     
     
     @IBAction func showCurrentClock(_sender: Any){
@@ -529,6 +529,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     
     @IBAction func startClock(_ sender: Any) {
+        
+        //donate the intent
+        donateAlarmIntent()
+        
+        //donate the activity
+        donateAlarmActivity()
 
         //create new alarm from time picker
         addAlarmFromTimePicker()

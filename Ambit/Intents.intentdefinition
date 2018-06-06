@@ -22,7 +22,7 @@
 			<key>INIntentDescriptionID</key>
 			<string>Rp5lEN</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>8</integer>
+			<integer>10</integer>
 			<key>INIntentName</key>
 			<string>CreateAlarm</string>
 			<key>INIntentParameterCombinations</key>
@@ -53,7 +53,7 @@
 					<key>INIntentParameterSupportsMultipleValues</key>
 					<false/>
 					<key>INIntentParameterTag</key>
-					<integer>8</integer>
+					<integer>10</integer>
 					<key>INIntentParameterType</key>
 					<string>String</string>
 				</dict>
@@ -84,7 +84,7 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>INIntentResponseParameters</key>
 				<array/>
 			</dict>
