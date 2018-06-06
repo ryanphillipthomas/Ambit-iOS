@@ -251,7 +251,6 @@
 		991816760E467C08DD5B0369 /* Pods-Ambit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.release.xcconfig"; sourceTree = "<group>"; };
 		B621F7C1FBE7498AC652993E /* Pods-AmbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B80E07A720C885C800896861 /* Ambit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambit.entitlements; sourceTree = "<group>"; };
-		B80E07B620C8881D00896861 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
 		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
 		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
@@ -673,7 +672,6 @@
 				8D1D98B5C1B96E01AD9087F0 /* Pods_Ambit.framework */,
 				CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */,
 				2319D788B74C29BA42B4AB0E /* Pods_AmbitUITests.framework */,
-				B80E07B620C8881D00896861 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1196,7 +1194,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1249,7 +1247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
