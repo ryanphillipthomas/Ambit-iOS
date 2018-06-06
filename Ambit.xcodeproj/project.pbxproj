@@ -80,6 +80,7 @@
 		94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04C1E3EE601008A1F84 /* HueConnectionManager.swift */; };
 		94E9E04F1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */; };
 		94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */; };
+		B80E07A620C879A500896861 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = B80E07A520C879A500896861 /* Intents.intentdefinition */; };
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
 		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
 		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
@@ -264,12 +265,13 @@
 		94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueBridgeSelectionTableViewController.swift; sourceTree = "<group>"; };
 		991816760E467C08DD5B0369 /* Pods-Ambit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.release.xcconfig"; sourceTree = "<group>"; };
 		B621F7C1FBE7498AC652993E /* Pods-AmbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B80E07A520C879A500896861 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
 		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
 		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
 		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
 		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
-		B8A8C2282000B2D100483407 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = party.mp3; sourceTree = "<group>"; };
+		B8A8C2282000B2D100483407 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = party.mp3; path = ../party.mp3; sourceTree = "<group>"; };
 		B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 		74B95EA41DFB735300B03661 /* Ambit */ = {
 			isa = PBXGroup;
 			children = (
+				B80E07A520C879A500896861 /* Intents.intentdefinition */,
 				74B95ED61DFB737700B03661 /* Storyboards */,
 				B8E7EAAB2002D96900B5B6D1 /* Table View Controllers */,
 				74B95EDC1DFB73BC00B03661 /* View Controllers */,
@@ -1189,6 +1192,7 @@
 				B8E7EAA620028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift in Sources */,
 				B8E7EA9B2001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift in Sources */,
 				94A7A5FA1E404A4E00A6D11D /* UIColor+Extension.swift in Sources */,
+				B80E07A620C879A500896861 /* Intents.intentdefinition in Sources */,
 				94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */,
 				94E9E00C1E3EB9A3008A1F84 /* DDTTYLogger.m in Sources */,
 				94E9E04F1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift in Sources */,
@@ -1414,7 +1418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1467,7 +1471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

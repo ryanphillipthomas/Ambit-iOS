@@ -500,6 +500,16 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 //        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 100)
     }
     
+    
+    ///Siri Kit
+    func donateAlarm() {
+        let intent = CreateAlarmIntent()
+        intent.time = "Now"
+        
+        
+    }
+    
+    
     @IBAction func showCurrentClock(_sender: Any){
         //update label with alarm
         updateRunningAlarmUI()
