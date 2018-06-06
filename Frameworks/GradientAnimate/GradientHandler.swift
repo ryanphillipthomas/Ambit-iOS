@@ -38,7 +38,7 @@ struct GradientHandler {
     
     static func animateLayerWithColor() {
         
-        fromColors = self.gradientLayer.colors as [AnyObject]!
+        fromColors = self.gradientLayer.colors! as [AnyObject]
         gradientLayer.colors = toColors
         
         CALayer.animateWithDuration(duration,
