@@ -49,6 +49,38 @@
             endingLineNumber = "216"
             landmarkName = "lightsWhiteBright(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[1] = Value Promoted from Box&gt; of closure #1 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Ambit.Thunderstorm_Fireplace.(lightsWhiteBright in _72F2C43523CB79609CEB37F4A0F02C95)(Ambit.(FlashType in _72F2C43523CB79609CEB37F4A0F02C95)) -&gt; ()"
+                  moduleName = "Ambit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
+                  timestampString = "549996927.388646"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "216"
+                  endingLineNumber = "216"
+                  offsetFromSymbolStart = "564">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Ambit.Thunderstorm_Fireplace.(lightsWhiteBright in _72F2C43523CB79609CEB37F4A0F02C95)(Ambit.(FlashType in _72F2C43523CB79609CEB37F4A0F02C95)) -&gt; ()"
+                  moduleName = "Ambit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
+                  timestampString = "549996927.390234"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -97,6 +129,38 @@
             endingLineNumber = "314"
             landmarkName = "lightsWhiteBright(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Ambit.Thunderstorm_Fireplace.(lightsWhiteBright in _72F2C43523CB79609CEB37F4A0F02C95)(Ambit.(FlashType in _72F2C43523CB79609CEB37F4A0F02C95)) -&gt; ()"
+                  moduleName = "Ambit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
+                  timestampString = "549996927.401523"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "314"
+                  endingLineNumber = "314"
+                  offsetFromSymbolStart = "815">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in closure #4 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in Ambit.Thunderstorm_Fireplace.(lightsWhiteBright in _72F2C43523CB79609CEB37F4A0F02C95)(Ambit.(FlashType in _72F2C43523CB79609CEB37F4A0F02C95)) -&gt; ()"
+                  moduleName = "Ambit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
+                  timestampString = "549996927.403318"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "281"
+                  endingLineNumber = "281"
+                  offsetFromSymbolStart = "69">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

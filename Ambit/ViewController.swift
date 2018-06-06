@@ -377,6 +377,26 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 //        myDatePicker.date = currentDate //7 - defa
     }
     
+    
+    //Donate Alarm Activity
+    var historicalAlarmUserActivity: NSUserActivity {
+        let userActivity = NSUserActivity(activityType: "com.ryanphillipthomas.ambit.my-activity-type")
+        userActivity.requiredUserInfoKeys = ["alarmTime"]
+        userActivity.isEligibleForSearch = true
+        userActivity.title = "Alarm"
+        userActivity.userInfo = ["key":"value"]
+        if #available(iOS 12.0, *) {
+            userActivity.isEligibleForPrediction = true
+        } else {
+            // Fallback on earlier versions
+        }
+        return userActivity
+    }
+    
+//    override func updateUserActivityState(_ activity: NSUserActivity) {
+//        return nil
+//    }
+    
 
     
     @IBAction func stopAlarm(_ sender: Any) {
