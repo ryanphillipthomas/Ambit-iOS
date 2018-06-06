@@ -29,9 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var timer4: Timer?
 
 
-    var backgroundUpdateTask: UIBackgroundTaskIdentifier = 0
+    var backgroundUpdateTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
         let mainContext = createMainContext(modelStoreName: "Model", bundles: nil)
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.allowAirPlay)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch _ {
             print("error")
@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func appForegrounding() {
-        if (self.backgroundUpdateTask != UIBackgroundTaskInvalid) {
+        if (self.backgroundUpdateTask != UIBackgroundTaskIdentifier.invalid) {
             self.endBackgroundUpdateTask()
         }
     }
@@ -272,7 +272,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func endBackgroundUpdateTask() {
         UIApplication.shared.endBackgroundTask(self.backgroundUpdateTask)
-        self.backgroundUpdateTask = UIBackgroundTaskInvalid
+        self.backgroundUpdateTask = UIBackgroundTaskIdentifier.invalid
     }
 
     

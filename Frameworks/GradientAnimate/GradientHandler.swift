@@ -47,8 +47,8 @@ struct GradientHandler {
                                         animation.fromValue = fromColors
                                         animation.toValue = toColors
                                         animation.duration = duration
-                                        animation.fillMode = kCAFillModeForwards
-                                        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+                                        animation.fillMode = CAMediaTimingFillMode.forwards
+                                        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
                                         gradientLayer.add(animation, forKey:"animateGradientColor")
             },
                                     completion: {

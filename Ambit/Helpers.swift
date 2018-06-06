@@ -57,8 +57,8 @@ class AlertHelper{
     class func showAlert(title: String, msg: String? = nil, controller: UIViewController) {
         DispatchQueue.main.async(execute: {
             let alertController = UIAlertController(title: title, message:
-                msg, preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                msg, preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             controller.present(alertController, animated: true, completion: nil)
         })
     }
@@ -71,17 +71,17 @@ class AlertHelper{
     // alert with handler
     class func showAlertWithHandler(title: String, msg: String? = nil, controller: UIViewController, handler: @escaping (UIAlertAction) -> Void) {
         let alertController = UIAlertController(title: title, message:
-            msg, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: handler))
+            msg, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: handler))
         controller.present(alertController, animated: true, completion: nil)
     }
     
     // alert with custom handler
     class func showAlertWithCustomButtonHandler(title: String, msg: String? = nil, buttonTitle : String, controller: UIViewController, handler: @escaping (UIAlertAction) -> Void) {
         let alertController = UIAlertController(title: title, message:
-            msg, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: handler))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+            msg, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: buttonTitle, style: UIAlertAction.Style.default, handler: handler))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         controller.present(alertController, animated: true, completion: nil)
     }
 }
@@ -396,7 +396,7 @@ extension UIColor {
 // MARK: - Loader helper
 class LoaderHelper {
     static let activityIndicator = UIActivityIndicatorView(frame: CGRect.zero)
-    class func showLoader(inView: UIView, userInteractionEnabled: Bool, style: UIActivityIndicatorViewStyle){
+    class func showLoader(inView: UIView, userInteractionEnabled: Bool, style: UIActivityIndicatorView.Style){
         activityIndicator.center = inView.center
         activityIndicator.activityIndicatorViewStyle = style
         activityIndicator.startAnimating()

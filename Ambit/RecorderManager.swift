@@ -25,8 +25,7 @@ class RecorderManager: NSObject {
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
-            try audioSession.setCategory(
-                AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setCategory(AVAudioSession.Category.playAndRecord, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.allowAirPlay)
         } catch let error as NSError {
             print("audioSession error: \(error.localizedDescription)")
         }

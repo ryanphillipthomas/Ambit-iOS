@@ -46,7 +46,7 @@ class AlarmOptionsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+        if (!UIAccessibility.isReduceTransparencyEnabled) {
             tableView.backgroundColor = UIColor.clear
             let blurEffect = UIBlurEffect(style: .dark)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)

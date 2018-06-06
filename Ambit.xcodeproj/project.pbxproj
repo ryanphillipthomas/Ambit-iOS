@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08245F19D3676AE7711E18F2 /* Pods_AmbitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */; };
 		0A119D8F1E5AB86200E318AF /* SBTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E02F1E3EC456008A1F84 /* SBTimeLabel.swift */; };
 		0A6E17C01E5A54A50081CB29 /* LightsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */; };
 		0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */; };
@@ -17,8 +16,6 @@
 		74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EA91DFB735300B03661 /* Main.storyboard */; };
 		74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EAF1DFB735400B03661 /* Assets.xcassets */; };
 		74B95EB31DFB735400B03661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EB11DFB735400B03661 /* LaunchScreen.storyboard */; };
-		74B95EBE1DFB735400B03661 /* AmbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EBD1DFB735400B03661 /* AmbitTests.swift */; };
-		74B95EC91DFB735400B03661 /* AmbitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EC81DFB735400B03661 /* AmbitUITests.swift */; };
 		7AD917DC8EDBDDA1852CD9CB /* Pods_Ambit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1D98B5C1B96E01AD9087F0 /* Pods_Ambit.framework */; };
 		941436931E479B6E004B3430 /* 500.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 941436921E479B6E004B3430 /* 500.jpg */; };
 		9416C4FA1E45924300267C85 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9416C4F81E45924300267C85 /* Interface.storyboard */; };
@@ -96,24 +93,9 @@
 		B8E7EAA42002023F00B5B6D1 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA32002023F00B5B6D1 /* QuoteViewController.swift */; };
 		B8E7EAA620028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA520028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift */; };
 		B8E7EAAA2002D95900B5B6D1 /* LightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA92002D95900B5B6D1 /* LightsTableViewController.swift */; };
-		C29842FF6D81FE74340AADDF /* Pods_AmbitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319D788B74C29BA42B4AB0E /* Pods_AmbitUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		74B95EBA1DFB735400B03661 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 74B95E9A1DFB735300B03661 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 74B95EA11DFB735300B03661;
-			remoteInfo = Ambit;
-		};
-		74B95EC51DFB735400B03661 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 74B95E9A1DFB735300B03661 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 74B95EA11DFB735300B03661;
-			remoteInfo = Ambit;
-		};
 		9416C5041E45924300267C85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 74B95E9A1DFB735300B03661 /* Project object */;
@@ -182,12 +164,6 @@
 		74B95EAF1DFB735400B03661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B95EB21DFB735400B03661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74B95EB41DFB735400B03661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74B95EB91DFB735400B03661 /* AmbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		74B95EBD1DFB735400B03661 /* AmbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbitTests.swift; sourceTree = "<group>"; };
-		74B95EBF1DFB735400B03661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74B95EC41DFB735400B03661 /* AmbitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		74B95EC81DFB735400B03661 /* AmbitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbitUITests.swift; sourceTree = "<group>"; };
-		74B95ECA1DFB735400B03661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860CA7B9B603DA8CBF490151 /* Pods-AmbitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8D1D98B5C1B96E01AD9087F0 /* Pods_Ambit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		941436921E479B6E004B3430 /* 500.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 500.jpg; sourceTree = SOURCE_ROOT; };
@@ -305,22 +281,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74B95EB61DFB735400B03661 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08245F19D3676AE7711E18F2 /* Pods_AmbitTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74B95EC11DFB735400B03661 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C29842FF6D81FE74340AADDF /* Pods_AmbitUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9416C4FF1E45924300267C85 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,8 +330,6 @@
 			children = (
 				B8A72EB720C642AE00BB107D /* RTCoreData */,
 				74B95EA41DFB735300B03661 /* Ambit */,
-				74B95EBC1DFB735400B03661 /* AmbitTests */,
-				74B95EC71DFB735400B03661 /* AmbitUITests */,
 				9416C4F71E45924300267C85 /* Watch */,
 				9416C5061E45924300267C85 /* Watch Extension */,
 				949B0F861E4596A20092FFE5 /* TV */,
@@ -388,8 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				74B95EA21DFB735300B03661 /* Ambit.app */,
-				74B95EB91DFB735400B03661 /* AmbitTests.xctest */,
-				74B95EC41DFB735400B03661 /* AmbitUITests.xctest */,
 				9416C4F61E45924200267C85 /* Watch.app */,
 				9416C5021E45924300267C85 /* Watch Extension.appex */,
 				949B0F851E4596A20092FFE5 /* TV.app */,
@@ -414,24 +370,6 @@
 				74B95ED71DFB738100B03661 /* Supporting Files */,
 			);
 			path = Ambit;
-			sourceTree = "<group>";
-		};
-		74B95EBC1DFB735400B03661 /* AmbitTests */ = {
-			isa = PBXGroup;
-			children = (
-				74B95EBD1DFB735400B03661 /* AmbitTests.swift */,
-				74B95EBF1DFB735400B03661 /* Info.plist */,
-			);
-			path = AmbitTests;
-			sourceTree = "<group>";
-		};
-		74B95EC71DFB735400B03661 /* AmbitUITests */ = {
-			isa = PBXGroup;
-			children = (
-				74B95EC81DFB735400B03661 /* AmbitUITests.swift */,
-				74B95ECA1DFB735400B03661 /* Info.plist */,
-			);
-			path = AmbitUITests;
 			sourceTree = "<group>";
 		};
 		74B95ED61DFB737700B03661 /* Storyboards */ = {
@@ -754,46 +692,6 @@
 			productReference = 74B95EA21DFB735300B03661 /* Ambit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		74B95EB81DFB735400B03661 /* AmbitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 74B95ED01DFB735400B03661 /* Build configuration list for PBXNativeTarget "AmbitTests" */;
-			buildPhases = (
-				BBE8F46FB7FF75BBCA1D342A /* [CP] Check Pods Manifest.lock */,
-				74B95EB51DFB735400B03661 /* Sources */,
-				74B95EB61DFB735400B03661 /* Frameworks */,
-				74B95EB71DFB735400B03661 /* Resources */,
-				C8CC3C319DEB28BC09B64393 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				74B95EBB1DFB735400B03661 /* PBXTargetDependency */,
-			);
-			name = AmbitTests;
-			productName = AmbitTests;
-			productReference = 74B95EB91DFB735400B03661 /* AmbitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		74B95EC31DFB735400B03661 /* AmbitUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 74B95ED31DFB735400B03661 /* Build configuration list for PBXNativeTarget "AmbitUITests" */;
-			buildPhases = (
-				CCFC17E84D3430908AB36F3E /* [CP] Check Pods Manifest.lock */,
-				74B95EC01DFB735400B03661 /* Sources */,
-				74B95EC11DFB735400B03661 /* Frameworks */,
-				74B95EC21DFB735400B03661 /* Resources */,
-				9E21C465D774404424AE08FA /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				74B95EC61DFB735400B03661 /* PBXTargetDependency */,
-			);
-			name = AmbitUITests;
-			productName = AmbitUITests;
-			productReference = 74B95EC41DFB735400B03661 /* AmbitUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		9416C4F51E45924200267C85 /* Watch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9416C5171E45924300267C85 /* Build configuration list for PBXNativeTarget "Watch" */;
@@ -903,18 +801,6 @@
 							};
 						};
 					};
-					74B95EB81DFB735400B03661 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0940;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 74B95EA11DFB735300B03661;
-					};
-					74B95EC31DFB735400B03661 = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0940;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 74B95EA11DFB735300B03661;
-					};
 					9416C4F51E45924200267C85 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = FS6KJ5XME6;
@@ -923,7 +809,7 @@
 					9416C5011E45924300267C85 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = FS6KJ5XME6;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					949B0F841E4596A20092FFE5 = {
@@ -959,8 +845,6 @@
 			projectRoot = "";
 			targets = (
 				74B95EA11DFB735300B03661 /* Ambit */,
-				74B95EB81DFB735400B03661 /* AmbitTests */,
-				74B95EC31DFB735400B03661 /* AmbitUITests */,
 				9416C4F51E45924200267C85 /* Watch */,
 				9416C5011E45924300267C85 /* Watch Extension */,
 				949B0F841E4596A20092FFE5 /* TV */,
@@ -984,20 +868,6 @@
 				74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
 				948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74B95EB71DFB735400B03661 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74B95EC21DFB735400B03661 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,86 +946,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		9E21C465D774404424AE08FA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
-				"${BUILT_PRODUCTS_DIR}/GLTimeline/GLTimeline.framework",
-				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioPlayer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GLTimeline.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBE8F46FB7FF75BBCA1D342A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AmbitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C8CC3C319DEB28BC09B64393 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
-				"${BUILT_PRODUCTS_DIR}/GLTimeline/GLTimeline.framework",
-				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioPlayer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GLTimeline.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CCFC17E84D3430908AB36F3E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AmbitUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		DCCD342604F6B7266A45BBC5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1237,22 +1027,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74B95EB51DFB735400B03661 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74B95EBE1DFB735400B03661 /* AmbitTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		74B95EC01DFB735400B03661 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74B95EC91DFB735400B03661 /* AmbitUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9416C4FE1E45924300267C85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1301,16 +1075,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		74B95EBB1DFB735400B03661 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 74B95EA11DFB735300B03661 /* Ambit */;
-			targetProxy = 74B95EBA1DFB735400B03661 /* PBXContainerItemProxy */;
-		};
-		74B95EC61DFB735400B03661 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 74B95EA11DFB735300B03661 /* Ambit */;
-			targetProxy = 74B95EC51DFB735400B03661 /* PBXContainerItemProxy */;
-		};
 		9416C5051E45924300267C85 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9416C5011E45924300267C85 /* Watch Extension */;
@@ -1498,7 +1262,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ambit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1519,69 +1283,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ambit-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		74B95ED11DFB735400B03661 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B621F7C1FBE7498AC652993E /* Pods-AmbitTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AmbitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.AmbitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ambit.app/Ambit";
-			};
-			name = Debug;
-		};
-		74B95ED21DFB735400B03661 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 033CF1CC2D82D3B729580E99 /* Pods-AmbitTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = AmbitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.AmbitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ambit.app/Ambit";
-			};
-			name = Release;
-		};
-		74B95ED41DFB735400B03661 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCCC85028A2B8F72C8D5DF16 /* Pods-AmbitUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = AmbitUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.AmbitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = Ambit;
-			};
-			name = Debug;
-		};
-		74B95ED51DFB735400B03661 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 860CA7B9B603DA8CBF490151 /* Pods-AmbitUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = AmbitUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.AmbitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = Ambit;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1635,8 +1337,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
@@ -1654,8 +1355,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
@@ -1784,24 +1484,6 @@
 			buildConfigurations = (
 				74B95ECE1DFB735400B03661 /* Debug */,
 				74B95ECF1DFB735400B03661 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		74B95ED01DFB735400B03661 /* Build configuration list for PBXNativeTarget "AmbitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				74B95ED11DFB735400B03661 /* Debug */,
-				74B95ED21DFB735400B03661 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		74B95ED31DFB735400B03661 /* Build configuration list for PBXNativeTarget "AmbitUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				74B95ED41DFB735400B03661 /* Debug */,
-				74B95ED51DFB735400B03661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

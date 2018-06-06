@@ -51,7 +51,7 @@ class LightsTableViewController: UITableViewController {
         self.tableView.allowsMultipleSelection = true
         self.tableView.allowsSelection = true;
 
-        if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+        if (!UIAccessibility.isReduceTransparencyEnabled) {
             tableView.backgroundColor = UIColor.clear
             let blurEffect = UIBlurEffect(style: .dark)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)

@@ -44,7 +44,7 @@ class AlarmScheduleManager: NSObject {
         let soundFile = StringHelper.soundFileForName(string: userSoundFile!)
         if let file = soundFile {
             //do not add support for itunes music here
-            content.sound = UNNotificationSound.init(named: file)
+            content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: file))
         }
         content.userInfo = ["content-available":"1"]
   //      content.categoryIdentifier = "ALARMNOTIFICATION"
