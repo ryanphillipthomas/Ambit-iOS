@@ -117,7 +117,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
                 currentSound = try AudioPlayer(fileName: file)
             } else {
                 let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaSleepSoundURL)
-                currentSound = try AudioPlayer(contentsOf: customMediaSoundURL as! URL)
+                currentSound = try AudioPlayer(contentsOf: (customMediaSoundURL)!)
             }
         }
         catch _ {
@@ -629,18 +629,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             authViewController.startPushLinking()
         } else if segue.identifier == "alarmOptions", let nav = segue.destination as? UINavigationController, let alarmOptions = nav.viewControllers.first as? AlarmOptionsTableViewController {
             alarmOptions.delegate = self
-        } else if segue.identifier == "upcomingEvents", let nav = segue.destination as? UINavigationController, let upcomingEvents = nav.viewControllers.first as? EventOptionsViewController {
-            upcomingEvents.managedObjectContext = managedObjectContext
-        } else if segue.identifier == "watchOptions", let nav = segue.destination as? UINavigationController, let watchOptions = nav.viewControllers.first as? WatchOptionsViewController {
-            //
-        } else if segue.identifier == "lightOptions", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? LightsOptionsViewController {
-            //
-        } else if segue.identifier == "containerSegue", let textViewController = segue.destination as? QuoteViewController {
-            //
-        } else if segue.identifier == "alarmSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? AlarmSoundsTableViewController {
-            //
-        } else if segue.identifier == "sleepSounds", let nav = segue.destination as? UINavigationController, let lightOptions = nav.viewControllers.first as? SleepSoundsTableViewController {
-            //
         }
     }
     

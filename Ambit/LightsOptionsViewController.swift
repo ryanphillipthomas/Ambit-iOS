@@ -71,11 +71,11 @@ class LightsOptionsViewController: UIViewController {
                 let color = colors[randomIndex]
                 let xy = Utilities.calculateXY(cgColor: color, forModel: newLight.modelNumber)
                 
-                lightState.x = xy.x as NSNumber!
-                lightState.y = xy.y as NSNumber!
+                lightState.x = xy.x as NSNumber
+                lightState.y = xy.y as NSNumber
                 
-                lightState.brightness = Int(1) as NSNumber!
-                lightState.saturation = Int(245) as NSNumber!
+                lightState.brightness = Int(1) as NSNumber
+                lightState.saturation = Int(245) as NSNumber
                 
                     let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
                     if doesAllow {
@@ -102,11 +102,11 @@ class LightsOptionsViewController: UIViewController {
                 
                 let xy = Utilities.calculateXY(cgColor: UIColor.white as! CGColor, forModel: newLight.modelNumber)
                 
-                lightState.x = xy.x as NSNumber!
-                lightState.y = xy.y as NSNumber!
+                lightState.x = xy.x as NSNumber
+                lightState.y = xy.y as NSNumber
                 
-                lightState.brightness = Int(1) as NSNumber!
-                lightState.saturation = Int(245) as NSNumber!
+                lightState.brightness = Int(1) as NSNumber
+                lightState.saturation = Int(245) as NSNumber
                 
                 let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
                 if doesAllow {
@@ -139,11 +139,11 @@ class LightsOptionsViewController: UIViewController {
                     if let color = bkdLayer.colors?.first {
                         let xy = Utilities.calculateXY(cgColor: color as! CGColor, forModel: newLight.modelNumber)
                         
-                        lightState.x = xy.x as NSNumber!
-                        lightState.y = xy.y as NSNumber!
+                        lightState.x = xy.x as NSNumber
+                        lightState.y = xy.y as NSNumber
                         
-                        lightState.brightness = Int(1) as NSNumber!
-                        lightState.saturation = Int(245) as NSNumber!
+                        lightState.brightness = Int(1) as NSNumber
+                        lightState.saturation = Int(245) as NSNumber
                         
                         let doesAllow = LightsHelper.lightGroupingAllowsLight(string: newLight.uniqueId)
                         if doesAllow {

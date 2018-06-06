@@ -132,10 +132,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         center.setNotificationCategories([category])
     }
     
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        print("didReceive")
-    }
-    
     func userNotificationCenter(center: UNUserNotificationCenter, didReceiveNotificationResponse response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
         print("didReceiveNotificationResponse")
        
@@ -175,7 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 currentSound = try AudioPlayer(fileName: file)
             } else {
                 let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL)
-                currentSound = try AudioPlayer(contentsOf: customMediaSoundURL as! URL)
+                currentSound = try AudioPlayer(contentsOf: (customMediaSoundURL)!)
             }
         }
         catch _ {
@@ -275,13 +271,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.backgroundUpdateTask = UIBackgroundTaskIdentifier.invalid
     }
     
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity,
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        if userActivity.activityType == "CreateAlarmIntent",
-            let intent = userActivity.interaction?.intent as? CreateAlarmIntent {
-            // Show ordering UI, pre-populated with the fields from the intent
-        }
-        
         return true
     }
     
