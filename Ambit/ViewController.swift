@@ -32,6 +32,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet weak var stopAnimationView: SpringView!
     @IBOutlet weak var dimView: UIView!
     @IBOutlet weak var snoozeView: SpringView!
+    @IBOutlet weak var createAlarmAnimationView: SpringView!
+
     
     @IBOutlet weak var containerView: UIView!
     weak var tableViewController:UITableViewController!
@@ -61,6 +63,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabelAnimationView.isHidden = true
         nextAlarmAnimationView.isHidden = true
         stopAnimationView.isHidden = true
+        createAlarmAnimationView.isHidden = true
         snoozeView.isHidden = true
         
         setNeedsStatusBarAppearanceUpdate()
@@ -251,6 +254,14 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         }
     }
     
+    func animateInCreateAlarmDisplayLayers(){
+        createAlarmAnimationView.isHidden = false
+        createAlarmAnimationView.animation = "fadeInUp"
+        createAlarmAnimationView.curve = "linear"
+        createAlarmAnimationView.duration = 2.0
+        createAlarmAnimationView.animate()
+    }
+    
     func animateInTimeOnlyDisplayLayers() {
         timeLabelAnimationView.isHidden = false
         timeLabelAnimationView.animation = "fadeInDown"
@@ -299,11 +310,20 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             stopAnimationView.isHidden = false
     //        dimView.isHidden = false
 
-            stopAnimationView.animation = "fadeInUp"
+            stopAnimationView.animation = "fadeInDown"
             stopAnimationView.curve = "linear"
             stopAnimationView.duration = 2.0
             stopAnimationView.animate()
         }
+    }
+    
+    func animateOutCreateAlarmDisplayLayers(){
+        createAlarmAnimationView.animation = "fadeOutDown"
+        createAlarmAnimationView.curve = "linear"
+        createAlarmAnimationView.duration = 2.0
+        createAlarmAnimationView.animate()
+        
+        createAlarmAnimationView.isHidden = true
     }
     
     func animateOutTimeDisplayLayers() {
@@ -341,7 +361,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timePickerAnimationView.duration = 2.0
         timePickerAnimationView.animate()
         
-        settingsButtonAnimationView.animation = "fadeInUp"
+        settingsButtonAnimationView.animation = "fadeInDown"
         settingsButtonAnimationView.curve = "linear"
         settingsButtonAnimationView.duration = 2.0
         settingsButtonAnimationView.animate()
@@ -378,8 +398,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         self.fadeToClear()
         self.animateOutTimeDisplayLayers()
         self.animateOutStopButton()
-        self.animateInTimePickerLayers()
         self.animateOutSnoozeButton()
+        self.animateOutCreateAlarmDisplayLayers()
+        
+        self.animateInTimePickerLayers()
+
         
         //stop sleep sounds if playing
         currentSound?.stop()
@@ -485,8 +508,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         //animaite out time picker
         self.animateOutTimePickerLayers()
         
-        //animaite out time picker
+        //animaite in time picker
         animateInTimeOnlyDisplayLayers()
+        
+        //animate in create alarm button
+        animateInCreateAlarmDisplayLayers()
         
         animateInStopButton()
     }

@@ -274,36 +274,31 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2LJ-kc-Z4z" userLabel="Stop Animation View" customClass="SpringView" customModule="Spring">
-                                        <rect key="frame" x="0.0" y="739" width="375" height="58"/>
+                                        <rect key="frame" x="0.0" y="35" width="375" height="65"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoM-5Q-dA9">
-                                                <rect key="frame" x="162" y="4" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="eXP-V0-cAV"/>
-                                                </constraints>
+                                                <rect key="frame" x="307" y="4" width="42" height="50"/>
                                                 <state key="normal" image="stop"/>
                                                 <connections>
                                                     <action selector="stopAlarm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sjC-b3-czN"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="uoM-5Q-dA9" firstAttribute="leading" secondItem="2LJ-kc-Z4z" secondAttribute="leading" constant="162" id="1OV-dq-1FT"/>
-                                            <constraint firstAttribute="bottom" secondItem="uoM-5Q-dA9" secondAttribute="bottom" constant="4" id="A1F-E8-Mx8"/>
-                                            <constraint firstAttribute="trailing" secondItem="uoM-5Q-dA9" secondAttribute="trailing" constant="163" id="Syw-pp-tXr"/>
-                                            <constraint firstItem="uoM-5Q-dA9" firstAttribute="top" secondItem="2LJ-kc-Z4z" secondAttribute="top" constant="4" id="ZkQ-VB-kuS"/>
-                                            <constraint firstAttribute="height" constant="58" id="fn1-sT-9S2"/>
+                                            <constraint firstItem="uoM-5Q-dA9" firstAttribute="centerY" secondItem="2LJ-kc-Z4z" secondAttribute="centerY" constant="-3.5" id="8Li-bK-Aus"/>
+                                            <constraint firstAttribute="trailing" secondItem="uoM-5Q-dA9" secondAttribute="trailing" constant="26" id="I6A-e9-b97"/>
+                                            <constraint firstItem="uoM-5Q-dA9" firstAttribute="height" secondItem="2LJ-kc-Z4z" secondAttribute="height" constant="-15" id="MxA-9G-p2g"/>
+                                            <constraint firstAttribute="height" constant="65" id="fn1-sT-9S2"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyO-df-Dcp" customClass="SpringView" customModule="Spring">
-                                        <rect key="frame" x="0.0" y="739" width="375" height="58"/>
+                                        <rect key="frame" x="0.0" y="35" width="375" height="65"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XI3-m5-aV2">
-                                                <rect key="frame" x="18" y="0.0" width="339" height="58"/>
+                                                <rect key="frame" x="18" y="3.6666666666666643" width="339" height="58"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiB-j9-Q0U">
-                                                        <rect key="frame" x="149.66666666666666" y="4" width="40" height="40"/>
+                                                        <rect key="frame" x="289" y="4" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="MX8-9Q-xZw"/>
                                                             <constraint firstAttribute="width" constant="40" id="lDU-oK-U59"/>
@@ -316,8 +311,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="GiB-j9-Q0U" firstAttribute="centerX" secondItem="XI3-m5-aV2" secondAttribute="centerX" constant="0.16666666666651508" id="8HS-J9-WU7"/>
                                                     <constraint firstItem="GiB-j9-Q0U" firstAttribute="centerY" secondItem="XI3-m5-aV2" secondAttribute="centerY" constant="-5" id="8m1-8x-cLJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="GiB-j9-Q0U" secondAttribute="trailing" constant="10" id="Az5-ZB-3GJ"/>
                                                     <constraint firstAttribute="height" constant="58" id="GTJ-rl-EgV"/>
                                                     <constraint firstAttribute="width" constant="339" id="cUQ-QB-sk3"/>
                                                 </constraints>
@@ -326,8 +321,29 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="XI3-m5-aV2" firstAttribute="centerY" secondItem="oyO-df-Dcp" secondAttribute="centerY" id="2Dy-Ak-u1c"/>
-                                            <constraint firstAttribute="height" constant="58" id="5QM-wb-l6a"/>
+                                            <constraint firstAttribute="height" constant="65" id="5QM-wb-l6a"/>
                                             <constraint firstItem="XI3-m5-aV2" firstAttribute="centerX" secondItem="oyO-df-Dcp" secondAttribute="centerX" id="BWz-73-pzr"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="48j-7j-6L0" userLabel="Create Alarm Button Animation View" customClass="SpringView" customModule="Spring">
+                                        <rect key="frame" x="0.0" y="453.66666666666669" width="375" height="65.000000000000057"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKd-TT-zer">
+                                                <rect key="frame" x="62.666666666666657" y="7.3333333333333144" width="249.99999999999997" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="fD3-R5-ROE"/>
+                                                    <constraint firstAttribute="width" constant="250" id="j5d-mn-Sst"/>
+                                                </constraints>
+                                                <state key="normal" title="New Alarm" backgroundImage="Alarm Button Backround">
+                                                    <color key="titleColor" red="0.97254901959999995" green="0.97647058819999999" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="5M0-Ay-hw5"/>
+                                            <constraint firstItem="VKd-TT-zer" firstAttribute="centerY" secondItem="48j-7j-6L0" secondAttribute="centerY" id="5NR-Zi-1Bv"/>
+                                            <constraint firstItem="VKd-TT-zer" firstAttribute="centerX" secondItem="48j-7j-6L0" secondAttribute="centerX" id="aZ4-1B-6JE"/>
                                         </constraints>
                                     </view>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-x6-3FX" userLabel="Dim View">
@@ -375,23 +391,26 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="QD2-11-uAW" firstAttribute="centerX" secondItem="ts5-q6-8y3" secondAttribute="centerX" id="5Xr-Cq-rb1"/>
+                                    <constraint firstItem="48j-7j-6L0" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="5hx-c2-jOf"/>
                                     <constraint firstItem="Slu-9T-Nev" firstAttribute="centerX" secondItem="ts5-q6-8y3" secondAttribute="centerX" id="5ww-7w-vgT"/>
+                                    <constraint firstItem="2LJ-kc-Z4z" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" constant="35" id="7N8-Hs-H3F"/>
                                     <constraint firstItem="iOK-hN-4Rw" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="7hB-UP-5jv"/>
                                     <constraint firstItem="aQQ-x6-3FX" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" id="8GR-o9-P0D"/>
                                     <constraint firstAttribute="trailing" secondItem="2LJ-kc-Z4z" secondAttribute="trailing" id="Erz-A7-YdO"/>
                                     <constraint firstItem="bO5-WW-lOr" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" constant="16" id="F4X-El-avV"/>
                                     <constraint firstAttribute="trailing" secondItem="aQQ-x6-3FX" secondAttribute="trailing" id="Feb-Xf-zmf"/>
+                                    <constraint firstItem="48j-7j-6L0" firstAttribute="centerY" secondItem="ts5-q6-8y3" secondAttribute="centerY" constant="80" id="Fg1-lM-gkK"/>
                                     <constraint firstAttribute="trailing" secondItem="iOK-hN-4Rw" secondAttribute="trailing" id="JMo-l2-hHr"/>
                                     <constraint firstItem="oyO-df-Dcp" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="K2W-rm-LT0"/>
                                     <constraint firstItem="bO5-WW-lOr" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" constant="28" id="LPP-Co-8hz"/>
+                                    <constraint firstAttribute="trailing" secondItem="48j-7j-6L0" secondAttribute="trailing" id="QTr-Hl-3af"/>
                                     <constraint firstAttribute="bottom" secondItem="aQQ-x6-3FX" secondAttribute="bottom" constant="34" id="TsK-nW-FKy"/>
-                                    <constraint firstAttribute="bottom" secondItem="oyO-df-Dcp" secondAttribute="bottom" constant="15" id="VX9-22-YOx"/>
                                     <constraint firstAttribute="trailing" secondItem="oyO-df-Dcp" secondAttribute="trailing" id="X8v-3X-OEZ"/>
                                     <constraint firstItem="Slu-9T-Nev" firstAttribute="centerY" secondItem="ts5-q6-8y3" secondAttribute="centerY" constant="-17" id="Xxb-Gr-aHb"/>
                                     <constraint firstAttribute="trailing" secondItem="bO5-WW-lOr" secondAttribute="trailing" constant="16" id="aNI-7c-Ei4"/>
                                     <constraint firstAttribute="bottom" secondItem="iOK-hN-4Rw" secondAttribute="bottom" constant="100" id="b2P-ab-2fl"/>
                                     <constraint firstItem="aQQ-x6-3FX" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="bwH-CC-R0F"/>
-                                    <constraint firstAttribute="bottom" secondItem="2LJ-kc-Z4z" secondAttribute="bottom" constant="15" id="gmO-Zr-Iwd"/>
+                                    <constraint firstItem="oyO-df-Dcp" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" constant="35" id="l7P-oQ-JkT"/>
                                     <constraint firstItem="iOK-hN-4Rw" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" id="mq4-Cc-iAm"/>
                                     <constraint firstItem="2LJ-kc-Z4z" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="sYE-JA-XCi"/>
                                     <constraint firstItem="QD2-11-uAW" firstAttribute="centerY" secondItem="ts5-q6-8y3" secondAttribute="centerY" constant="-34.833333333333371" id="yDr-Vy-KkC"/>
@@ -408,6 +427,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="FYf-57-svi"/>
                     <connections>
+                        <outlet property="createAlarmAnimationView" destination="48j-7j-6L0" id="hlr-bJ-UU9"/>
                         <outlet property="dimView" destination="aQQ-x6-3FX" id="B0g-e5-B2j"/>
                         <outlet property="fullScreenBlackoutView" destination="ts5-q6-8y3" id="bvt-oH-58r"/>
                         <outlet property="nextAlarmAnimationView" destination="bO5-WW-lOr" id="IX2-Ct-V7T"/>
@@ -658,7 +678,7 @@
             <objects>
                 <tableViewController id="beu-bg-MMp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QTf-ei-M5z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="749"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1685,6 +1705,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Alarm Button Backround" width="15" height="50"/>
         <image name="clock" width="50" height="50"/>
         <image name="play" width="42" height="42"/>
         <image name="press_smartbridge" width="516" height="475"/>

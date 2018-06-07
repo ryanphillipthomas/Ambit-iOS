@@ -13,7 +13,6 @@
 		74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EA51DFB735300B03661 /* AppDelegate.swift */; };
 		74B95EA81DFB735300B03661 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EA71DFB735300B03661 /* ViewController.swift */; };
 		74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EA91DFB735300B03661 /* Main.storyboard */; };
-		74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EAF1DFB735400B03661 /* Assets.xcassets */; };
 		74B95EB31DFB735400B03661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EB11DFB735400B03661 /* LaunchScreen.storyboard */; };
 		7AD917DC8EDBDDA1852CD9CB /* Pods_Ambit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1D98B5C1B96E01AD9087F0 /* Pods_Ambit.framework */; };
 		941436931E479B6E004B3430 /* 500.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 941436921E479B6E004B3430 /* 500.jpg */; };
@@ -76,6 +75,7 @@
 		94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04C1E3EE601008A1F84 /* HueConnectionManager.swift */; };
 		94E9E04F1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */; };
 		94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */; };
+		B80E07CD20C9EBD800896861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EAF1DFB735400B03661 /* Assets.xcassets */; };
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
 		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
 		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
@@ -875,8 +875,8 @@
 				948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */,
 				941436931E479B6E004B3430 /* 500.jpg in Resources */,
 				B8A8C2292000B2D200483407 /* party.mp3 in Resources */,
-				74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
+				B80E07CD20C9EBD800896861 /* Assets.xcassets in Resources */,
 				948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -58,7 +58,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "550096176.86877"
+                  timestampString = "550102902.359791"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "216"
@@ -73,7 +73,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "550096176.870766"
+                  timestampString = "550102902.361704"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "218"
@@ -138,7 +138,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "550096176.896762"
+                  timestampString = "550102902.374122"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "314"
@@ -153,7 +153,7 @@
                   moduleName = "Ambit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rthomas@wheelsup.com/Documents/GitHub/Ambit-iOS/Ambit/Thunderstorm_Fireplace.swift"
-                  timestampString = "550096176.898558"
+                  timestampString = "550102902.376052"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "281"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/LightsTableViewController.swift"
-            timestampString = "550096176.5841579"
+            timestampString = "550105038.649667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/LightsOptionsViewController.swift"
-            timestampString = "550096176.584226"
+            timestampString = "550105038.649738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/LightsOptionsViewController.swift"
-            timestampString = "550096176.584276"
+            timestampString = "550105038.649791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/LightsOptionsViewController.swift"
-            timestampString = "550096176.584321"
+            timestampString = "550105038.649839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -294,32 +294,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ambit/ViewController.swift"
-            timestampString = "550096176.584367"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "613"
-            endingLineNumber = "613"
-            landmarkName = "prefersStatusBarHidden"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ambit/ViewController.swift"
-            timestampString = "550096176.584793"
+            filePath = "Ambit/AppDelegate.swift"
+            timestampString = "550105038.649888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "606"
-            endingLineNumber = "606"
-            landmarkName = "animateStatusBars(isHidden:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -329,13 +313,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ambit/AppDelegate.swift"
-            timestampString = "550096176.585139"
+            filePath = "Ambit/ViewController.swift"
+            timestampString = "550105038.64994"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
+            landmarkName = "stopAlarm(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
