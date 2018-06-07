@@ -49,6 +49,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         timeLabel.updateText()
         timeLabel.start()
         timeLabel.delegate = self
@@ -61,11 +62,13 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         nextAlarmAnimationView.isHidden = true
         stopAnimationView.isHidden = true
         snoozeView.isHidden = true
-//        dimView.isHidden = true
         
         setNeedsStatusBarAppearanceUpdate()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
+        
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: true)
+
         
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(didSnooze(gesture:)))
 //        snoozeView.addGestureRecognizer(tap)
@@ -601,7 +604,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     // MARK - Status Bar
-    var statusBarHidden : Bool = false
+    var statusBarHidden : Bool = true
     @objc func toggleStatusBar(notification : NSNotification) {
         if let isHidden = notification.object as? Bool {
             animateStatusBars(isHidden: isHidden)

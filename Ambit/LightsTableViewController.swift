@@ -75,7 +75,7 @@ class LightsTableViewController: UITableViewController {
     @IBAction func didSelectDoneButton(_ sender: Any) {
         LightsHelper.saveLightSettings(selections: selections, lights: lights)
         self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
         })
     }
     // MARK: - Table view data source

@@ -17,6 +17,8 @@ struct AmbitConstants {
         static let ampmArray = ["AM","PM"]
     }
     
+    static let ToggleStatusBar = "didToggleStatusBar" // toggle status bar
+    
     static let CurrentVolumeLevelName = "CurrentVolumeLevelName" // current setting for volume level
     static let CurrentLightSceneName = "CurrentLightSceneName" //current running light scene name
     static let CurrentHueBridgeName = "CurrentHueBridgeName" //hue bridgh ip address
@@ -48,7 +50,6 @@ struct AmbitConstants {
         static let quote_3 = "Everyday may not be good, but there is something good in every day"
         static let quote_4 = "You don’t have to be great to start, but you have to start to be great"
         static let quote_5 = "I really need new clothes.. is me every morning."
-        
         static let quotesArray = [quote_1, quote_2, quote_3, quote_4, quote_5]
     }
 

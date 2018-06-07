@@ -60,7 +60,7 @@ class AlarmSoundsTableViewController: UITableViewController {
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
         self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
         })
     }
     
