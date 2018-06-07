@@ -33,18 +33,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Override point for customization after application launch.
+        //Setup Core Data
         let mainContext = createMainContext(modelStoreName: "Model", bundles: nil)
         context = mainContext
+        RootHelper.setMOCController(window: window, moc: self.context)
         
+        //Setup Hue
         HueConnectionManager.sharedManager.startUp()
         
+        //Setup Nav Bar
         AppearanceHelper.addTransparentNavigationBar()
-        
-        RootHelper.setMOCController(window: window, moc: self.context)
         
         // Set up and activate your session early here!
         WatchSessionManager.sharedManager.startSession()
+        
+        //Register Defaults
+        registerApplicationDefaults()
         
         let center = UNUserNotificationCenter.current()
         center.delegate = self
@@ -64,6 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
 //        play()
         
+        
+        return true
+    }
+    
+    func registerApplicationDefaults() {
         //initalize app defaults
         let defaults = [AmbitConstants.CurrentAlarmSoundName : "Party",
                         AmbitConstants.CurrentSleepSoundName : "Thunderstorm",
@@ -73,17 +82,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         AmbitConstants.VibrateWithAlarmSetting : false,
                         AmbitConstants.ProgressiveAlarmVolumeSetting : false,
                         AmbitConstants.DefaultSnoozeLength : 60*15, //15 min
-                        AmbitConstants.DefaultSleepSoundsLength : 60*30, //30min
-                        AmbitConstants.AlarmSoundsLightingSetting : true,
-                        AmbitConstants.SleepSoundsLightingSetting : true,
-                        AmbitConstants.AlarmSoundsLightingSettingSceneName : "Select Scene",
-                        AmbitConstants.SleepSoundsLightingSettingSceneName : "Select Scene",
-                        AmbitConstants.CurrentCustomMediaAlarmSoundName : "Select A Song",
-                        AmbitConstants.CurrentCustomMediaSleepSoundName : "Select A Song"] as [String : Any]
-
-        UserDefaults.standard.register(defaults: defaults)
+            AmbitConstants.DefaultSleepSoundsLength : 60*30, //30min
+            AmbitConstants.AlarmSoundsLightingSetting : true,
+            AmbitConstants.SleepSoundsLightingSetting : true,
+            AmbitConstants.AlarmSoundsLightingSettingSceneName : "Select Scene",
+            AmbitConstants.SleepSoundsLightingSettingSceneName : "Select Scene",
+            AmbitConstants.CurrentCustomMediaAlarmSoundName : "Select A Song",
+            AmbitConstants.CurrentCustomMediaSleepSoundName : "Select A Song"] as [String : Any]
         
-        return true
+        UserDefaults.standard.register(defaults: defaults)
     }
     
     func appBackrounding() {

@@ -66,13 +66,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         setNeedsStatusBarAppearanceUpdate()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
-        
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: true)
-
-        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(didSnooze(gesture:)))
-//        snoozeView.addGestureRecognizer(tap)
-//        snoozeView.isUserInteractionEnabled = true
 
         timePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         
@@ -80,9 +73,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         let date = calendar.date(byAdding: .minute, value: 1, to: Date())
         timePicker.minimumDate = date
         
-//        dimView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.dimViewFadeGesture(gesture:))))
-
-        // Do any additional setup after loading the view, typically from a nib.
+        showCurrentClock(_sender: UIButton())
     }
     
     override func viewWillAppear(_ animated: Bool) {
