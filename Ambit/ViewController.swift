@@ -65,6 +65,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         stopAnimationView.isHidden = true
         createAlarmAnimationView.isHidden = true
         snoozeView.isHidden = true
+        settingsButtonAnimationView.isHidden = true
         
         setNeedsStatusBarAppearanceUpdate()
         
@@ -298,7 +299,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     func animateOutSnoozeButton () {
         snoozeView.isHidden = true
-
         snoozeView.animation = "zoomOut"
         snoozeView.curve = "easeIn"
         snoozeView.duration = 1.0
@@ -308,8 +308,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     func animateInStopButton () {
         if stopAnimationView.isHidden == true {
             stopAnimationView.isHidden = false
-    //        dimView.isHidden = false
-
             stopAnimationView.animation = "fadeInDown"
             stopAnimationView.curve = "linear"
             stopAnimationView.duration = 2.0
@@ -322,7 +320,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         createAlarmAnimationView.curve = "linear"
         createAlarmAnimationView.duration = 2.0
         createAlarmAnimationView.animate()
-        
         createAlarmAnimationView.isHidden = true
     }
     
@@ -339,54 +336,55 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         timeLabelAnimationView.isHidden = true
         nextAlarmAnimationView.isHidden = true
-//        dimView.isHidden = true
     }
     
     func animateOutStopButton() {
-        
         stopAnimationView.animation = "fadeOutUp"
         stopAnimationView.curve = "linear"
         stopAnimationView.duration = 2.0
         stopAnimationView.animate()
-        
         stopAnimationView.isHidden = true
     }
     
-    func animateInTimePickerLayers() {
-        timePickerAnimationView.isHidden = false
+    func animateInSettingsButton() {
         settingsButtonAnimationView.isHidden = false
-        
-        timePickerAnimationView.animation = "fadeInDown"
-        timePickerAnimationView.curve = "linear"
-        timePickerAnimationView.duration = 2.0
-        timePickerAnimationView.animate()
-        
         settingsButtonAnimationView.animation = "fadeInDown"
         settingsButtonAnimationView.curve = "linear"
         settingsButtonAnimationView.duration = 2.0
         settingsButtonAnimationView.animate()
     }
     
-    func animateOutTimePickerLayers() {
-        timePickerAnimationView.animation = "fadeOut"
-        timePickerAnimationView.curve = "linear"
-        timePickerAnimationView.duration = 1.0
-        timePickerAnimationView.animate()
-        
+    func animateOutSettingsButton() {
         settingsButtonAnimationView.animation = "fadeOut"
         settingsButtonAnimationView.curve = "linear"
         settingsButtonAnimationView.duration = 1.0
         settingsButtonAnimationView.animate()
-        
-        timePickerAnimationView.isHidden = true
         settingsButtonAnimationView.isHidden = true
     }
     
-    func configurePickerView() {
-//        timePicker.date = UIDatePickerMode.Time // 4- use time only
-//        let currentDate = NSDate()  //5 -  get the current date
-//        myDatePicker.minimumDate = currentDate  //6- set the current date/time as a minimum
-//        myDatePicker.date = currentDate //7 - defa
+    func animateInTimePickerLayers() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar),object: false)
+        timePickerAnimationView.isHidden = false
+        timePickerAnimationView.animation = "fadeInDown"
+        timePickerAnimationView.curve = "linear"
+        timePickerAnimationView.duration = 2.0
+        timePickerAnimationView.animate()
+    }
+    
+    func animateOutTimePickerLayers() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar),object: true)
+        timePickerAnimationView.animation = "fadeOut"
+        timePickerAnimationView.curve = "linear"
+        timePickerAnimationView.duration = 1.0
+        timePickerAnimationView.animate()
+        timePickerAnimationView.isHidden = true
+    }
+    
+    @IBAction func newAlarm(_ sender: Any) {
+        self.animateOutTimeDisplayLayers()
+        self.animateOutCreateAlarmDisplayLayers()
+        self.animateInTimePickerLayers()
+        self.animateInStopButton()
     }
     
     
@@ -396,14 +394,20 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         appDelegate.stopCurrentSound()
         
         self.fadeToClear()
+//        self.animateOutTimeDisplayLayers()
+//        self.animateOutStopButton()
+//        self.animateOutSnoozeButton()
+//        self.animateOutCreateAlarmDisplayLayers()
+//        self.animateInTimePickerLayers()
+        
         self.animateOutTimeDisplayLayers()
         self.animateOutStopButton()
         self.animateOutSnoozeButton()
-        self.animateOutCreateAlarmDisplayLayers()
-        
-        self.animateInTimePickerLayers()
+        self.animateOutTimePickerLayers()
 
-        
+        self.animateInTimeOnlyDisplayLayers()
+        self.animateInCreateAlarmDisplayLayers()
+
         //stop sleep sounds if playing
         currentSound?.stop()
     }
@@ -473,32 +477,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     func scheduleLocalNotifications(scheduleAlarm : Alarm) {
         //get the apple watch to vibrate
         AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 0)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 5)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 10)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 15)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 20)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 25)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 30)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 35)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 40)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 45)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 50)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 55)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 60)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 65)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 70)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 75)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 80)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 85)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 90)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 95)
-//        AlarmScheduleManager.sharedManager.scheduleAlarmNotification(alarm: scheduleAlarm, interval : 100)
     }
-
-    
-    //    override func updateUserActivityState(_ activity: NSUserActivity) {
-    //        return nil
-    //    }
     
     
     @IBAction func showCurrentClock(_sender: Any){
@@ -514,11 +493,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         //animate in create alarm button
         animateInCreateAlarmDisplayLayers()
         
-        animateInStopButton()
-    }
-    
-    @IBAction func exitCurrentClock(_sender: Any){
-        //??
+        //animate in settings button
+        animateInSettingsButton()
     }
     
     
