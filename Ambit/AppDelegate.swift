@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
     }
     
-    func isPlayingSound() -> Bool {
+    func isPlayingAlarmSound() -> Bool {
         if isPlayingOverride { return true }
         
         guard let currentSound = self.currentSound else { return false }
@@ -168,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func play() {
         
-        if isPlayingSound() { return }
+        if isPlayingAlarmSound() { return }
         
         //get sound file name and load it up
         do {

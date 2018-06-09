@@ -20,6 +20,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet var timeLabel:SBTimeLabel!
     @IBOutlet var timeLeftLabel:UILabel!
     @IBOutlet var timeUpcomingLabel: UILabel!
+    @IBOutlet var nextAlarmLabel: UILabel!
 
     @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
@@ -41,12 +42,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
     var backroundAnimation = CAGradientLayer()
     var managedObjectContext: NSManagedObjectContext!
-    
     var currentSound: AudioPlayer?
     var currentSleepSound: AudioPlayer?
-
     var audioPlayer : AVAudioPlayer!
-    
     var isPlayingOverride : Bool = false
 
     override func viewDidLoad() {
@@ -70,13 +68,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         setNeedsStatusBarAppearanceUpdate()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: false)
 
-        timePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-        
-        let calendar = Calendar.current
-        let date = calendar.date(byAdding: .minute, value: 1, to: Date())
-        timePicker.minimumDate = date
-        
         showCurrentClock(_sender: UIButton())
     }
     
@@ -88,11 +81,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         backroundAnimation.frame = self.view.bounds
     }
     
-    @IBAction func pickerValueChanged(_ sender: Any) {
-        let calendar = Calendar.current
-        let date = calendar.date(byAdding: .minute, value: 1, to: Date())
-        timePicker.minimumDate = date
-    }
+// Sets the minimum date for picker (disabled due to UI issue)
+//    @IBAction func pickerValueChanged(_ sender: Any) {
+//        let calendar = Calendar.current
+//        let date = calendar.date(byAdding: .minute, value: 1, to: Date())
+//        timePicker.minimumDate = date
+//    }
     
     func isPlayingSound() -> Bool {
         if isPlayingOverride { return true }
@@ -161,26 +155,60 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     @objc func fadeToBlack() {
-        //fade out lights
-        self.blackOut()
-       
-        //show the stop button
-        self.animateInStopButton()
-        
-        //timeLabel to white
-        UIView.transition(with: self.timeLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
-            self.timeUpcomingLabel.textColor = UIColor.white
-            self.timeLabel.textColor = UIColor.white
-        }) { (finished) in
-
-            //timeLabel to grey
+        let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
+        if (alarm != nil) {
+            //fade out lights
+            self.blackOut()
+            
+            //show the stop button
+            self.animateInStopButton()
+            
+            //timeLabel to white
             UIView.transition(with: self.timeLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
-                self.timeUpcomingLabel.textColor = UIColor.darkGray
-                self.timeLabel.textColor = UIColor.darkGray
-            }, completion: nil)
+                self.timeLabel.textColor = UIColor.white
+            }) { (finished) in
+                
+                //timeLabel to grey
+                UIView.transition(with: self.timeLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+                    self.timeLabel.textColor = UIColor.darkGray
+                }, completion: nil)
+            }
+            
+            //timeUpcomingLabel to white
+            UIView.transition(with: self.timeUpcomingLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+                self.timeUpcomingLabel.textColor = UIColor.white
+            }) { (finished) in
+                
+                //timeUpcomingLabel to grey
+                UIView.transition(with: self.timeUpcomingLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+                    self.timeUpcomingLabel.textColor = UIColor.darkGray
+                }, completion: nil)
+            }
+            
+            //timeLeftLabel to white
+            UIView.transition(with: self.timeLeftLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+                self.timeLeftLabel.textColor = UIColor.white
+            }) { (finished) in
+                
+                //timeLeftLabel to grey
+                UIView.transition(with: self.timeLeftLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+                    self.timeLeftLabel.textColor = UIColor.darkGray
+                }, completion: nil)
+            }
+            
+            //nextAlarmLabel to white
+            UIView.transition(with: self.nextAlarmLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+                self.nextAlarmLabel.textColor = UIColor.white
+            }) { (finished) in
+                
+                //nextAlarmLabel to grey
+                UIView.transition(with: self.nextAlarmLabel, duration: 3.0, options: .transitionCrossDissolve, animations: {
+                    self.nextAlarmLabel.textColor = UIColor.darkGray
+                }, completion: nil)
+            }
+            
+            blackoutFullscreenView()
         }
-
-        blackoutFullscreenView()
     }
     
     func blackoutFullscreenView() {
@@ -202,9 +230,24 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         //fade to clear
         self.view.layer.insertSublayer(backroundAnimation, at: 0)
         
+        //timeLabel
         UIView.transition(with: self.timeLabel, duration: 1.0, options: .transitionCrossDissolve, animations: {
-            self.timeUpcomingLabel.textColor = UIColor.black
             self.timeLabel.textColor = UIColor.black
+        }, completion: nil)
+        
+        //timeUpcomingLabel
+        UIView.transition(with: self.timeUpcomingLabel, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            self.timeUpcomingLabel.textColor = UIColor.black
+        }, completion: nil)
+        
+        //timeLeftLabel
+        UIView.transition(with: self.timeLeftLabel, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            self.timeLeftLabel.textColor = UIColor.black
+        }, completion: nil)
+        
+        //nextAlarmLabel
+        UIView.transition(with: self.nextAlarmLabel, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            self.nextAlarmLabel.textColor = UIColor.black
         }, completion: nil)
 
         UIView.animate(withDuration: 1.0) {
@@ -245,8 +288,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLeftLabel.text = next_alarm_string
         
         //show snooze button and view
-        if appDelegate.isPlayingSound() {
+        if appDelegate.isPlayingAlarmSound() {
             animateOutTimeDisplayLayers()
+            animateOutSettingsButton()
             animateInSnoozeButton() //show the snooze button
             self.perform(#selector(self.fadeToClear), with: nil, afterDelay: 0.4) //fade in the color backround in 0.4 secs
             
@@ -347,11 +391,13 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     func animateInSettingsButton() {
-        settingsButtonAnimationView.isHidden = false
-        settingsButtonAnimationView.animation = "fadeInDown"
-        settingsButtonAnimationView.curve = "linear"
-        settingsButtonAnimationView.duration = 2.0
-        settingsButtonAnimationView.animate()
+        if settingsButtonAnimationView.isHidden {
+            settingsButtonAnimationView.isHidden = false
+            settingsButtonAnimationView.animation = "fadeInDown"
+            settingsButtonAnimationView.curve = "linear"
+            settingsButtonAnimationView.duration = 2.0
+            settingsButtonAnimationView.animate()
+        }
     }
     
     func animateOutSettingsButton() {
@@ -369,6 +415,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timePickerAnimationView.curve = "linear"
         timePickerAnimationView.duration = 2.0
         timePickerAnimationView.animate()
+        
+        //Defaults the time picker at the current date + 1 minute
+        timePicker.date = Calendar.current.date(byAdding: .minute, value: 1, to: Date())!
     }
     
     func animateOutTimePickerLayers() {
@@ -394,11 +443,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         appDelegate.stopCurrentSound()
         
         self.fadeToClear()
-//        self.animateOutTimeDisplayLayers()
-//        self.animateOutStopButton()
-//        self.animateOutSnoozeButton()
-//        self.animateOutCreateAlarmDisplayLayers()
-//        self.animateInTimePickerLayers()
         
         self.animateOutTimeDisplayLayers()
         self.animateOutStopButton()
@@ -407,6 +451,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
         self.animateInTimeOnlyDisplayLayers()
         self.animateInCreateAlarmDisplayLayers()
+        self.animateInSettingsButton()
 
         //stop sleep sounds if playing
         currentSound?.stop()
@@ -421,11 +466,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         //generate date in 1 min
         let now = Date()
-        let dateInFifteenMinutes = now.addingTimeInterval(60*1)
+        let dateInFifteenMinutes = now.addingTimeInterval(60*15)
         addAlarmFromTimePicker(date:dateInFifteenMinutes)
         
         animateOutSnoozeButton()
         animateInTimeDisplayLayers()
+        animateInSettingsButton()
     }
     
     @IBAction func toggleSettings(_ sender: Any) {
@@ -651,16 +697,6 @@ extension ViewController : HueConnectionManagerDelegate {
     internal func showPushButtonAuthentication() {
         performSegue(withIdentifier: "bridgeAuthentication", sender: nil)
     }
-    
-    //MARK - Date Picker
-    @objc func dateChanged(_ sender: UIDatePicker) {
-        let componenets = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: sender.date)
-        if let day = componenets.day, let month = componenets.month, let year = componenets.year, let hour = componenets.hour, let minute = componenets.minute, let second = componenets.second {
-            print("\(day) \(month) \(year),  \(hour),  \(minute),  \(second)")
-        }
-    }
-    
-    
 }
 
 extension Date {
