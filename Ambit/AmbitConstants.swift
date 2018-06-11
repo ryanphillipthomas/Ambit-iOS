@@ -32,6 +32,8 @@ struct AmbitConstants {
     static let CurrentSleepSoundName = "CurrentSleepSoundName" // current setting for sleep sound
     static let SleepSoundsLightingSetting = "SleepSoundsLightingSetting" //true or false for should run sleep lighting
     static let SleepSoundsLightingSettingSceneName = "SleepSoundsLightingSettingSceneName" //Scene Name for Sleep Sounds
+    static let RecorderActiveSetting = "RecorderActiveSetting" //true or false for should run recorder
+
     
     static let AlarmSoundsLightingSetting = "AlarmSoundsLightingSetting" //true or false for should run alarm lighting
     static let AlarmSoundsLightingSettingSceneName = "AlarmSoundsLightingSettingSceneName" //Scene Name for Alarm Sounds

@@ -81,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         AmbitConstants.CurrentLightSceneName : "Select Scene",
                         AmbitConstants.VibrateWithAlarmSetting : false,
                         AmbitConstants.ProgressiveAlarmVolumeSetting : false,
+                        AmbitConstants.RecorderActiveSetting : false,
                         AmbitConstants.DefaultSnoozeLength : 60*15, //15 min
             AmbitConstants.DefaultSleepSoundsLength : 60*30, //30min
             AmbitConstants.AlarmSoundsLightingSetting : true,
@@ -244,8 +245,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         isPlayingOverride = true
         
-        //stop recording
-        RecorderManager.sharedManager.stopRecording()
+        //stop recording dev todo might never stop
+        let shouldRecord = UserDefaults.standard.bool(forKey: AmbitConstants.RecorderActiveSetting)
+        if shouldRecord {
+            RecorderManager.sharedManager.stopRecording()
+        }
+        
+        //stop deep sleep
+        let mp = MMPDeepSleepPreventer()
+        mp.stopPreventSleep()
     }
     
     func stopCurrentSound() {
@@ -263,8 +271,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         AlarmScheduleManager.sharedManager.clearAllAlarms()
         
-        //stop recording
+        //stop recording dev todo might never stop
+        let shouldRecord = UserDefaults.standard.bool(forKey: AmbitConstants.RecorderActiveSetting)
+        if shouldRecord {
         RecorderManager.sharedManager.stopRecording()
+        }
+        
+        //stop deep sleep
+        let mp = MMPDeepSleepPreventer()
+        mp.stopPreventSleep()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

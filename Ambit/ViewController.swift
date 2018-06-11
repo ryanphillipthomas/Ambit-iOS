@@ -514,7 +514,15 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         guard let scheduleAlarm = alarm else {return}
         print(scheduleAlarm.fireDate)
         
-        RecorderManager.sharedManager.startRecording()
+        //start recording
+        let shouldRecord = UserDefaults.standard.bool(forKey: AmbitConstants.RecorderActiveSetting)
+        if shouldRecord {
+            RecorderManager.sharedManager.startRecording()
+        }
+        
+        //start deep sleep
+        let mp = MMPDeepSleepPreventer()
+        mp.startPreventSleep()
 
 //        //get the apple watch to vibrate
         scheduleLocalNotifications(scheduleAlarm: scheduleAlarm)

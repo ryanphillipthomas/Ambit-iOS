@@ -91,6 +91,8 @@
 		B8E7EAA42002023F00B5B6D1 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA32002023F00B5B6D1 /* QuoteViewController.swift */; };
 		B8E7EAA620028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA520028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift */; };
 		B8E7EAAA2002D95900B5B6D1 /* LightsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EAA92002D95900B5B6D1 /* LightsTableViewController.swift */; };
+		B8FA234420CD5D9400564F03 /* MMPDeepSleepPreventer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA234220CD5D9400564F03 /* MMPDeepSleepPreventer.m */; };
+		B8FA234520CD5D9400564F03 /* MMPSilence.wav in Resources */ = {isa = PBXBuildFile; fileRef = B8FA234320CD5D9400564F03 /* MMPSilence.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +266,9 @@
 		B8E7EAA32002023F00B5B6D1 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		B8E7EAA520028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7EAA92002D95900B5B6D1 /* LightsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsTableViewController.swift; sourceTree = "<group>"; };
+		B8FA234220CD5D9400564F03 /* MMPDeepSleepPreventer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMPDeepSleepPreventer.m; path = Frameworks/MMPDeepSleepPreventer/MMPDeepSleepPreventer.m; sourceTree = SOURCE_ROOT; };
+		B8FA234320CD5D9400564F03 /* MMPSilence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = MMPSilence.wav; path = Frameworks/MMPDeepSleepPreventer/MMPSilence.wav; sourceTree = SOURCE_ROOT; };
+		B8FA234620CD5E3B00564F03 /* MMPDeepSleepPreventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMPDeepSleepPreventer.h; path = Frameworks/MMPDeepSleepPreventer/MMPDeepSleepPreventer.h; sourceTree = SOURCE_ROOT; };
 		BA9763449EA3A0DDA78CB88D /* Pods-Ambit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCC85028A2B8F72C8D5DF16 /* Pods-AmbitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -335,6 +340,7 @@
 		74B95E991DFB735300B03661 = {
 			isa = PBXGroup;
 			children = (
+				94E9DFF31E3EB5FF008A1F84 /* Ambit-Bridging-Header.h */,
 				B8A72EB720C642AE00BB107D /* RTCoreData */,
 				74B95EA41DFB735300B03661 /* Ambit */,
 				9416C4F71E45924300267C85 /* Watch */,
@@ -345,7 +351,6 @@
 				74B95EA31DFB735300B03661 /* Products */,
 				3AFB159A743C9F299048D051 /* Pods */,
 				CE9EDE0DBCC025329CC23A8E /* Frameworks */,
-				94E9DFF31E3EB5FF008A1F84 /* Ambit-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -605,6 +610,7 @@
 		94E9E02D1E3EBF40008A1F84 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B8FA234120CD5D6C00564F03 /* Deep Sleep */,
 				B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */,
 				9470D6DD1E5105A4009AA49A /* Recordings */,
 				94CA1F631E4F94F8005A1053 /* Events */,
@@ -654,6 +660,16 @@
 				946597781E4567F400ED204C /* LaunchScreenViewController.swift */,
 			);
 			name = "Table View Controllers";
+			sourceTree = "<group>";
+		};
+		B8FA234120CD5D6C00564F03 /* Deep Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				B8FA234620CD5E3B00564F03 /* MMPDeepSleepPreventer.h */,
+				B8FA234220CD5D9400564F03 /* MMPDeepSleepPreventer.m */,
+				B8FA234320CD5D9400564F03 /* MMPSilence.wav */,
+			);
+			name = "Deep Sleep";
 			sourceTree = "<group>";
 		};
 		CE9EDE0DBCC025329CC23A8E /* Frameworks */ = {
@@ -876,6 +892,7 @@
 				941436931E479B6E004B3430 /* 500.jpg in Resources */,
 				B8A8C2292000B2D200483407 /* party.mp3 in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
+				B8FA234520CD5D9400564F03 /* MMPSilence.wav in Resources */,
 				B80E07CD20C9EBD800896861 /* Assets.xcassets in Resources */,
 				948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */,
 			);
@@ -1022,6 +1039,7 @@
 				94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */,
 				94A7A5F71E404A4E00A6D11D /* CALayer+Extension.swift in Sources */,
 				94E9E0081E3EB9A3008A1F84 /* DDAbstractDatabaseLogger.m in Sources */,
+				B8FA234420CD5D9400564F03 /* MMPDeepSleepPreventer.m in Sources */,
 				B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */,
 				74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */,
 				B8E7EAA02001E2A800B5B6D1 /* CreditsViewController.swift in Sources */,
