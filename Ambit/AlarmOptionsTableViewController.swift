@@ -10,7 +10,6 @@ import UIKit
 import AVKit
 import AVFoundation
 
-//MARK: step 1 Add Protocol here
 protocol AlarmOptionsTableViewControllerDelegate: class {
     func performSegueFromOptions(_ identifier: NSString?)
     func presentIntroductionVideo()
@@ -19,7 +18,6 @@ protocol AlarmOptionsTableViewControllerDelegate: class {
 
 class AlarmOptionsTableViewController: UITableViewController {
     
-    //MARK: step 2 Create a delegate property here, don't forget to make it weak!
     weak var delegate: AlarmOptionsTableViewControllerDelegate?
     
     @IBOutlet weak var alarmSoundsDetailLabel: UILabel!

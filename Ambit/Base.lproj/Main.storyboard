@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -444,6 +444,7 @@
                         <segue destination="eBz-OR-3vF" kind="presentation" identifier="helpSegue" modalPresentationStyle="overCurrentContext" id="QkF-pb-4in"/>
                         <segue destination="zkP-8C-Jbs" kind="presentation" identifier="textViewSegue" modalPresentationStyle="overCurrentContext" id="0uK-Ja-s8i"/>
                         <segue destination="iqx-S6-aj2" kind="presentation" identifier="showLights" modalPresentationStyle="overCurrentContext" id="YY0-2w-dmQ"/>
+                        <segue destination="su7-Qr-hRl" kind="presentation" identifier="BridgeLoadingViewController" modalPresentationStyle="overCurrentContext" id="ul8-7J-63R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -751,27 +752,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="press_smartbridge" translatesAutoresizingMaskIntoConstraints="NO" id="nVs-gd-IDG">
-                                <rect key="frame" x="21" y="229.66666666666663" width="333" height="353"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="353" id="ZQ4-Br-ml9"/>
-                                    <constraint firstAttribute="width" constant="333" id="ny7-rv-MKP"/>
-                                </constraints>
-                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-r4-Dd9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VWZ-AJ-yUf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark_bridge" translatesAutoresizingMaskIntoConstraints="NO" id="nVs-gd-IDG">
+                                            <rect key="frame" x="21" y="148" width="333" height="353"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="353" id="YNS-Tg-H6A"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pL-wZ-pgE">
+                                            <rect key="frame" x="172" y="635" width="32" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                            <state key="normal" title="Skip"/>
+                                            <connections>
+                                                <action selector="didSelectSkipWithSender:" destination="HVm-0p-5pL" eventType="touchUpInside" id="z9m-Cf-ahb"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Press the paring button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdH-DJ-P62">
+                                            <rect key="frame" x="86" y="508" width="202" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By connecting your Hue Bridge, Ambit will be able to control your lights. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctd-hI-vIp">
+                                            <rect key="frame" x="21" y="548" width="333" height="79"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nVs-gd-IDG" firstAttribute="leading" secondItem="VWZ-AJ-yUf" secondAttribute="leading" constant="21" id="7dP-6V-Dkn"/>
+                                        <constraint firstItem="nVs-gd-IDG" firstAttribute="centerX" secondItem="VWZ-AJ-yUf" secondAttribute="centerX" id="cwd-9A-GNK"/>
+                                        <constraint firstItem="nVs-gd-IDG" firstAttribute="centerY" secondItem="VWZ-AJ-yUf" secondAttribute="centerY" constant="-81.5" id="oJ3-We-Pmr"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="nVs-gd-IDG" firstAttribute="centerX" secondItem="Onb-o8-hg5" secondAttribute="centerX" id="6wz-u2-1a2"/>
-                            <constraint firstItem="nVs-gd-IDG" firstAttribute="centerY" secondItem="Onb-o8-hg5" secondAttribute="centerY" id="ccB-J2-FFg"/>
+                            <constraint firstAttribute="trailing" secondItem="UhM-r4-Dd9" secondAttribute="trailing" id="2Oh-Aj-ROf"/>
+                            <constraint firstItem="UhM-r4-Dd9" firstAttribute="leading" secondItem="Onb-o8-hg5" secondAttribute="leading" id="5vR-09-GeR"/>
+                            <constraint firstItem="UhM-r4-Dd9" firstAttribute="top" secondItem="Onb-o8-hg5" secondAttribute="top" id="N4C-u2-9DO"/>
+                            <constraint firstAttribute="bottom" secondItem="UhM-r4-Dd9" secondAttribute="bottom" id="UNU-hw-0Qr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="C8K-rl-vyx">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="SIP-2L-tek">
-                            <color key="tintColor" red="0.98039221759999995" green="0.98039221759999995" blue="0.98039221759999995" alpha="1" colorSpace="deviceRGB"/>
-                            <connections>
-                                <action selector="doneWithSender:" destination="HVm-0p-5pL" id="P6t-oP-4tA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="C8K-rl-vyx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ts-AJ-MCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1694,11 +1727,73 @@
             </objects>
             <point key="canvasLocation" x="-7698" y="-1150"/>
         </scene>
+        <!--Bridge Loading View Controller-->
+        <scene sceneID="Ft0-va-H0w">
+            <objects>
+                <viewController id="su7-Qr-hRl" customClass="BridgeLoadingViewController" customModule="Ambit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FWa-J0-Aq3"/>
+                        <viewControllerLayoutGuide type="bottom" id="0WF-04-0bK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GGe-Sj-lu5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOh-qY-PnH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Dnh-jU-Sy0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Searching For Bridge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdN-kA-hZG">
+                                            <rect key="frame" x="107" y="518" width="161" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLD-w4-9EZ">
+                                            <rect key="frame" x="171" y="634" width="32" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                            <state key="normal" title="Skip"/>
+                                            <connections>
+                                                <action selector="didSelectSkipWithSender:" destination="HVm-0p-5pL" eventType="touchUpInside" id="Wdy-tF-YrM"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ambit is scanning your network for available bridges to connect with. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWa-Ey-KGR">
+                                            <rect key="frame" x="21" y="547" width="333" height="79"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BvZ-8e-txf">
+                                            <rect key="frame" x="169" y="319" width="37" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GOh-qY-PnH" secondAttribute="trailing" id="HnI-0J-VAd"/>
+                            <constraint firstAttribute="bottom" secondItem="GOh-qY-PnH" secondAttribute="bottom" id="Twc-bZ-kIX"/>
+                            <constraint firstItem="GOh-qY-PnH" firstAttribute="top" secondItem="GGe-Sj-lu5" secondAttribute="top" id="sy9-zL-Oe7"/>
+                            <constraint firstItem="GOh-qY-PnH" firstAttribute="leading" secondItem="GGe-Sj-lu5" secondAttribute="leading" id="wAP-SC-ESk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="42e-VT-NPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6338" y="771"/>
+        </scene>
     </scenes>
     <resources>
         <image name="button_backround" width="250" height="50"/>
-        <image name="press_smartbridge" width="516" height="475"/>
-        <image name="settings" width="85" height="85"/>
-        <image name="stop" width="42" height="42"/>
+        <image name="dark_bridge" width="378" height="258"/>
+        <image name="settings" width="256" height="256"/>
+        <image name="stop" width="42.666667938232422" height="42.666667938232422"/>
     </resources>
 </document>

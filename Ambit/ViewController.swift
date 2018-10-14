@@ -46,6 +46,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     var currentSleepSound: AudioPlayer?
     var audioPlayer : AVAudioPlayer!
     var isPlayingOverride : Bool = false
+    
+    let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,8 +108,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             if let file = soundFile {
                 currentSound = try AudioPlayer(fileName: file)
             } else {
-                let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaSleepSoundURL)
-                currentSound = try AudioPlayer(contentsOf: (customMediaSoundURL)!)
+                if let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaSleepSoundURL) {
+                    currentSound = try AudioPlayer(contentsOf: customMediaSoundURL)
+                } else if let mediaID = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaSleepSoundID) {
+                    // attept to play protected media asset
+                    applicationMusicPlayer.setQueue(with: [mediaID])
+                }
             }
         }
         catch _ {
@@ -117,6 +123,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         let volumeLevel = UserDefaults.standard.float(forKey: AmbitConstants.CurrentVolumeLevelName)
         currentSound?.volume = volumeLevel
         currentSound?.play()
+        
+        if currentSound == nil {
+            applicationMusicPlayer.play()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -455,6 +465,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
         //stop sleep sounds if playing
         currentSound?.stop()
+        applicationMusicPlayer.stop()
     }
     
     @IBAction func didSnooze(_ sender: Any) {
@@ -689,13 +700,15 @@ extension ViewController: SBTimeLabelDelegate {
 
 extension ViewController : HueConnectionManagerDelegate {
     internal func didStartConnecting() {
+    
     }
     
     internal func didStartSearching() {
+        self.performSegue(withIdentifier: String(describing: BridgeLoadingViewController.self), sender: nil)
     }
     
     internal func didFindBridges(bridgesFound: [AnyHashable : Any]?) {
-        performSegue(withIdentifier: "bridgeSelection", sender: bridgesFound)
+        self.performSegue(withIdentifier: "bridgeSelection", sender: bridgesFound)
     }
     
     internal func didFailToFindBridges() {
@@ -703,7 +716,7 @@ extension ViewController : HueConnectionManagerDelegate {
     }
     
     internal func showPushButtonAuthentication() {
-        performSegue(withIdentifier: "bridgeAuthentication", sender: nil)
+        self.performSegue(withIdentifier: "bridgeAuthentication", sender: nil)
     }
 }
 

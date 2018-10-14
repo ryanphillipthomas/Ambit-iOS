@@ -111,7 +111,7 @@ open class SBTimeLabel: UILabel {
         })
         
         // Add Timer
-        RunLoop.main.add(timer!, forMode: .commonModes)
+        RunLoop.main.add(timer!, forMode: .common)
         
         // Set Tolerance to 10% of timer, as suggested by Apple Docs
         timer?.tolerance = self.timeInterval / 10.0

@@ -398,7 +398,7 @@ class LoaderHelper {
     static let activityIndicator = UIActivityIndicatorView(frame: CGRect.zero)
     class func showLoader(inView: UIView, userInteractionEnabled: Bool, style: UIActivityIndicatorView.Style){
         activityIndicator.center = inView.center
-        activityIndicator.activityIndicatorViewStyle = style
+        activityIndicator.style = style
         activityIndicator.startAnimating()
         inView.addSubview(activityIndicator)
         inView.isUserInteractionEnabled = userInteractionEnabled

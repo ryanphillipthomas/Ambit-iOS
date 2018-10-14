@@ -17,7 +17,10 @@ import MediaPlayer
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     var context:NSManagedObjectContext!
+    
+    let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
     var currentSound: AudioPlayer?
+    
     var audioPlayer : AVAudioPlayer!
     var audioPlayerVolume : Float!
     
@@ -178,8 +181,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if let file = soundFile {
                 currentSound = try AudioPlayer(fileName: file)
             } else {
-                let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL)
-                currentSound = try AudioPlayer(contentsOf: (customMediaSoundURL)!)
+                if let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL) {
+                    currentSound = try AudioPlayer(contentsOf: (customMediaSoundURL))
+                } else if let mediaID = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundID) {
+                    // attept to play protected media asset
+                    applicationMusicPlayer.setQueue(with: [mediaID])
+                }
             }
         }
         catch _ {
@@ -243,6 +250,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         currentSound?.volume = 100.0
         currentSound?.play()
         
+        if currentSound == nil {
+            applicationMusicPlayer.play()
+        }
+        
+        
         isPlayingOverride = true
         
         //stop recording dev todo might never stop
@@ -259,6 +271,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func stopCurrentSound() {
         currentSound?.fadeOut()
         currentSound?.stop()
+        
+        if currentSound == nil {
+            applicationMusicPlayer.stop()
+        }
         
         isPlayingOverride = false
 

@@ -82,6 +82,7 @@
 		B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB920C642C000BB107D /* ManagedObject.swift */; };
 		B8A72EBD20C642C000BB107D /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */; };
 		B8A8C2292000B2D200483407 /* party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8A8C2282000B2D100483407 /* party.mp3 */; };
+		B8C181802173CF9B00FE60D6 /* BridgeLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1817F2173CF9B00FE60D6 /* BridgeLoadingViewController.swift */; };
 		B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */; };
 		B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */; };
 		B8E7EA9B2001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */; };
@@ -257,6 +258,7 @@
 		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
 		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
 		B8A8C2282000B2D100483407 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = party.mp3; path = ../party.mp3; sourceTree = "<group>"; };
+		B8C1817F2173CF9B00FE60D6 /* BridgeLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeLoadingViewController.swift; sourceTree = "<group>"; };
 		B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
@@ -458,6 +460,9 @@
 				B8E7EA9D2001DA9B00B5B6D1 /* HelpViewController.swift */,
 				B8E7EA9F2001E2A800B5B6D1 /* CreditsViewController.swift */,
 				B8E7EAA32002023F00B5B6D1 /* QuoteViewController.swift */,
+				94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */,
+				94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */,
+				B8C1817F2173CF9B00FE60D6 /* BridgeLoadingViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -633,8 +638,6 @@
 			isa = PBXGroup;
 			children = (
 				94E9E04C1E3EE601008A1F84 /* HueConnectionManager.swift */,
-				94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */,
-				94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */,
 			);
 			name = Hue;
 			sourceTree = "<group>";
@@ -1037,6 +1040,7 @@
 				B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */,
 				0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */,
 				94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */,
+				B8C181802173CF9B00FE60D6 /* BridgeLoadingViewController.swift in Sources */,
 				94A7A5F71E404A4E00A6D11D /* CALayer+Extension.swift in Sources */,
 				94E9E0081E3EB9A3008A1F84 /* DDAbstractDatabaseLogger.m in Sources */,
 				B8FA234420CD5D9400564F03 /* MMPDeepSleepPreventer.m in Sources */,
@@ -1284,6 +1288,7 @@
 					"$(PROJECT_DIR)/Frameworks/Hue",
 				);
 				INFOPLIST_FILE = Ambit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1307,6 +1312,7 @@
 					"$(PROJECT_DIR)/Frameworks/Hue",
 				);
 				INFOPLIST_FILE = Ambit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

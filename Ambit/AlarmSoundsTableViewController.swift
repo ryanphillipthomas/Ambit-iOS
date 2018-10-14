@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioPlayer
+import StoreKit
 import MediaPlayer
 
 class AlarmSoundsTableViewController: UITableViewController {
@@ -16,6 +17,8 @@ class AlarmSoundsTableViewController: UITableViewController {
     var tickle: AudioPlayer?
     var bell: AudioPlayer?
     var selectedMediaItemSound: AudioPlayer?
+    let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
+    
     var currentSound: AudioPlayer?
 
     var selectedMediaItem: MPMediaItem?
@@ -66,6 +69,7 @@ class AlarmSoundsTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         currentSound?.fadeOut()
+        applicationMusicPlayer.stop()
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,11 +93,22 @@ class AlarmSoundsTableViewController: UITableViewController {
         
         // Stop playing with a fade out
         currentSound?.stop()
+        applicationMusicPlayer.stop()
         
         let row = indexPath.row
         switch row {
         case 0:
             //itunes
+            let audioSession = AVAudioSession.sharedInstance()
+            do {
+                try audioSession.setCategory(.playback, mode: .default, policy: .default, options: .allowAirPlay)
+                
+                checkMusicStatus()
+            }
+            catch {
+                print("Setting category to AVAudioSessionCategoryPlayback failed.")
+            }
+            
             presentMediaPicker()
             return
         case 1:
@@ -115,8 +130,75 @@ class AlarmSoundsTableViewController: UITableViewController {
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
     
+    func checkMusicStatus() {
+        
+        switch SKCloudServiceController.authorizationStatus() {
+            
+        case .authorized:
+            
+            print("The user's already authorized - we don't need to do anything more here, so we'll exit early.")
+            return
+            
+        case .denied:
+            
+            print("The user has selected 'Don't Allow' in the past - so we're going to show them a different dialog to push them through to their Settings page and change their mind, and exit the function early.")
+            
+            // Show an alert to guide users into the Settings
+            
+            return
+            
+        case .notDetermined:
+            
+            print("The user hasn't decided yet - so we'll break out of the switch and ask them.")
+            break
+            
+        case .restricted:
+            
+            print("User may be restricted; for example, if the device is in Education mode, it limits external Apple Music usage. This is similar behaviour to Denied.")
+            return
+            
+        }
+        
+        appleMusicRequestPermission()
+    }
+    
+    // Request permission from the user to access the Apple Music library
+    func appleMusicRequestPermission() {
+        
+        SKCloudServiceController.requestAuthorization { (status:SKCloudServiceAuthorizationStatus) in
+            
+            switch status {
+                
+            case .authorized:
+                
+                print("All good - the user tapped 'OK', so you're clear to move forward and start playing.")
+                
+            case .denied:
+                
+                print("The user tapped 'Don't allow'. Read on about that below...")
+                
+            case .notDetermined:
+                
+                print("The user hasn't decided or it's not clear whether they've confirmed or denied.")
+                
+            case .restricted:
+                
+                print("User may be restricted; for example, if the device is in Education mode, it limits external Apple Music usage. This is similar behaviour to Denied.")
+                
+            }
+            
+        }
+        
+    }
+    
+    func playFromMusicPlayerSelection(_ ids: [String]) {
+        applicationMusicPlayer.setQueue(with: ids)
+        applicationMusicPlayer.play()
+    }
+    
     func playFromMediaSelection(){
         do {
+            let mediaID = selectedMediaItem?.playbackStoreID
             let mediaUrl = selectedMediaItem?.value(forProperty: MPMediaItemPropertyAssetURL)
             let mediaTitle = selectedMediaItem?.value(forProperty: MPMediaItemPropertyTitle)
             if let url = mediaUrl as? URL {
@@ -127,6 +209,15 @@ class AlarmSoundsTableViewController: UITableViewController {
                 UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
                 currentSound?.currentTime = 0
                 currentSound?.play()
+            } else if (selectedMediaItem?.hasProtectedAsset)!, let mediaID = mediaID {
+                //asset is protected
+                //Must be played only via MPMusicPlayer
+                currentSound = selectedMediaItemSound
+                UserDefaults.standard.set(mediaID, forKey: AmbitConstants.CurrentCustomMediaAlarmSoundID) //setObject
+                UserDefaults.standard.set(nil, forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL) //setObject
+                UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentCustomMediaAlarmSoundName) //setObject
+                UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
+                playFromMusicPlayerSelection([mediaID])
             }
         }
         catch _ {
@@ -140,7 +231,7 @@ class AlarmSoundsTableViewController: UITableViewController {
         if let picker = mediaPicker {
             picker.allowsPickingMultipleItems = false
             picker.showsCloudItems = false
-            picker.showsItemsWithProtectedAssets = false
+            picker.showsItemsWithProtectedAssets = true
             picker.prompt = "Please Pick a Song"
             picker.delegate = self
             present(picker, animated: true, completion: nil)
