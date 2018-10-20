@@ -55,7 +55,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     var isPlayingOverride : Bool = false
     
     var backroundAnimation = CAGradientLayer()
-    var backroundImageView = UIImageView(image: UIImage(named: "4"))
+    var backroundImageView = UIImageView(image: UIImage(named: "\(Int.random(in: 1 ... 37))"))
     var backroundView = UIView()
 
     
@@ -82,7 +82,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             view.layer.insertSublayer(backroundImageView.layer, at: 0)
         case .color?:
             backroundView.frame = self.view.frame
-            backroundView.backgroundColor = UIColor.blue
+            backroundView.backgroundColor = generateRandomColor()
             view.layer.insertSublayer(backroundView.layer, at: 0)
         case .none:
             backroundAnimation = GradientHandler.addGradientLayer()
@@ -115,6 +115,14 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         }
     }
     
+    func generateRandomColor() -> UIColor {
+        let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
+        let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white
+        let brightness : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from black
+        
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
+    }
+    
     // Initialize an external screen
     func initializeExternalScreen(externalScreen: UIScreen) {
         
@@ -139,6 +147,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     override func viewDidLayoutSubviews() {
         backroundImageView.frame = self.view.bounds
         backroundAnimation.frame = self.view.bounds
+        backroundView.frame = self.view.bounds
     }
     
 // Sets the minimum date for picker (disabled due to UI issue)

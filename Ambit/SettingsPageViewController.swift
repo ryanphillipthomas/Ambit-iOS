@@ -30,6 +30,26 @@ class SettingsPageViewController: UIPageViewController {
                                animated: true,
                                completion: nil)
         }
+        
+        disableSwipeGesture()
+    }
+    
+    func disableSwipeGesture() {
+        for view in self.view.subviews {
+            if view.isKind(of: UIScrollView.self) {
+                let scrollView = view as! UIScrollView
+                scrollView.isScrollEnabled = false
+            }
+        }
+    }
+    
+    func enableSwipeGesture() {
+        for view in self.view.subviews {
+            if view.isKind(of: UIScrollView.self) {
+                let scrollView = view as! UIScrollView
+                scrollView.isScrollEnabled = true
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -117,6 +137,9 @@ extension SettingsPageViewController: UIPageViewControllerDelegate {
             let index = orderedViewControllers.index(of: firstViewController) {
             currentPageIndex = index
             pageViewControllerDelegate?.settingsPageViewController(settingsPageViewController: self, didUpdatePageIndex: index)
+            if currentPageIndex == 0 {
+                disableSwipeGesture()
+            }
         }
     }
 }
@@ -137,6 +160,7 @@ extension SettingsPageViewController: AlarmOptionsTableViewControllerDelegate {
         if let identifier = identifier {
             nextPageStoryboardID = identifier
             setPageViewControllerForPage()
+            enableSwipeGesture()
         }
     }
     

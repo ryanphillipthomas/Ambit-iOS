@@ -244,11 +244,12 @@ class AlarmSoundsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let soundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentAlarmSoundName)
+        var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundName)
         
         let row = indexPath.row
         switch row {
         case 0:
-            var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundName)
             if customMediaSoundName == nil {
                 customMediaSoundName = "Select A Song"
             }
@@ -257,21 +258,45 @@ class AlarmSoundsTableViewController: UITableViewController {
             detailCell.title?.text = "Your iTunes Song"
             detailCell.detail?.text = customMediaSoundName
             detailCell.selectionStyle = .none // to prevent cells from being "highlighted"
+            detailCell.accessoryType = .none
+            
+            if soundName == customMediaSoundName {
+                detailCell.accessoryType = .checkmark
+            }
+            
             return detailCell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Bell"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Bell" {
+                cell.accessoryType = .checkmark
+            }
+            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Party"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Party" {
+                cell.accessoryType = .checkmark
+            }
+            
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Tickle"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Tickle" {
+                cell.accessoryType = .checkmark
+            }
+            
             return cell
         default:
             break

@@ -44,23 +44,39 @@ class BackroundTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let backroundTypeString = UserDefaults.standard.string(forKey: AmbitConstants.BackroundType)
         let row = indexPath.row
         switch row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
-            cell.title?.text = "Color Animation"
+            cell.title?.text = BackroundType.animation.rawValue
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+
+            if backroundTypeString == BackroundType.animation.rawValue {
+                cell.accessoryType = .checkmark
+            }
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
-            cell.title?.text = "Image"
+            cell.title?.text = BackroundType.image.rawValue
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+
+            if backroundTypeString == BackroundType.image.rawValue {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
-            cell.title?.text = "Solid Color"
+            cell.title?.text = BackroundType.color.rawValue
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+
+            if backroundTypeString == BackroundType.color.rawValue {
+                cell.accessoryType = .checkmark
+            }
             return cell
         default:
             break
@@ -91,7 +107,8 @@ class BackroundTableViewController: UITableViewController {
         default:
             break
         }
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        
+        self.tableView.reloadData()
     }
     
     @IBAction func didSelectDoneButton(_ sender: Any) {

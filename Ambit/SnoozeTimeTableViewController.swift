@@ -43,54 +43,106 @@ class SnoozeTimeTableViewController: UITableViewController {
         return 9
     }
     
+    func snoozeTimeString(temp: Double) -> String {
+        let tempVar = String(format: "%g min", temp / 60)
+        return tempVar
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let snoozeLength = UserDefaults.standard.double(forKey: AmbitConstants.DefaultSnoozeLength)
+        let snoozeLengthString = snoozeTimeString(temp: snoozeLength)
         let row = indexPath.row
         switch row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "1 minute"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "1 min" {
+                cell.accessoryType = .checkmark
+            }
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
-            cell.title?.text = "2 minutes"
+            cell.title?.text = "2 min"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "2 min" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "3 minutes"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "3 min" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "5 minutes"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "5 min" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "7 minutes"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "7 min" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "9 minutes"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "9 min" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "10 minutes"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "10 min" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "15 minutes"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "15 min" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "20 minutes"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if snoozeLengthString == "20 min" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         default:
             break
@@ -133,7 +185,7 @@ class SnoozeTimeTableViewController: UITableViewController {
         default:
             break
         }
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        self.tableView.reloadData()
     }
     
     @IBAction func didSelectDoneButton(_ sender: Any) {

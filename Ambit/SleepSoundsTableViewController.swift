@@ -167,10 +167,12 @@ class SleepSoundsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let soundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentSleepSoundName)
+        var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaSleepSoundName)
+
         let row = indexPath.row
         switch row {
         case 0:
-            var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaSleepSoundName)
             if customMediaSoundName == nil {
                 customMediaSoundName = "Select A Song"
             }
@@ -179,16 +181,34 @@ class SleepSoundsTableViewController: UITableViewController {
             detailCell.title?.text = "Your iTunes Song"
             detailCell.detail?.text = customMediaSoundName
             detailCell.selectionStyle = .none // to prevent cells from being "highlighted"
+            detailCell.accessoryType = .none
+            detailCell.tintColor = UIColor.white
+            detailCell.accessoryType = .none
+
+            if soundName == customMediaSoundName {
+                detailCell.accessoryType = .checkmark
+            }
+            
             return detailCell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Thunderstorm"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Thunderstorm" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Thunderstorm Fireplace"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Thunderstorm Fireplace" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         default:
             break
