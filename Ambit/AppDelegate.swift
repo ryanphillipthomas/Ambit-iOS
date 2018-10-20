@@ -77,7 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func registerApplicationDefaults() {
         //initalize app defaults
-        let defaults = [AmbitConstants.CurrentAlarmSoundName : "Party",
+        let defaults = [
+                AmbitConstants.BackroundType : BackroundType.animation.rawValue,
+                AmbitConstants.CurrentAlarmSoundName : "Party",
                         AmbitConstants.CurrentSleepSoundName : "Thunderstorm",
                         AmbitConstants.CurrentVolumeLevelName : 100.0,
                         AmbitConstants.CurrentHueBridgeName : "Select Bridge",

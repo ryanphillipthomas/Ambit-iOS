@@ -16,6 +16,12 @@ import MediaPlayer
 import AVKit
 import StoreKit
 
+enum BackroundType: String {
+    case animation = "Color Animation"
+    case image = "Image"
+    case color = "Solid Color"
+}
+
 class ViewController: UIViewController, ManagedObjectContextSettable {    
     @IBOutlet var timeLabel:SBTimeLabel!
     @IBOutlet var timeLeftLabel:UILabel!
@@ -25,7 +31,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
     
-    @IBOutlet weak var customBackroundView: SpringView!
     @IBOutlet weak var fullScreenBlackoutView: SpringView!
     @IBOutlet weak var timeLabelAnimationView: SpringView!
     @IBOutlet weak var settingsButtonAnimationView: SpringView!
@@ -42,13 +47,19 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     weak var tableView: UITableView!
 
     var externalWindow: UIWindow!
-    var backroundAnimation = CAGradientLayer()
     var managedObjectContext: NSManagedObjectContext!
     var currentSound: AudioPlayer?
     var currentSleepSound: AudioPlayer?
+
     var audioPlayer : AVAudioPlayer!
     var isPlayingOverride : Bool = false
     
+    var backroundAnimation = CAGradientLayer()
+    var backroundImageView = UIImageView(image: UIImage(named: "4"))
+    var backroundView = UIView()
+
+    
+    var currentBackroundType = BackroundType(rawValue: UserDefaults.standard.string(forKey: AmbitConstants.BackroundType) ?? "animation")
     let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
 
     override func viewDidLoad() {
@@ -59,11 +70,24 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabel.delegate = self
         
         HueConnectionManager.sharedManager.delegate = self
-        backroundAnimation = GradientHandler.addGradientLayer()
-        GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
         
-        let imageView = UIImageView(image: UIImage(named: "backround"))
-//        customBackroundView.addSubview(imageView)
+        switch currentBackroundType {
+        case .animation?:
+            backroundAnimation = GradientHandler.addGradientLayer()
+            GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
+        case .image?:
+            backroundImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
+            backroundImageView.contentMode = .scaleAspectFill
+            backroundImageView.clipsToBounds = true
+            view.layer.insertSublayer(backroundImageView.layer, at: 0)
+        case .color?:
+            backroundView.frame = self.view.frame
+            backroundView.backgroundColor = UIColor.blue
+            view.layer.insertSublayer(backroundView.layer, at: 0)
+        case .none:
+            backroundAnimation = GradientHandler.addGradientLayer()
+            GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
+        }
         
         timeLabelAnimationView.isHidden = true
         nextAlarmAnimationView.isHidden = true
@@ -113,6 +137,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     override func viewDidLayoutSubviews() {
+        backroundImageView.frame = self.view.bounds
         backroundAnimation.frame = self.view.bounds
     }
     
@@ -269,9 +294,23 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         self.view.layer.sublayers?.remove(at: 0)
     }
     
+    func updateSublayer() {
+
+        switch currentBackroundType {
+        case .animation?:
+            view.layer.insertSublayer(backroundAnimation, at: 0)
+        case .image?:
+            view.layer.insertSublayer(backroundImageView.layer, at: 0)
+        case .color?:
+            view.layer.insertSublayer(backroundView.layer, at: 0)
+        case .none:
+            view.layer.insertSublayer(backroundAnimation, at: 0)
+        }
+    }
+    
     @objc func fadeToClear() {
         //fade to clear
-        self.view.layer.insertSublayer(backroundAnimation, at: 0)
+        updateSublayer()
         
         //timeLabel
         UIView.transition(with: self.timeLabel, duration: 1.0, options: .transitionCrossDissolve, animations: {
@@ -690,6 +729,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         } else if segue.identifier == "bridgeAuthentication", let nav = segue.destination as? UINavigationController, let authViewController =  nav.viewControllers.first as? HueBridgeAuthenticationViewController {
             authViewController.delegate = HueConnectionManager.sharedManager
             authViewController.startPushLinking()
+        } else if segue.identifier == "alarmOptions", let nav = segue.destination as? UINavigationController, let settingsPageViewController =  nav.viewControllers.first as? SettingsPageViewController {
+            settingsPageViewController.pageViewControllerDelegate = self
         }
     }
     
@@ -800,6 +841,17 @@ extension Date {
         if minutes(from: date) > 0 { return "\(minutes(from: date))m" }
         if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
         return ""
+    }
+}
+
+extension ViewController: SettingsPageViewControllerDelegate {
+    func settingsPageViewController(settingsPageViewController: SettingsPageViewController, didUpdatePageIndex index: Int) {
+        //
+    }
+    
+    func updateView() {
+        currentBackroundType = BackroundType(rawValue: UserDefaults.standard.string(forKey: AmbitConstants.BackroundType) ?? "animation")
+        updateSublayer()
     }
 }
 

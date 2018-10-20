@@ -11,6 +11,7 @@ import AVKit
 import AVFoundation
 import StoreKit
 
+
 class SettingsPageViewController: UIPageViewController {
     var nextPageStoryboardID = String(describing: AlarmSoundsTableViewController.self)
     var currentPageIndex: Int!
@@ -127,6 +128,7 @@ protocol SettingsPageViewControllerDelegate: class {
      */
     func settingsPageViewController(settingsPageViewController: SettingsPageViewController,
                                                      didUpdatePageIndex index: Int)
+    func updateView()
     
 }
 
@@ -151,5 +153,9 @@ extension SettingsPageViewController: AlarmOptionsTableViewControllerDelegate {
     
     func presentAppReviewController() {
         displayAppReviewViewController()
+    }
+    
+    func updateBackroundOption() {
+        pageViewControllerDelegate?.updateView()
     }
 }

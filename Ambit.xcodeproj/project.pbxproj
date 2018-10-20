@@ -96,6 +96,7 @@
 		B8FA234420CD5D9400564F03 /* MMPDeepSleepPreventer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FA234220CD5D9400564F03 /* MMPDeepSleepPreventer.m */; };
 		B8FA234520CD5D9400564F03 /* MMPSilence.wav in Resources */ = {isa = PBXBuildFile; fileRef = B8FA234320CD5D9400564F03 /* MMPSilence.wav */; };
 		B8FEBC87217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FEBC86217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift */; };
+		B8FEBC89217BD9FC002D34E1 /* BackroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FEBC88217BD9FC002D34E1 /* BackroundTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +276,7 @@
 		B8FA234320CD5D9400564F03 /* MMPSilence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = MMPSilence.wav; path = Frameworks/MMPDeepSleepPreventer/MMPSilence.wav; sourceTree = SOURCE_ROOT; };
 		B8FA234620CD5E3B00564F03 /* MMPDeepSleepPreventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMPDeepSleepPreventer.h; path = Frameworks/MMPDeepSleepPreventer/MMPDeepSleepPreventer.h; sourceTree = SOURCE_ROOT; };
 		B8FEBC86217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoozeTimeTableViewController.swift; sourceTree = "<group>"; };
+		B8FEBC88217BD9FC002D34E1 /* BackroundTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackroundTableViewController.swift; sourceTree = "<group>"; };
 		BA9763449EA3A0DDA78CB88D /* Pods-Ambit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCC85028A2B8F72C8D5DF16 /* Pods-AmbitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 				946597781E4567F400ED204C /* LaunchScreenViewController.swift */,
 				B80CDB62217B727E0099E547 /* SettingsPageViewController.swift */,
 				B8FEBC86217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift */,
+				B8FEBC88217BD9FC002D34E1 /* BackroundTableViewController.swift */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -1045,6 +1048,7 @@
 				B8A72EBD20C642C000BB107D /* ManagedObjectContextSettable.swift in Sources */,
 				947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */,
 				B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */,
+				B8FEBC89217BD9FC002D34E1 /* BackroundTableViewController.swift in Sources */,
 				0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */,
 				94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */,
 				B8C181802173CF9B00FE60D6 /* BridgeLoadingViewController.swift in Sources */,
