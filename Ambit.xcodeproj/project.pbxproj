@@ -75,6 +75,7 @@
 		94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04C1E3EE601008A1F84 /* HueConnectionManager.swift */; };
 		94E9E04F1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */; };
 		94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */; };
+		B80CDB63217B727E0099E547 /* SettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80CDB62217B727E0099E547 /* SettingsPageViewController.swift */; };
 		B80E07CD20C9EBD800896861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EAF1DFB735400B03661 /* Assets.xcassets */; };
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
 		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
@@ -251,6 +252,7 @@
 		94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueBridgeSelectionTableViewController.swift; sourceTree = "<group>"; };
 		991816760E467C08DD5B0369 /* Pods-Ambit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.release.xcconfig"; sourceTree = "<group>"; };
 		B621F7C1FBE7498AC652993E /* Pods-AmbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B80CDB62217B727E0099E547 /* SettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewController.swift; sourceTree = "<group>"; };
 		B80E07A720C885C800896861 /* Ambit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambit.entitlements; sourceTree = "<group>"; };
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
 		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
@@ -661,6 +663,7 @@
 				B8E7EA9A2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift */,
 				B8E7EAA92002D95900B5B6D1 /* LightsTableViewController.swift */,
 				946597781E4567F400ED204C /* LaunchScreenViewController.swift */,
+				B80CDB62217B727E0099E547 /* SettingsPageViewController.swift */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -1027,6 +1030,7 @@
 				947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */,
 				B8E7EA9E2001DA9B00B5B6D1 /* HelpViewController.swift in Sources */,
 				9480E5241E44447D00E094F3 /* Alarm.swift in Sources */,
+				B80CDB63217B727E0099E547 /* SettingsPageViewController.swift in Sources */,
 				B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */,
 				947F47001E4364F70047CD4C /* AmbitConstants.swift in Sources */,
 				B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */,

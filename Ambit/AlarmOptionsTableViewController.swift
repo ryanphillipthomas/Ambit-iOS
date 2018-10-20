@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 
 protocol AlarmOptionsTableViewControllerDelegate: class {
-    func performSegueFromOptions(_ identifier: NSString?)
+    func updateNextViewContorller(_ identifier: String?)
     func presentIntroductionVideo()
     func presentAppReviewController()
 }
@@ -102,53 +102,38 @@ class AlarmOptionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("alarmSounds")
-            })
+//            self.delegate?.updateNextViewContorller(String(describing: AlarmSoundsTableViewController.self))
+            self.delegate?.updateNextViewContorller("AlarmSoundsNavigationController")
+            
         case 1:
-            dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("sleepSounds")
-            })
+            self.delegate?.updateNextViewContorller("SleepSoundsNavigationController")
         case 2:
             //volume cell
             return
         case 3:
-            dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("preferencesSegue")
-            })
+            self.delegate?.updateNextViewContorller("PreferencesNavigationController")
         case 4:
             dismiss(animated: true, completion: {
                 HueConnectionManager.sharedManager.searchForBridgeLocal()
             })
         case 5:
-            dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("lightOptions")
-            })
+            self.delegate?.updateNextViewContorller("LightsOptionsNavigationController")
         case 6:
             dismiss(animated: true, completion: {
                 //
                 self.delegate?.presentIntroductionVideo()
             })
         case 7:
-            dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("helpSegue")
-                return
-            })
+            self.delegate?.updateNextViewContorller("HelpNavigationController")
         case 8:
-            dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("textViewSegue")
-                return
-            })
+            self.delegate?.updateNextViewContorller("CreditsNavigationController")
         case 9:
             dismiss(animated: true, completion: {
                 self.delegate?.presentAppReviewController()
                 return
             })
         case 10:
-            dismiss(animated: true, completion: {
-                self.delegate?.performSegueFromOptions("showLights")
-                return
-            })
+            self.delegate?.updateNextViewContorller("LightsTableNavigationController")
         default:
             break
         }

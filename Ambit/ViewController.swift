@@ -40,6 +40,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     weak var tableViewController:UITableViewController!
     weak var tableView: UITableView!
 
+    var externalWindow: UIWindow!
     var backroundAnimation = CAGradientLayer()
     var managedObjectContext: NSManagedObjectContext!
     var currentSound: AudioPlayer?
@@ -71,8 +72,36 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: false)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleScreenDidConnectNotification(aNotification:)), name: UIScreen.didConnectNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleScreenDidDisconnectNotification(aNotification:)), name: UIScreen.didDisconnectNotification, object: nil)
 
         showCurrentClock(_sender: UIButton())
+        
+        // Initialize an external screen if one is present
+        let screens = UIScreen.screens
+        if screens.count > 1 {
+            //An external screen is available. Get the first screen available
+            self.initializeExternalScreen(externalScreen: screens[1] as UIScreen)
+        }
+    }
+    
+    // Initialize an external screen
+    func initializeExternalScreen(externalScreen: UIScreen) {
+        
+        // Create a new window sized to the external screen's bounds
+        self.externalWindow = UIWindow(frame: externalScreen.bounds)
+        
+        // Assign the screen object to the screen property of the new window
+        self.externalWindow.screen = externalScreen;
+        
+        // Configure the View
+        timeLabel.textColor = UIColor.white
+        self.externalWindow.addSubview(timeLabel)
+        
+        // Make the window visible
+        self.externalWindow.makeKeyAndVisible()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -656,8 +685,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         } else if segue.identifier == "bridgeAuthentication", let nav = segue.destination as? UINavigationController, let authViewController =  nav.viewControllers.first as? HueBridgeAuthenticationViewController {
             authViewController.delegate = HueConnectionManager.sharedManager
             authViewController.startPushLinking()
-        } else if segue.identifier == "alarmOptions", let nav = segue.destination as? UINavigationController, let alarmOptions = nav.viewControllers.first as? AlarmOptionsTableViewController {
-            alarmOptions.delegate = self
         }
     }
     
@@ -688,6 +715,22 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     func displayAppReviewViewController() {
         if #available( iOS 10.3,*){
             SKStoreReviewController.requestReview()
+        }
+    }
+    
+    //External Display
+    @objc func handleScreenDidConnectNotification(aNotification: NSNotification) {
+        
+        if let screen = aNotification.object as? UIScreen {
+            self.initializeExternalScreen(externalScreen: screen)
+        }
+    }
+    
+    @objc func handleScreenDidDisconnectNotification(aNotification: NSNotification) {
+        
+        if self.externalWindow != nil {
+            self.externalWindow.isHidden = true
+            self.externalWindow = nil
         }
     }
 }
@@ -759,27 +802,6 @@ extension Date {
         if minutes(from: date) > 0 { return "\(minutes(from: date))m" }
         if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
         return ""
-    }
-}
-
-extension ViewController: AlarmOptionsTableViewControllerDelegate {
-    func performSegueFromOptions(_ identifier: NSString?) {
-        self.performSegue(withIdentifier: identifier! as String, sender: nil)
-    }
-    
-    func presentIntroductionVideo() {
-        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
-        let player = AVPlayer(url: videoURL!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
-        }
-        return
-    }
-    
-    func presentAppReviewController() {
-        displayAppReviewViewController()
     }
 }
 
