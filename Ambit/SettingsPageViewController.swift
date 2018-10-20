@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+import StoreKit
 
 class SettingsPageViewController: UIPageViewController {
     var nextPageStoryboardID = String(describing: AlarmSoundsTableViewController.self)
@@ -98,6 +101,13 @@ extension SettingsPageViewController: UIPageViewControllerDataSource {
                                   self.nextViewController()]
         setViewControllers([orderedViewControllers[1]], direction: direction, animated: true, completion: nil)
     }
+    
+    ///Asks user for app review
+    func displayAppReviewViewController() {
+        if #available( iOS 10.3,*){
+            SKStoreReviewController.requestReview()
+        }
+    }
 }
 
 extension SettingsPageViewController: UIPageViewControllerDelegate {
@@ -129,17 +139,17 @@ extension SettingsPageViewController: AlarmOptionsTableViewControllerDelegate {
     }
     
     func presentIntroductionVideo() {
-//        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
-//        let player = AVPlayer(url: videoURL!)
-//        let playerViewController = AVPlayerViewController()
-//        playerViewController.player = player
-//        self.present(playerViewController, animated: true) {
-//            playerViewController.player!.play()
-//        }
-//        return
+        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+        let player = AVPlayer(url: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
+        return
     }
     
     func presentAppReviewController() {
-//        displayAppReviewViewController()
+        displayAppReviewViewController()
     }
 }

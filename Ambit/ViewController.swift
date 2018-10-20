@@ -25,6 +25,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
     
+    @IBOutlet weak var customBackroundView: SpringView!
     @IBOutlet weak var fullScreenBlackoutView: SpringView!
     @IBOutlet weak var timeLabelAnimationView: SpringView!
     @IBOutlet weak var settingsButtonAnimationView: SpringView!
@@ -60,6 +61,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         HueConnectionManager.sharedManager.delegate = self
         backroundAnimation = GradientHandler.addGradientLayer()
         GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
+        
+        let imageView = UIImageView(image: UIImage(named: "backround"))
+//        customBackroundView.addSubview(imageView)
         
         timeLabelAnimationView.isHidden = true
         nextAlarmAnimationView.isHidden = true
@@ -506,7 +510,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         //generate date in 1 min
         let now = Date()
-        let dateInFifteenMinutes = now.addingTimeInterval(60*15)
+        let snoozeTime = UserDefaults.standard.double(forKey: AmbitConstants.DefaultSnoozeLength)
+        let dateInFifteenMinutes = now.addingTimeInterval(snoozeTime)
         addAlarmFromTimePicker(date:dateInFifteenMinutes)
         
         animateOutSnoozeButton()
@@ -709,13 +714,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
-    }
-    
-    ///Asks user for app review
-    func displayAppReviewViewController() {
-        if #available( iOS 10.3,*){
-            SKStoreReviewController.requestReview()
-        }
     }
     
     //External Display

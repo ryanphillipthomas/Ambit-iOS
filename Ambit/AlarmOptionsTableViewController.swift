@@ -20,6 +20,7 @@ class AlarmOptionsTableViewController: UITableViewController {
     
     weak var delegate: AlarmOptionsTableViewControllerDelegate?
     
+    @IBOutlet weak var snoozeTimeDetailLabel: UILabel!
     @IBOutlet weak var alarmSoundsDetailLabel: UILabel!
     @IBOutlet weak var sleepSoundsDetailLabel: UILabel!
     @IBOutlet weak var hueBridgeDetailLabel: UILabel!
@@ -59,6 +60,13 @@ class AlarmOptionsTableViewController: UITableViewController {
             tableView.separatorEffect = UIVibrancyEffect(blurEffect: blurEffect)
         }
         
+        func snoozeTimeString(temp: Double) -> String {
+            let tempVar = String(format: "%g min", temp / 60)
+            return tempVar
+        }
+        
+        let snoozeTime = UserDefaults.standard.double(forKey: AmbitConstants.DefaultSnoozeLength)
+        snoozeTimeDetailLabel.text = snoozeTimeString(temp: snoozeTime)
         alarmSoundsDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentAlarmSoundName)
         sleepSoundsDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentSleepSoundName)
         hueBridgeDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentHueBridgeName)
@@ -102,37 +110,31 @@ class AlarmOptionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-//            self.delegate?.updateNextViewContorller(String(describing: AlarmSoundsTableViewController.self))
-            self.delegate?.updateNextViewContorller("AlarmSoundsNavigationController")
-            
+            self.delegate?.updateNextViewContorller("SnoozeTimeNavigationController")
         case 1:
-            self.delegate?.updateNextViewContorller("SleepSoundsNavigationController")
+            self.delegate?.updateNextViewContorller("AlarmSoundsNavigationController")
         case 2:
+            self.delegate?.updateNextViewContorller("SleepSoundsNavigationController")
+        case 3:
             //volume cell
             return
-        case 3:
-            self.delegate?.updateNextViewContorller("PreferencesNavigationController")
         case 4:
+            self.delegate?.updateNextViewContorller("PreferencesNavigationController")
+        case 5:
             dismiss(animated: true, completion: {
                 HueConnectionManager.sharedManager.searchForBridgeLocal()
             })
-        case 5:
-            self.delegate?.updateNextViewContorller("LightsOptionsNavigationController")
         case 6:
-            dismiss(animated: true, completion: {
-                //
-                self.delegate?.presentIntroductionVideo()
-            })
+            self.delegate?.updateNextViewContorller("LightsOptionsNavigationController")
         case 7:
-            self.delegate?.updateNextViewContorller("HelpNavigationController")
+            self.delegate?.presentIntroductionVideo()
         case 8:
-            self.delegate?.updateNextViewContorller("CreditsNavigationController")
+            self.delegate?.updateNextViewContorller("HelpNavigationController")
         case 9:
-            dismiss(animated: true, completion: {
-                self.delegate?.presentAppReviewController()
-                return
-            })
+            self.delegate?.updateNextViewContorller("CreditsNavigationController")
         case 10:
+            self.delegate?.presentAppReviewController()
+        case 11:
             self.delegate?.updateNextViewContorller("LightsTableNavigationController")
         default:
             break
