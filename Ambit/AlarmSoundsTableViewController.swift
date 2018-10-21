@@ -264,7 +264,8 @@ class AlarmSoundsTableViewController: UITableViewController {
             detailCell.detail?.text = customMediaSoundName
             detailCell.selectionStyle = .none // to prevent cells from being "highlighted"
             detailCell.accessoryType = .none
-            
+            detailCell.tintColor = UIColor.white
+
             if soundName == customMediaSoundName {
                 detailCell.accessoryType = .checkmark
             }

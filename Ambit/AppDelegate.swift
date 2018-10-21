@@ -12,6 +12,7 @@ import UserNotifications
 import AudioPlayer
 import AVFoundation
 import MediaPlayer
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -52,6 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //Register Defaults
         registerApplicationDefaults()
+        
+        FirebaseApp.configure()
         
         let center = UNUserNotificationCenter.current()
         center.delegate = self

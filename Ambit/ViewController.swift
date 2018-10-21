@@ -15,6 +15,7 @@ import AVFoundation
 import MediaPlayer
 import AVKit
 import StoreKit
+import CoreLocation
 
 enum BackroundType: String {
     case animation = "Color Animation"
@@ -72,7 +73,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     var backroundView = UIView()
     
 
-    
+    var locationManager = CLLocationManager()
+
     var currentBackroundType = BackroundType(rawValue: UserDefaults.standard.string(forKey: AmbitConstants.BackroundType) ?? "animation")
     let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
 
@@ -85,6 +87,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         HueConnectionManager.sharedManager.delegate = self
         
+        // location manager setup
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        askForLocationPermissions()
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dimViewFadeGesture))
         self.view.addGestureRecognizer(panGesture)
@@ -132,6 +139,33 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             self.initializeExternalScreen(externalScreen: screens[1] as UIScreen)
         }
     }
+    
+    @IBAction func askForLocationPermissions() {
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+                break
+                // The user has not yet made a choice regarding whether this app can use location services, then request permissions to use Location on foreground
+            case .restricted, .denied:
+                // show alert
+                let alert = UIAlertController(title: "Alert", message: Constants.ACTIVE_LOCATION_PERMISSIONS, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            case .authorizedAlways, .authorizedWhenInUse:
+                break
+            }
+        }
+    }
+    
+    func checkForGrantedLocationPermissions() {
+        DispatchQueue.main.async {
+            if CLLocationManager.locationServicesEnabled() {
+            
+            }
+        }
+    }
+    
     
     func generateRandomColor() -> UIColor {
         let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
@@ -904,6 +938,14 @@ extension ViewController: SettingsPageViewControllerDelegate {
     func updateView() {
         currentBackroundType = BackroundType(rawValue: UserDefaults.standard.string(forKey: AmbitConstants.BackroundType) ?? "animation")
         updateSublayer()
+    }
+}
+
+extension ViewController: CLLocationManagerDelegate {
+    // the authorization status for the application changed
+    func locationManager(_ manager: CLLocationManager,
+                         didChangeAuthorization status: CLAuthorizationStatus) {
+
     }
 }
 
