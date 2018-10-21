@@ -1661,6 +1661,49 @@
             </objects>
             <point key="canvasLocation" x="5882.3999999999996" y="-1332.2660098522167"/>
         </scene>
+        <!--Backround Images-->
+        <scene sceneID="BBE-cL-o9H">
+            <objects>
+                <collectionViewController id="kXA-Iw-y3h" customClass="ImagesCollectionViewController" customModule="Ambit" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UWZ-YN-1kN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5rV-ee-nvp">
+                            <size key="itemSize" width="120" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MediaCollectionViewCell" id="6tN-Hs-eAK" customClass="MediaCollectionViewCell" customModule="Ambit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="kXA-Iw-y3h" id="mFo-lD-eOM"/>
+                            <outlet property="delegate" destination="kXA-Iw-y3h" id="VTC-bg-Zbk"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Backround Images" id="Wmd-zE-ggU">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="DtL-vW-mdX">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zPs-FS-Bv7">
+                                <rect key="frame" x="-23" y="-15" width="75" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="whiteBack"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFh-0B-ykA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8799.2000000000007" y="-2041.6256157635469"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LBk-zQ-Q8c">
             <objects>
@@ -2500,6 +2543,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAq-4X-eu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2140" y="-1349.2610837438424"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TKg-QU-8eJ">
+            <objects>
+                <navigationController storyboardIdentifier="ImagesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ayR-ap-CY1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Azy-z3-d56">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kXA-Iw-y3h" kind="relationship" relationship="rootViewController" id="xDg-s3-lLk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bcd-q6-ZxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7481" y="-2282"/>
         </scene>
     </scenes>
     <resources>

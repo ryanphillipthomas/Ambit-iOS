@@ -35,6 +35,7 @@ enum PageViewControllerStoryBoardID: String {
     case lightsTable = "LightsTableNavigationController"
     case weatherNav = "WeatherSettingsNavigationController"
     case healthNav = "HealthNavigationViewController"
+    case backroundImages = "ImagesNavigationController"
 }
 
 class ViewController: UIViewController, ManagedObjectContextSettable {    

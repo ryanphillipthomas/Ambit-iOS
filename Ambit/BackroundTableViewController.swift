@@ -108,6 +108,7 @@ class BackroundTableViewController: UITableViewController {
         let row = indexPath.row
         switch row {
         case 0:
+//            setPageViewControllerForIndex(<#T##index: Int##Int#>)
             UserDefaults.standard.set(BackroundType.image.rawValue, forKey: AmbitConstants.BackroundType) //setObject
         case 1:
             UserDefaults.standard.set(BackroundType.animation.rawValue, forKey: AmbitConstants.BackroundType) //setObject
