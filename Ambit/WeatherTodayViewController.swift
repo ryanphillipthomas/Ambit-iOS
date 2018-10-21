@@ -68,10 +68,11 @@ class WeatherTodayViewController: UIViewController {
     }
     
     func showPermissionsScreen() {
-
+        //DEV TODO
     }
     
     func getCurrentWeather() {
+        //DEV TODO MAKE CALL AN BACKROUND QUE INSTEAD OF MAIN
         toggleRefreshAnimation(on: true)
         DispatchQueue.main.async {
             OpenWeatherMapAPIClient.client.getCurrentWeather(at: Coordinate.sharedInstance) {

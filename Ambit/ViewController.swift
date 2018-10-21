@@ -33,6 +33,7 @@ enum PageViewControllerStoryBoardID: String {
     case help = "HelpNavigationController"
     case credits = "CreditsNavigationController"
     case lightsTable = "LightsTableNavigationController"
+    case weatherNav = "WeatherSettingsNavigationController"
 }
 
 class ViewController: UIViewController, ManagedObjectContextSettable {    
@@ -55,8 +56,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet weak var snoozeView: SpringView!
     @IBOutlet weak var createAlarmAnimationView: SpringView!
 
+    @IBOutlet weak var quotesContainerView: UIView!
+    @IBOutlet weak var weatherContainerView: UIView!
     
-    @IBOutlet weak var containerView: UIView!
     weak var tableViewController:UITableViewController!
     weak var tableView: UITableView!
 
@@ -120,6 +122,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         createAlarmAnimationView.isHidden = true
         snoozeView.isHidden = true
         settingsButtonAnimationView.isHidden = true
+        
+        weatherContainerView.isHidden = true
+        quotesContainerView.isHidden = true
         
         setNeedsStatusBarAppearanceUpdate()
         
@@ -202,13 +207,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         backroundView.frame = self.view.bounds
     }
     
-// Sets the minimum date for picker (disabled due to UI issue)
-//    @IBAction func pickerValueChanged(_ sender: Any) {
-//        let calendar = Calendar.current
-//        let date = calendar.date(byAdding: .minute, value: 1, to: Date())
-//        timePicker.minimumDate = date
-//    }
-    
     func isPlayingSound() -> Bool {
         if isPlayingOverride { return true }
         
@@ -260,7 +258,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         var nowPosition : CGPoint = CGPoint(x: 0, y: 0)
         var alpha : CGFloat = 0.0
         var new_alpha : CGFloat = 0.0
-        var new_alpha_reversed : CGFloat = 0.0
 
         nowPosition = gesture.translation(in: self.view)
         alpha = self.dimView.alpha
@@ -285,7 +282,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         }
         else if (nowPosition.y < lastPosition.y) {
             new_alpha = max(alpha - 0.01,0)
-            new_alpha_reversed = min(alpha + 0.01,1.0)
 
             if new_alpha == 0 {new_alpha = 0.01}
             self.dimView.alpha = new_alpha
@@ -434,6 +430,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
+        
+        let weatherSetting = UserDefaults.standard.bool(forKey: AmbitConstants.WeatherActiveSetting)
+        weatherContainerView.isHidden = weatherSetting ? false : true
+        quotesContainerView.isHidden = weatherSetting ? true : false
 
         guard let scheduleAlarm = alarm else {
             timeLeftLabel.text = ""
@@ -803,7 +803,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             }
         }
     }
-    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

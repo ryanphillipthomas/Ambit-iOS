@@ -56,7 +56,6 @@
 		94A7A5F91E404A4E00A6D11D /* GradientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F51E404A4E00A6D11D /* GradientHandler.swift */; };
 		94A7A5FA1E404A4E00A6D11D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5F61E404A4E00A6D11D /* UIColor+Extension.swift */; };
 		94A7A5FC1E40664E00A6D11D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7A5FB1E40664E00A6D11D /* Utilities.swift */; };
-		94B7C01B1E4F88C2002E0CBA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7C01A1E4F88C2002E0CBA /* EventTableViewCell.swift */; };
 		94CA1F621E4F8E51005A1053 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA1F611E4F8E51005A1053 /* Event.swift */; };
 		94CA1F651E4FAD1B005A1053 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CA1F641E4FAD1B005A1053 /* EventManager.swift */; };
 		94E061BC1E46493100206DF0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E061BA1E46493100206DF0 /* NotificationController.swift */; };
@@ -96,6 +95,7 @@
 		B8D3DE86217C4C9000DA213B /* FirebaseDBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DE84217C4C8F00DA213B /* FirebaseDBProvider.swift */; };
 		B8D3DE87217C4C9000DA213B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DE85217C4C9000DA213B /* Constants.swift */; };
 		B8D3DE89217C4DDB00DA213B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8D3DE88217C4DDB00DA213B /* GoogleService-Info.plist */; };
+		B8D3DE8B217CBCD400DA213B /* WeatherSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DE8A217CBCD400DA213B /* WeatherSettingsTableViewController.swift */; };
 		B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */; };
 		B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */; };
 		B8E7EA9B2001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */; };
@@ -238,7 +238,6 @@
 		94A7A5F51E404A4E00A6D11D /* GradientHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientHandler.swift; path = Frameworks/GradientAnimate/GradientHandler.swift; sourceTree = "<group>"; };
 		94A7A5F61E404A4E00A6D11D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Frameworks/GradientAnimate/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		94A7A5FB1E40664E00A6D11D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		94B7C01A1E4F88C2002E0CBA /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		94CA1F611E4F8E51005A1053 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		94CA1F641E4FAD1B005A1053 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		94E061BA1E46493100206DF0 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -288,6 +287,7 @@
 		B8D3DE84217C4C8F00DA213B /* FirebaseDBProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDBProvider.swift; sourceTree = "<group>"; };
 		B8D3DE85217C4C9000DA213B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8D3DE88217C4DDB00DA213B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B8D3DE8A217CBCD400DA213B /* WeatherSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
@@ -471,7 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				947D75421E418A5E00B69286 /* BlurTableViewCell.swift */,
-				94B7C01A1E4F88C2002E0CBA /* EventTableViewCell.swift */,
 				B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */,
 				B8E7EAA520028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift */,
 			);
@@ -749,6 +748,7 @@
 				B80CDB62217B727E0099E547 /* SettingsPageViewController.swift */,
 				B8FEBC86217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift */,
 				B8FEBC88217BD9FC002D34E1 /* BackroundTableViewController.swift */,
+				B8D3DE8A217CBCD400DA213B /* WeatherSettingsTableViewController.swift */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -1075,7 +1075,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Ambit/Pods-Ambit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
-				"${BUILT_PRODUCTS_DIR}/GLTimeline/GLTimeline.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -1085,7 +1084,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioPlayer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GLTimeline.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -1129,6 +1127,7 @@
 				B8E7EA9E2001DA9B00B5B6D1 /* HelpViewController.swift in Sources */,
 				9480E5241E44447D00E094F3 /* Alarm.swift in Sources */,
 				B80CDB63217B727E0099E547 /* SettingsPageViewController.swift in Sources */,
+				B8D3DE8B217CBCD400DA213B /* WeatherSettingsTableViewController.swift in Sources */,
 				B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */,
 				947F47001E4364F70047CD4C /* AmbitConstants.swift in Sources */,
 				B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */,
@@ -1136,7 +1135,6 @@
 				946597791E4567F400ED204C /* LaunchScreenViewController.swift in Sources */,
 				B8E7EAA42002023F00B5B6D1 /* QuoteViewController.swift in Sources */,
 				B8D3DE75217C4C1500DA213B /* WeatherIcon.swift in Sources */,
-				94B7C01B1E4F88C2002E0CBA /* EventTableViewCell.swift in Sources */,
 				B8D3DE77217C4C1500DA213B /* Coordinate.swift in Sources */,
 				B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */,
 				B8D3DE86217C4C9000DA213B /* FirebaseDBProvider.swift in Sources */,

@@ -34,6 +34,8 @@ struct AmbitConstants {
     static let SleepSoundsLightingSettingSceneName = "SleepSoundsLightingSettingSceneName" //Scene Name for Sleep Sounds
     static let RecorderActiveSetting = "RecorderActiveSetting" //true or false for should run recorder
 
+    static let WeatherActiveSetting = "WeatherActiveSetting" //true or false for should run weather
+
     
     static let AlarmSoundsLightingSetting = "AlarmSoundsLightingSetting" //true or false for should run alarm lighting
     static let AlarmSoundsLightingSettingSceneName = "AlarmSoundsLightingSettingSceneName" //Scene Name for Alarm Sounds

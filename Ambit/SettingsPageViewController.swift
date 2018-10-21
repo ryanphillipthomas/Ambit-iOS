@@ -123,6 +123,11 @@ class SettingsPageViewController: UIPageViewController {
             let rootView = nextViewController.viewControllers.first as! AlarmSoundsTableViewController
             rootView.settingsPageViewController = self
             return nextViewController
+        case .some(.weatherNav):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! WeatherSettingsTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
         }
     }
 }

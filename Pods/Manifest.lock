@@ -31,7 +31,6 @@ PODS:
   - FirebaseInstanceID (3.2.1):
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.2)
-  - GLTimeline (0.0.2)
   - GoogleAppMeasurement (5.1.4):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -69,7 +68,6 @@ DEPENDENCIES:
   - Fabric (= 1.6.8)
   - Firebase
   - Firebase/Database
-  - GLTimeline
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `master`)
 
 SPEC REPOS:
@@ -83,7 +81,6 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseDatabase
     - FirebaseInstanceID
-    - GLTimeline
     - GoogleAppMeasurement
     - GoogleUtilities
     - leveldb-library
@@ -109,13 +106,12 @@ SPEC CHECKSUMS:
   FirebaseCore: 27bd80e5bfaaf9552a1f5cacb4c7e8bb925bab22
   FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
   FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
-  GLTimeline: 2372f5d25d96ed13f6bccc430af6429d57691c76
   GoogleAppMeasurement: 7d2552cea4e12d09ce737ef0441887a746585ff3
   GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Spring: 3c7666eccefdeb87140008dc81043f89f8dbb787
 
-PODFILE CHECKSUM: e12a12b1896301fdb5323bf5d69054f948c51784
+PODFILE CHECKSUM: 614ed105431116bb9ed838a0946d015e10d89207
 
 COCOAPODS: 1.5.3

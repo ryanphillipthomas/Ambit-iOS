@@ -7,7 +7,7 @@
 		<key>Ambit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>9</integer>
 		</dict>
 		<key>CreateAlarmIntent.xcscheme</key>
 		<dict>
@@ -22,17 +22,17 @@
 		<key>TV.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>12</integer>
 		</dict>
 		<key>Watch (Notification).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>11</integer>
 		</dict>
 		<key>Watch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>10</integer>
 		</dict>
 	</dict>
 </dict>
