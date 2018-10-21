@@ -11,7 +11,8 @@ import AudioPlayer
 import MediaPlayer
 
 class SleepSoundsTableViewController: UITableViewController {
-    
+    weak var settingsPageViewController: SettingsPageViewController!
+
     var thunderstorm: AudioPlayer?
     var thunderstorm_fireplace: AudioPlayer?
     var currentSound: AudioPlayer?
@@ -107,9 +108,14 @@ class SleepSoundsTableViewController: UITableViewController {
     }
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
-        })
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -158,7 +164,7 @@ class SleepSoundsTableViewController: UITableViewController {
         currentSound?.currentTime = 0
         currentSound?.play()
         
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        self.tableView.reloadData()
     }
     
     

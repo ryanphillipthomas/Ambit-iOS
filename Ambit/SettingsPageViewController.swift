@@ -11,9 +11,8 @@ import AVKit
 import AVFoundation
 import StoreKit
 
-
 class SettingsPageViewController: UIPageViewController {
-    var nextPageStoryboardID = String(describing: AlarmSoundsTableViewController.self)
+    var nextPageStoryboardID = "AlarmSoundsNavigationController"
     var currentPageIndex: Int!
     weak var pageViewControllerDelegate:SettingsPageViewControllerDelegate?
 
@@ -72,8 +71,59 @@ class SettingsPageViewController: UIPageViewController {
     
     private func nextViewController() -> UIViewController {
         let digitalStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID)
-        return nextViewController
+        let pageViewControllerType = PageViewControllerStoryBoardID(rawValue: nextPageStoryboardID)
+        switch pageViewControllerType {
+        case .none:
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! AlarmSoundsTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.backround):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! BackroundTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.snooze):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! SnoozeTimeTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.sleepSounds):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! SleepSoundsTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.prefrences):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! PreferencesTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.lightOptions):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! LightsOptionsViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.help):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! HelpViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.credits):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! CreditsViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.lightsTable):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! LightsTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        case .some(.alarmSounds):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! AlarmSoundsTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
+        }
     }
 }
 

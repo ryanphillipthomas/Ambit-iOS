@@ -22,6 +22,18 @@ enum BackroundType: String {
     case color = "Solid Color"
 }
 
+enum PageViewControllerStoryBoardID: String {
+    case backround = "BackroundNavigationController"
+    case snooze = "SnoozeTimeNavigationController"
+    case alarmSounds = "AlarmSoundsNavigationController"
+    case sleepSounds = "SleepSoundsNavigationController"
+    case prefrences = "PreferencesNavigationController"
+    case lightOptions = "LightsOptionsNavigationController"
+    case help = "HelpNavigationController"
+    case credits = "CreditsNavigationController"
+    case lightsTable = "LightsTableNavigationController"
+}
+
 class ViewController: UIViewController, ManagedObjectContextSettable {    
     @IBOutlet var timeLabel:SBTimeLabel!
     @IBOutlet var timeLeftLabel:UILabel!
@@ -31,6 +43,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
     
+    @IBOutlet weak var screenBrightnessLevel: SpringLabel!
     @IBOutlet weak var fullScreenBlackoutView: SpringView!
     @IBOutlet weak var timeLabelAnimationView: SpringView!
     @IBOutlet weak var settingsButtonAnimationView: SpringView!
@@ -57,6 +70,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     var backroundAnimation = CAGradientLayer()
     var backroundImageView = UIImageView(image: UIImage(named: "\(Int.random(in: 1 ... 37))"))
     var backroundView = UIView()
+    
 
     
     var currentBackroundType = BackroundType(rawValue: UserDefaults.standard.string(forKey: AmbitConstants.BackroundType) ?? "animation")
@@ -70,6 +84,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabel.delegate = self
         
         HueConnectionManager.sharedManager.delegate = self
+        
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dimViewFadeGesture))
+        self.view.addGestureRecognizer(panGesture)
         
         switch currentBackroundType {
         case .animation?:
@@ -208,21 +226,46 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         var nowPosition : CGPoint = CGPoint(x: 0, y: 0)
         var alpha : CGFloat = 0.0
         var new_alpha : CGFloat = 0.0
-        
+        var new_alpha_reversed : CGFloat = 0.0
+
         nowPosition = gesture.translation(in: self.view)
         alpha = self.dimView.alpha
         
         if (nowPosition.y > lastPosition.y) {
-            new_alpha = min(alpha + 0.02,1.0)
+            new_alpha = min(alpha + 0.01,1.0)
             if new_alpha == 1 {new_alpha = 0.99}
-            print("\(new_alpha)")
             self.dimView.alpha = new_alpha
+            
+            
+            let formatter = NumberFormatter()
+            formatter.minimumFractionDigits = 0
+            formatter.maximumFractionDigits = 2
+
+            let newAlpha = new_alpha * 100
+            var percentage = formatter.string(from: NSNumber(floatLiteral: Double(newAlpha))) ?? ""
+            if newAlpha == 99 {
+                percentage = "100"
+            }
+            
+            screenBrightnessLevel.text = "\(percentage)%"
         }
         else if (nowPosition.y < lastPosition.y) {
-            new_alpha = max(alpha - 0.02,0)
+            new_alpha = max(alpha - 0.01,0)
+            new_alpha_reversed = min(alpha + 0.01,1.0)
+
             if new_alpha == 0 {new_alpha = 0.01}
-            print("\(new_alpha)")
             self.dimView.alpha = new_alpha
+            
+            let formatter = NumberFormatter()
+            formatter.minimumFractionDigits = 0
+            formatter.maximumFractionDigits = 2
+            
+            let newAlpha = new_alpha * 100
+            var percentage = formatter.string(from: NSNumber(floatLiteral: Double(newAlpha))) ?? ""
+            if percentage == "1" {
+                percentage = "0"
+            }
+            screenBrightnessLevel.text = "\(percentage)%"
         }
         else {
             print("Neither")
@@ -863,6 +906,7 @@ extension ViewController: SettingsPageViewControllerDelegate {
         updateSublayer()
     }
 }
+
 
 
 

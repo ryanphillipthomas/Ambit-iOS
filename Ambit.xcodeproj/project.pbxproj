@@ -97,6 +97,7 @@
 		B8FA234520CD5D9400564F03 /* MMPSilence.wav in Resources */ = {isa = PBXBuildFile; fileRef = B8FA234320CD5D9400564F03 /* MMPSilence.wav */; };
 		B8FEBC87217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FEBC86217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift */; };
 		B8FEBC89217BD9FC002D34E1 /* BackroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FEBC88217BD9FC002D34E1 /* BackroundTableViewController.swift */; };
+		B8FEBC8C217C016A002D34E1 /* PageViewControllerSettableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FEBC8B217C016A002D34E1 /* PageViewControllerSettableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,6 +278,7 @@
 		B8FA234620CD5E3B00564F03 /* MMPDeepSleepPreventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMPDeepSleepPreventer.h; path = Frameworks/MMPDeepSleepPreventer/MMPDeepSleepPreventer.h; sourceTree = SOURCE_ROOT; };
 		B8FEBC86217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoozeTimeTableViewController.swift; sourceTree = "<group>"; };
 		B8FEBC88217BD9FC002D34E1 /* BackroundTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackroundTableViewController.swift; sourceTree = "<group>"; };
+		B8FEBC8B217C016A002D34E1 /* PageViewControllerSettableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerSettableViewController.swift; sourceTree = "<group>"; };
 		BA9763449EA3A0DDA78CB88D /* Pods-Ambit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCC85028A2B8F72C8D5DF16 /* Pods-AmbitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitUITests/Pods-AmbitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */,
 				94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */,
 				B8C1817F2173CF9B00FE60D6 /* BridgeLoadingViewController.swift */,
+				B8FEBC8B217C016A002D34E1 /* PageViewControllerSettableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1059,6 +1062,7 @@
 				74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */,
 				B8E7EAA02001E2A800B5B6D1 /* CreditsViewController.swift in Sources */,
 				B8FEBC87217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift in Sources */,
+				B8FEBC8C217C016A002D34E1 /* PageViewControllerSettableViewController.swift in Sources */,
 				94E9E0091E3EB9A3008A1F84 /* DDASLLogger.m in Sources */,
 				9480E5221E44433400E094F3 /* Model.xcdatamodeld in Sources */,
 				94A7A5F81E404A4E00A6D11D /* ColorConstant.swift in Sources */,

@@ -19,8 +19,10 @@ protocol AlarmOptionsTableViewControllerDelegate: class {
 
 class AlarmOptionsTableViewController: UITableViewController {
     
-    weak var delegate: AlarmOptionsTableViewControllerDelegate?
     
+    weak var delegate: AlarmOptionsTableViewControllerDelegate?
+    weak var settingsPageViewController: SettingsPageViewController!
+
     @IBOutlet weak var currentBackroundOptionLabel: UILabel!
     @IBOutlet weak var snoozeTimeDetailLabel: UILabel!
     @IBOutlet weak var alarmSoundsDetailLabel: UILabel!
@@ -30,7 +32,7 @@ class AlarmOptionsTableViewController: UITableViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var versionNumberLabel: UILabel!
     @IBOutlet weak var lightGroupCountLabel: UILabel!
-    
+        
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         let selectedValue = Float(sender.value)
         UserDefaults.standard.set(selectedValue, forKey: AmbitConstants.CurrentVolumeLevelName) //setObject
@@ -114,34 +116,34 @@ class AlarmOptionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            self.delegate?.updateNextViewContorller("BackroundNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.backround.rawValue)
         case 1:
-            self.delegate?.updateNextViewContorller("SnoozeTimeNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.snooze.rawValue)
         case 2:
-            self.delegate?.updateNextViewContorller("AlarmSoundsNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.alarmSounds.rawValue)
         case 3:
-            self.delegate?.updateNextViewContorller("SleepSoundsNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.sleepSounds.rawValue)
         case 4:
             //volume cell
             return
         case 5:
-            self.delegate?.updateNextViewContorller("PreferencesNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.prefrences.rawValue)
         case 6:
             dismiss(animated: true, completion: {
                 HueConnectionManager.sharedManager.searchForBridgeLocal()
             })
         case 7:
-            self.delegate?.updateNextViewContorller("LightsOptionsNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.lightOptions.rawValue)
         case 8:
             self.delegate?.presentIntroductionVideo()
         case 9:
-            self.delegate?.updateNextViewContorller("HelpNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.help.rawValue)
         case 10:
-            self.delegate?.updateNextViewContorller("CreditsNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.credits.rawValue)
         case 11:
             self.delegate?.presentAppReviewController()
         case 12:
-            self.delegate?.updateNextViewContorller("LightsTableNavigationController")
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.lightsTable.rawValue)
         default:
             break
         }

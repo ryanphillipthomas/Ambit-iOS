@@ -9,7 +9,7 @@
 import UIKit
 
 class SnoozeTimeTableViewController: UITableViewController {
-
+    weak var settingsPageViewController: SettingsPageViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +30,7 @@ class SnoozeTimeTableViewController: UITableViewController {
         
         self.tableView.allowsSelection = true;
     }
+
 
     // MARK: - Table view data source
 
@@ -189,8 +190,13 @@ class SnoozeTimeTableViewController: UITableViewController {
     }
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
-        })
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
     }
 }

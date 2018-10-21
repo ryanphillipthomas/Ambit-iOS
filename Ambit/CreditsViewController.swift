@@ -9,14 +9,21 @@
 import Foundation
 
 class CreditsViewController: UIViewController {
+    weak var settingsPageViewController: SettingsPageViewController!
+
     @IBOutlet weak var textView: UITextView?
     override func viewDidLoad() {
         //
     }
     
     @IBAction func didSelectDoneActionButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: false)
-        })
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
     }
 }
