@@ -81,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func registerApplicationDefaults() {
         //initalize app defaults
         let defaults = [
+            AmbitConstants.HealthActiveSetting : false,
             AmbitConstants.WeatherActiveSetting : false,
                 AmbitConstants.BackroundType : BackroundType.animation.rawValue,
                 AmbitConstants.CurrentAlarmSoundName : "Party",

@@ -128,6 +128,11 @@ class SettingsPageViewController: UIPageViewController {
             let rootView = nextViewController.viewControllers.first as! WeatherSettingsTableViewController
             rootView.settingsPageViewController = self
             return nextViewController
+        case .some(.healthNav):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! HealthTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
         }
     }
 }

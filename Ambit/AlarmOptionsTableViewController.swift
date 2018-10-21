@@ -110,7 +110,7 @@ class AlarmOptionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 14
+        return 15
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -135,16 +135,23 @@ class AlarmOptionsTableViewController: UITableViewController {
         case 7:
             self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.lightOptions.rawValue)
         case 8:
-            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.weatherNav.rawValue)
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.healthNav.rawValue)
         case 9:
-            self.delegate?.presentIntroductionVideo()
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.weatherNav.rawValue)
+
         case 10:
-            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.help.rawValue)
+            self.delegate?.presentIntroductionVideo()
+
         case 11:
-            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.credits.rawValue)
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.help.rawValue)
+
         case 12:
-            self.delegate?.presentAppReviewController()
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.credits.rawValue)
+
         case 13:
+            self.delegate?.presentAppReviewController()
+            
+        case 14:
             self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.lightsTable.rawValue)
         default:
             break

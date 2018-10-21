@@ -96,6 +96,8 @@
 		B8D3DE87217C4C9000DA213B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DE85217C4C9000DA213B /* Constants.swift */; };
 		B8D3DE89217C4DDB00DA213B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B8D3DE88217C4DDB00DA213B /* GoogleService-Info.plist */; };
 		B8D3DE8B217CBCD400DA213B /* WeatherSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DE8A217CBCD400DA213B /* WeatherSettingsTableViewController.swift */; };
+		B8D3DE8D217CCEFF00DA213B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D3DE8C217CCEFF00DA213B /* HealthKit.framework */; };
+		B8D3DE8F217CCF5700DA213B /* HealthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D3DE8E217CCF5700DA213B /* HealthTableViewController.swift */; };
 		B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */; };
 		B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */; };
 		B8E7EA9B2001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */; };
@@ -288,6 +290,8 @@
 		B8D3DE85217C4C9000DA213B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8D3DE88217C4DDB00DA213B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B8D3DE8A217CBCD400DA213B /* WeatherSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSettingsTableViewController.swift; sourceTree = "<group>"; };
+		B8D3DE8C217CCEFF00DA213B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		B8D3DE8E217CCF5700DA213B /* HealthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 				944BEAC01E465BC900C1BADA /* UserNotifications.framework in Frameworks */,
 				94E9DFF01E3EB289008A1F84 /* HueSDK_iOS.framework in Frameworks */,
 				7AD917DC8EDBDDA1852CD9CB /* Pods_Ambit.framework in Frameworks */,
+				B8D3DE8D217CCEFF00DA213B /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +754,7 @@
 				B8FEBC86217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift */,
 				B8FEBC88217BD9FC002D34E1 /* BackroundTableViewController.swift */,
 				B8D3DE8A217CBCD400DA213B /* WeatherSettingsTableViewController.swift */,
+				B8D3DE8E217CCF5700DA213B /* HealthTableViewController.swift */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -766,6 +772,7 @@
 		CE9EDE0DBCC025329CC23A8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8D3DE8C217CCEFF00DA213B /* HealthKit.framework */,
 				9470D6DB1E503BE5009AA49A /* AVFoundation.framework */,
 				944BEABF1E465BC900C1BADA /* UserNotifications.framework */,
 				946597761E454FFF00ED204C /* RTCoreData.framework */,
@@ -911,6 +918,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
 								enabled = 1;
 							};
 							com.apple.Siri = {
@@ -1156,6 +1166,7 @@
 				B8FEBC8C217C016A002D34E1 /* PageViewControllerSettableViewController.swift in Sources */,
 				94E9E0091E3EB9A3008A1F84 /* DDASLLogger.m in Sources */,
 				B8D3DE76217C4C1500DA213B /* CurrentWeather.swift in Sources */,
+				B8D3DE8F217CCF5700DA213B /* HealthTableViewController.swift in Sources */,
 				9480E5221E44433400E094F3 /* Model.xcdatamodeld in Sources */,
 				94A7A5F81E404A4E00A6D11D /* ColorConstant.swift in Sources */,
 				B8E7EAAA2002D95900B5B6D1 /* LightsTableViewController.swift in Sources */,
@@ -1390,6 +1401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Ambit/Ambit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = FS6KJ5XME6;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1414,6 +1426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Ambit/Ambit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = FS6KJ5XME6;
 				FRAMEWORK_SEARCH_PATHS = (

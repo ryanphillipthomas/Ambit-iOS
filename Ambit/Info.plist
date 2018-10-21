@@ -4,6 +4,10 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Enables Ambit to read your health data to enable best sleep. </string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Enables Ambit to update your health data to enable best sleep. </string>
 	<key>CFBundleDisplayName</key>
 	<string>Ambit</string>
 	<key>CFBundleExecutable</key>
