@@ -74,6 +74,17 @@ class ImagesCollectionViewController: UICollectionViewController {
         self.collectionView.reloadData()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.UpdateBackround), object: nil)
     }
+    
+    @IBAction func didSelectDoneButton(_ sender: Any) {
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
+    }
 }
 
 

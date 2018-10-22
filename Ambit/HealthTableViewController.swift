@@ -72,10 +72,12 @@ class HealthTableViewController: UITableViewController {
             if HKHealthStore.isHealthDataAvailable() {
                 // Add code to use HealthKit here.
                 let healthStore = HKHealthStore()
-                let allTypes = Set([HKObjectType.quantityType(forIdentifier: .heartRate)!])
+                let allTypes = Set([HKObjectType.categoryType(forIdentifier: .sleepAnalysis),
+                                    HKObjectType.quantityType(forIdentifier: .stepCount)!,
+                                    HKObjectType.quantityType(forIdentifier: .heartRate)!])
 //                let hasHeartRate = healthStore.authorizationStatus(for: [HKObjectType.quantityType(forIdentifier: .heartRate)])
                 
-                healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+                healthStore.requestAuthorization(toShare: allTypes as? Set<HKSampleType>, read: allTypes as? Set<HKObjectType>) { (success, error) in
                     if !success {
                         // Handle the error here.
                         

@@ -485,6 +485,7 @@
                         <segue destination="vAF-Xv-z69" kind="presentation" identifier="watchOptions" modalPresentationStyle="overCurrentContext" id="l26-fS-IM4"/>
                         <segue destination="su7-Qr-hRl" kind="presentation" identifier="BridgeLoadingViewController" modalPresentationStyle="overCurrentContext" id="ul8-7J-63R"/>
                         <segue destination="YJ6-hF-mrC" kind="presentation" identifier="alarmOptions" modalPresentationStyle="overCurrentContext" id="llx-8b-WLZ"/>
+                        <segue destination="L4q-yp-D4D" kind="presentation" identifier="remindersSegue" modalPresentationStyle="overCurrentContext" id="tsT-at-maP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -770,7 +771,80 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ts-AJ-MCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12168.799999999999" y="-712.3152709359606"/>
+            <point key="canvasLocation" x="10894" y="86"/>
+        </scene>
+        <!--Reminders-->
+        <scene sceneID="Jdf-yX-AgN">
+            <objects>
+                <viewController storyboardIdentifier="RemindersViewController" id="qRC-hi-yii" userLabel="Reminders" customClass="RemindersViewController" customModule="Ambit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V4W-1e-RVe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qmg-Ow-be9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1hs-mn-DXD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5TY-gK-NVH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TaF-ua-Waa">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir8-Eh-yrI">
+                                            <rect key="frame" x="126" y="685" width="125" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                            <state key="normal" title="okay" backgroundImage="button_backround_small_white">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didSelectSkip:" destination="qRC-hi-yii" eventType="touchUpInside" id="EB2-bA-33p"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder: Plug in your phone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJg-yk-dKQ">
+                                            <rect key="frame" x="62" y="491" width="254" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place your device as pictured above, keep the charger connected. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfZ-26-btD">
+                                            <rect key="frame" x="22" y="523" width="333" height="79"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0192" translatesAutoresizingMaskIntoConstraints="NO" id="V1G-It-4eb">
+                                            <rect key="frame" x="39" y="163" width="300" height="285"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="285" id="M2I-zo-Onf"/>
+                                                <constraint firstAttribute="width" constant="300" id="rBm-A8-ywL"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="V1G-It-4eb" firstAttribute="leading" secondItem="TaF-ua-Waa" secondAttribute="leading" constant="39" id="Tr0-sR-C7o"/>
+                                        <constraint firstItem="V1G-It-4eb" firstAttribute="centerY" secondItem="TaF-ua-Waa" secondAttribute="centerY" constant="-100.5" id="YHQ-ge-xJv"/>
+                                        <constraint firstItem="V1G-It-4eb" firstAttribute="centerX" secondItem="TaF-ua-Waa" secondAttribute="centerX" constant="1.5" id="teD-Zg-Nws"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="5TY-gK-NVH" secondAttribute="bottom" id="0tV-rJ-Jem"/>
+                            <constraint firstItem="5TY-gK-NVH" firstAttribute="top" secondItem="1hs-mn-DXD" secondAttribute="top" id="3Yn-8g-Ass"/>
+                            <constraint firstAttribute="trailing" secondItem="5TY-gK-NVH" secondAttribute="trailing" id="fJb-HA-rRq"/>
+                            <constraint firstItem="5TY-gK-NVH" firstAttribute="leading" secondItem="1hs-mn-DXD" secondAttribute="leading" id="feD-1a-DIe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uVC-B1-7TO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUA-IU-HwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13010.4" y="99.753694581280797"/>
         </scene>
         <!--Bridge Selection Table View Controller-->
         <scene sceneID="lsT-pd-LZT">
@@ -1673,11 +1747,11 @@
                             <size key="itemSize" width="105" height="140"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MediaCollectionViewCell" id="fRR-sB-Por" customClass="MediaCollectionViewCell" customModule="Ambit" customModuleProvider="target">
-                                <rect key="frame" x="15" y="0.0" width="105" height="140"/>
+                                <rect key="frame" x="15" y="15" width="105" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="105" height="140"/>
@@ -1710,6 +1784,9 @@
                                 <rect key="frame" x="16" y="5.6666666666666679" width="75" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="whiteBack"/>
+                                <connections>
+                                    <action selector="didSelectDoneButton:" destination="kXA-Iw-y3h" eventType="touchUpInside" id="92f-Ys-r5Q"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -1719,7 +1796,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFh-0B-ykA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8799.2000000000007" y="-2041.6256157635469"/>
+            <point key="canvasLocation" x="7481" y="-1534"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LBk-zQ-Q8c">
@@ -2234,7 +2311,7 @@
                 </barButtonItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oY-ui-bk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="-171.42857142857144"/>
+            <point key="canvasLocation" x="967" y="183"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BaW-iz-52U">
@@ -2585,6 +2662,30 @@
             </objects>
             <point key="canvasLocation" x="7481" y="-2282"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VYX-n8-umF">
+            <objects>
+                <navigationController storyboardIdentifier="RemindersNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="L4q-yp-D4D" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NAv-1d-giB">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qRC-hi-yii" kind="relationship" relationship="rootViewController" id="zbt-Ho-7a3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYW-pm-9Qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13010" y="-663"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AppLogo" width="253.33332824707031" height="253.33332824707031"/>
@@ -2593,6 +2694,7 @@
         <image name="CompassIcon" width="17" height="17"/>
         <image name="Current" width="11" height="11.333333015441895"/>
         <image name="DividerGray" width="414" height="1"/>
+        <image name="IMG_0192" width="1068" height="1099"/>
         <image name="RainYellowIcon" width="16.333333969116211" height="19"/>
         <image name="WindIcon" width="25.333333969116211" height="16.333333969116211"/>
         <image name="button_backround" width="250" height="50"/>

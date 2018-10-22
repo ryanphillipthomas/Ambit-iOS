@@ -78,6 +78,7 @@
 		B80E07CD20C9EBD800896861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EAF1DFB735400B03661 /* Assets.xcassets */; };
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
 		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
+		B8861356217D6388007CDD0D /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8861355217D6388007CDD0D /* RemindersViewController.swift */; };
 		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
 		B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB920C642C000BB107D /* ManagedObject.swift */; };
 		B8A72EBD20C642C000BB107D /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */; };
@@ -274,6 +275,7 @@
 		B80E07A720C885C800896861 /* Ambit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambit.entitlements; sourceTree = "<group>"; };
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
 		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
+		B8861355217D6388007CDD0D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
 		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
 		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 				94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */,
 				B8C1817F2173CF9B00FE60D6 /* BridgeLoadingViewController.swift */,
 				B8FEBC8B217C016A002D34E1 /* PageViewControllerSettableViewController.swift */,
+				B8861355217D6388007CDD0D /* RemindersViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				B8FA234420CD5D9400564F03 /* MMPDeepSleepPreventer.m in Sources */,
 				B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */,
 				74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */,
+				B8861356217D6388007CDD0D /* RemindersViewController.swift in Sources */,
 				B8E7EAA02001E2A800B5B6D1 /* CreditsViewController.swift in Sources */,
 				B8D3DE74217C4C1500DA213B /* ForecastWeatherViewModel.swift in Sources */,
 				B8FEBC87217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift in Sources */,

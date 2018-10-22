@@ -748,7 +748,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     
     @IBAction func startClock(_ sender: Any) {
-
+        //show reminders
+        // if we should do reminders we need to execute starkClock when the delegate is notified...
+        self.performSegue(withIdentifier: "remindersSegue", sender: nil)
+    }
+    
+    public func startAlarm() {
         //create new alarm from time picker
         addAlarmFromTimePicker()
         
@@ -757,7 +762,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         //animaite out time picker
         animateInTimeDisplayLayers()
-
+        
         //update label with alarm
         updateRunningAlarmUI()
         
@@ -831,6 +836,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "remindersSegue", let nav = segue.destination as? UINavigationController, let remindersViewController =
+            nav.viewControllers.first as? RemindersViewController {
+            remindersViewController.parentMainViewController = self
+        }
+        
         if segue.identifier == "bridgeSelection", let nav = segue.destination as? UINavigationController, let bridgesTableViewController =  nav.viewControllers.first as? HueBridgeSelectionTableViewController, let bridgesFound = sender as? [AnyHashable : Any] {
             let bridgesData = NSMutableDictionary()
             bridgesData.addEntries(from: bridgesFound)
@@ -903,7 +913,7 @@ extension ViewController : HueConnectionManagerDelegate {
     }
     
     internal func didStartSearching() {
-        self.performSegue(withIdentifier: String(describing: BridgeLoadingViewController.self), sender: nil)
+//        self.performSegue(withIdentifier: String(describing: BridgeLoadingViewController.self), sender: nil)
     }
     
     internal func didFindBridges(bridgesFound: [AnyHashable : Any]?) {
