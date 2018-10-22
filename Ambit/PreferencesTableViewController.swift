@@ -77,7 +77,7 @@ class PreferencesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -95,6 +95,8 @@ class PreferencesTableViewController: UITableViewController {
             UserDefaults.standard.set(true, forKey: AmbitConstants.SleepSoundsLightingSetting) //setObject
         case 4:
             UserDefaults.standard.set(true, forKey: AmbitConstants.RecorderActiveSetting) //setObject
+        case 5:
+            UserDefaults.standard.set(true, forKey: AmbitConstants.RemindersActiveSetting)
         default:
             break
         }
@@ -115,6 +117,8 @@ class PreferencesTableViewController: UITableViewController {
             UserDefaults.standard.set(false, forKey: AmbitConstants.SleepSoundsLightingSetting) //setObject
         case 4:
             UserDefaults.standard.set(false, forKey: AmbitConstants.RecorderActiveSetting) //setObject
+        case 5:
+            UserDefaults.standard.set(false, forKey: AmbitConstants.RemindersActiveSetting)
         default:
             break
         }
@@ -145,6 +149,10 @@ class PreferencesTableViewController: UITableViewController {
         case 4:
             let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.RecorderActiveSetting)
             cell.title?.text = "Microphone Detection"
+            cell.setSelected(selectedSetting, animated: false) //setObject
+        case 5:
+            let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.RemindersActiveSetting)
+            cell.title?.text = "Display Reminders"
             cell.setSelected(selectedSetting, animated: false) //setObject
         default:
             break

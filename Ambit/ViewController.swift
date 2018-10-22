@@ -750,7 +750,13 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBAction func startClock(_ sender: Any) {
         //show reminders
         // if we should do reminders we need to execute starkClock when the delegate is notified...
-        self.performSegue(withIdentifier: "remindersSegue", sender: nil)
+        let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.RemindersActiveSetting)
+        if selectedSetting {
+            self.performSegue(withIdentifier: "remindersSegue", sender: nil)
+        } else {
+            startAlarm()
+        }
+        
     }
     
     public func startAlarm() {

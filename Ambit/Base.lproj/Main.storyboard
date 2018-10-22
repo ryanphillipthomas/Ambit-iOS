@@ -221,6 +221,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="HfS-33-KgA"/>
                                                     <constraint firstAttribute="width" constant="250" id="mnC-9q-g6Y"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Start Alarm" backgroundImage="button_backround">
                                                     <color key="titleColor" red="0.97254901959999995" green="0.97647058819999999" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -275,6 +276,7 @@
                                                             <constraint firstAttribute="height" constant="50" id="MX8-9Q-xZw"/>
                                                             <constraint firstAttribute="width" constant="50" id="lDU-oK-U59"/>
                                                         </constraints>
+                                                        <color key="tintColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="0.29810573629999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <inset key="imageEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
                                                         <state key="normal" image="settings"/>
                                                         <connections>
@@ -307,6 +309,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="fD3-R5-ROE"/>
                                                     <constraint firstAttribute="width" constant="250" id="j5d-mn-Sst"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="New Alarm" backgroundImage="button_backround">
                                                     <color key="titleColor" red="0.97254901959999995" green="0.97647058819999999" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -2700,7 +2703,7 @@
         <image name="button_backround" width="250" height="50"/>
         <image name="button_backround_small_white" width="125" height="50"/>
         <image name="dark_bridge" width="378" height="258"/>
-        <image name="settings" width="256" height="256"/>
+        <image name="settings" width="64" height="64"/>
         <image name="stop" width="42.666667938232422" height="42.666667938232422"/>
         <image name="whiteBack" width="21" height="33"/>
     </resources>
