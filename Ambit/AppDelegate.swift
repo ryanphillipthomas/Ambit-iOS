@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func registerApplicationDefaults() {
         //initalize app defaults
         let defaults = [
-            AmbitConstants.RemindersActiveSetting : false,
+            AmbitConstants.RemindersActiveSetting : true,
             AmbitConstants.BackroundImageTitle : "1",
             AmbitConstants.HealthActiveSetting : false,
             AmbitConstants.WeatherActiveSetting : false,
