@@ -12,7 +12,9 @@ import AVFoundation
 import StoreKit
 
 class SettingsPageViewController: UIPageViewController {
+    var currentStoryboardID = ""
     var nextPageStoryboardID = "AlarmSoundsNavigationController"
+
     var currentPageIndex: Int!
     weak var pageViewControllerDelegate:SettingsPageViewControllerDelegate?
 
@@ -60,6 +62,14 @@ class SettingsPageViewController: UIPageViewController {
         return [self.alarmOptionsNavigationController(),
                 self.nextViewController()]
     }()
+    
+    private func backroundTableViewController() -> UINavigationController {
+        let digitalStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: currentStoryboardID) as! UINavigationController
+        let rootView = nextViewController.viewControllers.first as! BackroundTableViewController
+        rootView.settingsPageViewController = self
+        return nextViewController
+    }
     
     private func alarmOptionsNavigationController() -> UINavigationController {
         let digitalStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -136,7 +146,7 @@ class SettingsPageViewController: UIPageViewController {
         case .some(.backroundImages):
             let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
             let rootView = nextViewController.viewControllers.first as! ImagesCollectionViewController
-//            rootView.settingsPageViewController = self
+            rootView.settingsPageViewController = self
             return nextViewController
         }
     }
@@ -216,8 +226,6 @@ protocol SettingsPageViewControllerDelegate: class {
      */
     func settingsPageViewController(settingsPageViewController: SettingsPageViewController,
                                                      didUpdatePageIndex index: Int)
-    func updateView()
-    
 }
 
 extension SettingsPageViewController: AlarmOptionsTableViewControllerDelegate {
@@ -242,9 +250,5 @@ extension SettingsPageViewController: AlarmOptionsTableViewControllerDelegate {
     
     func presentAppReviewController() {
         displayAppReviewViewController()
-    }
-    
-    func updateBackroundOption() {
-        pageViewControllerDelegate?.updateView()
     }
 }

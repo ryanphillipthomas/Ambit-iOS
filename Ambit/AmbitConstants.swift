@@ -17,6 +17,8 @@ struct AmbitConstants {
         static let ampmArray = ["AM","PM"]
     }
     
+    static let UpdateBackround = "didUpdateBackroundSetting" // toggle status bar
+
     static let ToggleStatusBar = "didToggleStatusBar" // toggle status bar
     
     static let CurrentVolumeLevelName = "CurrentVolumeLevelName" // current setting for volume level
@@ -54,7 +56,8 @@ struct AmbitConstants {
     static let ActiveLightGroupingSettings = "ActiveLightGroupingSettings" //lights we can alter with effects
     
     static let BackroundType = "BackroundType"
-    
+    static let BackroundImageTitle = "BackroundImageTitle"
+
     struct quotes {
         static let quote_1 = "Set a goal that makes you want to jump out of bed in the morning."
         static let quote_2 = "Yesterday is gone, tomorrow is a mystery, today is a blessing."

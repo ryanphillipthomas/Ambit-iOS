@@ -73,9 +73,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     var isPlayingOverride : Bool = false
     
     var backroundAnimation = CAGradientLayer()
-    var backroundImageView = UIImageView(image: UIImage(named: "\(Int.random(in: 1 ... 37))"))
+
+    var backroundImageView = UIImageView()
     var backroundView = UIView()
-    
 
     var locationManager = CLLocationManager()
 
@@ -84,6 +84,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let imageTitle = UserDefaults.standard.string(forKey: AmbitConstants.BackroundImageTitle)
+        backroundImageView.image = UIImage(named: imageTitle ?? "1")
         
         timeLabel.updateText()
         timeLabel.start()
@@ -132,10 +135,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: true)
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleStatusBar(notification:)), name: NSNotification.Name(rawValue:AmbitConstants.ToggleStatusBar), object: false)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleScreenDidConnectNotification(aNotification:)), name: UIScreen.didConnectNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleScreenDidDisconnectNotification(aNotification:)), name: UIScreen.didDisconnectNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleBackroundSettingUpdate), name: NSNotification.Name(rawValue:AmbitConstants.UpdateBackround), object: nil)
 
         showCurrentClock(_sender: UIButton())
         
@@ -379,15 +381,36 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     }
     
     func updateSublayer() {
-
         switch currentBackroundType {
         case .animation?:
+            
+            if backroundAnimation.locations == nil {
+                backroundAnimation = GradientHandler.addGradientLayer()
+                GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
+            }
+            
             view.layer.insertSublayer(backroundAnimation, at: 0)
         case .image?:
+            let imageTitle = UserDefaults.standard.string(forKey: AmbitConstants.BackroundImageTitle)
+            backroundImageView.image = UIImage(named: imageTitle ?? "1")
+            
+            backroundImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
+            backroundImageView.contentMode = .scaleAspectFill
+            backroundImageView.clipsToBounds = true
+            
             view.layer.insertSublayer(backroundImageView.layer, at: 0)
         case .color?:
+            backroundView.frame = self.view.frame
+            backroundView.backgroundColor = generateRandomColor()
+            
             view.layer.insertSublayer(backroundView.layer, at: 0)
         case .none:
+            
+            if backroundAnimation.locations == nil {
+                backroundAnimation = GradientHandler.addGradientLayer()
+                GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
+            }
+            
             view.layer.insertSublayer(backroundAnimation, at: 0)
         }
     }
@@ -859,6 +882,13 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             self.externalWindow = nil
         }
     }
+    
+    @objc func handleBackroundSettingUpdate() {
+        self.view.layer.sublayers?.remove(at: 0)
+        currentBackroundType = BackroundType(rawValue: UserDefaults.standard.string(forKey: AmbitConstants.BackroundType) ?? "animation")
+        updateSublayer()
+        viewDidLayoutSubviews()
+    }
 }
 
 extension ViewController: SBTimeLabelDelegate {
@@ -934,11 +964,6 @@ extension Date {
 extension ViewController: SettingsPageViewControllerDelegate {
     func settingsPageViewController(settingsPageViewController: SettingsPageViewController, didUpdatePageIndex index: Int) {
         //
-    }
-    
-    func updateView() {
-        currentBackroundType = BackroundType(rawValue: UserDefaults.standard.string(forKey: AmbitConstants.BackroundType) ?? "animation")
-        updateSublayer()
     }
 }
 

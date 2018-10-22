@@ -11,6 +11,7 @@ import UIKit
 private let reuseIdentifier = "MediaCollectionViewCell"
 
 class ImagesCollectionViewController: UICollectionViewController {
+    weak var settingsPageViewController: SettingsPageViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,89 +19,61 @@ class ImagesCollectionViewController: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
         // Do any additional setup after loading the view.
         self.collectionView.allowsMultipleSelection = true
-        
         
         if (!UIAccessibility.isReduceTransparencyEnabled) {
             collectionView.backgroundColor = UIColor.clear
             let blurEffect = UIBlurEffect(style: .dark)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             collectionView.backgroundView = blurEffectView
-            
+
             //if inside a popover
             if let popover = navigationController?.popoverPresentationController {
                 popover.backgroundColor = UIColor.clear
             }
         }
-        
         self.collectionView.allowsSelection = true;
-        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 36
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MediaCollectionViewCell
+        let imageTitle = UserDefaults.standard.string(forKey: AmbitConstants.BackroundImageTitle)
+
+        let imageName = "\(indexPath.row + 1)"
+        let image = UIImage(named: imageName)
+        if let image = image {
+            cell.configure(with: image)
+        }
+        
+        cell.imageView.alpha = 0.60
+        if imageTitle == imageName {
+            cell.imageView.alpha = 1
+        }
+        
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //
+        let imageName = "\(indexPath.row + 1)"
+        UserDefaults.standard.set(imageName, forKey: AmbitConstants.BackroundImageTitle) //setObject
+        self.collectionView.reloadData()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:AmbitConstants.UpdateBackround), object: nil)
     }
-    */
-
 }
+
+
