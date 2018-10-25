@@ -41,7 +41,7 @@ class BackroundTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,6 +86,16 @@ class BackroundTableViewController: UITableViewController {
                 cell.accessoryType = .checkmark
             }
             return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
+            cell.title?.text = BackroundType.video.rawValue
+            cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if backroundTypeString == BackroundType.video.rawValue {
+                cell.accessoryType = .checkmark
+            }
+            return cell
         default:
             break
         }
@@ -112,6 +122,8 @@ class BackroundTableViewController: UITableViewController {
             UserDefaults.standard.set(BackroundType.animation.rawValue, forKey: AmbitConstants.BackroundType) //setObject
         case 2:
             UserDefaults.standard.set(BackroundType.color.rawValue, forKey: AmbitConstants.BackroundType) //setObject
+        case 3:
+            UserDefaults.standard.set(BackroundType.video.rawValue, forKey: AmbitConstants.BackroundType) //setObject
         default:
             break
         }

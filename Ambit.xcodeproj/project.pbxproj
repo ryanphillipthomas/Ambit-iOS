@@ -79,6 +79,7 @@
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
 		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
 		B8861356217D6388007CDD0D /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8861355217D6388007CDD0D /* RemindersViewController.swift */; };
+		B8861358217D7CCC007CDD0D /* new_4k.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B8861357217D7CCC007CDD0D /* new_4k.mp4 */; };
 		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
 		B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB920C642C000BB107D /* ManagedObject.swift */; };
 		B8A72EBD20C642C000BB107D /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */; };
@@ -276,6 +277,7 @@
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
 		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
 		B8861355217D6388007CDD0D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		B8861357217D7CCC007CDD0D /* new_4k.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_4k.mp4; sourceTree = "<group>"; };
 		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
 		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
 		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				941436921E479B6E004B3430 /* 500.jpg */,
+				B8861357217D7CCC007CDD0D /* new_4k.mp4 */,
 				948BB9AF1E47849900185831 /* Sleep Sounds */,
 				948BB9AE1E47848E00185831 /* Alarms */,
 				948BB9A81E46E2FA00185831 /* bell.mp3 */,
@@ -1000,6 +1003,7 @@
 				947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */,
 				948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */,
 				941436931E479B6E004B3430 /* 500.jpg in Resources */,
+				B8861358217D7CCC007CDD0D /* new_4k.mp4 in Resources */,
 				B8A8C2292000B2D200483407 /* party.mp3 in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
 				B8FA234520CD5D9400564F03 /* MMPSilence.wav in Resources */,

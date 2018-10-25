@@ -21,6 +21,7 @@ enum BackroundType: String {
     case animation = "Color Animation"
     case image = "Image"
     case color = "Solid Color"
+    case video = "Video"
 }
 
 enum PageViewControllerStoryBoardID: String {
@@ -116,6 +117,10 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             backroundView.frame = self.view.frame
             backroundView.backgroundColor = generateRandomColor()
             view.layer.insertSublayer(backroundView.layer, at: 0)
+        case .video?:
+            playVideo(from: "new_4k.mp4")
+            backroundView.frame = self.view.frame
+            view.layer.insertSublayer(backroundView.layer, at: 0)
         case .none:
             backroundAnimation = GradientHandler.addGradientLayer()
             GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
@@ -147,6 +152,24 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             //An external screen is available. Get the first screen available
             self.initializeExternalScreen(externalScreen: screens[1] as UIScreen)
         }
+    }
+    
+    private func playVideo(from file:String) {
+        let file = file.components(separatedBy: ".")
+        
+        guard let path = Bundle.main.path(forResource: file[0], ofType:file[1]) else {
+            debugPrint( "\(file.joined(separator: ".")) not found")
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        player.isMuted = true
+        
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.view.frame
+        playerLayer.videoGravity = .resizeAspectFill
+        
+        backroundView.layer.addSublayer(playerLayer)
+        player.play()
     }
     
     @IBAction func askForLocationPermissions() {
@@ -383,7 +406,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     func updateSublayer() {
         switch currentBackroundType {
         case .animation?:
-            
             if backroundAnimation.locations == nil {
                 backroundAnimation = GradientHandler.addGradientLayer()
                 GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
@@ -402,6 +424,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         case .color?:
             backroundView.frame = self.view.frame
             backroundView.backgroundColor = generateRandomColor()
+            
+            view.layer.insertSublayer(backroundView.layer, at: 0)
+        case .video?:
+            playVideo(from: "new_4k.mp4")
+            backroundView.frame = self.view.frame
             
             view.layer.insertSublayer(backroundView.layer, at: 0)
         case .none:
