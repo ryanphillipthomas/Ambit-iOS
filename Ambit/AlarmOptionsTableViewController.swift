@@ -26,6 +26,8 @@ class AlarmOptionsTableViewController: UITableViewController {
     @IBOutlet weak var snoozeTimeDetailLabel: UILabel!
     @IBOutlet weak var alarmSoundsDetailLabel: UILabel!
     @IBOutlet weak var sleepSoundsDetailLabel: UILabel!
+    @IBOutlet weak var bedtimeDetailLabel: UILabel!
+
     @IBOutlet weak var hueBridgeDetailLabel: UILabel!
     @IBOutlet weak var lightScenesDetailLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
@@ -76,6 +78,7 @@ class AlarmOptionsTableViewController: UITableViewController {
         sleepSoundsDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentSleepSoundName)
         hueBridgeDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentHueBridgeName)
         lightScenesDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentLightSceneName)
+        bedtimeDetailLabel.text = UserDefaults.standard.string(forKey: AmbitConstants.CurrentBedTimeDate)
         slider.value = UserDefaults.standard.float(forKey: AmbitConstants.CurrentVolumeLevelName)
         
         //set ligts count
@@ -109,7 +112,7 @@ class AlarmOptionsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 15
+        return 16
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -152,6 +155,8 @@ class AlarmOptionsTableViewController: UITableViewController {
             
         case 14:
             self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.lightsTable.rawValue)
+        case 15:
+            self.delegate?.updateNextViewContorller(PageViewControllerStoryBoardID.bedtimeNav.rawValue)
         default:
             break
         }

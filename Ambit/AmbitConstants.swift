@@ -31,6 +31,7 @@ struct AmbitConstants {
     static let VibrateWithAlarmSetting = "VibrateWithAlarmSetting" //true or false for should vibrate device
     static let ProgressiveAlarmVolumeSetting = "ProgressiveAlarmVolumeSetting" //true or false for should fade in volume
     
+    static let CurrentBedTimeDate = "CurrentBedTimeDate" // current setting for sleep sound
     static let CurrentSleepSoundName = "CurrentSleepSoundName" // current setting for sleep sound
     static let SleepSoundsLightingSetting = "SleepSoundsLightingSetting" //true or false for should run sleep lighting
     static let SleepSoundsLightingSettingSceneName = "SleepSoundsLightingSettingSceneName" //Scene Name for Sleep Sounds
@@ -58,6 +59,8 @@ struct AmbitConstants {
     
     static let BackroundType = "BackroundType"
     static let BackroundImageTitle = "BackroundImageTitle"
+    
+    static let CreatAlarmIntent = "com.ryanphillipthomas.Ambit.create-alarm"
 
     struct quotes {
         static let quote_1 = "Set a goal that makes you want to jump out of bed in the morning."

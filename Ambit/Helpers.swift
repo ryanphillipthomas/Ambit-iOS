@@ -219,7 +219,7 @@ class StringHelper{
     class func nextAlarmString(alarmDate : Date) -> String {
         let alarmHour = StringHelper.hour(date: alarmDate)
         let alarmMinute = StringHelper.minute(date: alarmDate)
-        let alarm_am_pm = StringHelper.am_pm(date: alarmDate)
+        let alarm_am_pm = StringHelper.am_pm(date: alarmDate).uppercased()
         
 //      let calendar = Calendar.current
 //      let endDate = calendar.date(byAdding: .minute, value: 15, to: alarmDate)

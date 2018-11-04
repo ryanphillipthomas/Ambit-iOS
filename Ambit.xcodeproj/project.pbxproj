@@ -76,8 +76,15 @@
 		94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */; };
 		B80CDB63217B727E0099E547 /* SettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80CDB62217B727E0099E547 /* SettingsPageViewController.swift */; };
 		B80E07CD20C9EBD800896861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EAF1DFB735400B03661 /* Assets.xcassets */; };
+		B81AE1A0218FACBA00A8AA54 /* BedtimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81AE19F218FACBA00A8AA54 /* BedtimeTableViewController.swift */; };
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
 		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
+		B85461EC218160DD0058D7DA /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85461EB218160DD0058D7DA /* IntentHandler.swift */; };
+		B85461F4218160DD0058D7DA /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85461F3218160DD0058D7DA /* IntentsUI.framework */; };
+		B85461F7218160DD0058D7DA /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85461F6218160DD0058D7DA /* IntentViewController.swift */; };
+		B85461FA218160DD0058D7DA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85461F8218160DD0058D7DA /* MainInterface.storyboard */; };
+		B85461FE218160DD0058D7DA /* AmbitIntentsUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B85461F2218160DD0058D7DA /* AmbitIntentsUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B8546201218160DD0058D7DA /* AmbitIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B85461E9218160DC0058D7DA /* AmbitIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B8861356217D6388007CDD0D /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8861355217D6388007CDD0D /* RemindersViewController.swift */; };
 		B8861358217D7CCC007CDD0D /* new_4k.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B8861357217D7CCC007CDD0D /* new_4k.mp4 */; };
 		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
@@ -147,6 +154,20 @@
 			remoteGlobalIDString = 949B0F841E4596A20092FFE5;
 			remoteInfo = TV;
 		};
+		B85461FC218160DD0058D7DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74B95E9A1DFB735300B03661 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B85461F1218160DD0058D7DA;
+			remoteInfo = AmbitIntentsUI;
+		};
+		B85461FF218160DD0058D7DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74B95E9A1DFB735300B03661 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B85461E8218160DC0058D7DA;
+			remoteInfo = AmbitIntents;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -178,6 +199,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				B8546201218160DD0058D7DA /* AmbitIntents.appex in Embed App Extensions */,
+				B85461FE218160DD0058D7DA /* AmbitIntentsUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,8 +297,17 @@
 		B621F7C1FBE7498AC652993E /* Pods-AmbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B80CDB62217B727E0099E547 /* SettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewController.swift; sourceTree = "<group>"; };
 		B80E07A720C885C800896861 /* Ambit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambit.entitlements; sourceTree = "<group>"; };
+		B81AE19F218FACBA00A8AA54 /* BedtimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeTableViewController.swift; sourceTree = "<group>"; };
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
 		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
+		B85461E9218160DC0058D7DA /* AmbitIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AmbitIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B85461EB218160DD0058D7DA /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		B85461ED218160DD0058D7DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B85461F2218160DD0058D7DA /* AmbitIntentsUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AmbitIntentsUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B85461F3218160DD0058D7DA /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		B85461F6218160DD0058D7DA /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		B85461F9218160DD0058D7DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B85461FB218160DD0058D7DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8861355217D6388007CDD0D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		B8861357217D7CCC007CDD0D /* new_4k.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_4k.mp4; sourceTree = "<group>"; };
 		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
@@ -368,6 +400,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B85461E6218160DC0058D7DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85461EF218160DD0058D7DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B85461F4218160DD0058D7DA /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -395,6 +442,8 @@
 				949B0F861E4596A20092FFE5 /* TV */,
 				949B0F9B1E4596A30092FFE5 /* TVTests */,
 				949B0FA61E4596A30092FFE5 /* TVUITests */,
+				B85461EA218160DD0058D7DA /* AmbitIntents */,
+				B85461F5218160DD0058D7DA /* AmbitIntentsUI */,
 				74B95EA31DFB735300B03661 /* Products */,
 				3AFB159A743C9F299048D051 /* Pods */,
 				CE9EDE0DBCC025329CC23A8E /* Frameworks */,
@@ -410,6 +459,8 @@
 				949B0F851E4596A20092FFE5 /* TV.app */,
 				949B0F981E4596A20092FFE5 /* TVTests.xctest */,
 				949B0FA31E4596A30092FFE5 /* TVUITests.xctest */,
+				B85461E9218160DC0058D7DA /* AmbitIntents.appex */,
+				B85461F2218160DD0058D7DA /* AmbitIntentsUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -692,6 +743,25 @@
 			name = Hue;
 			sourceTree = "<group>";
 		};
+		B85461EA218160DD0058D7DA /* AmbitIntents */ = {
+			isa = PBXGroup;
+			children = (
+				B85461EB218160DD0058D7DA /* IntentHandler.swift */,
+				B85461ED218160DD0058D7DA /* Info.plist */,
+			);
+			path = AmbitIntents;
+			sourceTree = "<group>";
+		};
+		B85461F5218160DD0058D7DA /* AmbitIntentsUI */ = {
+			isa = PBXGroup;
+			children = (
+				B85461F6218160DD0058D7DA /* IntentViewController.swift */,
+				B85461F8218160DD0058D7DA /* MainInterface.storyboard */,
+				B85461FB218160DD0058D7DA /* Info.plist */,
+			);
+			path = AmbitIntentsUI;
+			sourceTree = "<group>";
+		};
 		B8A72EB720C642AE00BB107D /* RTCoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -767,6 +837,7 @@
 				B8D3DE8A217CBCD400DA213B /* WeatherSettingsTableViewController.swift */,
 				B8D3DE8E217CCF5700DA213B /* HealthTableViewController.swift */,
 				B8D3DE90217D035C00DA213B /* ImagesCollectionViewController.swift */,
+				B81AE19F218FACBA00A8AA54 /* BedtimeTableViewController.swift */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -795,6 +866,7 @@
 				8D1D98B5C1B96E01AD9087F0 /* Pods_Ambit.framework */,
 				CE6C22BBDAFC5924BDF0213A /* Pods_AmbitTests.framework */,
 				2319D788B74C29BA42B4AB0E /* Pods_AmbitUITests.framework */,
+				B85461F3218160DD0058D7DA /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -819,6 +891,8 @@
 			);
 			dependencies = (
 				9416C50F1E45924300267C85 /* PBXTargetDependency */,
+				B85461FD218160DD0058D7DA /* PBXTargetDependency */,
+				B8546200218160DD0058D7DA /* PBXTargetDependency */,
 			);
 			name = Ambit;
 			productName = Ambit;
@@ -913,6 +987,40 @@
 			productReference = 949B0FA31E4596A30092FFE5 /* TVUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		B85461E8218160DC0058D7DA /* AmbitIntents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8546205218160DD0058D7DA /* Build configuration list for PBXNativeTarget "AmbitIntents" */;
+			buildPhases = (
+				B85461E5218160DC0058D7DA /* Sources */,
+				B85461E6218160DC0058D7DA /* Frameworks */,
+				B85461E7218160DC0058D7DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmbitIntents;
+			productName = AmbitIntents;
+			productReference = B85461E9218160DC0058D7DA /* AmbitIntents.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B85461F1218160DD0058D7DA /* AmbitIntentsUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8546202218160DD0058D7DA /* Build configuration list for PBXNativeTarget "AmbitIntentsUI" */;
+			buildPhases = (
+				B85461EE218160DD0058D7DA /* Sources */,
+				B85461EF218160DD0058D7DA /* Frameworks */,
+				B85461F0218160DD0058D7DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmbitIntentsUI;
+			productName = AmbitIntentsUI;
+			productReference = B85461F2218160DD0058D7DA /* AmbitIntentsUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -936,7 +1044,7 @@
 								enabled = 1;
 							};
 							com.apple.Siri = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -968,6 +1076,16 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 949B0F841E4596A20092FFE5;
 					};
+					B85461E8218160DC0058D7DA = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = FS6KJ5XME6;
+						ProvisioningStyle = Automatic;
+					};
+					B85461F1218160DD0058D7DA = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = FS6KJ5XME6;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 74B95E9D1DFB735300B03661 /* Build configuration list for PBXProject "Ambit" */;
@@ -989,6 +1107,8 @@
 				949B0F841E4596A20092FFE5 /* TV */,
 				949B0F971E4596A20092FFE5 /* TVTests */,
 				949B0FA21E4596A30092FFE5 /* TVUITests */,
+				B85461E8218160DC0058D7DA /* AmbitIntents */,
+				B85461F1218160DD0058D7DA /* AmbitIntentsUI */,
 			);
 		};
 /* End PBXProject section */
@@ -1051,6 +1171,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85461E7218160DC0058D7DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85461F0218160DD0058D7DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B85461FA218160DD0058D7DA /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1128,6 +1263,7 @@
 				94E9E00B1E3EB9A3008A1F84 /* DDLog.m in Sources */,
 				B8E7EAA620028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift in Sources */,
 				B8E7EA9B2001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift in Sources */,
+				B81AE1A0218FACBA00A8AA54 /* BedtimeTableViewController.swift in Sources */,
 				94A7A5FA1E404A4E00A6D11D /* UIColor+Extension.swift in Sources */,
 				94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */,
 				94E9E00C1E3EB9A3008A1F84 /* DDTTYLogger.m in Sources */,
@@ -1239,6 +1375,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B85461E5218160DC0058D7DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B85461EC218160DD0058D7DA /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B85461EE218160DD0058D7DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B85461F7218160DD0058D7DA /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1261,6 +1413,16 @@
 			isa = PBXTargetDependency;
 			target = 949B0F841E4596A20092FFE5 /* TV */;
 			targetProxy = 949B0FA41E4596A30092FFE5 /* PBXContainerItemProxy */;
+		};
+		B85461FD218160DD0058D7DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B85461F1218160DD0058D7DA /* AmbitIntentsUI */;
+			targetProxy = B85461FC218160DD0058D7DA /* PBXContainerItemProxy */;
+		};
+		B8546200218160DD0058D7DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B85461E8218160DC0058D7DA /* AmbitIntents */;
+			targetProxy = B85461FF218160DD0058D7DA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1295,6 +1457,14 @@
 				949B0F8F1E4596A20092FFE5 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B85461F8218160DD0058D7DA /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B85461F9218160DD0058D7DA /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1415,6 +1585,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA9763449EA3A0DDA78CB88D /* Pods-Ambit.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Ambit/Ambit.entitlements;
@@ -1440,6 +1611,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 991816760E467C08DD5B0369 /* Pods-Ambit.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Ambit/Ambit.entitlements;
@@ -1640,6 +1812,100 @@
 			};
 			name = Release;
 		};
+		B8546203218160DD0058D7DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS6KJ5XME6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AmbitIntentsUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit.AmbitIntentsUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B8546204218160DD0058D7DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS6KJ5XME6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AmbitIntentsUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit.AmbitIntentsUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B8546206218160DD0058D7DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS6KJ5XME6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AmbitIntents/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit.AmbitIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B8546207218160DD0058D7DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FS6KJ5XME6;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AmbitIntents/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryanphillipthomas.ambit.AmbitIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1702,6 +1968,24 @@
 			buildConfigurations = (
 				949B0FAE1E4596A30092FFE5 /* Debug */,
 				949B0FAF1E4596A30092FFE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8546202218160DD0058D7DA /* Build configuration list for PBXNativeTarget "AmbitIntentsUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8546203218160DD0058D7DA /* Debug */,
+				B8546204218160DD0058D7DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8546205218160DD0058D7DA /* Build configuration list for PBXNativeTarget "AmbitIntents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8546206218160DD0058D7DA /* Debug */,
+				B8546207218160DD0058D7DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

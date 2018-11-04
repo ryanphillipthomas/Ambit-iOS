@@ -16,6 +16,7 @@ import MediaPlayer
 import AVKit
 import StoreKit
 import CoreLocation
+import Intents
 
 enum BackroundType: String {
     case animation = "Color Animation"
@@ -36,6 +37,7 @@ enum PageViewControllerStoryBoardID: String {
     case lightsTable = "LightsTableNavigationController"
     case weatherNav = "WeatherSettingsNavigationController"
     case healthNav = "HealthNavigationViewController"
+    case bedtimeNav = "BedtimeNavigationViewController"
     case backroundImages = "ImagesNavigationController"
 }
 
@@ -45,7 +47,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
     @IBOutlet var timeUpcomingLabel: UILabel!
     @IBOutlet var nextAlarmLabel: UILabel!
 
-    @IBOutlet var timePicker:UIDatePicker!
+    @IBOutlet public var timePicker:UIDatePicker!
     @IBOutlet var settingsButton:UIButton!
     
     @IBOutlet weak var screenBrightnessLevel: SpringLabel!
@@ -197,7 +199,6 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             }
         }
     }
-    
     
     func generateRandomColor() -> UIColor {
         let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
@@ -804,6 +805,30 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         //start playing sleep sounds
         playSleepSound()
+        
+        //donate the alarm
+        donateAlarm()
+    }
+    
+    func donateAlarm() {
+        let alarm = Alarm.fetchCurrentAlarm(moc: managedObjectContext)
+        let userActivity = NSUserActivity(activityType: AmbitConstants.CreatAlarmIntent)
+        var titleString = "Create an Alarm"
+
+        userActivity.isEligibleForSearch = true
+        if #available(iOS 12.0, *) {
+            userActivity.isEligibleForPrediction = true
+            userActivity.suggestedInvocationPhrase = "Create an Alarm"
+        }
+
+        if let sceduledAlarm = alarm {
+            let next_alarm_string = StringHelper.nextAlarmString(alarmDate: sceduledAlarm.fireDate)
+            userActivity.userInfo = ["fireDate": sceduledAlarm.fireDate]
+            titleString.append(" for \(next_alarm_string)")
+        }
+        userActivity.title = titleString
+        userActivity.requiredUserInfoKeys = ["fireDate"]
+        self.userActivity = userActivity
     }
     
     fileprivate func blackOut() {

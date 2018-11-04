@@ -148,6 +148,11 @@ class SettingsPageViewController: UIPageViewController {
             let rootView = nextViewController.viewControllers.first as! ImagesCollectionViewController
             rootView.settingsPageViewController = self
             return nextViewController
+        case .some(.bedtimeNav):
+            let nextViewController = digitalStoryboard.instantiateViewController(withIdentifier: nextPageStoryboardID) as! UINavigationController
+            let rootView = nextViewController.viewControllers.first as! BedtimeTableViewController
+            rootView.settingsPageViewController = self
+            return nextViewController
         }
     }
 }

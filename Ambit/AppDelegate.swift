@@ -116,6 +116,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity,
+                             restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        
+        if userActivity.activityType == AmbitConstants.CreatAlarmIntent {
+            if var topController = UIApplication.shared.keyWindow?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                
+                let top = topController as! ViewController
+                if let userInfo = userActivity.userInfo, let fireDate = userInfo["fireDate"] {
+                    top.timePicker.date = fireDate as! Date
+                    
+                }
+            }
+        }
+        
+        return true
+    }
+    
     @objc func keepAlive() {
         timer4?.invalidate() //cleanup
         timer4 = Timer.scheduledTimer(timeInterval: 540, target: self, selector: #selector(keepAlive), userInfo: nil, repeats: true) //setup refresh in 9 min
@@ -155,13 +175,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(center: UNUserNotificationCenter, didReceiveNotificationResponse response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
         print("didReceiveNotificationResponse")
        
-        AlarmScheduleManager.sharedManager.clearAllNotifications()
+        AlarmScheduleManager.sharedManager.clearAllAlarms()
     }
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-        AlarmScheduleManager.sharedManager.clearAllNotifications()
+        AlarmScheduleManager.sharedManager.clearAllAlarms()
         
         let application = UIApplication.shared
         if application.applicationState != .active { // Only address notifications received when not active
@@ -316,11 +336,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func endBackgroundUpdateTask() {
         UIApplication.shared.endBackgroundTask(self.backgroundUpdateTask)
         self.backgroundUpdateTask = UIBackgroundTaskIdentifier.invalid
-    }
-    
-    private func application(_ application: UIApplication, continue userActivity: NSUserActivity,
-                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
