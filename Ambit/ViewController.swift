@@ -108,11 +108,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         
         askForLocationPermissions()
         
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        bannerView.adUnitID = AmbitConstants.ADMobTestUnitID
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        addBannerViewToView(bannerView)
+        setupAdBanner()
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dimViewFadeGesture))
         self.view.addGestureRecognizer(panGesture)
@@ -165,6 +161,23 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             //An external screen is available. Get the first screen available
             self.initializeExternalScreen(externalScreen: screens[1] as UIScreen)
         }
+    }
+    
+    private func setupAdBanner () {
+        
+        if SupportCode.matches(code: SupportCodes.Purchased_SupportCode) {
+            settingsBottomConstraint.constant = -27
+        } else if SupportCode.matches(code: SupportCodes.Not_Purchased_SupportCode) {
+            bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+            bannerView.adUnitID = AmbitConstants.ADMobTestUnitID
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+            addBannerViewToView(bannerView)
+            
+            settingsBottomConstraint.constant = -85
+        }
+        
+        view.setNeedsUpdateConstraints()
     }
     
     private func addBannerViewToView(_ bannerView: GADBannerView) {

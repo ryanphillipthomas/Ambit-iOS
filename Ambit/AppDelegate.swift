@@ -37,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var backgroundUpdateTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //Setup Support Code
+        SupportCodeConfiguration.setup(codes: [SupportCodes.Purchased_SupportCode,
+                                               SupportCodes.Not_Purchased_SupportCode,
+                                               SupportCodes.Production_SupportCode])
 
         //Setup Google Ads
         GADMobileAds.configure(withApplicationID: AmbitConstants.ADMobAmbitProductionID)

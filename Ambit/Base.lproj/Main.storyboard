@@ -472,7 +472,7 @@
                         <outlet property="nextAlarmLabel" destination="rE6-RV-iL8" id="peo-jj-ym5"/>
                         <outlet property="quotesContainerView" destination="hcW-pN-4D4" id="WWK-4M-kpc"/>
                         <outlet property="screenBrightnessLevel" destination="plT-1s-lUm" id="PDf-ip-plc"/>
-                        <outlet property="settingsBottomConstraint" destination="b2P-ab-2fl" id="G1h-K9-ewZ"/>
+                        <outlet property="settingsBottomConstraint" destination="l7P-oQ-JkT" id="a16-I8-JSO"/>
                         <outlet property="settingsButton" destination="GiB-j9-Q0U" id="zOc-YC-LzL"/>
                         <outlet property="settingsButtonAnimationView" destination="oyO-df-Dcp" id="Ivg-aX-m34"/>
                         <outlet property="snoozeView" destination="iOK-hN-4Rw" id="Lz0-iw-4Bb"/>
@@ -942,8 +942,20 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iF0-VD-BuX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                    <connections>
+                                        <action selector="enterSupportCodeButtonSelected:" destination="aJd-b9-itT" eventType="touchUpInside" id="1Ap-fu-Seg"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="iF0-VD-BuX" firstAttribute="top" secondItem="7Eh-gM-Bwr" secondAttribute="top" id="MIS-wn-lbY"/>
+                                <constraint firstAttribute="trailing" secondItem="iF0-VD-BuX" secondAttribute="trailing" id="VeF-P3-iZI"/>
+                                <constraint firstAttribute="bottom" secondItem="iF0-VD-BuX" secondAttribute="bottom" id="YkV-mQ-P3d"/>
+                                <constraint firstItem="iF0-VD-BuX" firstAttribute="leading" secondItem="7Eh-gM-Bwr" secondAttribute="leading" id="dbX-CM-5og"/>
+                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="yf1-6p-yif">
@@ -1230,7 +1242,7 @@
                                         <rect key="frame" x="0.0" y="848" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bXN-r7-T7h" id="pMU-ye-Q9B">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="67.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="67.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Credits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU9-Rp-RXc" userLabel="Hue Bridge">
@@ -1249,7 +1261,7 @@
                                         <rect key="frame" x="0.0" y="916" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BKC-1G-mI4" id="PEA-qg-HF2">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="67.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="67.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szd-Du-skD" userLabel="Hue Bridge">
@@ -1268,7 +1280,7 @@
                                         <rect key="frame" x="0.0" y="984" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L4J-nw-ZpU" id="Edp-fw-RV6">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="67.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="67.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Light Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fc0-gg-wQx" userLabel="Hue Bridge">
@@ -1294,7 +1306,7 @@
                                         <rect key="frame" x="0.0" y="1052" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TDG-Mb-tkB" id="buv-xy-INa">
-                                            <rect key="frame" x="0.0" y="0.0" width="349" height="67.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="67.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bedtime Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJL-Py-rTT">

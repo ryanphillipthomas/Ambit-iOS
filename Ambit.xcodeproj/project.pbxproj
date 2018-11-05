@@ -86,6 +86,11 @@
 		B85461FE218160DD0058D7DA /* AmbitIntentsUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B85461F2218160DD0058D7DA /* AmbitIntentsUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B8546201218160DD0058D7DA /* AmbitIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B85461E9218160DC0058D7DA /* AmbitIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B86DFADE218FC65C006027DE /* twinkle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = B86DFADD218FC65C006027DE /* twinkle.aiff */; };
+		B86DFB0521900838006027DE /* SupportCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFAFF21900835006027DE /* SupportCode.swift */; };
+		B86DFB0621900838006027DE /* SupportCodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFB0021900835006027DE /* SupportCodeConfiguration.swift */; };
+		B86DFB0721900838006027DE /* SupportCodeRestartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFB0121900836006027DE /* SupportCodeRestartViewController.swift */; };
+		B86DFB0821900838006027DE /* UILabelWithMargins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFB0221900837006027DE /* UILabelWithMargins.swift */; };
+		B86DFB0921900838006027DE /* SupportCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DFB0321900837006027DE /* SupportCodes.swift */; };
 		B8861356217D6388007CDD0D /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8861355217D6388007CDD0D /* RemindersViewController.swift */; };
 		B8861358217D7CCC007CDD0D /* new_4k.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B8861357217D7CCC007CDD0D /* new_4k.mp4 */; };
 		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
@@ -206,6 +211,16 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B86DFAF021900510006027DE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -310,6 +325,12 @@
 		B85461F9218160DD0058D7DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B85461FB218160DD0058D7DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86DFADD218FC65C006027DE /* twinkle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = twinkle.aiff; sourceTree = "<group>"; };
+		B86DFAFF21900835006027DE /* SupportCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportCode.swift; sourceTree = "<group>"; };
+		B86DFB0021900835006027DE /* SupportCodeConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportCodeConfiguration.swift; sourceTree = "<group>"; };
+		B86DFB0121900836006027DE /* SupportCodeRestartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportCodeRestartViewController.swift; sourceTree = "<group>"; };
+		B86DFB0221900837006027DE /* UILabelWithMargins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelWithMargins.swift; sourceTree = "<group>"; };
+		B86DFB0321900837006027DE /* SupportCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportCodes.swift; sourceTree = "<group>"; };
+		B86DFB0421900838006027DE /* SupportCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportCode.h; sourceTree = "<group>"; };
 		B8861355217D6388007CDD0D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		B8861357217D7CCC007CDD0D /* new_4k.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_4k.mp4; sourceTree = "<group>"; };
 		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
@@ -470,6 +491,7 @@
 		74B95EA41DFB735300B03661 /* Ambit */ = {
 			isa = PBXGroup;
 			children = (
+				B86DFB0A21900842006027DE /* Support Code */,
 				B8D3DE67217C4B4D00DA213B /* Weather Today */,
 				B80E07A720C885C800896861 /* Ambit.entitlements */,
 				74B95ED61DFB737700B03661 /* Storyboards */,
@@ -765,6 +787,19 @@
 			path = AmbitIntentsUI;
 			sourceTree = "<group>";
 		};
+		B86DFB0A21900842006027DE /* Support Code */ = {
+			isa = PBXGroup;
+			children = (
+				B86DFB0421900838006027DE /* SupportCode.h */,
+				B86DFAFF21900835006027DE /* SupportCode.swift */,
+				B86DFB0021900835006027DE /* SupportCodeConfiguration.swift */,
+				B86DFB0121900836006027DE /* SupportCodeRestartViewController.swift */,
+				B86DFB0321900837006027DE /* SupportCodes.swift */,
+				B86DFB0221900837006027DE /* UILabelWithMargins.swift */,
+			);
+			path = "Support Code";
+			sourceTree = "<group>";
+		};
 		B8A72EB720C642AE00BB107D /* RTCoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,6 +924,7 @@
 				74B95EE11DFB777F00B03661 /* ShellScript */,
 				9416C5181E45924300267C85 /* Embed Watch Content */,
 				B80E07CB20C8881D00896861 /* Embed App Extensions */,
+				B86DFAF021900510006027DE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1266,7 +1302,9 @@
 				9470D6DF1E5105BD009AA49A /* RecorderManager.swift in Sources */,
 				94E9E00B1E3EB9A3008A1F84 /* DDLog.m in Sources */,
 				B8E7EAA620028D8000B5B6D1 /* PreferencesDetailTableViewCell.swift in Sources */,
+				B86DFB0921900838006027DE /* SupportCodes.swift in Sources */,
 				B8E7EA9B2001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift in Sources */,
+				B86DFB0721900838006027DE /* SupportCodeRestartViewController.swift in Sources */,
 				B81AE1A0218FACBA00A8AA54 /* BedtimeTableViewController.swift in Sources */,
 				94A7A5FA1E404A4E00A6D11D /* UIColor+Extension.swift in Sources */,
 				94E9E04D1E3EE601008A1F84 /* HueConnectionManager.swift in Sources */,
@@ -1277,12 +1315,14 @@
 				B8D3DE73217C4C1500DA213B /* ForecastWeather.swift in Sources */,
 				94E9E00A1E3EB9A3008A1F84 /* DDFileLogger.m in Sources */,
 				94E9E0301E3EC456008A1F84 /* SBTimeLabel.swift in Sources */,
+				B86DFB0521900838006027DE /* SupportCode.swift in Sources */,
 				B8D3DE91217D035C00DA213B /* ImagesCollectionViewController.swift in Sources */,
 				94CA1F651E4FAD1B005A1053 /* EventManager.swift in Sources */,
 				94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */,
 				948BB9AD1E477A8B00185831 /* AlarmScheduleManager.swift in Sources */,
 				74B95EA81DFB735300B03661 /* ViewController.swift in Sources */,
 				94CA1F621E4F8E51005A1053 /* Event.swift in Sources */,
+				B86DFB0821900838006027DE /* UILabelWithMargins.swift in Sources */,
 				94E9E0141E3EB9E3008A1F84 /* DispatchQueueLogFormatter.m in Sources */,
 				B8E7EA9C2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift in Sources */,
 				947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */,
@@ -1321,6 +1361,7 @@
 				B8FEBC87217BB3B8002D34E1 /* SnoozeTimeTableViewController.swift in Sources */,
 				B8FEBC8C217C016A002D34E1 /* PageViewControllerSettableViewController.swift in Sources */,
 				94E9E0091E3EB9A3008A1F84 /* DDASLLogger.m in Sources */,
+				B86DFB0621900838006027DE /* SupportCodeConfiguration.swift in Sources */,
 				B8D3DE76217C4C1500DA213B /* CurrentWeather.swift in Sources */,
 				B8D3DE8F217CCF5700DA213B /* HealthTableViewController.swift in Sources */,
 				9480E5221E44433400E094F3 /* Model.xcdatamodeld in Sources */,

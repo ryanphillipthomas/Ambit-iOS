@@ -44,6 +44,11 @@
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
+		<key>SupportCode.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 		<key>TV.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

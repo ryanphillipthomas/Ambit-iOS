@@ -162,6 +162,9 @@ class AlarmOptionsTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func enterSupportCodeButtonSelected(_ sender: Any) {
+        SupportCode.displaySupportCodeAlertView()
+    }
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
         self.dismiss(animated: true, completion: {
