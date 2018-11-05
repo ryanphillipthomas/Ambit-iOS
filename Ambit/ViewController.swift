@@ -64,6 +64,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
     @IBOutlet weak var quotesContainerView: UIView!
     @IBOutlet weak var weatherContainerView: UIView!
+    @IBOutlet weak var settingsBottomConstraint: NSLayoutConstraint!
+
     
     weak var tableViewController:UITableViewController!
     weak var tableView: UITableView!

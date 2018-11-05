@@ -472,6 +472,7 @@
                         <outlet property="nextAlarmLabel" destination="rE6-RV-iL8" id="peo-jj-ym5"/>
                         <outlet property="quotesContainerView" destination="hcW-pN-4D4" id="WWK-4M-kpc"/>
                         <outlet property="screenBrightnessLevel" destination="plT-1s-lUm" id="PDf-ip-plc"/>
+                        <outlet property="settingsBottomConstraint" destination="b2P-ab-2fl" id="G1h-K9-ewZ"/>
                         <outlet property="settingsButton" destination="GiB-j9-Q0U" id="zOc-YC-LzL"/>
                         <outlet property="settingsButtonAnimationView" destination="oyO-df-Dcp" id="Ivg-aX-m34"/>
                         <outlet property="snoozeView" destination="iOK-hN-4Rw" id="Lz0-iw-4Bb"/>
