@@ -9,7 +9,6 @@
     pod 'Alamofire', '~> 4.4'
     pod 'Firebase'
     pod 'Firebase/Database'
-    pod 'Google-Mobile-Ads-SDK'
   end
 
 target 'Ambit' do
