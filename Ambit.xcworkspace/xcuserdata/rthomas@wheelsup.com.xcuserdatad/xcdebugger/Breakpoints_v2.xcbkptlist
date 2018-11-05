@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "563070613.426254"
+            timestampString = "563081385.593636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "checkForGrantedLocationPermissions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "563070613.42677"
+            timestampString = "563081385.594225"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "424"
-            endingLineNumber = "424"
+            startingLineNumber = "454"
+            endingLineNumber = "454"
             landmarkName = "updateSublayer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "563070613.427112"
+            timestampString = "563081385.594628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "429"
-            endingLineNumber = "429"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
             landmarkName = "updateSublayer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "563070613.427444"
+            timestampString = "563081385.595014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "442"
-            endingLineNumber = "442"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
             landmarkName = "updateSublayer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/ViewController.swift"
-            timestampString = "563070613.427792"
+            timestampString = "563081385.59539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
             landmarkName = "updateSublayer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,13 +170,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "563063144.850751"
+            timestampString = "563081385.59577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,13 +186,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "563063144.850794"
+            timestampString = "563081385.595824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,13 +202,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "563063144.850883"
+            timestampString = "563081385.59587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "userNotificationCenter(center:didReceiveNotificationResponse:withCompletionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,13 +218,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AppDelegate.swift"
-            timestampString = "563063144.850924"
+            timestampString = "563081385.595914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ambit/AlarmScheduleManager.swift"
-            timestampString = "563070613.428251"
+            timestampString = "563081385.59596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"

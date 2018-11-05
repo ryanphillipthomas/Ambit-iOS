@@ -13,6 +13,7 @@ import AudioPlayer
 import AVFoundation
 import MediaPlayer
 import Firebase
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -36,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var backgroundUpdateTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        //Setup Google Ads
+        GADMobileAds.configure(withApplicationID: AmbitConstants.ADMobAmbitProductionID)
         
         //Setup Core Data
         let mainContext = createMainContext(modelStoreName: "Model", bundles: nil)

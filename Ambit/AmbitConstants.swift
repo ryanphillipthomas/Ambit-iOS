@@ -62,6 +62,11 @@ struct AmbitConstants {
     static let BackroundImageTitle = "BackroundImageTitle"
     
     static let CreatAlarmIntent = "com.ryanphillipthomas.Ambit.create-alarm"
+    
+    static let ADMobTestUnitID = "ca-app-pub-3940256099942544/2934735716"
+    static let ADMobAmbitProductionMainBannerUnitID = "ca-app-pub-7709307289379889/6396678422"
+    static let ADMobAmbitProductionID = "ca-app-pub-7709307289379889~3474716208"
+
 
     struct quotes {
         static let quote_1 = "Set a goal that makes you want to jump out of bed in the morning."

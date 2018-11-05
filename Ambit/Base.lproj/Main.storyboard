@@ -265,7 +265,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyO-df-Dcp" customClass="SpringView" customModule="Spring">
-                                        <rect key="frame" x="0.0" y="720" width="375" height="65"/>
+                                        <rect key="frame" x="0.0" y="662" width="375" height="65"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XI3-m5-aV2">
                                                 <rect key="frame" x="18" y="3.6666666666666288" width="339" height="58"/>
@@ -445,7 +445,7 @@
                                     <constraint firstAttribute="trailing" secondItem="bO5-WW-lOr" secondAttribute="trailing" constant="16" id="aNI-7c-Ei4"/>
                                     <constraint firstAttribute="bottom" secondItem="iOK-hN-4Rw" secondAttribute="bottom" constant="100" id="b2P-ab-2fl"/>
                                     <constraint firstItem="aQQ-x6-3FX" firstAttribute="leading" secondItem="ts5-q6-8y3" secondAttribute="leading" id="bwH-CC-R0F"/>
-                                    <constraint firstItem="oyO-df-Dcp" firstAttribute="bottom" secondItem="ts5-q6-8y3" secondAttribute="bottom" constant="-27" id="l7P-oQ-JkT"/>
+                                    <constraint firstItem="oyO-df-Dcp" firstAttribute="bottom" secondItem="ts5-q6-8y3" secondAttribute="bottom" constant="-85" id="l7P-oQ-JkT"/>
                                     <constraint firstItem="iOK-hN-4Rw" firstAttribute="top" secondItem="ts5-q6-8y3" secondAttribute="top" id="mq4-Cc-iAm"/>
                                     <constraint firstItem="bO5-WW-lOr" firstAttribute="bottom" secondItem="48j-7j-6L0" secondAttribute="top" constant="10" id="mqS-0c-PNO"/>
                                     <constraint firstItem="48j-7j-6L0" firstAttribute="bottom" secondItem="Slu-9T-Nev" secondAttribute="bottom" constant="29" id="mt0-c6-pCn"/>
@@ -1229,7 +1229,7 @@
                                         <rect key="frame" x="0.0" y="848" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bXN-r7-T7h" id="pMU-ye-Q9B">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="67.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="67.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Credits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU9-Rp-RXc" userLabel="Hue Bridge">
@@ -1248,7 +1248,7 @@
                                         <rect key="frame" x="0.0" y="916" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BKC-1G-mI4" id="PEA-qg-HF2">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="67.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="67.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szd-Du-skD" userLabel="Hue Bridge">
@@ -1267,7 +1267,7 @@
                                         <rect key="frame" x="0.0" y="984" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L4J-nw-ZpU" id="Edp-fw-RV6">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="67.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="67.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Light Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fc0-gg-wQx" userLabel="Hue Bridge">
@@ -1293,7 +1293,7 @@
                                         <rect key="frame" x="0.0" y="1052" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TDG-Mb-tkB" id="buv-xy-INa">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="67.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="67.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bedtime Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJL-Py-rTT">

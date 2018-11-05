@@ -17,6 +17,7 @@ import AVKit
 import StoreKit
 import CoreLocation
 import Intents
+import GoogleMobileAds
 
 enum BackroundType: String {
     case animation = "Color Animation"
@@ -84,6 +85,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
     var currentBackroundType = BackroundType(rawValue: UserDefaults.standard.string(forKey: AmbitConstants.BackroundType) ?? "animation")
     let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
+    
+    var bannerView: GADBannerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +105,12 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         askForLocationPermissions()
+        
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        bannerView.adUnitID = AmbitConstants.ADMobTestUnitID
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        addBannerViewToView(bannerView)
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dimViewFadeGesture))
         self.view.addGestureRecognizer(panGesture)
@@ -154,6 +163,27 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
             //An external screen is available. Get the first screen available
             self.initializeExternalScreen(externalScreen: screens[1] as UIScreen)
         }
+    }
+    
+    private func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
     
     private func playVideo(from file:String) {
