@@ -85,6 +85,7 @@
 		B85461FA218160DD0058D7DA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85461F8218160DD0058D7DA /* MainInterface.storyboard */; };
 		B85461FE218160DD0058D7DA /* AmbitIntentsUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B85461F2218160DD0058D7DA /* AmbitIntentsUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B8546201218160DD0058D7DA /* AmbitIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B85461E9218160DC0058D7DA /* AmbitIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B86DFADE218FC65C006027DE /* twinkle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = B86DFADD218FC65C006027DE /* twinkle.aiff */; };
 		B8861356217D6388007CDD0D /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8861355217D6388007CDD0D /* RemindersViewController.swift */; };
 		B8861358217D7CCC007CDD0D /* new_4k.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B8861357217D7CCC007CDD0D /* new_4k.mp4 */; };
 		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
@@ -308,6 +309,7 @@
 		B85461F6218160DD0058D7DA /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
 		B85461F9218160DD0058D7DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B85461FB218160DD0058D7DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B86DFADD218FC65C006027DE /* twinkle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = twinkle.aiff; sourceTree = "<group>"; };
 		B8861355217D6388007CDD0D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		B8861357217D7CCC007CDD0D /* new_4k.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_4k.mp4; sourceTree = "<group>"; };
 		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				948BB9AE1E47848E00185831 /* Alarms */,
 				948BB9A81E46E2FA00185831 /* bell.mp3 */,
 				948BB9A91E46E2FA00185831 /* tickle.mp3 */,
+				B86DFADD218FC65C006027DE /* twinkle.aiff */,
 				B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */,
 				B8A8C2282000B2D100483407 /* party.mp3 */,
 				947D75461E41AA8000B69286 /* thunderstorm.mp3 */,
@@ -1130,6 +1133,7 @@
 				B8D3DE89217C4DDB00DA213B /* GoogleService-Info.plist in Resources */,
 				B80E07CD20C9EBD800896861 /* Assets.xcassets in Resources */,
 				948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */,
+				B86DFADE218FC65C006027DE /* twinkle.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

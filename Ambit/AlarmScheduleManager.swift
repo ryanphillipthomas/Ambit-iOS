@@ -68,6 +68,8 @@ class AlarmScheduleManager: NSObject {
         content.body = "Bed Time! Go to sleep now to get some good rest."
         content.userInfo = ["content-available":"1"]
         content.categoryIdentifier = "BEDTIMENOTIFICATION"
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: AmbitConstants.CurrentBedtimeSoundName))
+        
 //        content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
         
         let calendar = Calendar(identifier: .gregorian)

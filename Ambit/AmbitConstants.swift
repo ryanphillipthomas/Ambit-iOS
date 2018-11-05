@@ -46,7 +46,8 @@ struct AmbitConstants {
     static let AlarmSoundsLightingSettingSceneName = "AlarmSoundsLightingSettingSceneName" //Scene Name for Alarm Sounds
     static let CurrentAlarmSoundName = "CurrentAlarmSoundName" // current setting for alarm sound
 
-    
+    static let CurrentBedtimeSoundName = "twinkle.aiff" // current setting for alarm sound
+
     static let CurrentCustomMediaAlarmSoundName = "CurrentCustomMediaAlarmSoundName" // current setting for custom media sound
     static let CurrentCustomMediaAlarmSoundURL = "CurrentCustomMediaAlarmSoundURL" // current setting for custom media url
     static let CurrentCustomMediaAlarmSoundID = "CurrentCustomMediaAlarmSoundID" // current setting for custom media id

@@ -15,6 +15,13 @@ class BedtimeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let dateString = UserDefaults.standard.string(forKey: AmbitConstants.CurrentBedTimeDate)
+        let df = DateFormatter()
+        df.dateFormat = "h:mm a"
+        if let string = dateString, let date = df.date(from: string) {
+            timePicker.setDate(date, animated: false)
+        }
+
         timePicker.setValue(UIColor.white, forKeyPath: "textColor")
         
         if (!UIAccessibility.isReduceTransparencyEnabled) {
