@@ -80,7 +80,6 @@ class AlarmScheduleManager: NSObject {
         let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
         let request = UNNotificationRequest.init(identifier: id, content: content, trigger: trigger)
         let center = UNUserNotificationCenter.current()
-        
         center.add(request) { (error) in
             if let theError = error {
                 print("Uh oh! We had an error: \(error)")

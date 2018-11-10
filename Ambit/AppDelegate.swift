@@ -183,14 +183,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(center: UNUserNotificationCenter, didReceiveNotificationResponse response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
         print("didReceiveNotificationResponse")
-       
-        AlarmScheduleManager.sharedManager.clearAllAlarms()
+    
     }
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        AlarmScheduleManager.sharedManager.clearAllAlarms()
         
         let application = UIApplication.shared
         if application.applicationState != .active { // Only address notifications received when not active

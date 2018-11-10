@@ -760,6 +760,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
 
 
     func addAlarmFromTimePicker(date:Date? = nil) {
+        //clear out any pending alarms
+        AlarmScheduleManager.sharedManager.clearAllAlarms()
+        
         //create new alarm attributes
         let id = UUID().uuidString
         var fireDate = timePicker.date
