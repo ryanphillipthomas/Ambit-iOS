@@ -792,8 +792,11 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         }
         
         //start deep sleep
-        let mp = MMPDeepSleepPreventer()
-        mp.startPreventSleep()
+        let shouldDeepSleep = UserDefaults.standard.bool(forKey: AmbitConstants.DeepSleepActiveSetting)
+        if shouldDeepSleep {
+            let mp = MMPDeepSleepPreventer()
+            mp.startPreventSleep()
+        }
 
 //        //get the apple watch to vibrate
         scheduleLocalNotifications(scheduleAlarm: scheduleAlarm)

@@ -77,7 +77,7 @@ class PreferencesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 6
+        return 7
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -97,6 +97,8 @@ class PreferencesTableViewController: UITableViewController {
             UserDefaults.standard.set(true, forKey: AmbitConstants.RecorderActiveSetting) //setObject
         case 5:
             UserDefaults.standard.set(true, forKey: AmbitConstants.RemindersActiveSetting)
+        case 6:
+            UserDefaults.standard.set(true, forKey: AmbitConstants.DeepSleepActiveSetting)
         default:
             break
         }
@@ -119,6 +121,8 @@ class PreferencesTableViewController: UITableViewController {
             UserDefaults.standard.set(false, forKey: AmbitConstants.RecorderActiveSetting) //setObject
         case 5:
             UserDefaults.standard.set(false, forKey: AmbitConstants.RemindersActiveSetting)
+        case 6:
+            UserDefaults.standard.set(false, forKey: AmbitConstants.DeepSleepActiveSetting)
         default:
             break
         }
@@ -153,6 +157,10 @@ class PreferencesTableViewController: UITableViewController {
         case 5:
             let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.RemindersActiveSetting)
             cell.title?.text = "Display Reminders"
+            cell.setSelected(selectedSetting, animated: false) //setObject
+        case 6:
+            let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.DeepSleepActiveSetting)
+            cell.title?.text = "Enable Deep Sleep"
             cell.setSelected(selectedSetting, animated: false) //setObject
         default:
             break

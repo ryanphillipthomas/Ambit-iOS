@@ -40,6 +40,7 @@ struct AmbitConstants {
     static let WeatherActiveSetting = "WeatherActiveSetting" //true or false for should run weather
     static let HealthActiveSetting = "HealthActiveSetting" //true or false for should run health
     static let RemindersActiveSetting = "RemindersActiveSetting" //true or false for should run reminders
+    static let DeepSleepActiveSetting = "DeepSleepActiveSetting" //true or false for should run reminders
 
     
     static let AlarmSoundsLightingSetting = "AlarmSoundsLightingSetting" //true or false for should run alarm lighting
