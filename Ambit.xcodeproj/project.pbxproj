@@ -333,9 +333,9 @@
 		B86DFB0421900838006027DE /* SupportCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportCode.h; sourceTree = "<group>"; };
 		B8861355217D6388007CDD0D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		B8861357217D7CCC007CDD0D /* new_4k.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_4k.mp4; sourceTree = "<group>"; };
-		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
-		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
-		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
+		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
+		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
+		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
 		B8A8C2282000B2D100483407 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = party.mp3; path = ../party.mp3; sourceTree = "<group>"; };
 		B8C1817F2173CF9B00FE60D6 /* BridgeLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeLoadingViewController.swift; sourceTree = "<group>"; };
 		B8D3DE6C217C4C1400DA213B /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
@@ -807,7 +807,8 @@
 				B8A72EB920C642C000BB107D /* ManagedObject.swift */,
 				B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */,
 			);
-			path = RTCoreData;
+			name = RTCoreData;
+			path = Frameworks/RTCoreData;
 			sourceTree = "<group>";
 		};
 		B8D3DE67217C4B4D00DA213B /* Weather Today */ = {
@@ -1270,7 +1271,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Ambit/Pods-Ambit-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Ambit/Pods-Ambit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AudioPlayerSwift/AudioPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -1289,7 +1290,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ambit/Pods-Ambit-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ambit/Pods-Ambit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
