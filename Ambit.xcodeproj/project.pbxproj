@@ -332,7 +332,7 @@
 		B86DFB0321900837006027DE /* SupportCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportCodes.swift; sourceTree = "<group>"; };
 		B86DFB0421900838006027DE /* SupportCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportCode.h; sourceTree = "<group>"; };
 		B8861355217D6388007CDD0D /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
-		B8861357217D7CCC007CDD0D /* new_4k.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_4k.mp4; sourceTree = "<group>"; };
+		B8861357217D7CCC007CDD0D /* new_4k.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = new_4k.mp4; path = ../new_4k.mp4; sourceTree = "<group>"; };
 		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
 		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
 		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
