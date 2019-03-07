@@ -78,7 +78,7 @@
 		B80E07CD20C9EBD800896861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B95EAF1DFB735400B03661 /* Assets.xcassets */; };
 		B81AE1A0218FACBA00A8AA54 /* BedtimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81AE19F218FACBA00A8AA54 /* BedtimeTableViewController.swift */; };
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
-		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
+		B81BB5101FFAF37400E2D8B3 /* thunderstorm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm.mp3 */; };
 		B85461EC218160DD0058D7DA /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85461EB218160DD0058D7DA /* IntentHandler.swift */; };
 		B85461F4218160DD0058D7DA /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85461F3218160DD0058D7DA /* IntentsUI.framework */; };
 		B85461F7218160DD0058D7DA /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85461F6218160DD0058D7DA /* IntentViewController.swift */; };
@@ -315,7 +315,7 @@
 		B80E07A720C885C800896861 /* Ambit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ambit.entitlements; sourceTree = "<group>"; };
 		B81AE19F218FACBA00A8AA54 /* BedtimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeTableViewController.swift; sourceTree = "<group>"; };
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
-		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
+		B81BB50F1FFAF37400E2D8B3 /* thunderstorm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm.mp3; sourceTree = SOURCE_ROOT; };
 		B85461E9218160DC0058D7DA /* AmbitIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AmbitIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85461EB218160DD0058D7DA /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		B85461ED218160DD0058D7DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -526,7 +526,7 @@
 				948BB9A81E46E2FA00185831 /* bell.mp3 */,
 				948BB9A91E46E2FA00185831 /* tickle.mp3 */,
 				B86DFADD218FC65C006027DE /* twinkle.aiff */,
-				B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */,
+				B81BB50F1FFAF37400E2D8B3 /* thunderstorm.mp3 */,
 				B8A8C2282000B2D100483407 /* party.mp3 */,
 				947D75461E41AA8000B69286 /* thunderstorm.mp3 */,
 				94A7A5FB1E40664E00A6D11D /* Utilities.swift */,
@@ -1159,7 +1159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74B95EB31DFB735400B03661 /* LaunchScreen.storyboard in Resources */,
-				B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */,
+				B81BB5101FFAF37400E2D8B3 /* thunderstorm.mp3 in Resources */,
 				947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */,
 				948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */,
 				941436931E479B6E004B3430 /* 500.jpg in Resources */,

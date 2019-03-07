@@ -45,7 +45,7 @@ class SleepSoundsTableViewController: UITableViewController {
         
         do {
             thunderstorm = try AudioPlayer(fileName: "thunderstorm.mp3")
-            thunderstorm_fireplace = try AudioPlayer(fileName: "thunderstorm_fireplace.mp3")
+            thunderstorm_fireplace = try AudioPlayer(fileName: "thunderstorm.mp3")
         }
         catch _ {
             // Error handling
