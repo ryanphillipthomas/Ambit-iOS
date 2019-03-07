@@ -30,6 +30,7 @@ class HueConnectionManager: NSObject {
         self.client?.enableLogging(true)
         self.notificationManager = PHNotificationManager.default()
         
+        
         /***************************************************
          The SDK will send the following notifications in response to events:
          

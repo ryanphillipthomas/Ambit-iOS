@@ -11,11 +11,14 @@ import AudioPlayer
 import MediaPlayer
 
 class SleepSoundsTableViewController: UITableViewController {
-    
+    weak var settingsPageViewController: SettingsPageViewController!
+
     var thunderstorm: AudioPlayer?
     var thunderstorm_fireplace: AudioPlayer?
     var currentSound: AudioPlayer?
     var selectedMediaItemSound: AudioPlayer?
+    
+    let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
 
     var selectedMediaItem: MPMediaItem?
     var mediaPicker: MPMediaPickerController?
@@ -61,15 +64,21 @@ class SleepSoundsTableViewController: UITableViewController {
         if let picker = mediaPicker {
             picker.allowsPickingMultipleItems = false
             picker.showsCloudItems = false
-            picker.showsItemsWithProtectedAssets = false
+            picker.showsItemsWithProtectedAssets = true
             picker.prompt = "Please Pick a Song"
             picker.delegate = self
             present(picker, animated: true, completion: nil)
         }
     }
     
+    func playFromMusicPlayerSelection(_ ids: [String]) {
+        applicationMusicPlayer.setQueue(with: ids)
+        applicationMusicPlayer.play()
+    }
+    
     func playFromMediaSelection(){
         do {
+            let mediaID = selectedMediaItem?.playbackStoreID
             let mediaUrl = selectedMediaItem?.value(forProperty: MPMediaItemPropertyAssetURL)
             let mediaTitle = selectedMediaItem?.value(forProperty: MPMediaItemPropertyTitle)
             if let url = mediaUrl as? URL {
@@ -80,7 +89,17 @@ class SleepSoundsTableViewController: UITableViewController {
                 UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentSleepSoundName) //setObject
                 currentSound?.currentTime = 0
                 currentSound?.play()
+            } else if (selectedMediaItem?.hasProtectedAsset)!, let mediaID = mediaID {
+                //asset is protected
+                //Must be played only via MPMusicPlayer
+                currentSound = selectedMediaItemSound
+                UserDefaults.standard.set(mediaID, forKey: AmbitConstants.CurrentCustomMediaSleepSoundID) //setObject
+                UserDefaults.standard.set(nil, forKey: AmbitConstants.CurrentCustomMediaSleepSoundURL) //setObject
+                UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentCustomMediaSleepSoundName) //setObject
+                UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentSleepSoundName) //setObject
+                playFromMusicPlayerSelection([mediaID])
             }
+
         }
         catch _ {
             // Error handling
@@ -89,13 +108,19 @@ class SleepSoundsTableViewController: UITableViewController {
     }
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
-        })
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         currentSound?.fadeOut()
+        applicationMusicPlayer.stop()
     }
 
     override func didReceiveMemoryWarning() {
@@ -139,7 +164,7 @@ class SleepSoundsTableViewController: UITableViewController {
         currentSound?.currentTime = 0
         currentSound?.play()
         
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        self.tableView.reloadData()
     }
     
     
@@ -148,10 +173,12 @@ class SleepSoundsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let soundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentSleepSoundName)
+        var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaSleepSoundName)
+
         let row = indexPath.row
         switch row {
         case 0:
-            var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaSleepSoundName)
             if customMediaSoundName == nil {
                 customMediaSoundName = "Select A Song"
             }
@@ -160,16 +187,34 @@ class SleepSoundsTableViewController: UITableViewController {
             detailCell.title?.text = "Your iTunes Song"
             detailCell.detail?.text = customMediaSoundName
             detailCell.selectionStyle = .none // to prevent cells from being "highlighted"
+            detailCell.accessoryType = .none
+            detailCell.tintColor = UIColor.white
+            detailCell.accessoryType = .none
+
+            if soundName == customMediaSoundName {
+                detailCell.accessoryType = .checkmark
+            }
+            
             return detailCell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Thunderstorm"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Thunderstorm" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Thunderstorm Fireplace"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Thunderstorm Fireplace" {
+                cell.accessoryType = .checkmark
+            }
             return cell
         default:
             break

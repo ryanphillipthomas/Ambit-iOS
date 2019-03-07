@@ -6,7 +6,10 @@
     pod 'Crashlytics', '3.8.0'
     pod 'AudioPlayerSwift'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'master'
-    pod 'GLTimeline'
+    pod 'Alamofire', '~> 4.4'
+    pod 'Firebase'
+    pod 'Firebase/Database'
+    pod 'Google-Mobile-Ads-SDK'
   end
 
 target 'Ambit' do
@@ -16,15 +19,4 @@ target 'Ambit' do
   # Pods for Ambit
   shared_pods
 
-  target 'AmbitTests' do
-      # Pods for testing
-    inherit! :search_paths
-    shared_pods
-  end
-
-  target 'AmbitUITests' do
-      # Pods for testing
-    inherit! :search_paths
-    shared_pods
-  end
 end

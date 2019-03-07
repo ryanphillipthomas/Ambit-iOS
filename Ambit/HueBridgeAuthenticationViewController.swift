@@ -30,7 +30,7 @@ class HueBridgeAuthenticationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func done(sender: UIButton) {
+    @IBAction func didSelectSkip(sender: UIButton) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     

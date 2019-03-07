@@ -8,14 +8,18 @@
 
 import UIKit
 import AudioPlayer
+import StoreKit
 import MediaPlayer
 
 class AlarmSoundsTableViewController: UITableViewController {
-    
+    weak var settingsPageViewController: SettingsPageViewController!
+
     var party: AudioPlayer?
     var tickle: AudioPlayer?
     var bell: AudioPlayer?
     var selectedMediaItemSound: AudioPlayer?
+    let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
+    
     var currentSound: AudioPlayer?
 
     var selectedMediaItem: MPMediaItem?
@@ -59,13 +63,19 @@ class AlarmSoundsTableViewController: UITableViewController {
     }
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
-        })
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         currentSound?.fadeOut()
+        applicationMusicPlayer.stop()
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,11 +99,22 @@ class AlarmSoundsTableViewController: UITableViewController {
         
         // Stop playing with a fade out
         currentSound?.stop()
+        applicationMusicPlayer.stop()
         
         let row = indexPath.row
         switch row {
         case 0:
             //itunes
+            let audioSession = AVAudioSession.sharedInstance()
+            do {
+                try audioSession.setCategory(.playback, mode: .default, policy: .default, options: .allowAirPlay)
+                
+                checkMusicStatus()
+            }
+            catch {
+                print("Setting category to AVAudioSessionCategoryPlayback failed.")
+            }
+            
             presentMediaPicker()
             return
         case 1:
@@ -111,12 +132,78 @@ class AlarmSoundsTableViewController: UITableViewController {
         
         currentSound?.currentTime = 0
         currentSound?.play()
+        self.tableView.reloadData()
+    }
+    
+    func checkMusicStatus() {
         
-        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        switch SKCloudServiceController.authorizationStatus() {
+            
+        case .authorized:
+            
+            print("The user's already authorized - we don't need to do anything more here, so we'll exit early.")
+            return
+            
+        case .denied:
+            
+            print("The user has selected 'Don't Allow' in the past - so we're going to show them a different dialog to push them through to their Settings page and change their mind, and exit the function early.")
+            
+            // Show an alert to guide users into the Settings
+            
+            return
+            
+        case .notDetermined:
+            
+            print("The user hasn't decided yet - so we'll break out of the switch and ask them.")
+            break
+            
+        case .restricted:
+            
+            print("User may be restricted; for example, if the device is in Education mode, it limits external Apple Music usage. This is similar behaviour to Denied.")
+            return
+            
+        }
+        
+        appleMusicRequestPermission()
+    }
+    
+    // Request permission from the user to access the Apple Music library
+    func appleMusicRequestPermission() {
+        
+        SKCloudServiceController.requestAuthorization { (status:SKCloudServiceAuthorizationStatus) in
+            
+            switch status {
+                
+            case .authorized:
+                
+                print("All good - the user tapped 'OK', so you're clear to move forward and start playing.")
+                
+            case .denied:
+                
+                print("The user tapped 'Don't allow'. Read on about that below...")
+                
+            case .notDetermined:
+                
+                print("The user hasn't decided or it's not clear whether they've confirmed or denied.")
+                
+            case .restricted:
+                
+                print("User may be restricted; for example, if the device is in Education mode, it limits external Apple Music usage. This is similar behaviour to Denied.")
+                
+            }
+            
+        }
+        
+    }
+    
+    func playFromMusicPlayerSelection(_ ids: [String]) {
+        applicationMusicPlayer.setQueue(with: ids)
+        applicationMusicPlayer.play()
     }
     
     func playFromMediaSelection(){
         do {
+            let mediaID = selectedMediaItem?.playbackStoreID
             let mediaUrl = selectedMediaItem?.value(forProperty: MPMediaItemPropertyAssetURL)
             let mediaTitle = selectedMediaItem?.value(forProperty: MPMediaItemPropertyTitle)
             if let url = mediaUrl as? URL {
@@ -127,6 +214,15 @@ class AlarmSoundsTableViewController: UITableViewController {
                 UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
                 currentSound?.currentTime = 0
                 currentSound?.play()
+            } else if (selectedMediaItem?.hasProtectedAsset)!, let mediaID = mediaID {
+                //asset is protected
+                //Must be played only via MPMusicPlayer
+                currentSound = selectedMediaItemSound
+                UserDefaults.standard.set(mediaID, forKey: AmbitConstants.CurrentCustomMediaAlarmSoundID) //setObject
+                UserDefaults.standard.set(nil, forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL) //setObject
+                UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentCustomMediaAlarmSoundName) //setObject
+                UserDefaults.standard.set(mediaTitle, forKey: AmbitConstants.CurrentAlarmSoundName) //setObject
+                playFromMusicPlayerSelection([mediaID])
             }
         }
         catch _ {
@@ -140,7 +236,7 @@ class AlarmSoundsTableViewController: UITableViewController {
         if let picker = mediaPicker {
             picker.allowsPickingMultipleItems = false
             picker.showsCloudItems = false
-            picker.showsItemsWithProtectedAssets = false
+            picker.showsItemsWithProtectedAssets = true
             picker.prompt = "Please Pick a Song"
             picker.delegate = self
             present(picker, animated: true, completion: nil)
@@ -153,11 +249,12 @@ class AlarmSoundsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let soundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentAlarmSoundName)
+        var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundName)
         
         let row = indexPath.row
         switch row {
         case 0:
-            var customMediaSoundName = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundName)
             if customMediaSoundName == nil {
                 customMediaSoundName = "Select A Song"
             }
@@ -166,21 +263,46 @@ class AlarmSoundsTableViewController: UITableViewController {
             detailCell.title?.text = "Your iTunes Song"
             detailCell.detail?.text = customMediaSoundName
             detailCell.selectionStyle = .none // to prevent cells from being "highlighted"
+            detailCell.accessoryType = .none
+            detailCell.tintColor = UIColor.white
+
+            if soundName == customMediaSoundName {
+                detailCell.accessoryType = .checkmark
+            }
+            
             return detailCell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Bell"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Bell" {
+                cell.accessoryType = .checkmark
+            }
+            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Party"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Party" {
+                cell.accessoryType = .checkmark
+            }
+            
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = "Tickle"
             cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+            
+            if soundName == "Tickle" {
+                cell.accessoryType = .checkmark
+            }
+            
             return cell
         default:
             break

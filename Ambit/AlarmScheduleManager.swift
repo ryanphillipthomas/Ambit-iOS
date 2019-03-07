@@ -19,16 +19,75 @@ class AlarmScheduleManager: NSObject {
     func clearAllNotifications() {
         let center = UNUserNotificationCenter.current()
         center.removeAllDeliveredNotifications()
-        center.removeAllPendingNotificationRequests()
+        center.removeAllPendingNotificationRequests() //might cause repeats to not work
     }
     
     func clearAllAlarms() {
         let center = UNUserNotificationCenter.current()
         center.removeAllDeliveredNotifications()
-        center.removeAllPendingNotificationRequests()
+        clearAllPendingAlarms()
         
         Alarm.currentAlarmID = nil
         //delete alarm objects
+    }
+    
+    func clearAllPendingAlarms() {
+        let center = UNUserNotificationCenter.current()
+        var removeIDs = [String]()
+
+        center.getPendingNotificationRequests { (categories) in
+            for notif in categories {
+                if notif.content.categoryIdentifier == "ALARMNOTIFICATION" {
+                    removeIDs.append(notif.identifier)
+                }
+            }
+            
+            center.removePendingNotificationRequests(withIdentifiers: removeIDs)
+        }
+    }
+    
+    func clearAllBedtimeAlarms() {
+        let center = UNUserNotificationCenter.current()
+        var removeIDs = [String]()
+        
+        center.getPendingNotificationRequests { (categories) in
+            for notif in categories {
+                if notif.content.categoryIdentifier == "BEDTIMENOTIFICATION" {
+                    removeIDs.append(notif.identifier)
+                }
+            }
+            
+            center.removePendingNotificationRequests(withIdentifiers: removeIDs)
+        }
+    }
+    
+    func scheduleBedtimeNotification(fireDate : Date, interval : TimeInterval) {
+        let id = UUID.init().uuidString
+        let content = UNMutableNotificationContent()
+        //content.title = ""
+        content.body = "Bed Time! Go to sleep now to get some good rest."
+        content.userInfo = ["content-available":"1"]
+        content.categoryIdentifier = "BEDTIMENOTIFICATION"
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: AmbitConstants.CurrentBedtimeSoundName))
+        
+//        content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let dateInTimeInterval = Date.init(timeInterval: interval, since: fireDate)
+        let components = calendar.dateComponents(in: .current, from: dateInTimeInterval)
+        let newComponents = DateComponents(calendar: calendar, hour: components.hour, minute: components.minute, second: components.second)
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
+        let request = UNNotificationRequest.init(identifier: id, content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            if let theError = error {
+                print("Uh oh! We had an error: \(error)")
+            } else {
+                print(request)
+            }
+        }
+
     }
     
     func scheduleAlarmNotification(alarm : Alarm? = nil, overrideDate : Date? = nil, interval : TimeInterval) {
@@ -47,7 +106,7 @@ class AlarmScheduleManager: NSObject {
             content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: file))
         }
         content.userInfo = ["content-available":"1"]
-  //      content.categoryIdentifier = "ALARMNOTIFICATION"
+        content.categoryIdentifier = "ALARMNOTIFICATION"
     //    content.setValue("YES", forKeyPath: "shouldAlwaysAlertWhileAppIsForeground")
         
         // Add Image to Notification

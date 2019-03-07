@@ -9,7 +9,8 @@
 import UIKit
 
 class PreferencesTableViewController: UITableViewController {
-    
+    weak var settingsPageViewController: SettingsPageViewController!
+
     var isSelected: Bool = false
 
     override func viewDidLoad() {
@@ -44,9 +45,14 @@ class PreferencesTableViewController: UITableViewController {
     }
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
-        })
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,7 +77,7 @@ class PreferencesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 7
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -87,6 +93,12 @@ class PreferencesTableViewController: UITableViewController {
             UserDefaults.standard.set(true, forKey: AmbitConstants.AlarmSoundsLightingSetting) //setObject
         case 3:
             UserDefaults.standard.set(true, forKey: AmbitConstants.SleepSoundsLightingSetting) //setObject
+        case 4:
+            UserDefaults.standard.set(true, forKey: AmbitConstants.RecorderActiveSetting) //setObject
+        case 5:
+            UserDefaults.standard.set(true, forKey: AmbitConstants.RemindersActiveSetting)
+        case 6:
+            UserDefaults.standard.set(true, forKey: AmbitConstants.DeepSleepActiveSetting)
         default:
             break
         }
@@ -105,6 +117,12 @@ class PreferencesTableViewController: UITableViewController {
             UserDefaults.standard.set(false, forKey: AmbitConstants.AlarmSoundsLightingSetting) //setObject
         case 3:
             UserDefaults.standard.set(false, forKey: AmbitConstants.SleepSoundsLightingSetting) //setObject
+        case 4:
+            UserDefaults.standard.set(false, forKey: AmbitConstants.RecorderActiveSetting) //setObject
+        case 5:
+            UserDefaults.standard.set(false, forKey: AmbitConstants.RemindersActiveSetting)
+        case 6:
+            UserDefaults.standard.set(false, forKey: AmbitConstants.DeepSleepActiveSetting)
         default:
             break
         }
@@ -131,6 +149,18 @@ class PreferencesTableViewController: UITableViewController {
         case 3:
             let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.SleepSoundsLightingSetting)
             cell.title?.text = "Sleep Sounds Lights"
+            cell.setSelected(selectedSetting, animated: false) //setObject
+        case 4:
+            let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.RecorderActiveSetting)
+            cell.title?.text = "Microphone Detection"
+            cell.setSelected(selectedSetting, animated: false) //setObject
+        case 5:
+            let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.RemindersActiveSetting)
+            cell.title?.text = "Display Reminders"
+            cell.setSelected(selectedSetting, animated: false) //setObject
+        case 6:
+            let selectedSetting = UserDefaults.standard.bool(forKey: AmbitConstants.DeepSleepActiveSetting)
+            cell.title?.text = "Enable Deep Sleep"
             cell.setSelected(selectedSetting, animated: false) //setObject
         default:
             break

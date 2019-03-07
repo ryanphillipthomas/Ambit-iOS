@@ -9,6 +9,8 @@
 import UIKit
 //ActiveLightGroupingSettings
 class LightsTableViewController: UITableViewController {
+    weak var settingsPageViewController: SettingsPageViewController!
+
     var selections : NSMutableArray = []
     var lights : NSArray = []
     
@@ -74,9 +76,14 @@ class LightsTableViewController: UITableViewController {
     
     @IBAction func didSelectDoneButton(_ sender: Any) {
         LightsHelper.saveLightSettings(selections: selections, lights: lights)
-        self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
-        })
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
     }
     // MARK: - Table view data source
     

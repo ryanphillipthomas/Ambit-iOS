@@ -17,6 +17,10 @@ struct AmbitConstants {
         static let ampmArray = ["AM","PM"]
     }
     
+    static let UpdateBackround = "didUpdateBackroundSetting" // toggle status bar
+
+    static let ToggleStatusBar = "didToggleStatusBar" // toggle status bar
+    
     static let CurrentVolumeLevelName = "CurrentVolumeLevelName" // current setting for volume level
     static let CurrentLightSceneName = "CurrentLightSceneName" //current running light scene name
     static let CurrentHueBridgeName = "CurrentHueBridgeName" //hue bridgh ip address
@@ -27,28 +31,50 @@ struct AmbitConstants {
     static let VibrateWithAlarmSetting = "VibrateWithAlarmSetting" //true or false for should vibrate device
     static let ProgressiveAlarmVolumeSetting = "ProgressiveAlarmVolumeSetting" //true or false for should fade in volume
     
+    static let CurrentBedTimeDate = "CurrentBedTimeDate" // current setting for sleep sound
     static let CurrentSleepSoundName = "CurrentSleepSoundName" // current setting for sleep sound
     static let SleepSoundsLightingSetting = "SleepSoundsLightingSetting" //true or false for should run sleep lighting
     static let SleepSoundsLightingSettingSceneName = "SleepSoundsLightingSettingSceneName" //Scene Name for Sleep Sounds
+    static let RecorderActiveSetting = "RecorderActiveSetting" //true or false for should run recorder
+
+    static let WeatherActiveSetting = "WeatherActiveSetting" //true or false for should run weather
+    static let HealthActiveSetting = "HealthActiveSetting" //true or false for should run health
+    static let RemindersActiveSetting = "RemindersActiveSetting" //true or false for should run reminders
+    static let DeepSleepActiveSetting = "DeepSleepActiveSetting" //true or false for should run reminders
+
     
     static let AlarmSoundsLightingSetting = "AlarmSoundsLightingSetting" //true or false for should run alarm lighting
     static let AlarmSoundsLightingSettingSceneName = "AlarmSoundsLightingSettingSceneName" //Scene Name for Alarm Sounds
     static let CurrentAlarmSoundName = "CurrentAlarmSoundName" // current setting for alarm sound
-    
+
+    static let CurrentBedtimeSoundName = "twinkle.aiff" // current setting for alarm sound
+
     static let CurrentCustomMediaAlarmSoundName = "CurrentCustomMediaAlarmSoundName" // current setting for custom media sound
     static let CurrentCustomMediaAlarmSoundURL = "CurrentCustomMediaAlarmSoundURL" // current setting for custom media url
+    static let CurrentCustomMediaAlarmSoundID = "CurrentCustomMediaAlarmSoundID" // current setting for custom media id
+
     static let CurrentCustomMediaSleepSoundName = "CurrentCustomMediaSleepSoundName" // current setting for custom media sound
     static let CurrentCustomMediaSleepSoundURL = "CurrentCustomMediaSleepSoundURL" // current setting for custom media url
-    
+    static let CurrentCustomMediaSleepSoundID = "CurrentCustomMediaSleepSoundID" // current setting for custom media id
+
     static let ActiveLightGroupingSettings = "ActiveLightGroupingSettings" //lights we can alter with effects
     
+    static let BackroundType = "BackroundType"
+    static let BackroundImageTitle = "BackroundImageTitle"
+    
+    static let CreatAlarmIntent = "com.ryanphillipthomas.Ambit.create-alarm"
+    
+    static let ADMobTestUnitID = "ca-app-pub-3940256099942544/2934735716"
+    static let ADMobAmbitProductionMainBannerUnitID = "ca-app-pub-7709307289379889/6396678422"
+    static let ADMobAmbitProductionID = "ca-app-pub-7709307289379889~3474716208"
+
+
     struct quotes {
         static let quote_1 = "Set a goal that makes you want to jump out of bed in the morning."
-        static let quote_2 = "I opened two gifts this morning. They were my eyes."
+        static let quote_2 = "Yesterday is gone, tomorrow is a mystery, today is a blessing."
         static let quote_3 = "Everyday may not be good, but there is something good in every day"
         static let quote_4 = "You don’t have to be great to start, but you have to start to be great"
-        static let quote_5 = "I really need new clothes.. is me every morning."
-        
+        static let quote_5 = "You will never have this day again so make it count!"
         static let quotesArray = [quote_1, quote_2, quote_3, quote_4, quote_5]
     }
 

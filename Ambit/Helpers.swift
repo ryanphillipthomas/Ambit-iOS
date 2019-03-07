@@ -219,7 +219,7 @@ class StringHelper{
     class func nextAlarmString(alarmDate : Date) -> String {
         let alarmHour = StringHelper.hour(date: alarmDate)
         let alarmMinute = StringHelper.minute(date: alarmDate)
-        let alarm_am_pm = StringHelper.am_pm(date: alarmDate)
+        let alarm_am_pm = StringHelper.am_pm(date: alarmDate).uppercased()
         
 //      let calendar = Calendar.current
 //      let endDate = calendar.date(byAdding: .minute, value: 15, to: alarmDate)
@@ -398,7 +398,7 @@ class LoaderHelper {
     static let activityIndicator = UIActivityIndicatorView(frame: CGRect.zero)
     class func showLoader(inView: UIView, userInteractionEnabled: Bool, style: UIActivityIndicatorView.Style){
         activityIndicator.center = inView.center
-        activityIndicator.activityIndicatorViewStyle = style
+        activityIndicator.style = style
         activityIndicator.startAnimating()
         inView.addSubview(activityIndicator)
         inView.isUserInteractionEnabled = userInteractionEnabled

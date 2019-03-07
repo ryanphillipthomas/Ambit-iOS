@@ -3,3 +3,5 @@
 //
 
 #import <HueSDK_iOS/HueSDK.h>
+#import "MMPDeepSleepPreventer.h"
+

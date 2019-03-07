@@ -12,12 +12,17 @@ import UserNotifications
 import AudioPlayer
 import AVFoundation
 import MediaPlayer
+import Firebase
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     var context:NSManagedObjectContext!
+    
+    let applicationMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
     var currentSound: AudioPlayer?
+    
     var audioPlayer : AVAudioPlayer!
     var audioPlayerVolume : Float!
     
@@ -33,18 +38,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // Override point for customization after application launch.
+        //Setup Support Code
+        SupportCodeConfiguration.setup(codes: [SupportCodes.Purchased_SupportCode,
+                                               SupportCodes.Not_Purchased_SupportCode,
+                                               SupportCodes.Production_SupportCode])
+
+        //Setup Google Ads
+        GADMobileAds.configure(withApplicationID: AmbitConstants.ADMobAmbitProductionID)
+        
+        //Setup Core Data
         let mainContext = createMainContext(modelStoreName: "Model", bundles: nil)
         context = mainContext
+        RootHelper.setMOCController(window: window, moc: self.context)
         
+        //Setup Hue
         HueConnectionManager.sharedManager.startUp()
         
+        //Setup Nav Bar
         AppearanceHelper.addTransparentNavigationBar()
-        
-        RootHelper.setMOCController(window: window, moc: self.context)
         
         // Set up and activate your session early here!
         WatchSessionManager.sharedManager.startSession()
+        
+        //Register Defaults
+        registerApplicationDefaults()
+        
+        FirebaseApp.configure()
         
         let center = UNUserNotificationCenter.current()
         center.delegate = self
@@ -64,26 +83,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
 //        play()
         
+        
+        return true
+    }
+    
+    func registerApplicationDefaults() {
         //initalize app defaults
-        let defaults = [AmbitConstants.CurrentAlarmSoundName : "Party",
+        let defaults = [
+            AmbitConstants.DeepSleepActiveSetting : false,
+            AmbitConstants.RemindersActiveSetting : true,
+            AmbitConstants.BackroundImageTitle : "1",
+            AmbitConstants.HealthActiveSetting : false,
+            AmbitConstants.WeatherActiveSetting : false,
+                AmbitConstants.BackroundType : BackroundType.animation.rawValue,
+                AmbitConstants.CurrentAlarmSoundName : "Party",
                         AmbitConstants.CurrentSleepSoundName : "Thunderstorm",
                         AmbitConstants.CurrentVolumeLevelName : 100.0,
                         AmbitConstants.CurrentHueBridgeName : "Select Bridge",
                         AmbitConstants.CurrentLightSceneName : "Select Scene",
                         AmbitConstants.VibrateWithAlarmSetting : false,
                         AmbitConstants.ProgressiveAlarmVolumeSetting : false,
+                        AmbitConstants.RecorderActiveSetting : false,
                         AmbitConstants.DefaultSnoozeLength : 60*15, //15 min
-                        AmbitConstants.DefaultSleepSoundsLength : 60*30, //30min
-                        AmbitConstants.AlarmSoundsLightingSetting : true,
-                        AmbitConstants.SleepSoundsLightingSetting : true,
-                        AmbitConstants.AlarmSoundsLightingSettingSceneName : "Select Scene",
-                        AmbitConstants.SleepSoundsLightingSettingSceneName : "Select Scene",
-                        AmbitConstants.CurrentCustomMediaAlarmSoundName : "Select A Song",
-                        AmbitConstants.CurrentCustomMediaSleepSoundName : "Select A Song"] as [String : Any]
-
-        UserDefaults.standard.register(defaults: defaults)
+            AmbitConstants.DefaultSleepSoundsLength : 60*30, //30min
+            AmbitConstants.AlarmSoundsLightingSetting : true,
+            AmbitConstants.SleepSoundsLightingSetting : true,
+            AmbitConstants.AlarmSoundsLightingSettingSceneName : "Select Scene",
+            AmbitConstants.SleepSoundsLightingSettingSceneName : "Select Scene",
+            AmbitConstants.CurrentCustomMediaAlarmSoundName : "Select A Song",
+            AmbitConstants.CurrentCustomMediaSleepSoundName : "Select A Song"] as [String : Any]
         
-        return true
+        UserDefaults.standard.register(defaults: defaults)
     }
     
     func appBackrounding() {
@@ -94,6 +124,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if (self.backgroundUpdateTask != UIBackgroundTaskIdentifier.invalid) {
             self.endBackgroundUpdateTask()
         }
+    }
+    
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity,
+                             restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        
+        if userActivity.activityType == AmbitConstants.CreatAlarmIntent {
+            if var topController = UIApplication.shared.keyWindow?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                
+                let top = topController as! ViewController
+                if let userInfo = userActivity.userInfo, let fireDate = userInfo["fireDate"] {
+                    top.timePicker.date = fireDate as! Date
+                    
+                }
+            }
+        }
+        
+        return true
     }
     
     @objc func keepAlive() {
@@ -108,7 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
     }
     
-    func isPlayingSound() -> Bool {
+    func isPlayingAlarmSound() -> Bool {
         if isPlayingOverride { return true }
         
         guard let currentSound = self.currentSound else { return false }
@@ -134,14 +184,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(center: UNUserNotificationCenter, didReceiveNotificationResponse response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
         print("didReceiveNotificationResponse")
-       
-        AlarmScheduleManager.sharedManager.clearAllNotifications()
+    
     }
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        AlarmScheduleManager.sharedManager.clearAllNotifications()
         
         let application = UIApplication.shared
         if application.applicationState != .active { // Only address notifications received when not active
@@ -161,7 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func play() {
         
-        if isPlayingSound() { return }
+        if isPlayingAlarmSound() { return }
         
         //get sound file name and load it up
         do {
@@ -170,8 +217,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if let file = soundFile {
                 currentSound = try AudioPlayer(fileName: file)
             } else {
-                let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL)
-                currentSound = try AudioPlayer(contentsOf: (customMediaSoundURL)!)
+                if let customMediaSoundURL = UserDefaults.standard.url(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundURL) {
+                    currentSound = try AudioPlayer(contentsOf: (customMediaSoundURL))
+                } else if let mediaID = UserDefaults.standard.string(forKey: AmbitConstants.CurrentCustomMediaAlarmSoundID) {
+                    // attept to play protected media asset
+                    applicationMusicPlayer.setQueue(with: [mediaID])
+                }
             }
         }
         catch _ {
@@ -235,15 +286,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         currentSound?.volume = 100.0
         currentSound?.play()
         
+        if currentSound == nil {
+            applicationMusicPlayer.play()
+        }
+        
+        
         isPlayingOverride = true
         
-        //stop recording
-        RecorderManager.sharedManager.stopRecording()
+        //stop recording dev todo might never stop
+        let shouldRecord = UserDefaults.standard.bool(forKey: AmbitConstants.RecorderActiveSetting)
+        if shouldRecord {
+            RecorderManager.sharedManager.stopRecording()
+        }
+        
+        //stop deep sleep
+        let mp = MMPDeepSleepPreventer()
+        mp.stopPreventSleep()
     }
     
     func stopCurrentSound() {
         currentSound?.fadeOut()
         currentSound?.stop()
+        
+        if currentSound == nil {
+            applicationMusicPlayer.stop()
+        }
         
         isPlayingOverride = false
 
@@ -256,8 +323,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         AlarmScheduleManager.sharedManager.clearAllAlarms()
         
-        //stop recording
+        //stop recording dev todo might never stop
+        let shouldRecord = UserDefaults.standard.bool(forKey: AmbitConstants.RecorderActiveSetting)
+        if shouldRecord {
         RecorderManager.sharedManager.stopRecording()
+        }
+        
+        //stop deep sleep
+        let mp = MMPDeepSleepPreventer()
+        mp.stopPreventSleep()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -269,11 +343,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func endBackgroundUpdateTask() {
         UIApplication.shared.endBackgroundTask(self.backgroundUpdateTask)
         self.backgroundUpdateTask = UIBackgroundTaskIdentifier.invalid
-    }
-    
-    private func application(_ application: UIApplication, continue userActivity: NSUserActivity,
-                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

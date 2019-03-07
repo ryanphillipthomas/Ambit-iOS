@@ -41,6 +41,7 @@ struct GradientHandler {
         fromColors = self.gradientLayer.colors! as [AnyObject]
         gradientLayer.colors = toColors
         
+        #if os(iOS)
         CALayer.animateWithDuration(duration,
                                     animation: {
                                         animation = CABasicAnimation(keyPath: "colors")
@@ -50,7 +51,7 @@ struct GradientHandler {
                                         animation.fillMode = CAMediaTimingFillMode.forwards
                                         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
                                         gradientLayer.add(animation, forKey:"animateGradientColor")
-            },
+        },
                                     completion: {
                                         if indexToAdd == Colors.Gradient.animationColors.count - 1 {
                                             indexToAdd = 0
@@ -62,9 +63,60 @@ struct GradientHandler {
                                         toColors = tempColors
                                         
                                         animateLayerWithColor()
-            }
+        }
         )
+        #elseif os(watchOS)
+        CALayer.animateWithDuration(duration,
+                                    animation: {
+                                        animation = CABasicAnimation(keyPath: "colors")
+                                        animation.fromValue = fromColors
+                                        animation.toValue = toColors
+                                        animation.duration = duration
+                                        animation.fillMode = kCAFillModeForwards
+                                        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+                                        gradientLayer.add(animation, forKey:"animateGradientColor")
+        },
+                                    completion: {
+                                        if indexToAdd == Colors.Gradient.animationColors.count - 1 {
+                                            indexToAdd = 0
+                                        } else {
+                                            indexToAdd += 1
+                                        }
+                                        tempColors.remove(at: indexToRemove)
+                                        tempColors.append(Colors.Gradient.animationColors[indexToAdd])
+                                        toColors = tempColors
+                                        
+                                        animateLayerWithColor()
+        }
+        )
+        #elseif os(tvOS)
+        CALayer.animateWithDuration(duration,
+                                    animation: {
+                                        animation = CABasicAnimation(keyPath: "colors")
+                                        animation.fromValue = fromColors
+                                        animation.toValue = toColors
+                                        animation.duration = duration
+                                        animation.fillMode = kCAFillModeForwards
+                                        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+                                        gradientLayer.add(animation, forKey:"animateGradientColor")
+        },
+                                    completion: {
+                                        if indexToAdd == Colors.Gradient.animationColors.count - 1 {
+                                            indexToAdd = 0
+                                        } else {
+                                            indexToAdd += 1
+                                        }
+                                        tempColors.remove(at: indexToRemove)
+                                        tempColors.append(Colors.Gradient.animationColors[indexToAdd])
+                                        toColors = tempColors
+                                        
+                                        animateLayerWithColor()
+        }
+        )
+        #endif
     }
+    
+    
     
 }
 

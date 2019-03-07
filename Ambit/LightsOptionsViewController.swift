@@ -9,7 +9,8 @@
 import UIKit
 
 class LightsOptionsViewController: UIViewController {
-    
+    weak var settingsPageViewController: SettingsPageViewController!
+
     var timer = Timer()
 
     override func viewDidLoad() {
@@ -22,9 +23,14 @@ class LightsOptionsViewController: UIViewController {
     }
     
     @IBAction func didSelectDoneOptionButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"didToggleStatusBar"), object: false)
-        })
+        setPageViewControllerForIndex(0)
+    }
+    
+    func setPageViewControllerForIndex(_ index: Int) {
+        let direction: UIPageViewController.NavigationDirection = .reverse
+        let viewController = settingsPageViewController.orderedViewControllers[index]
+        let isAnimated = (viewController != settingsPageViewController.viewControllers?.first)
+        settingsPageViewController.setViewControllers([viewController], direction: direction, animated: isAnimated, completion: nil)
     }
     
     @IBAction func didSelectNightActionButton(_ sender: Any) {

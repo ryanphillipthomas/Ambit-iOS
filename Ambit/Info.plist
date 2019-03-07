@@ -20,17 +20,32 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>2</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>Choose a custom song to sleep or wake up to.</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>We need access to your calendar in order to help you track events.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Enables Ambit to read your health data to enable best sleep. </string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Enables Ambit to update your health data to enable best sleep. </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Enables Ambit to customize your experience based on your current location</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>The audio recorded by this app is stored securely and is not shared.
 </string>
 	<key>NSUserActivityTypes</key>
-	<array/>
+	<array>
+		<string>com.ryanphillipthomas.Ambit.create-alarm</string>
+	</array>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>
 	<key>UIBackgroundModes</key>
@@ -45,6 +60,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -58,6 +75,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>
