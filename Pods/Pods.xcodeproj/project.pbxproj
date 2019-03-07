@@ -823,7 +823,6 @@
 		0E546EE3DB2383BEDD7CCC38755BF3BA /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
 		0E6A2C934D23DBC6291D32A62ED80AE1 /* AudioPlayerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AudioPlayerSwift.xcconfig; sourceTree = "<group>"; };
 		0E70B839FAE5AF1C596FDFEE2FD9DCAF /* FCompleteChildSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FCompleteChildSource.h; path = Firebase/Database/Core/View/Filter/FCompleteChildSource.h; sourceTree = "<group>"; };
-		0FE6755FF211492FE46751E2585DC56A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		0FFF35DBA92B042EA938130B29F0DEA1 /* DesignableTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTextView.swift; path = Spring/DesignableTextView.swift; sourceTree = "<group>"; };
 		12464A1C4EA7B9CB983D5CA4D1999EBA /* merger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = merger.h; path = table/merger.h; sourceTree = "<group>"; };
 		131830D803819B734930178E00485CBB /* SpringImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpringImageView.swift; path = Spring/SpringImageView.swift; sourceTree = "<group>"; };
@@ -865,6 +864,7 @@
 		20278A7FBA2072DCAEB045C76EF224BE /* FIRTransactionResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRTransactionResult.m; path = Firebase/Database/Api/FIRTransactionResult.m; sourceTree = "<group>"; };
 		2027EC067EEB17F20793262A1F98D250 /* comparator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = comparator.h; path = include/leveldb/comparator.h; sourceTree = "<group>"; };
 		2033C643B1A0AAEDFED580F286327A14 /* FIRDependency.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRDependency.h; path = Firebase/Core/Private/FIRDependency.h; sourceTree = "<group>"; };
+		21541B94F88DF1901EBBD436FDF682A5 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		2178E5069C5994D1959BEA4142EAFB2A /* DesignableImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableImageView.swift; path = Spring/DesignableImageView.swift; sourceTree = "<group>"; };
 		21AB457A8CD820CA8C9CA681FB1347DB /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		21DB3E6871DB187FD2ED75C4EBA5E89E /* pb_common.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_common.c; sourceTree = "<group>"; };
@@ -1126,7 +1126,6 @@
 		8F75C89C39A5049A4784DAD053D34521 /* port_posix.cc */ = {isa = PBXFileReference; includeInIndex = 1; name = port_posix.cc; path = port/port_posix.cc; sourceTree = "<group>"; };
 		905364293499960A1488605BF1F9408E /* FRepoManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FRepoManager.m; path = Firebase/Database/Core/FRepoManager.m; sourceTree = "<group>"; };
 		90762CDEBBAFDB037D69121AD5BA5138 /* FIRComponentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRComponentType.h; path = Firebase/Core/Private/FIRComponentType.h; sourceTree = "<group>"; };
-		908D1AB91380E052F82789669704021C /* Google-Mobile-Ads-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Google-Mobile-Ads-SDK.xcconfig"; sourceTree = "<group>"; };
 		916EC1EC51C41F540002CD03C7660EB4 /* table_cache.cc */ = {isa = PBXFileReference; includeInIndex = 1; name = table_cache.cc; path = db/table_cache.cc; sourceTree = "<group>"; };
 		923B87CF3C30568B58F925FCB8C06A06 /* nanopb-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nanopb-prefix.pch"; sourceTree = "<group>"; };
 		92C52E656B8E660EFCC52C4E1C92526A /* Pods-Ambit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Ambit-frameworks.sh"; sourceTree = "<group>"; };
@@ -1174,6 +1173,7 @@
 		A77A884C9B1561026A2D96D371BEAD6A /* FTreeSortedDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FTreeSortedDictionary.m; path = Firebase/Database/third_party/FImmutableSortedDictionary/FImmutableSortedDictionary/FTreeSortedDictionary.m; sourceTree = "<group>"; };
 		A867168D0223DAE8E3A7DAA85FBFABDB /* FTupleObjects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FTupleObjects.m; path = Firebase/Database/Utilities/Tuples/FTupleObjects.m; sourceTree = "<group>"; };
 		A8C1625638ED07084EC3798B49106084 /* GoogleUtilities.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GoogleUtilities.modulemap; sourceTree = "<group>"; };
+		A982A36894DA6BF049848E486A22A783 /* libGoogleMobileAds.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleMobileAds.a; path = Libraries/libGoogleMobileAds.a; sourceTree = "<group>"; };
 		A9AABC74DC773B54A860E2F045928146 /* FKeepSyncedEventRegistration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FKeepSyncedEventRegistration.m; path = Firebase/Database/Core/View/FKeepSyncedEventRegistration.m; sourceTree = "<group>"; };
 		AA108F8A20B81E8E8BDF0144128E691B /* FTupleRemovedQueriesEvents.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FTupleRemovedQueriesEvents.m; path = Firebase/Database/Utilities/Tuples/FTupleRemovedQueriesEvents.m; sourceTree = "<group>"; };
 		AABADEA71560D8C752F5C29670FEE502 /* Spring-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Spring-dummy.m"; sourceTree = "<group>"; };
@@ -1309,6 +1309,7 @@
 		F043B692A9A948ED8688FD11068B4EED /* GULReachabilityChecker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GULReachabilityChecker.m; path = GoogleUtilities/Reachability/GULReachabilityChecker.m; sourceTree = "<group>"; };
 		F0F73009AD990A3C152C8FB991033116 /* DesignableLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableLabel.swift; path = Spring/DesignableLabel.swift; sourceTree = "<group>"; };
 		F134E9A0E463BEA636D705B8401593A3 /* FTupleFirebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FTupleFirebase.h; path = Firebase/Database/Utilities/Tuples/FTupleFirebase.h; sourceTree = "<group>"; };
+		F196D23424E47DF045FFD39F58BA4115 /* Google-Mobile-Ads-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Google-Mobile-Ads-SDK.xcconfig"; sourceTree = "<group>"; };
 		F1CA8AFB0024CB7CD15D3431E11B7CDF /* FTupleCallbackStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FTupleCallbackStatus.h; path = Firebase/Database/Utilities/Tuples/FTupleCallbackStatus.h; sourceTree = "<group>"; };
 		F26DED0C38886860F280C361A207A4BD /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
 		F27B67266B10FF4B9D013499DA02487D /* GULAppDelegateSwizzler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GULAppDelegateSwizzler.h; path = GoogleUtilities/AppDelegateSwizzler/Private/GULAppDelegateSwizzler.h; sourceTree = "<group>"; };
@@ -1566,24 +1567,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		2B66D7D9398A34FEED3564B73D30B240 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0FE6755FF211492FE46751E2585DC56A /* GoogleMobileAds.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		355833C851731310C5D84C1CF42EDAC1 /* Google-Mobile-Ads-SDK */ = {
-			isa = PBXGroup;
-			children = (
-				2B66D7D9398A34FEED3564B73D30B240 /* Frameworks */,
-				E0F34B578AD52A8159965939D29BDE27 /* Support Files */,
-			);
-			name = "Google-Mobile-Ads-SDK";
-			path = "Google-Mobile-Ads-SDK";
-			sourceTree = "<group>";
-		};
 		3B33B33529F38B920AF5B0971A47BD0A /* leveldb-library */ = {
 			isa = PBXGroup;
 			children = (
@@ -1708,7 +1691,7 @@
 				12DD9564A7D357DA6C2B9D6B3F6967CB /* FirebaseCore */,
 				DCE0010CC24A33300A99037DB2AC7523 /* FirebaseDatabase */,
 				C9FBB6CB8A494F56540451D7D06D0FB3 /* FirebaseInstanceID */,
-				355833C851731310C5D84C1CF42EDAC1 /* Google-Mobile-Ads-SDK */,
+				CD6D2611682D0CFE6E314CD4CF157B0F /* Google-Mobile-Ads-SDK */,
 				8BF31BF9BA3C2C7EA5C3A9BB61B518B0 /* GoogleAppMeasurement */,
 				ECC42823E7590CB534B52957B2E69F53 /* GoogleUtilities */,
 				3B33B33529F38B920AF5B0971A47BD0A /* leveldb-library */,
@@ -1781,6 +1764,15 @@
 				3334D1A5F2CF04EBB15EE989B51280C4 /* LoadingView.xib */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		69D05CF5B2B365524D45CF65AD92AB1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21541B94F88DF1901EBBD436FDF682A5 /* GoogleMobileAds.framework */,
+				A982A36894DA6BF049848E486A22A783 /* libGoogleMobileAds.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6A53B0F3AA22E56296B6C341A9505F56 /* Logger */ = {
@@ -2002,6 +1994,16 @@
 			);
 			name = FirebaseInstanceID;
 			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		CD6D2611682D0CFE6E314CD4CF157B0F /* Google-Mobile-Ads-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				69D05CF5B2B365524D45CF65AD92AB1F /* Frameworks */,
+				FAACA5D258E74D41B701A57E8CFB52A2 /* Support Files */,
+			);
+			name = "Google-Mobile-Ads-SDK";
+			path = "Google-Mobile-Ads-SDK";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -2316,15 +2318,6 @@
 			path = "../Target Support Files/Firebase";
 			sourceTree = "<group>";
 		};
-		E0F34B578AD52A8159965939D29BDE27 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				908D1AB91380E052F82789669704021C /* Google-Mobile-Ads-SDK.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Google-Mobile-Ads-SDK";
-			sourceTree = "<group>";
-		};
 		E382C5497394AEB3F7B77D752F76E3F3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -2404,6 +2397,15 @@
 			);
 			name = Alamofire;
 			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		FAACA5D258E74D41B701A57E8CFB52A2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F196D23424E47DF045FFD39F58BA4115 /* Google-Mobile-Ads-SDK.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Google-Mobile-Ads-SDK";
 			sourceTree = "<group>";
 		};
 		FDD8B372BEA46A65847E26284A9ADC40 /* Frameworks */ = {
@@ -3818,7 +3820,7 @@
 		};
 		5598897DE93A7E91F7BF21E082EEAEE1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 908D1AB91380E052F82789669704021C /* Google-Mobile-Ads-SDK.xcconfig */;
+			baseConfigurationReference = F196D23424E47DF045FFD39F58BA4115 /* Google-Mobile-Ads-SDK.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4026,7 +4028,7 @@
 		};
 		6FF279767E1CD4FA66D97E0DCE6508E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 908D1AB91380E052F82789669704021C /* Google-Mobile-Ads-SDK.xcconfig */;
+			baseConfigurationReference = F196D23424E47DF045FFD39F58BA4115 /* Google-Mobile-Ads-SDK.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
