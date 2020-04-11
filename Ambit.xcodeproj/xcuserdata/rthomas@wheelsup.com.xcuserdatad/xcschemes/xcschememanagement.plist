@@ -12,7 +12,7 @@
 		<key>Ambit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>19</integer>
 		</dict>
 		<key>AmbitIntents.xcscheme</key>
 		<dict>
@@ -22,7 +22,7 @@
 		<key>AmbitIntents.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>16</integer>
 		</dict>
 		<key>AmbitIntentsUI.xcscheme</key>
 		<dict>
@@ -32,7 +32,7 @@
 		<key>AmbitIntentsUI.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>17</integer>
 		</dict>
 		<key>CreateAlarmIntent.xcscheme</key>
 		<dict>
@@ -57,7 +57,7 @@
 		<key>TV.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>20</integer>
 		</dict>
 		<key>Watch (Notification).xcscheme</key>
 		<dict>
@@ -67,7 +67,7 @@
 		<key>Watch (Notification).xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>21</integer>
 		</dict>
 		<key>Watch.xcscheme</key>
 		<dict>
@@ -77,7 +77,7 @@
 		<key>Watch.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>18</integer>
 		</dict>
 	</dict>
 </dict>

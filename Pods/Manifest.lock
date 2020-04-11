@@ -73,7 +73,7 @@ DEPENDENCIES:
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `master`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AudioPlayerSwift
     - Crashlytics
@@ -118,4 +118,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f85a110cb8dcfcd2764272108b34678d93bcc4f3
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4
