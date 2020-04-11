@@ -1,9 +1,10 @@
 {
-  "commitish" : "3.2",
+  "commitish" : "3.4",
   "iOS" : [
     {
-      "hash" : "b088019a4e0dde0b848065d5c1fb6a01c80ae881730aeca48a46722fc550c7d0",
-      "name" : "RTCoreData"
+      "name" : "RTCoreData",
+      "hash" : "37b8012456d59985709c82602eae9ca90b1a0845a3905f9944309d35dd14e3de",
+      "swiftToolchainVersion" : "5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
     }
   ]
 }
