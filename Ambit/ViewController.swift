@@ -262,10 +262,8 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         // Assign the screen object to the screen property of the new window
         self.externalWindow.screen = externalScreen;
         
-        // Configure the View
-        timeLabel.textColor = UIColor.white
-        self.externalWindow.addSubview(timeLabel)
-        
+        self.externalWindow.backgroundColor = UIColor.red
+                        
         // Make the window visible
         self.externalWindow.makeKeyAndVisible()
     }
