@@ -54,7 +54,7 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         timeLabel.updateText()
         timeLabel.start()
         timeLabel.delegate = self
-        
+                
         HueConnectionManager.sharedManager.delegate = self
         backroundAnimation = GradientHandler.addGradientLayer()
         GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
