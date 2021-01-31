@@ -162,6 +162,25 @@ class AlarmOptionsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 4:
+            //volume
+            return 100
+        case 6:
+            //volume
+            return 0
+        case 7:
+            //light options
+            return 0
+        case 14:
+            //lights table
+            return 0
+        default:
+            return 68
+        }
+    }
+    
     @IBAction func enterSupportCodeButtonSelected(_ sender: Any) {
         SupportCode.displaySupportCodeAlertView()
     }
