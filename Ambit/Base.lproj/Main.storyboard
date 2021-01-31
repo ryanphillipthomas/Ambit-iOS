@@ -273,7 +273,7 @@
                                                         </constraints>
                                                         <color key="tintColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="0.29810573629999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <inset key="imageEdgeInsets" minX="7" minY="7" maxX="7" maxY="7"/>
-                                                        <state key="normal" image="settings1"/>
+                                                        <state key="normal" image="settings"/>
                                                         <connections>
                                                             <action selector="toggleSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A37-Ut-YIh"/>
                                                         </connections>
@@ -2830,7 +2830,7 @@
         <image name="button_backround" width="250" height="50"/>
         <image name="button_backround_small_white" width="125" height="50"/>
         <image name="dark_bridge" width="756" height="516"/>
-        <image name="settings1" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="settings" width="64" height="64"/>
         <image name="stop" width="42.666667938232422" height="42.666667938232422"/>
         <image name="whiteBack" width="21" height="33"/>
         <systemColor name="darkTextColor">

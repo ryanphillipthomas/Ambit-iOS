@@ -105,9 +105,9 @@ class ViewController: UIViewController, ManagedObjectContextSettable {
         // location manager setup
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
+//
         askForLocationPermissions()
-        
+
         setupAdBanner()
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dimViewFadeGesture))
