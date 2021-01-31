@@ -41,7 +41,7 @@ class BackroundTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,6 +51,20 @@ class BackroundTableViewController: UITableViewController {
         let row = indexPath.row
         switch row {
         case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
+            cell.title?.text = BackroundType.animation.rawValue
+            cell.selectionStyle = .none // to prevent cells from being "highlighted"
+            cell.accessoryType = .none
+
+            if backroundTypeString == BackroundType.animation.rawValue {
+                cell.accessoryType = .checkmark
+            }
+            
+            return cell
+        case 1:
+
+            
+            
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "itunesIdentifier", for: indexPath) as! PreferencesDetailTableViewCell
             detailCell.title?.text = "Backround Image"
             if let imageTitle = imageTitle {
@@ -65,17 +79,8 @@ class BackroundTableViewController: UITableViewController {
             }
     
             return detailCell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
-            cell.title?.text = BackroundType.animation.rawValue
-            cell.selectionStyle = .none // to prevent cells from being "highlighted"
-            cell.accessoryType = .none
-
-            if backroundTypeString == BackroundType.animation.rawValue {
-                cell.accessoryType = .checkmark
-            }
             
-            return cell
+            
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PreferencesTableViewCell
             cell.title?.text = BackroundType.color.rawValue
@@ -117,9 +122,11 @@ class BackroundTableViewController: UITableViewController {
         let row = indexPath.row
         switch row {
         case 0:
-            showBackroundImagesController(PageViewControllerStoryBoardID.backroundImages.rawValue)
-        case 1:
             UserDefaults.standard.set(BackroundType.animation.rawValue, forKey: AmbitConstants.BackroundType) //setObject
+        case 1:
+            showBackroundImagesController(PageViewControllerStoryBoardID.backroundImages.rawValue)
+            UserDefaults.standard.set(BackroundType.image.rawValue, forKey: AmbitConstants.BackroundType) //setObject
+
         case 2:
             UserDefaults.standard.set(BackroundType.color.rawValue, forKey: AmbitConstants.BackroundType) //setObject
         case 3:
