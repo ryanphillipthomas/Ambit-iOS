@@ -11,6 +11,9 @@
 		0A119D8F1E5AB86200E318AF /* SBTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E02F1E3EC456008A1F84 /* SBTimeLabel.swift */; };
 		0A6E17C01E5A54A50081CB29 /* LightsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */; };
 		0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */; };
+		0A7EFA8A25C73EDE00BBCF6E /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7EFA8525C73EDE00BBCF6E /* ManagedObjectContextSettable.swift */; };
+		0A7EFA8B25C73EDE00BBCF6E /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7EFA8625C73EDE00BBCF6E /* ManagedObject.swift */; };
+		0A7EFA8C25C73EDE00BBCF6E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7EFA8825C73EDE00BBCF6E /* CoreDataStack.swift */; };
 		0AE8D92F1E5A463300023F0C /* EventOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8D92E1E5A463300023F0C /* EventOptionsViewController.swift */; };
 		74B95EA61DFB735300B03661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EA51DFB735300B03661 /* AppDelegate.swift */; };
 		74B95EA81DFB735300B03661 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B95EA71DFB735300B03661 /* ViewController.swift */; };
@@ -81,11 +84,6 @@
 		94E9E04F1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E04E1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift */; };
 		94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E0501E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift */; };
 		B81BB50E1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */; };
-		B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */; };
-		B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB820C642C000BB107D /* CoreDataStack.swift */; };
-		B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EB920C642C000BB107D /* ManagedObject.swift */; };
-		B8A72EBD20C642C000BB107D /* ManagedObjectContextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */; };
-		B8A8C2292000B2D200483407 /* party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8A8C2282000B2D100483407 /* party.mp3 */; };
 		B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */; };
 		B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */; };
 		B8E7EA9B2001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */; };
@@ -172,6 +170,11 @@
 		033CF1CC2D82D3B729580E99 /* Pods-AmbitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests.release.xcconfig"; sourceTree = "<group>"; };
 		0A6E17BF1E5A54A50081CB29 /* LightsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsOptionsViewController.swift; sourceTree = "<group>"; };
 		0A6E17C11E5A54BD0081CB29 /* WatchOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchOptionsViewController.swift; sourceTree = "<group>"; };
+		0A7EFA8425C73EDE00BBCF6E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Frameworks/RTCoreData/RTCoreData/Info.plist; sourceTree = "<group>"; };
+		0A7EFA8525C73EDE00BBCF6E /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = Frameworks/RTCoreData/RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
+		0A7EFA8625C73EDE00BBCF6E /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = Frameworks/RTCoreData/RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
+		0A7EFA8725C73EDE00BBCF6E /* RTCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCoreData.h; path = Frameworks/RTCoreData/RTCoreData/RTCoreData.h; sourceTree = "<group>"; };
+		0A7EFA8825C73EDE00BBCF6E /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = Frameworks/RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
 		0AE8D92E1E5A463300023F0C /* EventOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOptionsViewController.swift; sourceTree = "<group>"; };
 		2319D788B74C29BA42B4AB0E /* Pods_AmbitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmbitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B95EA21DFB735300B03661 /* Ambit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ambit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,7 +206,6 @@
 		943F58DE1E4630140068B8BF /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
 		944BEABF1E465BC900C1BADA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		94596FE51E46201800C04E17 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		946597761E454FFF00ED204C /* RTCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RTCoreData.framework; path = Carthage/Build/iOS/RTCoreData.framework; sourceTree = "<group>"; };
 		946597781E4567F400ED204C /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		9470D6DB1E503BE5009AA49A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9470D6DE1E5105BC009AA49A /* RecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderManager.swift; sourceTree = "<group>"; };
@@ -265,11 +267,6 @@
 		991816760E467C08DD5B0369 /* Pods-Ambit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambit/Pods-Ambit.release.xcconfig"; sourceTree = "<group>"; };
 		B621F7C1FBE7498AC652993E /* Pods-AmbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmbitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmbitTests/Pods-AmbitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B81BB50D1FFAEEEC00E2D8B3 /* Thunderstorm_Fireplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thunderstorm_Fireplace.swift; sourceTree = "<group>"; };
-		B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunderstorm_fireplace.mp3; sourceTree = SOURCE_ROOT; };
-		B8A72EB820C642C000BB107D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = ../../../../RTCoreData/RTCoreData/CoreDataStack.swift; sourceTree = "<group>"; };
-		B8A72EB920C642C000BB107D /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObject.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObject.swift; sourceTree = "<group>"; };
-		B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedObjectContextSettable.swift; path = ../../../../RTCoreData/RTCoreData/ManagedObjectContextSettable.swift; sourceTree = "<group>"; };
-		B8A8C2282000B2D100483407 /* party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = party.mp3; sourceTree = "<group>"; };
 		B8E7EA952001AC2400B5B6D1 /* PreferencesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewController.swift; sourceTree = "<group>"; };
 		B8E7EA972001BC9900B5B6D1 /* PreferencesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7EA992001CD6A00B5B6D1 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +347,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A7EFA9525C73EE800BBCF6E /* RTCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0A7EFA8825C73EDE00BBCF6E /* CoreDataStack.swift */,
+				0A7EFA8425C73EDE00BBCF6E /* Info.plist */,
+				0A7EFA8625C73EDE00BBCF6E /* ManagedObject.swift */,
+				0A7EFA8525C73EDE00BBCF6E /* ManagedObjectContextSettable.swift */,
+				0A7EFA8725C73EDE00BBCF6E /* RTCoreData.h */,
+			);
+			name = RTCoreData;
+			sourceTree = "<group>";
+		};
 		3AFB159A743C9F299048D051 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,7 +375,6 @@
 		74B95E991DFB735300B03661 = {
 			isa = PBXGroup;
 			children = (
-				B8A72EB720C642AE00BB107D /* RTCoreData */,
 				74B95EA41DFB735300B03661 /* Ambit */,
 				74B95EBC1DFB735400B03661 /* AmbitTests */,
 				74B95EC71DFB735400B03661 /* AmbitUITests */,
@@ -448,8 +456,6 @@
 				948BB9AE1E47848E00185831 /* Alarms */,
 				948BB9A81E46E2FA00185831 /* bell.mp3 */,
 				948BB9A91E46E2FA00185831 /* tickle.mp3 */,
-				B81BB50F1FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 */,
-				B8A8C2282000B2D100483407 /* party.mp3 */,
 				947D75461E41AA8000B69286 /* thunderstorm.mp3 */,
 				94A7A5FB1E40664E00A6D11D /* Utilities.swift */,
 				74B95EB41DFB735400B03661 /* Info.plist */,
@@ -686,16 +692,6 @@
 			name = Hue;
 			sourceTree = "<group>";
 		};
-		B8A72EB720C642AE00BB107D /* RTCoreData */ = {
-			isa = PBXGroup;
-			children = (
-				B8A72EB820C642C000BB107D /* CoreDataStack.swift */,
-				B8A72EB920C642C000BB107D /* ManagedObject.swift */,
-				B8A72EBA20C642C000BB107D /* ManagedObjectContextSettable.swift */,
-			);
-			path = RTCoreData;
-			sourceTree = "<group>";
-		};
 		B8E7EAAB2002D96900B5B6D1 /* Table View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,9 +708,9 @@
 		CE9EDE0DBCC025329CC23A8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A7EFA9525C73EE800BBCF6E /* RTCoreData */,
 				9470D6DB1E503BE5009AA49A /* AVFoundation.framework */,
 				944BEABF1E465BC900C1BADA /* UserNotifications.framework */,
-				946597761E454FFF00ED204C /* RTCoreData.framework */,
 				94A7A5F21E404A3800A6D11D /* Gradient Animation */,
 				94E9E02E1E3EC446008A1F84 /* SBTimeLabel */,
 				94E9E00D1E3EB9A9008A1F84 /* Lumberjack */,
@@ -738,7 +734,6 @@
 				74B95E9F1DFB735300B03661 /* Frameworks */,
 				74B95EA01DFB735300B03661 /* Resources */,
 				DCCD342604F6B7266A45BBC5 /* [CP] Embed Pods Frameworks */,
-				74B95EE11DFB777F00B03661 /* ShellScript */,
 				9416C5181E45924300267C85 /* Embed Watch Content */,
 			);
 			buildRules = (
@@ -947,6 +942,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -973,11 +969,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				74B95EB31DFB735400B03661 /* LaunchScreen.storyboard in Resources */,
-				B81BB5101FFAF37400E2D8B3 /* thunderstorm_fireplace.mp3 in Resources */,
 				947D75471E41AA8000B69286 /* thunderstorm.mp3 in Resources */,
 				948BB9AB1E46E2FA00185831 /* tickle.mp3 in Resources */,
 				941436931E479B6E004B3430 /* 500.jpg in Resources */,
-				B8A8C2292000B2D200483407 /* party.mp3 in Resources */,
 				74B95EB01DFB735400B03661 /* Assets.xcassets in Resources */,
 				74B95EAB1DFB735300B03661 /* Main.storyboard in Resources */,
 				948BB9AA1E46E2FA00185831 /* bell.mp3 in Resources */,
@@ -1059,20 +1053,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		74B95EE11DFB777F00B03661 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RTCoreData.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		9E21C465D774404424AE08FA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1193,19 +1173,21 @@
 				94E9E00C1E3EB9A3008A1F84 /* DDTTYLogger.m in Sources */,
 				94E9E04F1E3F017A008A1F84 /* HueBridgeAuthenticationViewController.swift in Sources */,
 				943F58DD1E46300B0068B8BF /* WatchSessionManager.swift in Sources */,
+				0A7EFA8C25C73EDE00BBCF6E /* CoreDataStack.swift in Sources */,
 				94E9E00A1E3EB9A3008A1F84 /* DDFileLogger.m in Sources */,
 				94E9E0301E3EC456008A1F84 /* SBTimeLabel.swift in Sources */,
 				94CA1F651E4FAD1B005A1053 /* EventManager.swift in Sources */,
 				94E9E0511E3F01F0008A1F84 /* HueBridgeSelectionTableViewController.swift in Sources */,
 				948BB9AD1E477A8B00185831 /* AlarmScheduleManager.swift in Sources */,
 				74B95EA81DFB735300B03661 /* ViewController.swift in Sources */,
+				0A7EFA8A25C73EDE00BBCF6E /* ManagedObjectContextSettable.swift in Sources */,
 				94CA1F621E4F8E51005A1053 /* Event.swift in Sources */,
 				94E9E0141E3EB9E3008A1F84 /* DispatchQueueLogFormatter.m in Sources */,
 				B8E7EA9C2001CD6A00B5B6D1 /* SleepSoundsTableViewController.swift in Sources */,
 				947D75411E41804C00B69286 /* AlarmOptionsTableViewController.swift in Sources */,
 				B8E7EA9E2001DA9B00B5B6D1 /* HelpViewController.swift in Sources */,
+				0A7EFA8B25C73EDE00BBCF6E /* ManagedObject.swift in Sources */,
 				9480E5241E44447D00E094F3 /* Alarm.swift in Sources */,
-				B8A72EBC20C642C000BB107D /* ManagedObject.swift in Sources */,
 				947F47001E4364F70047CD4C /* AmbitConstants.swift in Sources */,
 				B8E7EA962001AC2400B5B6D1 /* PreferencesTableViewController.swift in Sources */,
 				0A6E17C01E5A54A50081CB29 /* LightsOptionsViewController.swift in Sources */,
@@ -1213,9 +1195,7 @@
 				B8E7EAA42002023F00B5B6D1 /* QuoteViewController.swift in Sources */,
 				94B7C01B1E4F88C2002E0CBA /* EventTableViewCell.swift in Sources */,
 				B8E7EA982001BC9900B5B6D1 /* PreferencesTableViewCell.swift in Sources */,
-				B8A72EBD20C642C000BB107D /* ManagedObjectContextSettable.swift in Sources */,
 				947D75431E418A5E00B69286 /* BlurTableViewCell.swift in Sources */,
-				B8A72EBB20C642C000BB107D /* CoreDataStack.swift in Sources */,
 				0A6E17C21E5A54BD0081CB29 /* WatchOptionsViewController.swift in Sources */,
 				94E9E0341E3ECA97008A1F84 /* Helpers.swift in Sources */,
 				94A7A5F71E404A4E00A6D11D /* CALayer+Extension.swift in Sources */,

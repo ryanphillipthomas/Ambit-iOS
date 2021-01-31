@@ -42,7 +42,7 @@ class AlarmSoundsTableViewController: UITableViewController {
         self.tableView.allowsSelection = true;
         
         do {
-            party = try AudioPlayer(fileName: "party.mp3")
+            party = try AudioPlayer(fileName: "tickle.mp3")
             tickle = try AudioPlayer(fileName: "tickle.mp3")
             bell = try AudioPlayer(fileName: "bell.mp3")
         }

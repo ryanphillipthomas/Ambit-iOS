@@ -46,7 +46,7 @@ class Thunderstorm_Fireplace: NSObject {
         
         //get sound file name and load it up
         do {
-            currentSound = try AudioPlayer(fileName: "thunderstorm_fireplace.mp3")
+            currentSound = try AudioPlayer(fileName: "thunderstorm.mp3")
         }
         catch _ {
             // Error handling

@@ -205,13 +205,13 @@ class StringHelper{
         if string == "Bell" {
             return "bell.mp3"
         } else if string == "Party" {
-            return "party.mp3"
+            return "bell.mp3"
         } else if string == "Tickle" {
             return "tickle.mp3"
         } else if string == "Thunderstorm" {
             return "thunderstorm.mp3"
         } else if string == "Thunderstorm Fireplace" {
-            return "thunderstorm_fireplace.mp3"
+            return "thunderstorm.mp3"
         }
         return nil
     }
