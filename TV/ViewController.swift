@@ -19,8 +19,8 @@ class ViewController: UIViewController {
         clockTimeLabel.start()
         
         // Do any additional setup after loading the view, typically from a nib.
-        backroundAnimation = GradientHandler.addGradientLayer()
-        GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
+//        backroundAnimation = GradientHandler.addGradientLayer()
+//        GradientViewHelper.addGradientColorsToView(view: self.view, gradientLayer: backroundAnimation)
     }
     
     override func viewDidLayoutSubviews() {

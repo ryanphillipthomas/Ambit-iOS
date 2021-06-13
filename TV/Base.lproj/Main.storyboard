@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="appleTV" orientation="landscape">
-        <adaptation id="light"/>
-    </device>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="appleTV" appearance="light"/>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,26 +20,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vty-7l-O8F" customClass="SBTimeLabel" customModule="TV" customModuleProvider="target">
-                                <rect key="frame" x="654" y="445" width="612" height="191"/>
+                                <rect key="frame" x="827.5" y="263" width="265" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="191" id="tfn-9d-CAz"/>
-                                    <constraint firstAttribute="width" constant="612" id="ttx-JZ-Dz1"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Evening" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDN-hm-ih5">
+                                <rect key="frame" x="578.5" y="462" width="763" height="156"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="130"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odF-vk-g9T">
-                                <rect key="frame" x="847" y="802" width="227" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" image="light"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's time to windown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-kh-8Cc">
+                                <rect key="frame" x="750.5" y="673" width="419" height="58"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PfE-sf-BAR">
+                                <rect key="frame" x="686.5" y="660" width="44" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86.5" id="ivr-cl-YgT"/>
+                                    <constraint firstAttribute="width" constant="44" id="xcK-Mb-FTF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vty-7l-O8F" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bez-5a-a6V"/>
-                            <constraint firstItem="Vty-7l-O8F" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lrz-56-hBM"/>
+                            <constraint firstItem="lDN-hm-ih5" firstAttribute="centerX" secondItem="Vty-7l-O8F" secondAttribute="centerX" id="D3m-CW-NX6"/>
+                            <constraint firstItem="lDN-hm-ih5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eqd-45-0p7"/>
+                            <constraint firstItem="MY6-kh-8Cc" firstAttribute="centerX" secondItem="lDN-hm-ih5" secondAttribute="centerX" id="KVS-cS-YMo"/>
+                            <constraint firstItem="lDN-hm-ih5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WGu-c8-P7F"/>
+                            <constraint firstItem="MY6-kh-8Cc" firstAttribute="leading" secondItem="PfE-sf-BAR" secondAttribute="trailing" constant="20" id="asO-b0-wAI"/>
+                            <constraint firstItem="PfE-sf-BAR" firstAttribute="centerY" secondItem="MY6-kh-8Cc" secondAttribute="centerY" id="iwq-Lj-IIy"/>
+                            <constraint firstItem="lDN-hm-ih5" firstAttribute="top" secondItem="Vty-7l-O8F" secondAttribute="bottom" constant="8" id="k1F-pg-Z0O"/>
+                            <constraint firstItem="MY6-kh-8Cc" firstAttribute="top" secondItem="lDN-hm-ih5" secondAttribute="bottom" constant="55" id="qfo-YW-KPu"/>
                         </constraints>
                     </view>
                     <connections>
@@ -50,9 +67,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-51" y="-83"/>
         </scene>
     </scenes>
     <resources>
-        <image name="light" width="32" height="32"/>
+        <image name="moon.fill" catalog="system" width="128" height="128"/>
     </resources>
 </document>
